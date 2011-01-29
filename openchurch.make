@@ -1,6 +1,5 @@
 api = 2
 core = 6.x
-projects[] = drupal
 projects[admin_menu][subdir] = contrib
 projects[adminrole][subdir] = contrib
 projects[backup_migrate][subdir] = contrib
