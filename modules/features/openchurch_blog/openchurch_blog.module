@@ -17,14 +17,3 @@ function openchurch_blog_form_alter(&$form, &$form_state, $form_id){
     }
   }
 }
-
-/**
- * Implementation of hook_enable()
- */
-function openchurch_blog_enable(){
-  drupal_flush_all_caches();//we need to do this before we can add content
-
-  //only load sample content if no content is found
-  if (!db_result(db_query('SELECT count(nid) FROM {node} WHERE type = "openchurch_blog"')))
-    _openchurch_blog_load_blog_content();//load sample content
-}

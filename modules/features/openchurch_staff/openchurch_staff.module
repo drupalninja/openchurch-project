@@ -2,14 +2,3 @@
 
 include_once('openchurch_staff.features.inc');
 include_once('openchurch_staff.install');
-
-/**
- * Implementation of hook_enable()
- */
-function openchurch_staff_enable(){
-  drupal_flush_all_caches();//we need to do this before we can add content
-
-  //only load sample content if no content is found
-  if (!db_result(db_query('SELECT count(nid) FROM {node} WHERE type = "openchurch_staff"')))
-    _openchurch_staff_load_staff_content();//load sample content
-}

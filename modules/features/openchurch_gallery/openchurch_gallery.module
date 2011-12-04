@@ -26,14 +26,3 @@ function openchurch_gallery_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL){
       drupal_set_title('Church Wide Photo Archives');
   }
 }
-
-/**
- * Implementation of hook_enable()
- */
-function openchurch_gallery_enable(){
-  drupal_flush_all_caches();//we need to do this before we can add content
-
-  //only load sample content if no content is found
-  if (!db_result(db_query('SELECT count(nid) FROM {node} WHERE type = "openchurch_gallery"')))
-    _openchurch_gallery_load_gallery_content();//load sample content
-}

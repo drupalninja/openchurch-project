@@ -12,16 +12,3 @@ function openchurch_homepage_rotator_preprocess_page($vars){
   if (drupal_is_front_page())
     unset($vars['title']);
 }
-
-/**
- * Implementation of hook_enable()
- */
-function openchurch_homepage_rotator_enable(){
-  drupal_flush_all_caches();//we need to do this before we can add content
-
-  //only load sample content if no content is found
-  if (!db_result(db_query('SELECT count(nid) FROM {node} WHERE type = "openchurch_homepage_rotator"'))) {
-    _openchurch_homepage_rotator_load_rotator_content();//load sample content
-    _openchurch_homepage_rotator_load_panel_content();//load sample content
-  }
-}
