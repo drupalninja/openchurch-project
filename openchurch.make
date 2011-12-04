@@ -1,6 +1,7 @@
 api = 2
 core = 7.0
 projects[drupal][type] = core
+projects[addressfield][subdir] = contrib
 projects[admin][subdir] = contrib
 projects[apps][subdir] = contrib
 projects[backup_migrate][subdir] = contrib
