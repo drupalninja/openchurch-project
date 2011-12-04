@@ -10,8 +10,8 @@
 function openchurch_giving_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-charity-body'
-  $fields['node-charity-body'] = array(
+  // Exported field: 'node-openchurch_charity-body'
+  $fields['node-openchurch_charity-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -39,7 +39,7 @@ function openchurch_giving_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'charity',
+      'bundle' => 'openchurch_charity',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -82,8 +82,8 @@ function openchurch_giving_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-charity-field_oc_image'
-  $fields['node-charity-field_oc_image'] = array(
+  // Exported field: 'node-openchurch_charity-field_oc_image'
+  $fields['node-openchurch_charity-field_oc_image'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -112,7 +112,7 @@ function openchurch_giving_field_default_fields() {
       'type' => 'image',
     ),
     'field_instance' => array(
-      'bundle' => 'charity',
+      'bundle' => 'openchurch_charity',
       'deleted' => '0',
       'description' => '',
       'display' => array(

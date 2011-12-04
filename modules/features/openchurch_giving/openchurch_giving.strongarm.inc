@@ -13,91 +13,98 @@ function openchurch_giving_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_anonymous_charity';
+  $strongarm->name = 'comment_anonymous_openchurch_charity';
   $strongarm->value = 0;
-  $export['comment_anonymous_charity'] = $strongarm;
+  $export['comment_anonymous_openchurch_charity'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_charity';
-  $strongarm->value = '0';
-  $export['comment_charity'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_mode_charity';
+  $strongarm->name = 'comment_default_mode_openchurch_charity';
   $strongarm->value = 1;
-  $export['comment_default_mode_charity'] = $strongarm;
+  $export['comment_default_mode_openchurch_charity'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_per_page_charity';
+  $strongarm->name = 'comment_default_per_page_openchurch_charity';
   $strongarm->value = '50';
-  $export['comment_default_per_page_charity'] = $strongarm;
+  $export['comment_default_per_page_openchurch_charity'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_form_location_charity';
+  $strongarm->name = 'comment_form_location_openchurch_charity';
   $strongarm->value = 1;
-  $export['comment_form_location_charity'] = $strongarm;
+  $export['comment_form_location_openchurch_charity'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_preview_charity';
+  $strongarm->name = 'comment_openchurch_charity';
+  $strongarm->value = '0';
+  $export['comment_openchurch_charity'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_openchurch_charity';
   $strongarm->value = '1';
-  $export['comment_preview_charity'] = $strongarm;
+  $export['comment_preview_openchurch_charity'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_subject_field_charity';
+  $strongarm->name = 'comment_subject_field_openchurch_charity';
   $strongarm->value = 1;
-  $export['comment_subject_field_charity'] = $strongarm;
+  $export['comment_subject_field_openchurch_charity'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_charity';
+  $strongarm->name = 'language_content_type_openchurch_charity';
+  $strongarm->value = '0';
+  $export['language_content_type_openchurch_charity'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_openchurch_charity';
   $strongarm->value = array(
     0 => 'main-menu',
   );
-  $export['menu_options_charity'] = $strongarm;
+  $export['menu_options_openchurch_charity'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_charity';
+  $strongarm->name = 'menu_parent_openchurch_charity';
   $strongarm->value = 'main-menu:0';
-  $export['menu_parent_charity'] = $strongarm;
+  $export['menu_parent_openchurch_charity'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_charity';
+  $strongarm->name = 'node_options_openchurch_charity';
   $strongarm->value = array(
     0 => 'status',
     1 => 'revision',
   );
-  $export['node_options_charity'] = $strongarm;
+  $export['node_options_openchurch_charity'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_charity';
+  $strongarm->name = 'node_preview_openchurch_charity';
   $strongarm->value = '0';
-  $export['node_preview_charity'] = $strongarm;
+  $export['node_preview_openchurch_charity'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_charity';
+  $strongarm->name = 'node_submitted_openchurch_charity';
   $strongarm->value = 0;
-  $export['node_submitted_charity'] = $strongarm;
+  $export['node_submitted_openchurch_charity'] = $strongarm;
 
   return $export;
 }

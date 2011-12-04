@@ -23,7 +23,7 @@ function openchurch_giving_ctools_plugin_api() {
  */
 function openchurch_giving_node_info() {
   $items = array(
-    'charity' => array(
+    'openchurch_charity' => array(
       'name' => t('Charity'),
       'base' => 'node_content',
       'description' => t('A charity allows church members to give to an individual cause that will help community, missions, and many other causes.'),
