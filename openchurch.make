@@ -46,10 +46,11 @@ projects[wysiwyg][subdir] = contrib
 
 ; Base theme for OpenChurch
 projects[fusion][type] = "theme"
-projects[fusion][version] = "2.0"
 
-; Custom theme developed for OpenChurch
-projects[openchurch_theme][version] = "1.x-dev"
+; Custom theme developed for OpenChurch (get latest)
+projects[openchurch_theme][download][type] = "git"
+projects[openchurch_theme][download][theme] = "contributions/themes/openchurch_theme"
+projects[openchurch_theme][download][revision] = "7.x-1.x"
 
 ; Libraries
 
