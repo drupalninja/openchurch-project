@@ -77,7 +77,7 @@ function openchurch_gallery_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '7',
+        'weight' => '8',
       ),
     ),
   );
@@ -161,7 +161,7 @@ function openchurch_gallery_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_select',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -255,7 +255,7 @@ function openchurch_gallery_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -332,7 +332,95 @@ function openchurch_gallery_field_default_fields() {
           ),
         ),
         'type' => 'addressfield_standard',
-        'weight' => '4',
+        'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-openchurch_gallery-field_oc_ministry'
+  $fields['node-openchurch_gallery-field_oc_ministry'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_oc_ministry',
+      'foreign keys' => array(
+        'nid' => array(
+          'columns' => array(
+            'nid' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'nid' => array(
+          0 => 'nid',
+        ),
+      ),
+      'module' => 'node_reference',
+      'settings' => array(
+        'referenceable_types' => array(
+          'oc_image' => 0,
+          'openchurch_blog' => 0,
+          'openchurch_bulletin' => 0,
+          'openchurch_charity' => 0,
+          'openchurch_event' => 0,
+          'openchurch_gallery' => 0,
+          'openchurch_homepage_rotator' => 0,
+          'openchurch_ministry' => 'openchurch_ministry',
+          'webform' => 0,
+        ),
+        'view' => array(
+          'args' => array(),
+          'display_name' => '',
+          'view_name' => '',
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'node_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'openchurch_gallery',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'node_reference',
+          'settings' => array(),
+          'type' => 'node_reference_default',
+          'weight' => 5,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_oc_ministry',
+      'label' => 'Ministry',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'node_reference',
+        'settings' => array(
+          'autocomplete_match' => 'contains',
+          'autocomplete_path' => 'node_reference/autocomplete',
+          'references_dialog_add' => 0,
+          'references_dialog_edit' => 0,
+          'references_dialog_search' => 0,
+          'references_dialog_search_view' => '',
+          'size' => '60',
+        ),
+        'type' => 'node_reference_autocomplete',
+        'weight' => '3',
       ),
     ),
   );
@@ -426,7 +514,7 @@ function openchurch_gallery_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -438,6 +526,7 @@ function openchurch_gallery_field_default_fields() {
   t('Date');
   t('Gallery Images');
   t('Location');
+  t('Ministry');
 
   return $fields;
 }
