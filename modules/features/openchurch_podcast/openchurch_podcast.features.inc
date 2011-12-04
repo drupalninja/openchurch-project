@@ -17,3 +17,20 @@ function openchurch_podcast_ctools_plugin_api() {
     return array("version" => "1");
   }
 }
+
+/**
+ * Implements hook_node_info().
+ */
+function openchurch_podcast_node_info() {
+  $items = array(
+    'openchurch_podcast' => array(
+      'name' => t('Podcast'),
+      'base' => 'node_content',
+      'description' => t('Podcasts can be sermons, lectures or other church-related audio files.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+  );
+  return $items;
+}
