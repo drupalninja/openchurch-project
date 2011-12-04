@@ -17,3 +17,20 @@ function openchurch_homepage_rotator_ctools_plugin_api() {
     return array("version" => "1");
   }
 }
+
+/**
+ * Implements hook_node_info().
+ */
+function openchurch_homepage_rotator_node_info() {
+  $items = array(
+    'openchurch_homepage_rotator' => array(
+      'name' => t('Homepage Rotator'),
+      'base' => 'node_content',
+      'description' => t('This content will be promoted in a rotating slideshow widget, typically on a homepage or section page.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+  );
+  return $items;
+}
