@@ -10,8 +10,8 @@
 function openchurch_events_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-event-body'
-  $fields['node-event-body'] = array(
+  // Exported field: 'node-openchurch_event-body'
+  $fields['node-openchurch_event-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -39,7 +39,7 @@ function openchurch_events_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'event',
+      'bundle' => 'openchurch_event',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -82,8 +82,8 @@ function openchurch_events_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-event-field_oc_cost'
-  $fields['node-event-field_oc_cost'] = array(
+  // Exported field: 'node-openchurch_event-field_oc_cost'
+  $fields['node-openchurch_event-field_oc_cost'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -111,7 +111,7 @@ function openchurch_events_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'event',
+      'bundle' => 'openchurch_event',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -150,8 +150,8 @@ function openchurch_events_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-event-field_oc_dates'
-  $fields['node-event-field_oc_dates'] = array(
+  // Exported field: 'node-openchurch_event-field_oc_dates'
+  $fields['node-openchurch_event-field_oc_dates'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -179,7 +179,7 @@ function openchurch_events_field_default_fields() {
       'type' => 'datetime',
     ),
     'field_instance' => array(
-      'bundle' => 'event',
+      'bundle' => 'openchurch_event',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -234,8 +234,8 @@ function openchurch_events_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-event-field_oc_downloads'
-  $fields['node-event-field_oc_downloads'] = array(
+  // Exported field: 'node-openchurch_event-field_oc_downloads'
+  $fields['node-openchurch_event-field_oc_downloads'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
@@ -265,7 +265,7 @@ function openchurch_events_field_default_fields() {
       'type' => 'file',
     ),
     'field_instance' => array(
-      'bundle' => 'event',
+      'bundle' => 'openchurch_event',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -322,8 +322,8 @@ function openchurch_events_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-event-field_oc_url'
-  $fields['node-event-field_oc_url'] = array(
+  // Exported field: 'node-openchurch_event-field_oc_url'
+  $fields['node-openchurch_event-field_oc_url'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -352,7 +352,7 @@ function openchurch_events_field_default_fields() {
       'type' => 'link_field',
     ),
     'field_instance' => array(
-      'bundle' => 'event',
+      'bundle' => 'openchurch_event',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',

@@ -23,7 +23,7 @@ function openchurch_events_ctools_plugin_api() {
  */
 function openchurch_events_node_info() {
   $items = array(
-    'event' => array(
+    'openchurch_event' => array(
       'name' => t('Event'),
       'base' => 'node_content',
       'description' => t('Events can be church activities, special meetings, etc.'),
