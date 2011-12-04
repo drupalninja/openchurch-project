@@ -1,0 +1,85 @@
+name = OpenChurch
+description = OpenChurch Distribution
+
+version = 7.x-1.0-alpha1
+core = 7.x
+
+; Core
+
+dependencies[] = block
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = syslog
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = toolbar
+dependencies[] = field
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = rdf
+dependencies[] = statistics
+
+
+; Contrib
+
+dependencies[] = admin
+dependencies[] = apps
+dependencies[] = backup_migrate
+dependencies[] = captcha
+dependencies[] = cck
+dependencies[] = content_taxonomy
+dependencies[] = context
+dependencies[] = ctools
+dependencies[] = date
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = filefield_sources
+dependencies[] = file_entity
+dependencies[] = google_fonts
+dependencies[] = imce
+dependencies[] = imce_wysiwyg
+dependencies[] = libraries
+dependencies[] = lightbox2
+dependencies[] = link
+dependencies[] = media
+dependencies[] = media_vimeo
+dependencies[] = media_youtube
+dependencies[] = menu_breadcrumb
+dependencies[] = metatag
+dependencies[] = nodequeue
+dependencies[] = page_title
+dependencies[] = panels
+dependencies[] = pathauto
+dependencies[] = references
+dependencies[] = references_dialog
+dependencies[] = recaptcha
+dependencies[] = rules
+dependencies[] = skinr
+dependencies[] = strongarm
+dependencies[] = styles
+dependencies[] = token
+dependencies[] = views
+dependencies[] = views_bulk_operations
+dependencies[] = views_php
+dependencies[] = views_slideshow
+dependencies[] = webform
+dependencies[] = wysiwyg
+
+; Custom 
+
+
+;Features
+
+
+
+files[] = opechurch.profile
