@@ -17,3 +17,20 @@ function openchurch_giving_ctools_plugin_api() {
     return array("version" => "1");
   }
 }
+
+/**
+ * Implements hook_node_info().
+ */
+function openchurch_giving_node_info() {
+  $items = array(
+    'charity' => array(
+      'name' => t('Charity'),
+      'base' => 'node_content',
+      'description' => t('A charity allows church members to give to an individual cause that will help community, missions, and many other causes.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+  );
+  return $items;
+}
