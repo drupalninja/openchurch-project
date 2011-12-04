@@ -1,0 +1,293 @@
+<?php
+
+/**
+ * First time configuration
+ */
+function openchurch_defaults_first_time_config(){
+  /**
+   * Can't figure out how to set this elsewhere
+   * @todo find a better place
+   */
+  if (!db_result(db_query("SELECT status FROM {system} WHERE type = 'theme' AND name = 'openchurch_theme'")))
+    db_query("UPDATE {system} SET status = 1 WHERE type = 'theme' AND name = 'openchurch_theme'");
+
+  $oc_first_time = variable_get('openchurch_defaults_first_time', '1');
+
+  /**
+   * Some items to run the first time the site is run
+   */
+  if ($oc_first_time) {
+    _block_rehash();
+
+    $oc_blocks = variable_get('openchurch_defaults_blocks', '');
+
+    if ($oc_blocks['view_maps_block'])
+      db_query('UPDATE {blocks} SET title = "<none>", theme = "openchurch_theme" WHERE delta = %d', $oc_blocks['view_maps_block']);
+
+    //add better formats defaults
+    $admin_rid = db_result(db_query('SELECT rid FROM {role} WHERE name = "administrator"'));
+    $editor_rid = db_result(db_query('SELECT rid FROM {role} WHERE name = "editor"'));
+    $site_admin_rid = db_result(db_query('SELECT rid FROM {role} WHERE name = "site admin"'));
+
+    //set admin role
+    variable_set('user_admin_role', $admin_rid);
+
+    db_query('REPLACE INTO {better_formats_defaults} VALUES(%d, "node", 2, 1, -25)', $admin_rid);
+    db_query('REPLACE INTO {better_formats_defaults} VALUES(%d, "node", 2, 1, -24)', $site_admin_rid);
+    db_query('REPLACE INTO {better_formats_defaults} VALUES(%d, "node", 2, 1, -23)', $editor_rid);
+
+    db_query('UPDATE {filter_formats} SET roles = ",%d,%d,%d," WHERE format = 2', $admin_rid, $editor_rid, $site_admin_rid);
+
+    //add admin role to this user
+    global $user;
+    $user->roles[$admin_rid] = 'administrator';
+    db_query('INSERT INTO {users_roles} VALUES(%d, %d)', $user->uid, $admin_rid);
+
+    //add pathologic settings
+    db_query('INSERT INTO {filters} (fid, format, module, delta, weight) VALUES(NULL, 2, "pathologic", 0, 10)');
+    db_query('INSERT INTO {filters} (fid, format, module, delta, weight) VALUES(NULL, 1, "pathologic", 0, 10)');
+
+    //set up editor permissions
+    $permissions = array('administer blocks', 'administer menu', 'administer nodes', 'revert revisions', 'view revisions', 'administer nodequeue',
+      'administer page titles', 'set page title', 'administer panel-nodes', 'access skinr', 'access skinr classes',
+      'upload files', 'access administration pages', 'view pane admin links', 'use panels in place editing', 'administer taxonomy');
+
+    db_query('UPDATE {permission} SET perm = "%s" WHERE rid = %d', join($permissions, ", "), $editor_rid);
+
+    //set up site admin permissions
+    $permissions = array('administer blocks', 'use features', 'administer imagecache',
+      'flush imagecache', 'administer menu', 'administer nodes', 'revert revisions', 'view revisions', 'administer nodequeue',
+      'administer page titles', 'set page title', 'administer panel-nodes', 'access skinr', 'access skinr classes',
+      'upload files', 'access user profiles', 'administer users', 'access all webform results', 'delete all webform submissions',
+      'edit all webform submissions', 'access administration pages', 'view pane admin links', 'use panels in place editing', 'administer taxonomy',
+      'manage features', 'administer content types', 'administer site configuration');
+
+    db_query('UPDATE {permission} SET perm = "%s" WHERE rid = %d', join($permissions, ", "), $site_admin_rid);
+
+    variable_set('openchurch_defaults_first_time', 0);//set to zero meaning we're done
+
+    //create toolbars for site admin, editor
+    openchurch_create_toolbars($site_admin_rid, $editor_rid);
+
+    //flush caches
+    drupal_flush_all_caches();
+  }
+}
+
+/**
+ * Create toolbars
+ */
+function openchurch_create_toolbars($site_admin_rid, $editor_rid){
+  $toolbar = array (
+    0 =>
+    array (
+      'link_path' => 'admin/content/node',
+      'link_title' => 'Find Content',
+      'weight' => '-9',
+    ),
+    1 =>
+    array (
+      'link_path' => 'node/add',
+      'link_title' => 'Create Content',
+      'weight' => '-10',
+    ),
+    2 =>
+    array (
+      'link_path' => 'admin/content/taxonomy',
+      'link_title' => 'Manage Taxonomy',
+      'weight' => '-7',
+    ),
+    3 =>
+    array (
+      'link_path' => 'admin/build/menu',
+      'link_title' => 'Manage Menus',
+      'weight' => '-8',
+    ),
+  );
+
+  //create toolbar for editor
+  module_invoke('toolbar', 'create', 'openchurch-editor', 'Editor Shortcuts', $toolbar);
+  module_invoke('toolbar', 'set_role_toolbar', 'set-openchurch-editor', $editor_rid, -9);
+
+  $toolbar = array (
+    0 =>
+    array (
+      'link_path' => 'admin/user/user',
+      'link_title' => 'Find Users',
+      'weight' => '-8',
+    ),
+    1 =>
+    array (
+      'link_path' => 'node/add',
+      'link_title' => 'Create Content',
+      'weight' => '-10',
+    ),
+    2 =>
+    array (
+      'link_path' => 'admin/content/taxonomy',
+      'link_title' => 'Manage Taxonomy',
+      'weight' => '-6',
+    ),
+    3 =>
+    array (
+      'link_path' => 'admin/content/node',
+      'link_title' => 'Find Content',
+      'weight' => '-9',
+    ),
+    4 =>
+    array (
+      'link_path' => 'admin/build/context',
+      'link_title' => 'Manage Blocks',
+      'weight' => '-5',
+    ),
+    5 =>
+    array (
+      'link_path' => 'admin/settings',
+      'link_title' => 'Site Configuration',
+      'weight' => '-2',
+    ),
+    6 =>
+    array (
+      'link_path' => 'admin/content/types',
+      'link_title' => 'Manage Content Types',
+      'weight' => '-4',
+    ),
+    7 =>
+    array (
+      'link_path' => 'admin/build/features',
+      'link_title' => 'Manage Site Features',
+      'weight' => '-3',
+    ),
+    8 =>
+    array (
+      'link_path' => 'admin/build/menu',
+      'link_title' => 'Manage Menus',
+      'weight' => '-7',
+    ),
+  );
+
+  module_invoke('toolbar', 'create', 'openchurch-site-admin', 'Site Admin Shortcuts', $toolbar);
+  module_invoke('toolbar', 'set_role_toolbar', 'set-openchurch-site-admin', $site_admin_rid, -10);
+}
+
+/**
+ * Implementation of hook_install()
+ */
+function openchurch_defaults_install(){
+  variable_set('page_manager_node_view_disabled', FALSE);//make sure node template is enabled
+
+  //enable "Neuton by default for google fonts"
+  variable_set('google_fonts_enabled_fonts', unserialize('a:64:{s:6:"Neuton";s:6:"Neuton";s:9:"Cantarell";i:0;s:16:"Cantarell italic";i:0;s:14:"Cantarell bold";i:0;s:21:"Cantarell bold italic";i:0;s:5:"Cardo";i:0;s:12:"Crimson Text";i:0;s:6:"Cuprum";i:0;s:10:"Droid Sans";i:0;s:15:"Droid Sans bold";i:0;s:15:"Droid Sans Mono";i:0;s:11:"Droid Serif";i:0;s:18:"Droid Serif italic";i:0;s:16:"Droid Serif bold";i:0;s:23:"Droid Serif bold italic";i:0;s:15:"IM Fell DW Pica";i:0;s:22:"IM Fell DW Pica italic";i:0;s:18:"IM Fell DW Pica SC";i:0;s:19:"IM Fell Double Pica";i:0;s:26:"IM Fell Double Pica italic";i:0;s:22:"IM Fell Double Pica SC";i:0;s:15:"IM Fell English";i:0;s:22:"IM Fell English italic";i:0;s:18:"IM Fell English SC";i:0;s:20:"IM Fell French Canon";i:0;s:27:"IM Fell French Canon italic";i:0;s:23:"IM Fell French Canon SC";i:0;s:20:"IM Fell Great Primer";i:0;s:27:"IM Fell Great Primer italic";i:0;s:23:"IM Fell Great Primer SC";i:0;s:11:"Inconsolata";i:0;s:22:"Josefin Sans Std Light";i:0;s:7:"Lobster";i:0;s:7:"Molengo";i:0;s:6:"Neucha";i:0;s:6:"Nobile";i:0;s:13:"Nobile italic";i:0;s:11:"Nobile bold";i:0;s:18:"Nobile bold italic";i:0;s:23:"OFL Sorts Mill Goudy TT";i:0;s:30:"OFL Sorts Mill Goudy TT italic";i:0;s:15:"Old Standard TT";i:0;s:22:"Old Standard TT italic";i:0;s:20:"Old Standard TT bold";i:0;s:7:"PT Sans";i:0;s:14:"PT Sans italic";i:0;s:12:"PT Sans bold";i:0;s:19:"PT Sans bold italic";i:0;s:15:"PT Sans Caption";i:0;s:20:"PT Sans Caption bold";i:0;s:14:"PT Sans Narrow";i:0;s:19:"PT Sans Narrow bold";i:0;s:11:"Philosopher";i:0;s:13:"Reenie Beanie";i:0;s:9:"Tangerine";i:0;s:14:"Tangerine bold";i:0;s:8:"Vollkorn";i:0;s:15:"Vollkorn italic";i:0;s:13:"Vollkorn bold";i:0;s:20:"Vollkorn bold italic";i:0;s:21:"Yanone Kaffeesatz 200";i:0;s:21:"Yanone Kaffeesatz 300";i:0;s:21:"Yanone Kaffeesatz 400";i:0;s:21:"Yanone Kaffeesatz 700";i:0;}'));
+
+  //add wysiwyg profile
+  $wysiwyg_profile = 'a:20:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:1;s:5:"theme";s:8:"advanced";s:8:"language";s:2:"en";s:7:"buttons";a:4:{s:7:"default";a:25:{s:4:"bold";i:1;s:6:"italic";i:1;s:9:"underline";i:1;s:13:"strikethrough";i:1;s:11:"justifyleft";i:1;s:13:"justifycenter";i:1;s:12:"justifyright";i:1;s:11:"justifyfull";i:1;s:7:"bullist";i:1;s:7:"numlist";i:1;s:7:"outdent";i:1;s:6:"indent";i:1;s:4:"undo";i:1;s:4:"redo";i:1;s:4:"link";i:1;s:6:"unlink";i:1;s:6:"anchor";i:1;s:5:"image";i:1;s:9:"forecolor";i:1;s:9:"backcolor";i:1;s:4:"code";i:1;s:3:"cut";i:1;s:4:"copy";i:1;s:5:"paste";i:1;s:12:"removeformat";i:1;}s:4:"font";a:2:{s:12:"formatselect";i:1;s:14:"fontsizeselect";i:1;}s:5:"paste";a:2:{s:9:"pastetext";i:1;s:9:"pasteword";i:1;}s:4:"imce";a:1:{s:4:"imce";i:1;}}s:11:"toolbar_loc";s:3:"top";s:13:"toolbar_align";s:4:"left";s:8:"path_loc";s:6:"bottom";s:8:"resizing";i:1;s:11:"verify_html";i:1;s:12:"preformatted";i:0;s:22:"convert_fonts_to_spans";i:1;s:17:"remove_linebreaks";i:1;s:23:"apply_source_formatting";i:1;s:27:"paste_auto_cleanup_on_paste";i:1;s:13:"block_formats";s:32:"p,address,pre,h2,h3,h4,h5,h6,div";s:11:"css_setting";s:4:"none";s:8:"css_path";s:0:"";s:11:"css_classes";s:0:"";}';
+  db_query('REPLACE INTO {wysiwyg} VALUES(2, "tinymce", "%s")', $wysiwyg_profile);
+
+  _openchurch_load_sample_content();//load node_export-ed sample content blocks
+}
+
+/**
+ * Implementation of hook_uninstall()
+ */
+function openchurch_defaults_uninstall(){
+  $result = db_query('SELECT n.nid FROM {node} n JOIN {node_revisions} nr ON (n.nid = nr.nid AND n.vid = nr.vid) WHERE log LIKE "openchurch-defaults-sample-content"');
+
+  while ($nid = db_result($result)) {
+    node_delete($nid);
+  }
+
+  variable_del('openchurch_defaults_blocks');
+}
+
+/**
+ * Load sample content
+ */
+function _openchurch_load_sample_content(){
+  $nodes = array();
+
+  //popular $nodes array from block node dump
+  require_once('node_export/openchurch_defaults_node_export.inc');
+
+  $skinr = variable_get('skinr_openchurch_theme', '');
+
+  $about_menu_id = '';
+
+  //iterate through each block node and create
+  foreach ($nodes as $n){
+    $node = (object)$n;
+
+    $node->pathauto_perform_alias = FALSE;//disable path auto
+
+    /**
+     * This will fix the hardcoded path of the openchurch module to reflect the real path which might be different
+     */
+    $node->body = str_replace('/sites/all/modules/openchurch_features/openchurch_defaults', url(drupal_get_path('module', 'openchurch_defaults')), $node->body);
+    $node->teaser = str_replace('/sites/all/modules/openchurch_features/openchurch_defaults', url(drupal_get_path('module', 'openchurch_defaults')), $node->teaser);
+
+    //update parent menu of about sub-pages
+    if (preg_match('/^about\//', $node->path))
+      $node->menu['plid'] = $about_menu_id;
+
+    node_save($node);
+
+    //manually add alias
+    db_query('INSERT INTO {url_alias} (src, dst) VALUES ("%s", "%s")', 'node/'.$node->nid, $node->path);
+
+    if ($node->path == 'about'){
+      $about_menu_id = db_result(db_query('SELECT mlid FROM {menu_links} WHERE menu_name = "primary-links" AND link_title = "About"'));
+    }
+
+    $machine_name = $node->field_oc_machine_name[0]['value'];
+
+    switch ($machine_name) {
+      case 'sidebar_block_rt1':
+        $skinr['block']['openchurch_block-'.$machine_name] = array(
+          'block-title-background-styles' => 'block-title-med-blue',
+          'block-background-styles' => 'block-background-lt-blue',
+          'block-effects' => array(
+            'rounded-corners' => 'rounded-corners'
+          )
+        );
+        break;
+      case 'sidebar_block_rt2':
+        $skinr['block']['openchurch_block-'.$machine_name] = array(
+            'block-background-styles' => 'block-background-dark-blue',
+            'block-effects' => array(
+               'rounded-corners' => 'rounded-corners'
+             ),
+             '_additional' => 'view-map-directions'
+          );
+        break;
+      case 'global_bottom_block1':
+      case 'global_bottom_block2':
+      case 'global_bottom_block3':
+        $skinr['block']['openchurch_block-'.$machine_name] = array(
+          'block-title-background-styles' => 'block-title-lt-green',
+          'grid12-width' => 'grid12-4',
+          'fusion-equal-heights' => array(
+            'equal-heights' => 'equal-heights'
+          )
+        );
+        break;
+    }
+  }
+
+  variable_set('skinr_openchurch_theme', $skinr);
+
+  /**
+   * Adding media link
+   */
+  $media = array(
+    'menu_name' => 'primary-links',
+    'router_path' => 'media/galleries',
+    'link_path' => 'media/galleries',
+    'link_title' => 'Media',
+    'has_children' => TRUE,
+    'expanded' => TRUE,
+    'weight' => -48
+  );
+
+  $mlid = menu_link_save($media);
+
+  db_query('UPDATE {menu_links} SET plid = %d, p1 = %d, p2 = mlid WHERE menu_name = "primary-links" AND link_path LIKE "media/%" AND link_title != "Media"', $mlid, $mlid);
+}

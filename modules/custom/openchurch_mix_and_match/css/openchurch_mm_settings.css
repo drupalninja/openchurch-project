@@ -1,0 +1,15 @@
+#system-theme-settings .form-radios .form-item {
+  width: 200px;
+  float: left;
+  margin-right: 15px;
+}
+
+#system-theme-settings .form-radios #edit-openchurch-mm-color-preset--wrapper {
+  float: none; width: 100%;
+}
+
+#edit-openchurch-mm-color-preset-blue-gray-white-wrapper,
+#edit-openchurch-mm-color-preset-gray-black-wrapper,
+#system-theme-settings .description {
+  clear: left;
+}

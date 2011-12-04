@@ -1,0 +1,15 @@
+<?php
+
+include_once('openchurch_ministry.features.inc');
+include_once('openchurch_ministry.install');
+
+/**
+ * Implementation of hook_enable()
+ */
+function openchurch_ministry_enable(){
+  drupal_flush_all_caches();//we need to do this before we can add content
+
+  //only load sample content if no content is found
+  if (!db_result(db_query('SELECT count(nid) FROM {node} WHERE type = "openchurch_ministry"')))
+    _openchurch_ministry_load_ministry_content();//load sample content
+}

@@ -1,0 +1,39 @@
+<?php
+
+include_once('openchurch_gallery.features.inc');
+include_once('openchurch_gallery.install');
+
+/**
+ * Implementation of hook_nodeapi()
+ */
+function openchurch_gallery_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL){
+
+  /**
+   * Override gallery node detail
+   */
+  if ($node->type == 'openchurch_gallery' AND $op == 'load' AND arg(0) == 'node' AND ctype_digit(arg(1)) AND !arg(2)) {
+
+    /**
+     * If a ministry is associated with this gallery we are going to change the title
+     * to reflect the ministry
+     */
+    if ($nid = $node->field_oc_ministry[0]['nid']) {
+      $n = node_load($nid);
+
+      drupal_set_title($n->title.' Photo Archives');
+    }
+    else
+      drupal_set_title('Church Wide Photo Archives');
+  }
+}
+
+/**
+ * Implementation of hook_enable()
+ */
+function openchurch_gallery_enable(){
+  drupal_flush_all_caches();//we need to do this before we can add content
+
+  //only load sample content if no content is found
+  if (!db_result(db_query('SELECT count(nid) FROM {node} WHERE type = "openchurch_gallery"')))
+    _openchurch_gallery_load_gallery_content();//load sample content
+}

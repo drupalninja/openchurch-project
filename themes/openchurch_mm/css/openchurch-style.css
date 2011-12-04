@@ -1,0 +1,19 @@
+/* Specific Typography
+-------------------------------------------------------------- */
+#site-name {
+  margin-top: 20px;
+  font-size: 2.4em;
+  padding-bottom: 20px; /* ie7 fix */
+}
+
+/* Site Info
+-------------------------------------------------------------- */
+/* Add float here to put logo and site name side by side, also add margins as
+  needed */
+#logo {
+  float: left;
+  margin-right: 20px;
+}
+
+/* Admin Toolbar http://drupal/project/toolbar z-index fix */
+div#toolbar-toolbar {  z-index: 1000; }

@@ -1,0 +1,12 @@
+<?php
+
+include_once('openchurch_defaults.features.inc');
+include_once('openchurch_defaults.install');
+
+/**
+ * Implementation of hook_init()
+ */
+function openchurch_defaults_init(){
+  //check for first time configuration
+  openchurch_defaults_first_time_config();
+}

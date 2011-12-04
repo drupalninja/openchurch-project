@@ -1,0 +1,30 @@
+<?php
+
+include_once('openchurch_events.features.inc');
+include_once('openchurch_events.install');
+
+/**
+ * Implementation of hook_form_alter()
+ */
+function openchurch_events_form_alter(&$form, &$form_state, $form_id){
+
+  if ($form_id == 'views_exposed_form') {
+    /**
+     * Override openchurch events filter
+     */
+    if ($form['#id'] == 'views-exposed-form-openchurch-events-default') {
+      $form['submit']['#value'] = 'update';
+    }
+  }
+}
+
+/**
+ * Implementation of hook_enable()
+ */
+function openchurch_events_enable(){
+  drupal_flush_all_caches();//we need to do this before we can add content
+
+  //only load sample content if no content is found
+  if (!db_result(db_query('SELECT count(nid) FROM {node} WHERE type = "openchurch_events"')))
+    _openchurch_events_load_events_content();//load sample content
+}

@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * Implementation of hook_install()
+ */
+function openchurch_ministry_install(){
+}
+
+/**
+ * Implementation of hook_uninstall()
+ */
+function openchurch_ministry_uninstall(){
+  $result = db_query('SELECT n.nid FROM {node} n JOIN {node_revisions} nr ON (n.nid = nr.nid AND n.vid = nr.vid) WHERE log LIKE "openchurch-ministry-sample-content"');
+
+  while ($nid = db_result($result)) {
+    node_delete($nid);
+  }
+}
+
+/**
+ * Load ministry sample content
+ */
+function _openchurch_ministry_load_ministry_content(){
+  $nodes = array();
+
+  /**
+   * Load homepage rotator content
+   */
+  foreach (array('images', 'files') as $sample_subpath) {
+    $sample_path = realpath(drupal_get_path('module', 'openchurch_ministry').'/'.$sample_subpath);
+    $files = scandir($sample_path);
+
+    foreach ($files as $file) {
+      if (!in_array($file, array('.', '..', '.svn'))) {
+        $source = $sample_path.'/'.$file;
+
+        file_copy($source, $file, FILE_EXISTS_REPLACE);
+      }
+    }
+  }
+
+  require_once('node_export/openchurch_ministry_node_export.inc');
+
+  $position = 0;
+
+  $ministry_menu_id = db_result(db_query('SELECT mlid FROM {menu_links} WHERE menu_name = "primary-links" AND link_title = "Ministries"'));
+
+  //iterate through each block node and create
+  foreach ($nodes as $n){
+    $node = (object)$n;
+
+    $node->pathauto_perform_alias = FALSE;//disable path auto
+
+    $node->menu['plid'] = $ministry_menu_id;
+
+    // Image field -----------------------------------
+    $image = $node->field_oc_image[0];
+
+    if ($image['filepath']) {
+      $image['filepath'] = str_replace('sites/default/files', file_directory_path(), $node->field_oc_image[0]['filepath']);
+
+      db_query('INSERT INTO {files} VALUES(NULL, 1, "%s", "%s", "%s", "%s", 1, %d)', $image['filename'], $image['filepath'], $image['filemime'], $image['filesize'], date('U'));
+      $fid = db_result(db_query('SELECT fid FROM {files} WHERE filepath = "%s"', $image['filepath']));
+
+      /**
+      * This will fix the hardcoded path of the sites/default/files directory
+      **/
+      $node->field_oc_image[0]['fid'] = $fid;
+      $node->field_oc_image[0]['filepath'] = $image['filepath'];
+    }
+
+    // Downloads field -------------------------------
+
+    $pdf = $node->field_oc_downloads[0];
+
+    if ($pdf['filepath']) {
+      $pdf['filepath'] = str_replace('sites/default/files', file_directory_path(), $node->field_oc_downloads[0]['filepath']);
+
+      db_query('INSERT INTO {files} VALUES(NULL, 1, "%s", "%s", "%s", "%s", 1, %d)', $pdf['filename'], $pdf['filepath'], $pdf['filemime'], $pdf['filesize'], date('U'));
+      $fid = db_result(db_query('SELECT fid FROM {files} WHERE filepath = "%s"', $pdf['filepath']));
+
+      /**
+      * This will fix the hardcoded path of the sites/default/files directory
+      **/
+      $node->field_oc_downloads[0]['fid'] = $fid;
+      $node->field_oc_downloads[0]['filepath'] = $pdf['filepath'];
+    }
+
+    node_save($node);
+
+    //manually add alias
+    db_query('INSERT INTO {url_alias} (src, dst) VALUES ("%s", "%s")', 'node/'.$node->nid, $node->path);
+  }
+}

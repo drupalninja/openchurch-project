@@ -1,0 +1,115 @@
+<?php
+
+include_once('openchurch_block.features.inc');
+
+/**
+ * Implementation of hook_block
+ */
+function openchurch_block_block($op = 'list', $delta = 0, $edit = array()) {
+
+  /**
+   * Look for all the custom blocks that have machine names
+   * Our 'block' content type has machine names bc that will make them be able
+   * to be associated with context and panels by using the block hook as our
+   * interface with those 2 modules.
+   */
+  if ($op == 'list') {
+    $result = db_query('SELECT n.title, field_oc_machine_name_value as machine ' .
+        'FROM {content_type_openchurch_block} c ' .
+        'JOIN {node} n ON (n.nid = c.nid AND n.vid = c.vid)');
+
+    while($row = db_fetch_object($result)){
+      $blocks[$row->machine] = array(
+        'info' => t($row->title.' (oc_block)'),
+        'status' => 1
+      );
+    }
+
+    return $blocks;
+  }
+  /**
+   * Use the delta (which is the custom block machine name) to look up
+   * the custom block nid.
+   */
+  else if ($op == 'view') {
+
+    $block_nid = db_result(db_query('SELECT n.nid ' .
+        'FROM {content_type_openchurch_block} c ' .
+        'JOIN {node} n ON (n.nid = c.nid AND n.vid = c.vid) ' .
+        'WHERE field_oc_machine_name_value = "%s"', $delta));
+
+
+    if ($block_nid) {
+
+      $node = node_load($block_nid);
+
+      /**
+       * Check to see if we want to hide the title
+       */
+      if ($node->field_oc_hide_title[0]['value'])
+        $title = '';
+      else
+        $title = $node->title;
+
+      if (function_exists('_pathologic'))
+        $body = _pathologic($node->body,'Full HTML');
+      else
+        $body = $node->body;
+
+      $block = array(
+        'subject' => t($title),
+        'content' => $body
+      );
+    }
+
+    return $block;
+  }
+}
+
+/**
+ * Implementation of hook_nodeapi()
+ */
+function openchurch_block_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL){
+
+  if ($node->type == 'openchurch_block') {
+    unset($node->links);
+  }
+}
+
+/**
+ * Implementation of hook_form_alter()
+ */
+function openchurch_block_form_alter(&$form, &$form_state, $form_id){
+
+  if ($form_id == 'openchurch_block_node_form'){
+    $form['#validate'][] = 'openchurch_block_node_form_validate';//call custom validation
+  }
+}
+
+/**
+ * OC block node form validation
+ */
+function openchurch_block_node_form_validate($form, &$form_state){
+
+  $machine_name = $form_state['values']['field_oc_machine_name'][0]['value'];
+
+  if (!preg_match('/^[\d\w_-]+$/', $machine_name))
+    form_set_error('field_oc_machine_name', 'Please use only alphanumeric characters, dashes and underscores in the machine name field.');
+}
+
+/**
+ * Implementation of hook_perm()
+ */
+function openchurch_block_perm(){
+  return array('administer oc machine name');
+}
+
+/**
+ * Implementation of hook_field_access
+ */
+function openchurch_block_field_access($op, $field, $account, $node = NULL) {
+  if ($field['field_name'] == 'oc_machine_name') {//any op
+    return user_access('administer oc machine name', $account);
+  }
+  return TRUE;
+}
