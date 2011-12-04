@@ -4,6 +4,8 @@ base theme = mix_and_match
 core = 7.x
 engine = phptemplate
 
+skinr[api] = 2
+
 stylesheets[all][] = css/openchurch-style.css
 stylesheets[all][] = css/openchurch-features.css
 scripts[] = js/jquery.corner.js
@@ -15,6 +17,7 @@ regions[header_top] = header top
 regions[header] = header
 regions[preface_top] = preface top
 regions[preface_bottom] = preface bottom
+regions[content] = content
 regions[content_top] = content top
 regions[content_bottom] = content bottom
 regions[postscript_top] = postscript top
@@ -45,3 +48,6 @@ settings[sidebar_last_width] = 3
 
 ; Inherit Skinr styles from Fusion Core
 skinr[options][inherit_skins] = false
+
+version = "7.x-1.0-alpha"
+project = "openchurch_mm"
