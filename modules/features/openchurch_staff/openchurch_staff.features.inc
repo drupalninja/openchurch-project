@@ -21,3 +21,20 @@ function openchurch_staff_ctools_plugin_api() {
     return array("version" => "1");
   }
 }
+
+/**
+ * Implements hook_node_info().
+ */
+function openchurch_staff_node_info() {
+  $items = array(
+    'openchurch_staff' => array(
+      'name' => t('Staff'),
+      'base' => 'node_content',
+      'description' => t('A staff member is someone that works in the church, including both administrative and church leadership.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+  );
+  return $items;
+}
