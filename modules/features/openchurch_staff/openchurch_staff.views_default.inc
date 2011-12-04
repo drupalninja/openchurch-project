@@ -7,7 +7,7 @@ function openchurch_staff_views_default_views() {
   $views = array();
 
   //get staff vid
-  $vid = db_result(db_query('SELECT vid FROM {vocabulary} WHERE name = "Staff Type" AND module = "openchurch_staff"'));
+  $vid = db_query('SELECT vid FROM {taxonomy_vocabulary} WHERE name = "Staff Type" AND module = "openchurch_staff"')->fetchField();
 
   // Exported view: openchurch_staff
   $view = new view;
