@@ -17,3 +17,20 @@ function openchurch_ministry_ctools_plugin_api() {
     return array("version" => "1");
   }
 }
+
+/**
+ * Implements hook_node_info().
+ */
+function openchurch_ministry_node_info() {
+  $items = array(
+    'openchurch_ministry' => array(
+      'name' => t('Ministry'),
+      'base' => 'node_content',
+      'description' => t('Ministry pages describe various church ministries that members want to know more about.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+  );
+  return $items;
+}
