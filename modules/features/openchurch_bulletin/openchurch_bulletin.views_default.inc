@@ -1,335 +1,200 @@
 <?php
+/**
+ * @file
+ * openchurch_bulletin.views_default.inc
+ */
 
 /**
- * Implementation of hook_views_default_views().
+ * Implements hook_views_default_views().
  */
 function openchurch_bulletin_views_default_views() {
-  $views = array();
+  $export = array();
 
-  // Exported view: openchurch_bulletins
   $view = new view;
   $view->name = 'openchurch_bulletins';
   $view->description = 'Openchurch digital bulletin download list';
   $view->tag = '';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->human_name = 'Openchurch Bulletins';
+  $view->core = 0;
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('fields', array(
-    'phpcode' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'value' => '<?php
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = 'phpcode';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_oc_date_value' => 'field_oc_date_value',
+    'field_bulletin_file_fid' => 'field_bulletin_file_fid',
+  );
+  $handler->display->display_options['row_options']['separator'] = ' ';
+  $handler->display->display_options['row_options']['hide_empty'] = 0;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['text']['id'] = 'area';
+  $handler->display->display_options['header']['text']['table'] = 'views';
+  $handler->display->display_options['header']['text']['field'] = 'area';
+  $handler->display->display_options['header']['text']['empty'] = FALSE;
+  $handler->display->display_options['header']['text']['content'] = '<h2 class="block-title">Bulletin Archives</h2>';
+  $handler->display->display_options['header']['text']['format'] = '3';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['text']['id'] = 'area';
+  $handler->display->display_options['empty']['text']['table'] = 'views';
+  $handler->display->display_options['empty']['text']['field'] = 'area';
+  $handler->display->display_options['empty']['text']['empty'] = FALSE;
+  $handler->display->display_options['empty']['text']['content'] = 'No bulletins found';
+  $handler->display->display_options['empty']['text']['format'] = '1';
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['id'] = 'field_oc_bulletin_date';
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['table'] = 'field_data_field_oc_bulletin_date';
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['field'] = 'field_oc_bulletin_date';
+  /* Field: Content: Bulletin */
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['id'] = 'field_oc_bulletin_file';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['table'] = 'field_data_field_oc_bulletin_file';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['field'] = 'field_oc_bulletin_file';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['text'] = 'Download PDF &raquo;';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['make_link'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['path'] = '[field_oc_bulletin_file]';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['alt'] = 'Download Bulletin PDF';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['field_api_classes'] = 0;
+  /* Sort criterion: Content: Date (field_oc_bulletin_date) */
+  $handler->display->display_options['sorts']['field_oc_bulletin_date_value']['id'] = 'field_oc_bulletin_date_value';
+  $handler->display->display_options['sorts']['field_oc_bulletin_date_value']['table'] = 'field_data_field_oc_bulletin_date';
+  $handler->display->display_options['sorts']['field_oc_bulletin_date_value']['field'] = 'field_oc_bulletin_date_value';
+  $handler->display->display_options['sorts']['field_oc_bulletin_date_value']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'openchurch_bulletin' => 'openchurch_bulletin',
+  );
+  $handler->display->display_options['filters']['type']['expose']['operator'] = FALSE;
 
-return \'<div class="\'.date(\'F\', strtotime($data->node_data_field_oc_date_field_oc_date_value)).\'"></div>\';',
-      'exclude' => 1,
-      'id' => 'phpcode',
-      'table' => 'customfield',
-      'field' => 'phpcode',
-      'relationship' => 'none',
-    ),
-    'field_oc_date_value' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => 'long',
-      'multiple' => array(
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_to' => '',
-        'group' => '',
-      ),
-      'repeat' => array(
-        'show_repeat_rule' => '',
-      ),
-      'fromto' => array(
-        'fromto' => 'both',
-      ),
-      'exclude' => 0,
-      'id' => 'field_oc_date_value',
-      'table' => 'node_data_field_oc_date',
-      'field' => 'field_oc_date_value',
-      'relationship' => 'none',
-    ),
-    'field_bulletin_file_fid' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 1,
-        'text' => 'Download PDF &raquo;',
-        'make_link' => 1,
-        'path' => '[field_bulletin_file_fid]',
-        'link_class' => '',
-        'alt' => 'Download Bulletin PDF',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'custom',
-      'format' => 'url_plain',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_bulletin_file_fid',
-      'table' => 'node_data_field_bulletin_file',
-      'field' => 'field_bulletin_file_fid',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('sorts', array(
-    'field_oc_date_value' => array(
-      'order' => 'DESC',
-      'delta' => -1,
-      'id' => 'field_oc_date_value',
-      'table' => 'node_data_field_oc_date',
-      'field' => 'field_oc_date_value',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'status' => array(
-      'operator' => '=',
-      'value' => '1',
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-    'type' => array(
-      'operator' => 'in',
-      'value' => array(
-        'openchurch_bulletin' => 'openchurch_bulletin',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'type',
-      'table' => 'node',
-      'field' => 'type',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('header', '<h2 class="block-title">Bulletin Archives</h2>');
-  $handler->override_option('header_format', '3');
-  $handler->override_option('header_empty', 0);
-  $handler->override_option('empty', 'No bulletins found');
-  $handler->override_option('empty_format', '1');
-  $handler->override_option('use_ajax', TRUE);
-  $handler->override_option('items_per_page', 20);
-  $handler->override_option('use_pager', '1');
-  $handler->override_option('style_options', array(
-    'grouping' => 'phpcode',
-  ));
-  $handler->override_option('row_options', array(
-    'inline' => array(
-      'field_oc_date_value' => 'field_oc_date_value',
-      'field_bulletin_file_fid' => 'field_bulletin_file_fid',
-    ),
-    'separator' => ' ',
-    'hide_empty' => 0,
-  ));
+  /* Display: Bulletin Archive Block */
   $handler = $view->new_display('block', 'Bulletin Archive Block', 'block_1');
-  $handler->override_option('block_description', '');
-  $handler->override_option('block_caching', -1);
+  $export['openchurch_bulletins'] = $view;
 
-  $views[$view->name] = $view;
-
-  // Exported view: openchurch_latest_bulletin
   $view = new view;
   $view->name = 'openchurch_latest_bulletin';
   $view->description = 'Links to the latest digital church bulletin.';
   $view->tag = '';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->human_name = 'Openchurch Latest Bulletin';
+  $view->core = 0;
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('fields', array(
-    'field_bulletin_file_fid' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 1,
-        'text' => '<a href="[field_bulletin_file_fid]">Download Latest (PDF)</a> &raquo;',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => 'url_plain',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_bulletin_file_fid',
-      'table' => 'node_data_field_bulletin_file',
-      'field' => 'field_bulletin_file_fid',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('sorts', array(
-    'created' => array(
-      'order' => 'DESC',
-      'granularity' => 'second',
-      'id' => 'created',
-      'table' => 'node',
-      'field' => 'created',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'status' => array(
-      'operator' => '=',
-      'value' => '1',
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-    'type' => array(
-      'operator' => 'in',
-      'value' => array(
-        'openchurch_bulletin' => 'openchurch_bulletin',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'type',
-      'table' => 'node',
-      'field' => 'type',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('title', 'This Week\'s Bulletin');
-  $handler->override_option('items_per_page', 1);
-  $handler->override_option('use_more', 1);
-  $handler->override_option('use_more_always', 1);
-  $handler->override_option('use_more_text', 'View Full Archives &raquo;');
+  $handler->display->display_options['title'] = 'This Week\'s Bulletin';
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['use_more_always'] = TRUE;
+  $handler->display->display_options['use_more_text'] = 'View Full Archives &raquo;';
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['empty'] = FALSE;
+  $handler->display->display_options['footer']['area']['content'] = '<a href="/media/bulletins">View Full Archives &raquo;</a>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
+  $handler->display->display_options['footer']['area']['tokenize'] = 0;
+  /* Field: Content: Bulletin */
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['id'] = 'field_oc_bulletin_file';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['table'] = 'field_data_field_oc_bulletin_file';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['field'] = 'field_oc_bulletin_file';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['text'] = '<a href="[field_oc_bulletin_file]">Download Latest (PDF)</a> &raquo;';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['field_api_classes'] = 0;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'openchurch_bulletin' => 'openchurch_bulletin',
+  );
+  $handler->display->display_options['filters']['type']['expose']['operator'] = FALSE;
+
+  /* Display: Latest Bulletin Block */
   $handler = $view->new_display('block', 'Latest Bulletin Block', 'block_1');
-  $handler->override_option('block_description', '');
-  $handler->override_option('block_caching', -1);
+  $export['openchurch_latest_bulletin'] = $view;
 
-  $views[$view->name] = $view;
-
-  return $views;
+  return $export;
 }

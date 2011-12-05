@@ -77,7 +77,7 @@ function openchurch_events_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '8',
+        'weight' => '9',
       ),
     ),
   );
@@ -317,6 +317,83 @@ function openchurch_events_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
+        'weight' => '8',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-openchurch_event-field_oc_location'
+  $fields['node-openchurch_event-field_oc_location'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_oc_location',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'addressfield',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'addressfield',
+    ),
+    'field_instance' => array(
+      'bundle' => 'openchurch_event',
+      'default_value' => array(
+        0 => array(
+          'element_key' => 'node|openchurch_event|field_oc_location|und|0',
+          'thoroughfare' => '',
+          'premise' => '',
+          'locality' => '',
+          'administrative_area' => '',
+          'postal_code' => '',
+          'country' => 'US',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'addressfield',
+          'settings' => array(
+            'format_handlers' => array(
+              0 => 'address',
+            ),
+            'use_widget_handlers' => 1,
+          ),
+          'type' => 'addressfield_default',
+          'weight' => 6,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_oc_location',
+      'label' => 'Where',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'addressfield',
+        'settings' => array(
+          'available_countries' => array(
+            'US' => 'US',
+          ),
+          'format_handlers' => array(
+            'address' => 'address',
+            'name-full' => 0,
+            'name-oneline' => 0,
+            'organisation' => 0,
+          ),
+        ),
+        'type' => 'addressfield_standard',
         'weight' => '7',
       ),
     ),
@@ -354,6 +431,8 @@ function openchurch_events_field_default_fields() {
           'openchurch_gallery' => 0,
           'openchurch_homepage_rotator' => 0,
           'openchurch_ministry' => 'openchurch_ministry',
+          'openchurch_podcast' => 0,
+          'openchurch_staff' => 0,
           'webform' => 0,
         ),
         'view' => array(
@@ -492,6 +571,7 @@ function openchurch_events_field_default_fields() {
   t('Register URL');
   t('Related Downloads');
   t('When');
+  t('Where');
 
   return $fields;
 }
