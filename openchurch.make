@@ -11,6 +11,7 @@ projects[content_taxonomy][subdir] = contrib
 projects[context][subdir] = contrib
 projects[ctools][subdir] = contrib
 projects[date][subdir] = contrib
+projects[email][subdir] = contrib
 projects[entity][subdir] = contrib
 projects[features][subdir] = contrib
 projects[filefield_sources][subdir] = contrib

@@ -50,6 +50,7 @@ dependencies[] = date
 dependencies[] = date_repeat
 dependencies[] = date_popup
 dependencies[] = date_views
+dependencies[] = email
 dependencies[] = entity
 dependencies[] = features
 dependencies[] = filefield_sources
