@@ -1,7 +1,11 @@
 <?php
+/**
+ * @file
+ * openchurch_blog.pages_default.inc
+ */
 
 /**
- * Implementation of hook_default_page_manager_pages().
+ * Implements hook_default_page_manager_pages().
  */
 function openchurch_blog_default_page_manager_pages() {
   $page = new stdClass;
@@ -12,7 +16,10 @@ function openchurch_blog_default_page_manager_pages() {
   $page->admin_title = 'Recent Blog Entries';
   $page->admin_description = 'Recent church blog entries';
   $page->path = 'blog';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = '';
   $page->arguments = array();
   $page->conf = array();
@@ -97,7 +104,10 @@ function openchurch_blog_default_page_manager_pages() {
   $page->admin_title = 'Blog Archives';
   $page->admin_description = 'Church blog archives';
   $page->path = 'blog/archives';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = '';
   $page->arguments = array();
   $page->conf = array();
