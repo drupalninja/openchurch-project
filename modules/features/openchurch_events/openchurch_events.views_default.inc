@@ -67,6 +67,24 @@ function openchurch_events_views_default_views() {
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_oc_thumb']['field_api_classes'] = 0;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = 1;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'openchurch_event' => 'openchurch_event',
+  );
+  $handler->display->display_options['arguments']['nid']['validate_options']['access'] = 0;
+  $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['nid']['not'] = 0;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -491,6 +509,24 @@ return l(\'full calendar\', \'events/calendar\');
   $handler->display->display_options['sorts']['field_oc_dates_value']['id'] = 'field_oc_dates_value';
   $handler->display->display_options['sorts']['field_oc_dates_value']['table'] = 'field_data_field_oc_dates';
   $handler->display->display_options['sorts']['field_oc_dates_value']['field'] = 'field_oc_dates_value';
+  /* Contextual filter: Content: Ministry (field_oc_ministry) */
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['id'] = 'field_oc_ministry_nid';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['table'] = 'field_data_field_oc_ministry';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['field'] = 'field_oc_ministry_nid';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['specify_validation'] = 1;
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['validate_options']['types'] = array(
+    'openchurch_ministry' => 'openchurch_ministry',
+  );
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['validate_options']['access'] = 0;
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['not'] = 0;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';

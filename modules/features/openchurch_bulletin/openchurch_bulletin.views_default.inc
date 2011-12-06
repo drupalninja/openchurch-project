@@ -56,7 +56,7 @@ function openchurch_bulletin_views_default_views() {
   $handler->display->display_options['empty']['text']['empty'] = FALSE;
   $handler->display->display_options['empty']['text']['content'] = 'No bulletins found';
   $handler->display->display_options['empty']['text']['format'] = '1';
-  /* Field: Content: Date */
+  /* Field: Content: Bulletin Date */
   $handler->display->display_options['fields']['field_oc_bulletin_date']['id'] = 'field_oc_bulletin_date';
   $handler->display->display_options['fields']['field_oc_bulletin_date']['table'] = 'field_data_field_oc_bulletin_date';
   $handler->display->display_options['fields']['field_oc_bulletin_date']['field'] = 'field_oc_bulletin_date';
@@ -88,7 +88,7 @@ function openchurch_bulletin_views_default_views() {
   $handler->display->display_options['fields']['field_oc_bulletin_file']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['type'] = 'file_url_plain';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['field_api_classes'] = 0;
-  /* Sort criterion: Content: Date (field_oc_bulletin_date) */
+  /* Sort criterion: Content: Bulletin Date (field_oc_bulletin_date) */
   $handler->display->display_options['sorts']['field_oc_bulletin_date_value']['id'] = 'field_oc_bulletin_date_value';
   $handler->display->display_options['sorts']['field_oc_bulletin_date_value']['table'] = 'field_data_field_oc_bulletin_date';
   $handler->display->display_options['sorts']['field_oc_bulletin_date_value']['field'] = 'field_oc_bulletin_date_value';
