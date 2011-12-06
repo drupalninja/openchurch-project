@@ -82,30 +82,30 @@ function openchurch_gallery_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-openchurch_gallery-field_oc_bulletin_date'
-  $fields['node-openchurch_gallery-field_oc_bulletin_date'] = array(
+  // Exported field: 'node-openchurch_gallery-field_oc_date'
+  $fields['node-openchurch_gallery-field_oc_date'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_oc_bulletin_date',
+      'field_name' => 'field_oc_date',
       'foreign keys' => array(),
       'indexes' => array(),
       'module' => 'date',
       'settings' => array(
         'granularity' => array(
           'day' => 'day',
-          'hour' => 0,
+          'hour' => 'hour',
           'minute' => 0,
           'month' => 'month',
           'second' => 0,
           'year' => 'year',
         ),
         'repeat' => '0',
-        'timezone_db' => '',
+        'timezone_db' => 'UTC',
         'todate' => '',
-        'tz_handling' => 'none',
+        'tz_handling' => 'site',
       ),
       'translatable' => '0',
       'type' => 'datetime',
@@ -127,7 +127,7 @@ function openchurch_gallery_field_default_fields() {
             'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => 1,
+          'weight' => 6,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -137,7 +137,7 @@ function openchurch_gallery_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_oc_bulletin_date',
+      'field_name' => 'field_oc_date',
       'label' => 'Date',
       'required' => 0,
       'settings' => array(
@@ -369,6 +369,8 @@ function openchurch_gallery_field_default_fields() {
           'openchurch_gallery' => 0,
           'openchurch_homepage_rotator' => 0,
           'openchurch_ministry' => 'openchurch_ministry',
+          'openchurch_podcast' => 0,
+          'openchurch_staff' => 0,
           'webform' => 0,
         ),
         'view' => array(
