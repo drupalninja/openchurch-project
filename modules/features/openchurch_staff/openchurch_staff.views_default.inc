@@ -1,529 +1,333 @@
 <?php
+/**
+ * @file
+ * openchurch_staff.views_default.inc
+ */
 
 /**
- * Implementation of hook_views_default_views().
+ * Implements hook_views_default_views().
  */
 function openchurch_staff_views_default_views() {
-  $views = array();
+  $export = array();
 
-  //get staff vid
-  $vid = db_query('SELECT vid FROM {taxonomy_vocabulary} WHERE name = "Staff Type" AND module = "openchurch_staff"')->fetchField();
-
-  // Exported view: openchurch_staff
   $view = new view;
   $view->name = 'openchurch_staff';
-  $view->description = 'List of staff members by ministry';
-  $view->tag = '';
-  $view->view_php = '';
+  $view->description = '';
+  $view->tag = 'default';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->human_name = 'Openchurch Staff';
+  $view->core = 7;
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('fields', array(
-    'tid_1' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 1,
-        'text' => '<a name="staff-group-[tid_1-tid]"></a>[tid_1]',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'type' => 'separator',
-      'separator' => ', ',
-      'link_to_taxonomy' => 0,
-      'limit' => 1,
-      'vids' => array(
-        $vid => $vid,
-      ),
-      'exclude' => 1,
-      'id' => 'tid_1',
-      'table' => 'term_node',
-      'field' => 'tid',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Override',
-      ),
-    ),
-    'field_oc_image_fid' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => 'oc_staff_thumb_linked',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_oc_image_fid',
-      'table' => 'node_data_field_oc_image',
-      'field' => 'field_oc_image_fid',
-      'relationship' => 'none',
-    ),
-    'title' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Override',
-      ),
-    ),
-    'field_oc_position_value' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 1,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => 'plain',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_oc_position_value',
-      'table' => 'node_data_field_oc_position',
-      'field' => 'field_oc_position_value',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Override',
-      ),
-    ),
-    'field_oc_email_email' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 1,
-        'text' => 'email',
-        'make_link' => 1,
-        'path' => 'mailto:[field_oc_email_email]',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => 'default',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_oc_email_email',
-      'table' => 'node_data_field_oc_email',
-      'field' => 'field_oc_email_email',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Override',
-      ),
-    ),
-    'field_oc_phone_value' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 1,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => 'plain',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_oc_phone_value',
-      'table' => 'node_data_field_oc_phone',
-      'field' => 'field_oc_phone_value',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Override',
-      ),
-    ),
-    'teaser' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 1,
-        'max_length' => '200',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 1,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'exclude' => 0,
-      'id' => 'teaser',
-      'table' => 'node_revisions',
-      'field' => 'teaser',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-    'markup' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'value' => '',
-      'format' => '1',
-      'exclude' => 0,
-      'id' => 'markup',
-      'table' => 'customfield',
-      'field' => 'markup',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('sorts', array(
-    'weight' => array(
-      'order' => 'ASC',
-      'id' => 'weight',
-      'table' => 'term_data',
-      'field' => 'weight',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'status' => array(
-      'operator' => '=',
-      'value' => '1',
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'relationship' => 'none',
-    ),
-    'type' => array(
-      'operator' => 'in',
-      'value' => array(
-        'openchurch_staff' => 'openchurch_staff',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'type',
-      'table' => 'node',
-      'field' => 'type',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('use_ajax', TRUE);
-  $handler->override_option('items_per_page', 0);
-  $handler->override_option('use_pager', '0');
-  $handler->override_option('style_options', array(
-    'grouping' => 'tid_1',
-  ));
-  $handler->override_option('row_options', array(
-    'inline' => array(
-      'title' => 'title',
-      'field_oc_position_value' => 'field_oc_position_value',
-      'field_oc_email_email' => 'field_oc_email_email',
-      'field_oc_phone_value' => 'field_oc_phone_value',
-    ),
-    'separator' => '',
-    'hide_empty' => 0,
-  ));
-  $handler = $view->new_display('block', 'Staff Teaser List Block', 'block_1');
-  $handler->override_option('block_description', '');
-  $handler->override_option('block_caching', -1);
 
-  $views[$view->name] = $view;
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = 'field_oc_staff_type';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'title' => 'title',
+    'field_oc_position' => 'field_oc_position',
+    'field_oc_email' => 'field_oc_email',
+    'field_oc_phone' => 'field_oc_phone',
+  );
+  $handler->display->display_options['row_options']['hide_empty'] = 0;
+  $handler->display->display_options['row_options']['default_field_elements'] = 1;
+  /* Field: Content: Staff Type */
+  $handler->display->display_options['fields']['field_oc_staff_type']['id'] = 'field_oc_staff_type';
+  $handler->display->display_options['fields']['field_oc_staff_type']['table'] = 'field_data_field_oc_staff_type';
+  $handler->display->display_options['fields']['field_oc_staff_type']['field'] = 'field_oc_staff_type';
+  $handler->display->display_options['fields']['field_oc_staff_type']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_staff_type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['text'] = '<a name="staff-group-[field_oc_staff_type-tid]"></a>[field_oc_staff_type]';
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_staff_type']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_staff_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_staff_type']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_staff_type']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_oc_staff_type']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_staff_type']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_staff_type']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_oc_staff_type']['field_api_classes'] = 0;
+  /* Field: Content: Image */
+  $handler->display->display_options['fields']['field_oc_image']['id'] = 'field_oc_image';
+  $handler->display->display_options['fields']['field_oc_image']['table'] = 'field_data_field_oc_image';
+  $handler->display->display_options['fields']['field_oc_image']['field'] = 'field_oc_image';
+  $handler->display->display_options['fields']['field_oc_image']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_image']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_image']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_image']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_oc_image']['settings'] = array(
+    'image_style' => 'oc_staff_thumb',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_oc_image']['field_api_classes'] = 0;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  /* Field: Content: Position */
+  $handler->display->display_options['fields']['field_oc_position']['id'] = 'field_oc_position';
+  $handler->display->display_options['fields']['field_oc_position']['table'] = 'field_data_field_oc_position';
+  $handler->display->display_options['fields']['field_oc_position']['field'] = 'field_oc_position';
+  $handler->display->display_options['fields']['field_oc_position']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_position']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['strip_tags'] = 1;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_position']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_position']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_position']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_oc_position']['field_api_classes'] = 0;
+  /* Field: Content: Email */
+  $handler->display->display_options['fields']['field_oc_email']['id'] = 'field_oc_email';
+  $handler->display->display_options['fields']['field_oc_email']['table'] = 'field_data_field_oc_email';
+  $handler->display->display_options['fields']['field_oc_email']['field'] = 'field_oc_email';
+  $handler->display->display_options['fields']['field_oc_email']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_email']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['text'] = 'email';
+  $handler->display->display_options['fields']['field_oc_email']['alter']['make_link'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['path'] = 'mailto:[field_oc_email]';
+  $handler->display->display_options['fields']['field_oc_email']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_email']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['field_api_classes'] = 0;
+  /* Field: Content: Phone */
+  $handler->display->display_options['fields']['field_oc_phone']['id'] = 'field_oc_phone';
+  $handler->display->display_options['fields']['field_oc_phone']['table'] = 'field_data_field_oc_phone';
+  $handler->display->display_options['fields']['field_oc_phone']['field'] = 'field_oc_phone';
+  $handler->display->display_options['fields']['field_oc_phone']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['strip_tags'] = 1;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_phone']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_phone']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_phone']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_oc_phone']['settings'] = array(
+    'trim_length' => '600',
+  );
+  $handler->display->display_options['fields']['field_oc_phone']['field_api_classes'] = 0;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['body']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['body']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['body']['type'] = 'text_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '200',
+  );
+  $handler->display->display_options['fields']['body']['field_api_classes'] = 0;
+  /* Sort criterion: Content: Staff Type (field_oc_staff_type) */
+  $handler->display->display_options['sorts']['field_oc_staff_type_tid']['id'] = 'field_oc_staff_type_tid';
+  $handler->display->display_options['sorts']['field_oc_staff_type_tid']['table'] = 'field_data_field_oc_staff_type';
+  $handler->display->display_options['sorts']['field_oc_staff_type_tid']['field'] = 'field_oc_staff_type_tid';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 0;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'openchurch_staff' => 'openchurch_staff',
+  );
 
-  // Exported view: openchurch_staff_jump_list
+  /* Display: Staff Teaser List Block */
+  $handler = $view->new_display('block', 'Staff Teaser List Block', 'block');
+  $export['openchurch_staff'] = $view;
+
   $view = new view;
   $view->name = 'openchurch_staff_jump_list';
-  $view->description = 'Staff title jump list';
-  $view->tag = '';
-  $view->view_php = '';
-  $view->base_table = 'term_data';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'taxonomy_term_data';
+  $view->human_name = 'Openchurch Staff Jump List';
+  $view->core = 7;
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('relationships', array(
-    'vid' => array(
-      'label' => 'node',
-      'required' => 1,
-      'id' => 'vid',
-      'table' => 'term_node',
-      'field' => 'vid',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('fields', array(
-    'tid' => array(
-      'label' => 'Term ID',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'set_precision' => FALSE,
-      'precision' => 0,
-      'decimal' => '.',
-      'separator' => ',',
-      'prefix' => '',
-      'suffix' => '',
-      'exclude' => 1,
-      'id' => 'tid',
-      'table' => 'term_data',
-      'field' => 'tid',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-    'name' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 1,
-        'text' => '<a href="#staff-group-[tid]">[name] &raquo;</a>',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_taxonomy' => 0,
-      'exclude' => 0,
-      'id' => 'name',
-      'table' => 'term_data',
-      'field' => 'name',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'vid' => array(
-      'operator' => 'in',
-      'value' => array(
-        $vid => $vid,
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'vid',
-      'table' => 'term_data',
-      'field' => 'vid',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('title', 'Jump To Ministry');
-  $handler->override_option('items_per_page', 0);
-  $handler->override_option('distinct', 1);
-  $handler->override_option('style_plugin', 'list');
-  $handler->override_option('style_options', array(
-    'grouping' => '',
-    'type' => 'ul',
-  ));
-  $handler = $view->new_display('block', 'Staff Jump List Block', 'block_1');
-  $handler->override_option('block_description', '');
-  $handler->override_option('block_caching', -1);
 
-  $views[$view->name] = $view;
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Jump to Ministry';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Taxonomy term: Content using Staff Type */
+  $handler->display->display_options['relationships']['reverse_field_oc_staff_type_node']['id'] = 'reverse_field_oc_staff_type_node';
+  $handler->display->display_options['relationships']['reverse_field_oc_staff_type_node']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['relationships']['reverse_field_oc_staff_type_node']['field'] = 'reverse_field_oc_staff_type_node';
+  $handler->display->display_options['relationships']['reverse_field_oc_staff_type_node']['label'] = 'Content with Staff Type';
+  $handler->display->display_options['relationships']['reverse_field_oc_staff_type_node']['required'] = 1;
+  /* Field: Taxonomy term: Term ID */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['label'] = '';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['tid']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['tid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['tid']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['tid']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['tid']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['tid']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['tid']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['tid']['separator'] = '';
+  $handler->display->display_options['fields']['tid']['format_plural'] = 0;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['name']['alter']['text'] = '<a href="#staff-group-[tid]">[name] &raquo;</a>';
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['name']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['name']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['name']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = 0;
+  /* Sort criterion: Taxonomy term: Name */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
+  /* Filter criterion: Taxonomy term: Vocabulary */
+  $handler->display->display_options['filters']['vid']['id'] = 'vid';
+  $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['vid']['field'] = 'vid';
+  $handler->display->display_options['filters']['vid']['value'] = array(
+    3 => '3',
+  );
 
-  return $views;
+  /* Display: Staff Jump List Block */
+  $handler = $view->new_display('block', 'Staff Jump List Block', 'block');
+  $export['openchurch_staff_jump_list'] = $view;
+
+  return $export;
 }
