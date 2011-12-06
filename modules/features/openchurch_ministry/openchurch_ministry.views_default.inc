@@ -1,571 +1,357 @@
 <?php
+/**
+ * @file
+ * openchurch_ministry.views_default.inc
+ */
 
 /**
- * Implementation of hook_views_default_views().
+ * Implements hook_views_default_views().
  */
 function openchurch_ministry_views_default_views() {
-  $views = array();
+  $export = array();
 
-  // Exported view: openchurch_ministries
   $view = new view;
   $view->name = 'openchurch_ministries';
-  $view->description = 'Ministry list with information, thumb and link';
-  $view->tag = '';
-  $view->view_php = '';
+  $view->description = '';
+  $view->tag = 'default';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->human_name = 'Openchurch Ministries';
+  $view->core = 7;
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('fields', array(
-    'field_oc_thumb_fid' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 1,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => 'oc_thumb_linked',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_oc_thumb_fid',
-      'table' => 'node_data_field_oc_thumb',
-      'field' => 'field_oc_thumb_fid',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-    'title' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-    'teaser' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 1,
-        'max_length' => '200',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 1,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'exclude' => 0,
-      'id' => 'teaser',
-      'table' => 'node_revisions',
-      'field' => 'teaser',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-    'nid' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 1,
-        'text' => 'visit page &raquo;',
-        'make_link' => 1,
-        'path' => 'node/[nid]',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'exclude' => 0,
-      'id' => 'nid',
-      'table' => 'node',
-      'field' => 'nid',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('sorts', array(
-    'sticky' => array(
-      'order' => 'DESC',
-      'id' => 'sticky',
-      'table' => 'node',
-      'field' => 'sticky',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-    'title' => array(
-      'order' => 'ASC',
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'status' => array(
-      'operator' => '=',
-      'value' => '1',
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-    'type' => array(
-      'operator' => 'in',
-      'value' => array(
-        'openchurch_ministry' => 'openchurch_ministry',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'type',
-      'table' => 'node',
-      'field' => 'type',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('use_ajax', TRUE);
-  $handler->override_option('use_pager', '1');
-  $handler = $view->new_display('block', 'Ministry List Block', 'block_1');
-  $handler->override_option('block_description', '');
-  $handler->override_option('block_caching', -1);
-  $handler = $view->new_display('block', 'Ministry Link List Block', 'block_2');
-  $handler->override_option('fields', array(
-    'title' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('items_per_page', 0);
-  $handler->override_option('block_description', '');
-  $handler->override_option('block_caching', -1);
 
-  $views[$view->name] = $view;
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Thumb */
+  $handler->display->display_options['fields']['field_oc_thumb']['id'] = 'field_oc_thumb';
+  $handler->display->display_options['fields']['field_oc_thumb']['table'] = 'field_data_field_oc_thumb';
+  $handler->display->display_options['fields']['field_oc_thumb']['field'] = 'field_oc_thumb';
+  $handler->display->display_options['fields']['field_oc_thumb']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_thumb']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_thumb']['hide_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_thumb']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_thumb']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_oc_thumb']['settings'] = array(
+    'image_style' => 'oc_thumb',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_oc_thumb']['field_api_classes'] = 0;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['body']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['body']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['body']['type'] = 'text_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '200',
+  );
+  $handler->display->display_options['fields']['body']['field_api_classes'] = 0;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['nid']['alter']['text'] = 'visit page &raquo;';
+  $handler->display->display_options['fields']['nid']['alter']['make_link'] = 1;
+  $handler->display->display_options['fields']['nid']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['nid']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['nid']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['nid']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['nid']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['nid']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['nid']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['nid']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['nid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['nid']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['nid']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nid']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['nid']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['nid']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['nid']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['nid']['link_to_node'] = 0;
+  /* Sort criterion: Content: Sticky */
+  $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['table'] = 'node';
+  $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
+  $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 0;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'openchurch_ministry' => 'openchurch_ministry',
+  );
 
-  // Exported view: openchurch_ministry_contacts
+  /* Display: Ministry List Block */
+  $handler = $view->new_display('block', 'Ministry List Block', 'block');
+
+  /* Display: Ministry Link List Block */
+  $handler = $view->new_display('block', 'Ministry Link List Block', 'block_1');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  $export['openchurch_ministries'] = $view;
+
   $view = new view;
   $view->name = 'openchurch_ministry_contacts';
-  $view->description = 'Ministry list of contacts with brief contact information';
-  $view->tag = '';
-  $view->view_php = '';
+  $view->description = '';
+  $view->tag = 'default';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->human_name = 'Openchurch Ministry Contacts';
+  $view->core = 7;
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('relationships', array(
-    'field_oc_ministry_nid' => array(
-      'label' => 'Ministry',
-      'required' => 1,
-      'delta' => -1,
-      'id' => 'field_oc_ministry_nid',
-      'table' => 'node_data_field_oc_ministry',
-      'field' => 'field_oc_ministry_nid',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('fields', array(
-    'title' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Override',
-      ),
-    ),
-    'field_oc_position_value' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 1,
-      ),
-      'empty' => '',
-      'hide_empty' => 1,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => 'plain',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_oc_position_value',
-      'table' => 'node_data_field_oc_position',
-      'field' => 'field_oc_position_value',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-    'field_oc_email_email' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 1,
-        'text' => '<span>[field_oc_email_email]</span>',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 1,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => 'default',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_oc_email_email',
-      'table' => 'node_data_field_oc_email',
-      'field' => 'field_oc_email_email',
-      'relationship' => 'none',
-    ),
-    'field_oc_phone_value' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'label_type' => 'none',
-      'format' => 'plain',
-      'multiple' => array(
-        'group' => TRUE,
-        'multiple_number' => '',
-        'multiple_from' => '',
-        'multiple_reversed' => FALSE,
-      ),
-      'exclude' => 0,
-      'id' => 'field_oc_phone_value',
-      'table' => 'node_data_field_oc_phone',
-      'field' => 'field_oc_phone_value',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('sorts', array(
-    'title' => array(
-      'order' => 'ASC',
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('arguments', array(
-    'nid' => array(
-      'default_action' => 'default',
-      'style_plugin' => 'default_summary',
-      'style_options' => array(),
-      'wildcard' => 'all',
-      'wildcard_substitution' => 'All',
-      'title' => '%1 Contacts',
-      'breadcrumb' => '',
-      'default_argument_type' => 'node',
-      'default_argument' => '',
-      'validate_type' => 'node',
-      'validate_fail' => 'not found',
-      'break_phrase' => 0,
-      'not' => 0,
-      'id' => 'nid',
-      'table' => 'node',
-      'field' => 'nid',
-      'validate_user_argument_type' => 'uid',
-      'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
-        '4' => 0,
-      ),
-      'relationship' => 'field_oc_ministry_nid',
-      'default_options_div_prefix' => '',
-      'default_argument_fixed' => '',
-      'default_argument_user' => 0,
-      'default_argument_php' => '',
-      'validate_argument_node_type' => array(
-        'openchurch_ministry' => 'openchurch_ministry',
-        'webform' => 0,
-        'openchurch_block' => 0,
-        'openchurch_bulletin' => 0,
-        'openchurch_event' => 0,
-        'openchurch_gallery' => 0,
-        'openchurch_image' => 0,
-        'openchurch_podcast' => 0,
-        'openchurch_staff' => 0,
-        'panel' => 0,
-        'page' => 0,
-      ),
-      'validate_argument_node_access' => 1,
-      'validate_argument_nid_type' => 'nid',
-      'validate_argument_vocabulary' => array(
-        '2' => 0,
-      ),
-      'validate_argument_type' => 'tid',
-      'validate_argument_transform' => 0,
-      'validate_user_restrict_roles' => 0,
-      'validate_argument_php' => '',
-    ),
-  ));
-  $handler->override_option('filters', array(
-    'status' => array(
-      'operator' => '=',
-      'value' => '1',
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'status',
-      'table' => 'node',
-      'field' => 'status',
-      'relationship' => 'none',
-    ),
-    'type' => array(
-      'operator' => 'in',
-      'value' => array(
-        'openchurch_staff' => 'openchurch_staff',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'type',
-      'table' => 'node',
-      'field' => 'type',
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('cache', array(
-    'type' => 'none',
-  ));
-  $handler->override_option('header_format', '1');
-  $handler->override_option('header_empty', 0);
-  $handler->override_option('footer_format', '1');
-  $handler->override_option('footer_empty', 0);
-  $handler->override_option('empty_format', '1');
-  $handler->override_option('items_per_page', 0);
-  $handler->override_option('row_options', array(
-    'inline' => array(
-      'field_oc_position_value' => 'field_oc_position_value',
-      'title' => 'title',
-      'field_oc_email_email' => 'field_oc_email_email',
-      'field_oc_phone_value' => 'field_oc_phone_value',
-    ),
-    'separator' => ' | ',
-    'hide_empty' => 0,
-  ));
-  $handler = $view->new_display('block', 'Ministry Contacts Block', 'block_1');
-  $handler->override_option('block_description', '');
-  $handler->override_option('block_caching', -1);
 
-  $views[$view->name] = $view;
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Openchurch Ministry Contacts';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'title' => 'title',
+    'field_oc_position' => 'field_oc_position',
+    'field_oc_email' => 'field_oc_email',
+    'field_oc_phone' => 'field_oc_phone',
+  );
+  $handler->display->display_options['row_options']['separator'] = ' | ';
+  $handler->display->display_options['row_options']['hide_empty'] = 0;
+  $handler->display->display_options['row_options']['default_field_elements'] = 1;
+  /* Relationship: Content: Ministry (field_oc_ministry) */
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['id'] = 'field_oc_ministry_nid';
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['table'] = 'field_data_field_oc_ministry';
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['field'] = 'field_oc_ministry_nid';
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['label'] = 'Ministry';
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['required'] = 1;
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['delta'] = '-1';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  /* Field: Content: Position */
+  $handler->display->display_options['fields']['field_oc_position']['id'] = 'field_oc_position';
+  $handler->display->display_options['fields']['field_oc_position']['table'] = 'field_data_field_oc_position';
+  $handler->display->display_options['fields']['field_oc_position']['field'] = 'field_oc_position';
+  $handler->display->display_options['fields']['field_oc_position']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_position']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['strip_tags'] = 1;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_position']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_position']['hide_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_position']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_position']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_position']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_oc_position']['field_api_classes'] = 0;
+  /* Field: Content: Email */
+  $handler->display->display_options['fields']['field_oc_email']['id'] = 'field_oc_email';
+  $handler->display->display_options['fields']['field_oc_email']['table'] = 'field_data_field_oc_email';
+  $handler->display->display_options['fields']['field_oc_email']['field'] = 'field_oc_email';
+  $handler->display->display_options['fields']['field_oc_email']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['hide_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_email']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_email']['field_api_classes'] = 0;
+  /* Field: Content: Phone */
+  $handler->display->display_options['fields']['field_oc_phone']['id'] = 'field_oc_phone';
+  $handler->display->display_options['fields']['field_oc_phone']['table'] = 'field_data_field_oc_phone';
+  $handler->display->display_options['fields']['field_oc_phone']['field'] = 'field_oc_phone';
+  $handler->display->display_options['fields']['field_oc_phone']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_phone']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_phone']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_phone']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_phone']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_oc_phone']['field_api_classes'] = 0;
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_oc_ministry_nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['title_enable'] = 1;
+  $handler->display->display_options['arguments']['nid']['title'] = '%1 Contacts';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = 1;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'openchurch_ministry' => 'openchurch_ministry',
+  );
+  $handler->display->display_options['arguments']['nid']['validate_options']['access'] = 0;
+  $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['nid']['not'] = 0;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 0;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'openchurch_staff' => 'openchurch_staff',
+  );
 
-  return $views;
+  /* Display: Ministry Contacts Block */
+  $handler = $view->new_display('block', 'Ministry Contacts Block', 'block');
+  $export['openchurch_ministry_contacts'] = $view;
+
+  return $export;
 }
