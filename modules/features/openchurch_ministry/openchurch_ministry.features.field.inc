@@ -138,7 +138,7 @@ function openchurch_ministry_field_default_fields() {
       'settings' => array(
         'description_field' => 0,
         'file_directory' => '',
-        'file_extensions' => 'txt',
+        'file_extensions' => 'pdf doc docx txt',
         'max_filesize' => '',
         'user_register_form' => FALSE,
       ),
@@ -149,9 +149,9 @@ function openchurch_ministry_field_default_fields() {
           'filefield_sources' => array(
             'filefield_sources' => array(
               'attach' => 0,
-              'imce' => 0,
-              'reference' => 0,
-              'remote' => 0,
+              'imce' => 'imce',
+              'reference' => 'reference',
+              'remote' => 'remote',
             ),
             'source_attach' => array(
               'absolute' => '0',
@@ -242,9 +242,9 @@ function openchurch_ministry_field_default_fields() {
           'filefield_sources' => array(
             'filefield_sources' => array(
               'attach' => 0,
-              'imce' => 0,
-              'reference' => 0,
-              'remote' => 0,
+              'imce' => 'imce',
+              'reference' => 'reference',
+              'remote' => 'remote',
             ),
             'source_attach' => array(
               'absolute' => '0',
@@ -336,9 +336,9 @@ function openchurch_ministry_field_default_fields() {
           'filefield_sources' => array(
             'filefield_sources' => array(
               'attach' => 0,
-              'imce' => 0,
-              'reference' => 0,
-              'remote' => 0,
+              'imce' => 'imce',
+              'reference' => 'reference',
+              'remote' => 'remote',
             ),
             'source_attach' => array(
               'absolute' => '0',

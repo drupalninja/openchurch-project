@@ -209,9 +209,9 @@ function openchurch_staff_field_default_fields() {
           'filefield_sources' => array(
             'filefield_sources' => array(
               'attach' => 0,
-              'imce' => 0,
-              'reference' => 0,
-              'remote' => 0,
+              'imce' => 'imce',
+              'reference' => 'reference',
+              'remote' => 'remote',
             ),
             'source_attach' => array(
               'absolute' => '0',
@@ -305,7 +305,7 @@ function openchurch_staff_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'node_reference',
+        'module' => 'options',
         'settings' => array(
           'autocomplete_match' => 'contains',
           'autocomplete_path' => 'node_reference/autocomplete',
@@ -315,7 +315,7 @@ function openchurch_staff_field_default_fields() {
           'references_dialog_search_view' => '',
           'size' => '60',
         ),
-        'type' => 'node_reference_autocomplete',
+        'type' => 'options_select',
         'weight' => '4',
       ),
     ),

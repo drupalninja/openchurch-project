@@ -233,9 +233,9 @@ function openchurch_bulletin_field_default_fields() {
           'filefield_sources' => array(
             'filefield_sources' => array(
               'attach' => 0,
-              'imce' => 0,
-              'reference' => 0,
-              'remote' => 0,
+              'imce' => 'imce',
+              'reference' => 'reference',
+              'remote' => 'remote',
             ),
             'source_attach' => array(
               'absolute' => '0',
