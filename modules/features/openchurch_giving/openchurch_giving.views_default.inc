@@ -22,6 +22,8 @@ function openchurch_giving_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Faithful Giving';
+  $handler->display->display_options['css_class'] = 'openchurch-giving-list';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -31,6 +33,20 @@ function openchurch_giving_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<p>At OpenChurch we realize that many of you handle all your family finances via the internet. We are glad to announce we now have a way for you to manage your giving through our online giving platform.</p>
+
+<p>By giving online you can give one time donations to specific causes or ministries, setup recurring monthly donations, and view a detailed history at any point you desire. All of your information is held strictly confidential. Even though you will have the opportunity to log in and print transaction histories at any point you prefer, our system is linked with our accounting so you will still get an end of year letter with your giving history.</p>
+
+<h3 class="title">Special Needs Giving</h3>
+
+<p>Occasionally, opportunities arise for our body to give to individual causes that will help our community, missions abroad, and many other causes. In addition to our standard online giving system, you may use this site to give specifically to any of the following causes:</p>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = 0;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_oc_image']['id'] = 'field_oc_image';
   $handler->display->display_options['fields']['field_oc_image']['table'] = 'field_data_field_oc_image';
@@ -155,8 +171,9 @@ function openchurch_giving_views_default_views() {
     'openchurch_charity' => 'openchurch_charity',
   );
 
-  /* Display: Giving Block */
-  $handler = $view->new_display('block', 'Giving Block', 'block');
+  /* Display: Giving Page */
+  $handler = $view->new_display('page', 'Giving Page', 'page_1');
+  $handler->display->display_options['path'] = 'give';
   $export['openchurch_giving'] = $view;
 
   return $export;

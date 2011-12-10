@@ -22,6 +22,8 @@ function openchurch_bulletin_views_default_views() {
 
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->display->display_options['title'] = 'Weekly Bulletins';
+  $handler->display->display_options['css_class'] = 'openchurch-bulletin-list';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -37,18 +39,22 @@ function openchurch_bulletin_views_default_views() {
   $handler->display->display_options['style_options']['grouping'] = 'phpcode';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
-    'field_oc_date_value' => 'field_oc_date_value',
-    'field_bulletin_file_fid' => 'field_bulletin_file_fid',
+    'field_oc_bulletin_date' => 'field_oc_bulletin_date',
+    'field_oc_bulletin_file' => 'field_oc_bulletin_file',
   );
   $handler->display->display_options['row_options']['separator'] = ' ';
   $handler->display->display_options['row_options']['hide_empty'] = 0;
+  $handler->display->display_options['row_options']['default_field_elements'] = 1;
   /* Header: Global: Text area */
-  $handler->display->display_options['header']['text']['id'] = 'area';
+  $handler->display->display_options['header']['text']['id'] = 'text';
   $handler->display->display_options['header']['text']['table'] = 'views';
   $handler->display->display_options['header']['text']['field'] = 'area';
   $handler->display->display_options['header']['text']['empty'] = FALSE;
-  $handler->display->display_options['header']['text']['content'] = '<h2 class="block-title">Bulletin Archives</h2>';
-  $handler->display->display_options['header']['text']['format'] = '3';
+  $handler->display->display_options['header']['text']['content'] = '<p>OpenChurch creates weekly bulletins to keep everyone informed about the inner workings of our church. Here you will find an archive of bulletins as a resource if you need it. If you would like a bulletin not found here please contact the church office.</p>
+
+<h3 class="title">Bulletin Archives</h3>';
+  $handler->display->display_options['header']['text']['format'] = 'full_html';
+  $handler->display->display_options['header']['text']['tokenize'] = 0;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['text']['id'] = 'area';
   $handler->display->display_options['empty']['text']['table'] = 'views';
@@ -60,6 +66,33 @@ function openchurch_bulletin_views_default_views() {
   $handler->display->display_options['fields']['field_oc_bulletin_date']['id'] = 'field_oc_bulletin_date';
   $handler->display->display_options['fields']['field_oc_bulletin_date']['table'] = 'field_data_field_oc_bulletin_date';
   $handler->display->display_options['fields']['field_oc_bulletin_date']['field'] = 'field_oc_bulletin_date';
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_repeat_rule' => 'show',
+  );
+  $handler->display->display_options['fields']['field_oc_bulletin_date']['field_api_classes'] = 0;
   /* Field: Content: Bulletin */
   $handler->display->display_options['fields']['field_oc_bulletin_file']['id'] = 'field_oc_bulletin_file';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['table'] = 'field_data_field_oc_bulletin_file';
@@ -108,8 +141,9 @@ function openchurch_bulletin_views_default_views() {
   );
   $handler->display->display_options['filters']['type']['expose']['operator'] = FALSE;
 
-  /* Display: Bulletin Archive Block */
-  $handler = $view->new_display('block', 'Bulletin Archive Block', 'block_1');
+  /* Display: Bulletin Archive Page */
+  $handler = $view->new_display('page', 'Bulletin Archive Page', 'page_1');
+  $handler->display->display_options['path'] = 'media/bulletins';
   $export['openchurch_bulletins'] = $view;
 
   $view = new view;

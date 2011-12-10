@@ -82,7 +82,7 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
     'openchurch_event' => 'openchurch_event',
   );
-  $handler->display->display_options['arguments']['nid']['validate_options']['access'] = 0;
+  $handler->display->display_options['arguments']['nid']['validate_options']['access'] = '1';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['nid']['not'] = 0;
   /* Filter criterion: Content: Published */
@@ -123,6 +123,7 @@ function openchurch_events_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Upcoming Events';
+  $handler->display->display_options['css_class'] = 'openchurch-events-list';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -132,8 +133,23 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_oc_ministry' => 'field_oc_ministry',
+    'field_oc_dates_1' => 'field_oc_dates_1',
+    'body' => 'body',
+  );
   $handler->display->display_options['row_options']['hide_empty'] = 1;
   $handler->display->display_options['row_options']['default_field_elements'] = 1;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<p>Welcome to the OpenChurch event page. Please notice two sections.  Below you will see events listed that are considered featured events.  Some will have online registrations when required and others may just be listed if no registration is required.  If you would like to look at the broader church calendar please click on the icon to the right.  Please enjoy all that OpenChurch has to offer!</p>
+
+<h3 class="title">Upcoming Events</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = 0;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
@@ -147,6 +163,7 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['fields']['field_oc_dates']['table'] = 'field_data_field_oc_dates';
   $handler->display->display_options['fields']['field_oc_dates']['field'] = 'field_oc_dates';
   $handler->display->display_options['fields']['field_oc_dates']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_dates']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_oc_dates']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_oc_dates']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_oc_dates']['alter']['absolute'] = 0;
@@ -173,6 +190,35 @@ function openchurch_events_views_default_views() {
     'show_repeat_rule' => 'show',
   );
   $handler->display->display_options['fields']['field_oc_dates']['field_api_classes'] = 0;
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_1']['id'] = 'php_1';
+  $handler->display->display_options['fields']['php_1']['table'] = 'views';
+  $handler->display->display_options['fields']['php_1']['field'] = 'php';
+  $handler->display->display_options['fields']['php_1']['label'] = '';
+  $handler->display->display_options['fields']['php_1']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['php_1']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['php_1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['php_1']['element_class'] = 'date';
+  $handler->display->display_options['fields']['php_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php_1']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['php_1']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['php_1']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['php_1']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_1']['php_output'] = '<?php
+print date(\'m.d.y\',strtotime($data->field_data_field_oc_date_field_oc_date_value));
+?>';
+  $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_1']['php_click_sortable'] = '';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -193,7 +239,6 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['fields']['field_oc_ministry']['id'] = 'field_oc_ministry';
   $handler->display->display_options['fields']['field_oc_ministry']['table'] = 'field_data_field_oc_ministry';
   $handler->display->display_options['fields']['field_oc_ministry']['field'] = 'field_oc_ministry';
-  $handler->display->display_options['fields']['field_oc_ministry']['label'] = '';
   $handler->display->display_options['fields']['field_oc_ministry']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_oc_ministry']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_oc_ministry']['alter']['absolute'] = 0;
@@ -206,7 +251,7 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['fields']['field_oc_ministry']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['field_oc_ministry']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_oc_ministry']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_oc_ministry']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_ministry']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_oc_ministry']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_oc_ministry']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_oc_ministry']['empty_zero'] = 0;
@@ -259,7 +304,7 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['fields']['field_oc_location']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['field_oc_location']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_oc_location']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_oc_location']['element_label_colon'] = 0;
+  $handler->display->display_options['fields']['field_oc_location']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_oc_location']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_oc_location']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_oc_location']['empty_zero'] = 0;
@@ -289,7 +334,7 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 1;
   $handler->display->display_options['fields']['body']['alter']['trim'] = 1;
   $handler->display->display_options['fields']['body']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['body']['element_label_colon'] = 0;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['body']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['body']['hide_empty'] = 0;
   $handler->display->display_options['fields']['body']['empty_zero'] = 0;
@@ -329,6 +374,7 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['fields']['field_oc_url']['table'] = 'field_data_field_oc_url';
   $handler->display->display_options['fields']['field_oc_url']['field'] = 'field_oc_url';
   $handler->display->display_options['fields']['field_oc_url']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_url']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_oc_url']['alter']['alter_text'] = 1;
   $handler->display->display_options['fields']['field_oc_url']['alter']['text'] = 'register online!';
   $handler->display->display_options['fields']['field_oc_url']['alter']['make_link'] = 1;
@@ -355,6 +401,7 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = '';
   $handler->display->display_options['fields']['php']['alter']['alter_text'] = 1;
   $handler->display->display_options['fields']['php']['alter']['text'] = '<span class="more-details">[nid]</span>
 <span class="register-online">[field_oc_url]</span>';
@@ -369,11 +416,11 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['fields']['php']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['php']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['php']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['php']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['php']['hide_empty'] = 0;
   $handler->display->display_options['fields']['php']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['php']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php']['hide_alter_empty'] = 0;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
@@ -412,8 +459,9 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['filters']['field_oc_dates_value']['operator'] = '>=';
   $handler->display->display_options['filters']['field_oc_dates_value']['default_date'] = 'now';
 
-  /* Display: Upcoming Events Block */
-  $handler = $view->new_display('block', 'Upcoming Events Block', 'block');
+  /* Display: Upcoming Events Page */
+  $handler = $view->new_display('page', 'Upcoming Events Page', 'page_1');
+  $handler->display->display_options['path'] = 'events';
   $export['openchurch_events'] = $view;
 
   $view = new view;
@@ -438,14 +486,6 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* No results behavior: Global: PHP */
-  $handler->display->display_options['empty']['php']['id'] = 'php';
-  $handler->display->display_options['empty']['php']['table'] = 'views';
-  $handler->display->display_options['empty']['php']['field'] = 'php';
-  $handler->display->display_options['empty']['php']['empty'] = FALSE;
-  $handler->display->display_options['empty']['php']['php_output'] = '<?php
-return l(\'full calendar\', \'events/calendar\');
-?>';
   /* Relationship: Content: Ministry (field_oc_ministry) */
   $handler->display->display_options['relationships']['field_oc_ministry_nid']['id'] = 'field_oc_ministry_nid';
   $handler->display->display_options['relationships']['field_oc_ministry_nid']['table'] = 'field_data_field_oc_ministry';
@@ -476,7 +516,7 @@ return l(\'full calendar\', \'events/calendar\');
   $handler->display->display_options['fields']['field_oc_dates']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_oc_dates']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_oc_dates']['settings'] = array(
-    'format_type' => 'long',
+    'format_type' => 'short',
     'fromto' => 'value',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -556,6 +596,9 @@ return l(\'full calendar\', \'events/calendar\');
 
   /* Display: Upcoming Events By Ministry Block */
   $handler = $view->new_display('block', 'Upcoming Events By Ministry Block', 'block');
+
+  /* Display: Upcoming Events By Ministry Block */
+  $handler = $view->new_display('block', 'Upcoming Events By Ministry Block', 'block_1');
   $export['openchurch_upcoming_events'] = $view;
 
   return $export;

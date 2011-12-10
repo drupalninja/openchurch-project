@@ -145,7 +145,8 @@ function openchurch_podcast_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Recent Sermons';
+  $handler->display->display_options['title'] = 'Sermon Podcasts Downloads';
+  $handler->display->display_options['css_class'] = 'openchurch-podcasts';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -155,12 +156,24 @@ function openchurch_podcast_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '25';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'body' => 'body',
+  );
+  $handler->display->display_options['row_options']['hide_empty'] = 0;
+  $handler->display->display_options['row_options']['default_field_elements'] = 1;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = FALSE;
   /* Field: Content: Date */
   $handler->display->display_options['fields']['field_oc_date']['id'] = 'field_oc_date';
   $handler->display->display_options['fields']['field_oc_date']['table'] = 'field_data_field_oc_date';
   $handler->display->display_options['fields']['field_oc_date']['field'] = 'field_oc_date';
   $handler->display->display_options['fields']['field_oc_date']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_date']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_oc_date']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_oc_date']['alter']['text'] = '[field_oc_date-value]';
   $handler->display->display_options['fields']['field_oc_date']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_oc_date']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_oc_date']['alter']['external'] = 0;
@@ -186,6 +199,35 @@ function openchurch_podcast_views_default_views() {
     'show_repeat_rule' => 'show',
   );
   $handler->display->display_options['fields']['field_oc_date']['field_api_classes'] = 0;
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['php']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['php']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['php']['element_class'] = 'date';
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['php']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['php']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['php']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_output'] = '<?php
+print date(\'m.d.y\',strtotime($data->field_data_field_oc_date_field_oc_date_value));
+?>';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -243,7 +285,7 @@ function openchurch_podcast_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 1;
   $handler->display->display_options['fields']['body']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['body']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['body']['element_label_colon'] = 0;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['body']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['body']['hide_empty'] = 0;
   $handler->display->display_options['fields']['body']['empty_zero'] = 0;
@@ -299,19 +341,30 @@ function openchurch_podcast_views_default_views() {
     'openchurch_podcast' => 'openchurch_podcast',
   );
 
-  /* Display: Podcasts and Downloads Block */
-  $handler = $view->new_display('block', 'Podcasts and Downloads Block', 'block');
-
   /* Display: Podcasts and Downloads Feed */
   $handler = $view->new_display('feed', 'Podcasts and Downloads Feed', 'feed_1');
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
-  $handler->display->display_options['path'] = 'media/podcasts';
+  $handler->display->display_options['path'] = 'media/podcasts/feed';
   $handler->display->display_options['displays'] = array(
     'block' => 'block',
     'default' => 0,
   );
+
+  /* Display: Podcasts and Downloads Page */
+  $handler = $view->new_display('page', 'Podcasts and Downloads Page', 'page_1');
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<p>Enjoy our weekly sermons below.  You will see that you may press play directly on this page or download them to your own player.  Please be aware the files may be large.</p>
+<h3 class="title">Recent Sermons</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = 0;
+  $handler->display->display_options['path'] = 'media/podcasts';
   $export['openchurch_podcasts'] = $view;
 
   return $export;

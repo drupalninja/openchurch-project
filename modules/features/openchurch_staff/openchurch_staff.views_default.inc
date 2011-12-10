@@ -22,6 +22,8 @@ function openchurch_staff_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Staff Directory';
+  $handler->display->display_options['css_class'] = 'openchurch-staff-list';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -31,6 +33,7 @@ function openchurch_staff_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = 'field_oc_staff_type';
+  $handler->display->display_options['style_options']['row_class'] = 'staff-type';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
     'title' => 'title',
@@ -40,6 +43,23 @@ function openchurch_staff_views_default_views() {
   );
   $handler->display->display_options['row_options']['hide_empty'] = 0;
   $handler->display->display_options['row_options']['default_field_elements'] = 1;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<h3 class="title">About Our Staff</h3>
+<p>OpenChurch\'s full time and part time staff and ministers are dedicated to serving the needs of the Church and would be happy to talk to you and help you in any way we can! Feel free to call the church and speak with our receptionist, or you may contact a staff member directly below.</p>
+<p><strong>Church Office Hours</strong>: 8am - 5pm Mon-Fri<br><strong>Phone</strong>: 615.375.0601<br><strong>Fax</strong>: 615.373.5343</p> 
+
+<h3 class="jump-title title">Jump To Ministry</h3>
+<?php
+//Display Staff jump list
+$block = module_invoke(\'views\', \'block_view\', \'openchurch_staff_jump_list-block\');
+print render($block[\'content\']);
+?>';
+  $handler->display->display_options['header']['area']['format'] = 'php_code';
+  $handler->display->display_options['header']['area']['tokenize'] = 0;
   /* Field: Content: Staff Type */
   $handler->display->display_options['fields']['field_oc_staff_type']['id'] = 'field_oc_staff_type';
   $handler->display->display_options['fields']['field_oc_staff_type']['table'] = 'field_data_field_oc_staff_type';
@@ -232,8 +252,9 @@ function openchurch_staff_views_default_views() {
     'openchurch_staff' => 'openchurch_staff',
   );
 
-  /* Display: Staff Teaser List Block */
-  $handler = $view->new_display('block', 'Staff Teaser List Block', 'block');
+  /* Display: Staff List Page */
+  $handler = $view->new_display('page_with_page_title', 'Staff List Page', 'page_with_page_title_1');
+  $handler->display->display_options['path'] = 'about/staff';
   $export['openchurch_staff'] = $view;
 
   $view = new view;
@@ -249,15 +270,19 @@ function openchurch_staff_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Jump to Ministry';
+  $handler->display->display_options['css_class'] = 'openchurch-jump-list';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = 0;
+  $handler->display->display_options['row_options']['default_field_elements'] = 1;
   /* Relationship: Taxonomy term: Content using Staff Type */
   $handler->display->display_options['relationships']['reverse_field_oc_staff_type_node']['id'] = 'reverse_field_oc_staff_type_node';
   $handler->display->display_options['relationships']['reverse_field_oc_staff_type_node']['table'] = 'taxonomy_term_data';
