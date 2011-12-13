@@ -55,6 +55,8 @@ dependencies[] = defaultcontent
 dependencies[] = email
 dependencies[] = entity
 dependencies[] = features
+dependencies[] = fe_block
+dependencies[] = fe_nodequeue
 dependencies[] = filefield_sources
 dependencies[] = file_entity
 dependencies[] = file_styles
@@ -113,6 +115,6 @@ dependencies[] = openchurch_homepage_rotator
 dependencies[] = openchurch_image
 dependencies[] = openchurch_podcast
 dependencies[] = openchurch_staff
-;dependencies[] = openchurch_defaults
+dependencies[] = openchurch_defaults
 
 files[] = opechurch.profile
