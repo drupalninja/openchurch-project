@@ -222,9 +222,7 @@ function openchurch_defaults_menu_default_menu_links() {
     'router_path' => 'node/%',
     'link_title' => 'Serve',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
+      'attributes' => array(),
     ),
     'module' => 'menu',
     'hidden' => '0',
@@ -240,9 +238,7 @@ function openchurch_defaults_menu_default_menu_links() {
     'router_path' => 'node/%',
     'link_title' => 'Youth Ministry',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
+      'attributes' => array(),
     ),
     'module' => 'menu',
     'hidden' => '0',
@@ -259,9 +255,7 @@ function openchurch_defaults_menu_default_menu_links() {
     'router_path' => 'node/%',
     'link_title' => 'Singles Ministry',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
+      'attributes' => array(),
     ),
     'module' => 'menu',
     'hidden' => '0',
