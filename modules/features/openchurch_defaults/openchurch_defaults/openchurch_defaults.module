@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Openchurch Defaults feature.
- */
-
-include_once('openchurch_defaults.features.inc');

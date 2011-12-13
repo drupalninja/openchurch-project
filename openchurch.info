@@ -85,9 +85,10 @@ dependencies[] = rules_admin
 dependencies[] = strongarm
 dependencies[] = styles
 dependencies[] = styles_ui
-dependencies[] = superfish
+;dependencies[] = superfish
 dependencies[] = token
 dependencies[] = user_reference
+dependencies[] = uuid_features
 dependencies[] = views
 dependencies[] = views_bulk_operations
 dependencies[] = views_php
@@ -102,6 +103,16 @@ dependencies[] = wysiwyg
 
 ;Features
 
-
+dependencies[] = openchurch_ministry
+dependencies[] = openchurch_blog
+dependencies[] = openchurch_bulletin
+dependencies[] = openchurch_events
+dependencies[] = openchurch_gallery
+dependencies[] = openchurch_giving
+dependencies[] = openchurch_homepage_rotator
+dependencies[] = openchurch_image
+dependencies[] = openchurch_podcast
+dependencies[] = openchurch_staff
+;dependencies[] = openchurch_defaults
 
 files[] = opechurch.profile
