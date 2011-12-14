@@ -219,6 +219,13 @@ startxref
       ),
     ),
   ),
+  'field_oc_ministry' => array(
+    'und' => array(
+      0 => array(
+        'machine_name' => 'oc_ministry1',
+      ),
+    ),
+  ),
   'field_oc_location' => array(
     'und' => array(
       0 => array(
@@ -236,13 +243,6 @@ startxref
         'first_name' => NULL,
         'last_name' => NULL,
         'data' => NULL,
-      ),
-    ),
-  ),
-  'field_oc_ministry' => array(
-    'und' => array(
-      0 => array(
-        'machine_name' => 'oc_ministry1',
       ),
     ),
   ),
@@ -457,6 +457,13 @@ startxref
       ),
     ),
   ),
+  'field_oc_ministry' => array(
+    'und' => array(
+      0 => array(
+        'machine_name' => 'oc_ministry1',
+      ),
+    ),
+  ),
   'field_oc_location' => array(
     'und' => array(
       0 => array(
@@ -474,13 +481,6 @@ startxref
         'first_name' => NULL,
         'last_name' => NULL,
         'data' => NULL,
-      ),
-    ),
-  ),
-  'field_oc_ministry' => array(
-    'und' => array(
-      0 => array(
-        'machine_name' => 'oc_ministry1',
       ),
     ),
   ),
