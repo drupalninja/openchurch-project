@@ -1,0 +1,58 @@
+<?php
+
+
+/**
+ * Implementation of hook_install()
+ */
+function openchurch_defaults_install() {
+
+  
+  /**
+   * Create custom blocks for this site
+   */
+  
+  $settings = new stdClass;
+  $settings->info = 'Contact Us Bottom Block';
+  $settings->format = 'full_html';
+  $settings->machine_name = 'oc_block_contact_bottom';
+  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/phone.png" alt="" /><span style="font-size: x-large;"><span style="color: #4a7470;">123-456-7890</span></span><br /><a href="#">info@openchurchsite.com</a><br /><strong>OpenChurch</strong><br />1234 Belt Line Rd<br />Dallas, TX 75000</p>';
+
+  $block = (array) $settings;
+  drupal_write_record('block_custom', $block);
+
+  $settings = new stdClass;
+  $settings->info = 'View Maps and Directions Sidebar Block';
+  $settings->format = 'filtered_html';
+  $settings->machine_name = 'oc_block_directions_sidebar';
+  $settings->body = '<p><a href="/about/map-and-directions">View Maps and Directions</a></p>';
+
+  $block = (array) $settings;
+  drupal_write_record('block_custom', $block);
+  
+  $settings = new stdClass;
+  $settings->info = 'Location & Directions Bottom Block';
+  $settings->format = 'full_html';
+  $settings->machine_name = 'oc_block_location_bottom';
+  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/location-google-map.jpg" alt="" width="150" height="115" />We\'re located on Belt Line Rd., just south of Downtown.</p>';
+
+  $block = (array) $settings;
+  drupal_write_record('block_custom', $block);
+  
+  $settings = new stdClass;
+  $settings->info = 'Weekly Meeting Times Bottom Block';
+  $settings->format = 'full_html';
+  $settings->machine_name = 'oc_block_times_bottom';
+  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/clock.png" alt="" /><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-and-locations"><strong>View More Details</strong></a></p>';
+
+  $block = (array) $settings;
+  drupal_write_record('block_custom', $block);
+  
+  $settings = new stdClass;
+  $settings->info = 'Weekly Meeting Times Sidebar Block';
+  $settings->format = 'full_html';
+  $settings->machine_name = 'oc_block_times_sidebar';
+  $settings->body = '<p><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-and-locations"><strong>View More Details</strong></a></p>';
+
+  $block = (array) $settings;
+  drupal_write_record('block_custom', $block);
+}
