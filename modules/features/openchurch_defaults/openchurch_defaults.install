@@ -5,7 +5,6 @@
  * Implementation of hook_install()
  */
 function openchurch_defaults_install() {
-
   
   /**
    * Create custom blocks for this site

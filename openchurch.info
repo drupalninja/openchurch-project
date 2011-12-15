@@ -61,6 +61,7 @@ dependencies[] = filefield_sources
 dependencies[] = file_entity
 dependencies[] = file_styles
 dependencies[] = fusion_accelerator
+dependencies[] = fusion_apply_ui
 dependencies[] = google_fonts
 dependencies[] = imce
 dependencies[] = imce_wysiwyg
