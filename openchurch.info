@@ -88,7 +88,6 @@ dependencies[] = rules_admin
 dependencies[] = strongarm
 dependencies[] = styles
 dependencies[] = styles_ui
-;dependencies[] = superfish
 dependencies[] = token
 dependencies[] = user_reference
 dependencies[] = views

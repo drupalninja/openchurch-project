@@ -101,4 +101,21 @@ function openchurch_install() {
     ->execute();
   variable_set('admin_theme', 'seven');
   variable_set('node_admin_theme', '1');
+  
+  /**
+   * Set superfish style
+   */
+  variable_set('superfish_style_1', 'none');
+  
+  
+  /**
+   * Create Home link
+   */
+  $item = array(
+    'link_title' => t('Home'),
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+    'weight' => -99,
+  );
+  menu_link_save($item);
 }
