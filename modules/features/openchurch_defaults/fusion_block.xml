@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+
+<!--
+-
+- Sequel Pro XML dump
+- Version 3408
+-
+- http://www.sequelpro.com/
+- http://code.google.com/p/sequel-pro/
+-
+- Host: 127.0.0.1 (MySQL 5.1.44)
+- Database: openchurch_d7
+- Generation Time Time: 2011-12-15 20:37:08 -0600
+-
+-->
+
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="openchurch_d7">
+
+	<table_data name="fusion_apply_skins">
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__5</field>
+		<field name="skin">oc_skins_block_title_background_styles</field>
+		<field name="options">a:1:{i:0;s:20:&quot;block-title-med-blue&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__5</field>
+		<field name="skin">oc_skins_block_background_styles</field>
+		<field name="options">a:1:{i:0;s:24:&quot;block-background-lt-blue&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__5</field>
+		<field name="skin">oc_skins_block_effects</field>
+		<field name="options">a:1:{s:15:&quot;rounded-corners&quot;;s:15:&quot;rounded-corners&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">views__openchurch_latest_podcast-block</field>
+		<field name="skin">oc_skins_block_title_background_styles</field>
+		<field name="options">a:1:{i:0;s:21:&quot;block-title-med-green&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">views__openchurch_latest_podcast-block</field>
+		<field name="skin">oc_skins_block_background_styles</field>
+		<field name="options">a:1:{i:0;s:25:&quot;block-background-lt-green&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">views__openchurch_latest_podcast-block</field>
+		<field name="skin">oc_skins_block_effects</field>
+		<field name="options">a:1:{s:15:&quot;rounded-corners&quot;;s:15:&quot;rounded-corners&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">views__794f38e8ce669fc0643cfeb6da701af6</field>
+		<field name="skin">oc_skins_block_title_background_styles</field>
+		<field name="options">a:1:{i:0;s:21:&quot;block-title-med-green&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">views__794f38e8ce669fc0643cfeb6da701af6</field>
+		<field name="skin">oc_skins_block_background_styles</field>
+		<field name="options">a:1:{i:0;s:25:&quot;block-background-lt-green&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">views__794f38e8ce669fc0643cfeb6da701af6</field>
+		<field name="skin">oc_skins_block_effects</field>
+		<field name="options">a:1:{s:15:&quot;rounded-corners&quot;;s:15:&quot;rounded-corners&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__2</field>
+		<field name="skin">oc_skins_block_background_styles</field>
+		<field name="options">a:1:{i:0;s:26:&quot;block-background-dark-blue&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__2</field>
+		<field name="skin">oc_skins_block_effects</field>
+		<field name="options">a:1:{s:15:&quot;rounded-corners&quot;;s:15:&quot;rounded-corners&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__2</field>
+		<field name="skin">_additional</field>
+		<field name="options">a:1:{i:0;s:19:&quot;view-map-directions&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid">23</field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__3</field>
+		<field name="skin">oc_skins_block_title_background_styles</field>
+		<field name="options">a:1:{i:0;s:20:&quot;block-title-lt-green&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__1</field>
+		<field name="skin">oc_skins_block_title_background_styles</field>
+		<field name="options">a:1:{i:0;s:20:&quot;block-title-lt-green&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__4</field>
+		<field name="skin">oc_skins_block_title_background_styles</field>
+		<field name="options">a:1:{i:0;s:20:&quot;block-title-lt-green&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	</table_data>
+
+</database>
+</mysqldump>

@@ -66,6 +66,31 @@ function openchurch_defaults_install() {
   
   //Save title
   _openchurch_defaults_add_block_title($block['bid'], 'Weekly Meeting Times');
+  
+  
+  /**
+   * Load fusion skin info for site blocks and save
+   */
+  $xml = simplexml_load_file(drupal_get_path('module', 'openchurch_defaults').'/fusion_block.xml');
+
+  $json = json_encode($xml);
+  $array = json_decode($json, TRUE);
+
+  foreach($array['database']['table_data']['row'] as $row){
+
+    $row = $row['field'];
+
+    $skin = array(
+      'theme' => $row[1],
+      'module' => $row[2],
+      'element' => $row[3],
+      'skin' => $row[4],
+      'options' => unserialize($row[5]),
+      'status' => $row[6],
+    );
+
+    drupal_write_record('fusion_apply_skins', $skin);
+  }
 }
 
 /**

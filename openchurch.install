@@ -103,10 +103,18 @@ function openchurch_install() {
   variable_set('node_admin_theme', '1');
   
   /**
+   * Enable openchurch theme as default
+   */
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'openchurch_theme')
+    ->execute();
+  
+  /**
    * Set superfish style
    */
   variable_set('superfish_style_1', 'none');
-  
   
   /**
    * Create Home link
