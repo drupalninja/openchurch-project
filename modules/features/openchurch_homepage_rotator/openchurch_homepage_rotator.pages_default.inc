@@ -1,7 +1,11 @@
 <?php
+/**
+ * @file
+ * openchurch_homepage_rotator.pages_default.inc
+ */
 
 /**
- * Implementation of hook_default_page_manager_pages().
+ * Implements hook_default_page_manager_pages().
  */
 function openchurch_homepage_rotator_default_page_manager_pages() {
   $page = new stdClass;
@@ -56,18 +60,19 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane = new stdClass;
     $pane->pid = 'new-1';
     $pane->panel = 'left';
-    $pane->type = 'block';
-    $pane->subtype = 'openchurch_block-home_panel_block1';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
+      'admin_title' => 'Homepage Promo 1',
+      'title' => '',
+      'body' => '<p><img src="/profiles/openchurch/images/homepage-rotator/winter_sermons.jpg" alt="" width="220" height="110"></p>',
+      'format' => 'full_html',
+      'substitute' => TRUE,
     );
     $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
+    $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
@@ -76,18 +81,19 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane = new stdClass;
     $pane->pid = 'new-2';
     $pane->panel = 'middle';
-    $pane->type = 'block';
-    $pane->subtype = 'openchurch_block-home_panel_block2';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
+      'admin_title' => 'Homepage Promo 2',
+      'title' => '',
+      'body' => '<p><img src="/profiles/openchurch/images/homepage-rotator/food_pantry.jpg" alt="" width="220" height="110"></p>',
+      'format' => 'full_html',
+      'substitute' => TRUE,
     );
     $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
+    $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
@@ -96,18 +102,19 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane = new stdClass;
     $pane->pid = 'new-3';
     $pane->panel = 'right';
-    $pane->type = 'block';
-    $pane->subtype = 'openchurch_block-home_panel_block3';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
+      'admin_title' => 'Homepage Promo 3',
+      'title' => '',
+      'body' => '<p style="text-align: right;"><img src="/profiles/openchurch/images/homepage-rotator/childrens_church.jpg" alt="" width="220" height="110"></p>',
+      'format' => 'full_html',
+      'substitute' => TRUE,
     );
     $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
+    $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
@@ -116,23 +123,11 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane = new stdClass;
     $pane->pid = 'new-4';
     $pane->panel = 'top';
-    $pane->type = 'views';
-    $pane->subtype = 'openchurch_homepage_rotator';
+    $pane->type = 'block';
+    $pane->subtype = 'views-6fecfdbc78165d726632dd0cc551ff58';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '5',
-      'pager_id' => '',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block_1',
       'override_title' => 0,
       'override_title_text' => '',
     );

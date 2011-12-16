@@ -18,6 +18,9 @@ function openchurch_defaults_install() {
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
+  
+  //Save title
+  _openchurch_defaults_add_block_title($block['bid'], 'Contact Us');
 
   $settings = new stdClass;
   $settings->info = 'View Maps and Directions Sidebar Block';
@@ -37,6 +40,9 @@ function openchurch_defaults_install() {
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
   
+  //Save title
+  _openchurch_defaults_add_block_title($block['bid'], 'Location & Directions');
+  
   $settings = new stdClass;
   $settings->info = 'Weekly Meeting Times Bottom Block';
   $settings->format = 'full_html';
@@ -46,6 +52,9 @@ function openchurch_defaults_install() {
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
   
+  //Save title
+  _openchurch_defaults_add_block_title($block['bid'], 'Weekly Meeting Times');
+  
   $settings = new stdClass;
   $settings->info = 'Weekly Meeting Times Sidebar Block';
   $settings->format = 'full_html';
@@ -54,4 +63,29 @@ function openchurch_defaults_install() {
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
+  
+  //Save title
+  _openchurch_defaults_add_block_title($block['bid'], 'Weekly Meeting Times');
+}
+
+/**
+ * Add block title
+ */
+function _openchurch_defaults_add_block_title($bid, $title){
+  $settings = new stdClass;
+  $settings->module = 'block';
+  $settings->delta = $bid;
+  $settings->theme = 'openchurch_theme';
+  $settings->status = 0;
+  $settings->weight = 0;
+  $settings->region = -1;
+  $settings->custom = 0;
+  $settings->visibility = 0;
+  $settings->pages = '';
+  $settings->title = $title;
+  $settings->cache -1;
+
+  $block = (array) $settings;
+
+  drupal_write_record('block', $block);
 }
