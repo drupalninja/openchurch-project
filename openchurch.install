@@ -116,14 +116,17 @@ function openchurch_install() {
    */
   variable_set('superfish_style_1', 'none');
   
+  //Set node view to 'enabled'
+  variable_set('page_manager_node_view_disabled', 0);
+  
   /**
    * Create Home link
    */
-  $item = array(
-    'link_title' => t('Home'),
-    'link_path' => '<front>',
-    'menu_name' => 'main-menu',
-    'weight' => -99,
-  );
-  menu_link_save($item);
+//  $item = array(
+//    'link_title' => t('Home'),
+//    'link_path' => '<front>',
+//    'menu_name' => 'main-menu',
+//    'weight' => -99,
+//  );
+//  menu_link_save($item);
 }

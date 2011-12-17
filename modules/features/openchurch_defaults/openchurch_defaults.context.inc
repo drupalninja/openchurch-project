@@ -27,47 +27,47 @@ function openchurch_defaults_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-5' => array(
+        'block-3' => array(
           'module' => 'block',
-          'delta' => 5,
+          'delta' => 3,
           'region' => 'sidebar_second',
-          'weight' => '0',
+          'weight' => '-10',
         ),
         'views-openchurch_latest_podcast-block' => array(
           'module' => 'views',
           'delta' => 'openchurch_latest_podcast-block',
           'region' => 'sidebar_second',
-          'weight' => '1',
+          'weight' => '-9',
         ),
         'views-794f38e8ce669fc0643cfeb6da701af6' => array(
           'module' => 'views',
           'delta' => '794f38e8ce669fc0643cfeb6da701af6',
-          'region' => 'sidebar_second', 
-          'weight' => '2',
-        ),
-        'block-2' => array(
-          'module' => 'block',
-          'delta' => 2,
           'region' => 'sidebar_second',
-          'weight' => '3',
+          'weight' => '-8',
         ),
-        'block-3' => array(
+        'block-6' => array(
           'module' => 'block',
-          'delta' => 3,
-          'region' => 'footer',
-          'weight' => '1',
-        ),
-        'block-1' => array(
-          'module' => 'block',
-          'delta' => 1,
-          'region' => 'footer',
-          'weight' => '2',
+          'delta' => 6,
+          'region' => 'sidebar_second',
+          'weight' => '-7',
         ),
         'block-4' => array(
           'module' => 'block',
           'delta' => 4,
           'region' => 'footer',
-          'weight' => '3',
+          'weight' => '-10',
+        ),
+        'block-5' => array(
+          'module' => 'block',
+          'delta' => 5,
+          'region' => 'footer',
+          'weight' => '-10',
+        ),
+        'block-2' => array(
+          'module' => 'block',
+          'delta' => 2,
+          'region' => 'footer',
+          'weight' => '-9',
         ),
       ),
     ),
