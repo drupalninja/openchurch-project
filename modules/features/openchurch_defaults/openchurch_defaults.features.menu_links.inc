@@ -10,43 +10,6 @@
 function openchurch_defaults_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: main-menu:about/staff
-  $menu_links['main-menu:about/staff'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'about/staff',
-    'router_path' => 'about/staff',
-    'link_title' => 'Staff Directory',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
-    'parent_path' => 'node/17',
-  );
-  // Exported menu link: main-menu:events
-  $menu_links['main-menu:events'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'events',
-    'router_path' => 'events',
-    'link_title' => 'Events',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-46',
-  );
   // Exported menu link: main-menu:front
   $menu_links['main-menu:front'] = array(
     'menu_name' => 'main-menu',
@@ -64,6 +27,40 @@ function openchurch_defaults_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-50',
+  );
+  
+  // Exported menu link: main-menu:node/17
+  $menu_links['main-menu:node/17'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/17',
+    'router_path' => 'node/%',
+    'link_title' => 'About',
+    'options' => array(),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '1',
+    'expanded' => '0',
+    'weight' => '-44',
+  );
+  
+  // Exported menu link: main-menu:events
+  $menu_links['main-menu:events'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'events',
+    'router_path' => 'events',
+    'link_title' => 'Events',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-46',
   );
   // Exported menu link: main-menu:give
   $menu_links['main-menu:give'] = array(
@@ -83,6 +80,25 @@ function openchurch_defaults_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-45',
   );
+  // Exported menu link: main-menu:media/galleries
+  $menu_links['main-menu:media/galleries'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'media/galleries',
+    'router_path' => 'media/galleries',
+    'link_title' => 'Media',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '1',
+    'expanded' => '0',
+    'weight' => '-48',
+  );
+  
   // Exported menu link: main-menu:media/bulletins
   $menu_links['main-menu:media/bulletins'] = array(
     'menu_name' => 'main-menu',
@@ -101,24 +117,6 @@ function openchurch_defaults_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '0',
     'parent_path' => 'media/galleries',
-  );
-  // Exported menu link: main-menu:media/galleries
-  $menu_links['main-menu:media/galleries'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'media/galleries',
-    'router_path' => 'media/galleries',
-    'link_title' => 'Media',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-48',
   );
   // Exported menu link: main-menu:media/podcasts
   $menu_links['main-menu:media/podcasts'] = array(
@@ -157,20 +155,7 @@ function openchurch_defaults_menu_default_menu_links() {
     'expanded' => '1',
     'weight' => '-49',
   );
-  // Exported menu link: main-menu:node/17
-  $menu_links['main-menu:node/17'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/17',
-    'router_path' => 'node/%',
-    'link_title' => 'About',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-44',
-  );
+
   // Exported menu link: main-menu:node/18
   $menu_links['main-menu:node/18'] = array(
     'menu_name' => 'main-menu',

@@ -91,6 +91,92 @@ function openchurch_defaults_install() {
 
     drupal_write_record('fusion_apply_skins', $skin);
   }
+  
+  /**
+   * Save menu items that weren't able to be exported
+   */
+
+  $item = array(
+    'link_title' => t('Home'),
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+    'weight' => -99,
+    'customized' => 1,
+  );
+  menu_link_save($item);
+
+  $item = array(
+    'link_title' => t('Photo Archives'),
+    'link_path' => 'media/galleries',
+    'router_path' => 'media/galleries',
+    'menu_name' => 'main-menu',
+    'plid' => 401,
+    'weight' => -99,
+    'customized' => 1,
+  );
+  menu_link_save($item);
+
+  $item = array(
+    'link_title' => t('About Staff'),
+    'link_path' => 'about/staff',
+    'router_path' => 'about/staff',
+    'menu_name' => 'main-menu',
+    'plid' => 538,
+    'weight' => 100,
+    'customized' => 1,
+  );
+  menu_link_save($item);
+  
+  
+  /**
+   * Save staff type terms
+   */
+  $staff_type_terms = array(
+    'Administrative Minister',
+    'Administrative Staff',
+    'Adult Ministry',
+    'Building Maintenance',
+    'Children\'s Ministry',
+    'College Ministry',
+    'Counseling Center',
+    'Elder',
+    'Pulpit Minister',
+    'Youth Ministry',
+  );
+  
+  foreach ($staff_type_terms as $term_name){
+    $term = array(
+      'vid' => 2,
+      'name' => $term_name
+    );
+
+    drupal_write_record('taxonomy_term_data', $term);
+
+    $term_hierarchy = array('tid' => $term['tid']);
+
+    drupal_write_record('taxonomy_term_hierarchy', $term_hierarchy);
+  }
+  
+  /**
+   * Save blog terms
+   */
+  $blog_terms = array(
+    'Uncategorized',
+    'Weekly Newsletters',
+  );
+  
+  foreach ($blog_terms as $term_name){
+    $term = array(
+      'vid' => 1,
+      'name' => $term_name
+    );
+
+    drupal_write_record('taxonomy_term_data', $term);
+
+    $term_hierarchy = array('tid' => $term['tid']);
+
+    drupal_write_record('taxonomy_term_hierarchy', $term_hierarchy);
+  }
 }
 
 /**

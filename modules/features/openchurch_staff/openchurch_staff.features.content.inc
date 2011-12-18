@@ -42,7 +42,7 @@ $content['oc_staff1'] = (object)array(
   'field_oc_staff_type' => array(
     'und' => array(
       0 => array(
-        'tid' => '5',
+        'tid' => '3',
       ),
     ),
   ),
@@ -108,7 +108,7 @@ Proin malesuada, lectus vel pulvinar auctor, nulla libero placerat sem, eget tin
   'field_oc_staff_type' => array(
     'und' => array(
       0 => array(
-        'tid' => '5',
+        'tid' => '3',
       ),
     ),
   ),
