@@ -274,6 +274,9 @@ function openchurch_gallery_views_default_views() {
     'openchurch_gallery' => 'openchurch_gallery',
   );
   $handler->display->display_options['path'] = 'media/galleries';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Photo Archives';
+  $handler->display->display_options['menu']['weight'] = '0';
   $export['openchurch_galleries'] = $view;
 
   $view = new view;

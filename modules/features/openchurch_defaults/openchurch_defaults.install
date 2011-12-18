@@ -102,31 +102,10 @@ function openchurch_defaults_install() {
     'menu_name' => 'main-menu',
     'weight' => -99,
     'customized' => 1,
+    'module'     => 'openchurch_defaults',
+    'mlid'       => 0,
   );
-  menu_link_save($item);
-
-  $item = array(
-    'link_title' => t('Photo Archives'),
-    'link_path' => 'media/galleries',
-    'router_path' => 'media/galleries',
-    'menu_name' => 'main-menu',
-    'plid' => 401,
-    'weight' => -99,
-    'customized' => 1,
-  );
-  menu_link_save($item);
-
-  $item = array(
-    'link_title' => t('About Staff'),
-    'link_path' => 'about/staff',
-    'router_path' => 'about/staff',
-    'menu_name' => 'main-menu',
-    'plid' => 538,
-    'weight' => 100,
-    'customized' => 1,
-  );
-  menu_link_save($item);
-  
+  menu_link_save($item);  
   
   /**
    * Save staff type terms

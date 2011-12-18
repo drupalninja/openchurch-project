@@ -90,9 +90,6 @@ function openchurch_install() {
     ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
     ->execute();
 
-  // Update the menu router information.
-  menu_rebuild();
-
   // Enable the admin theme.
   db_update('system')
     ->fields(array('status' => 1))
