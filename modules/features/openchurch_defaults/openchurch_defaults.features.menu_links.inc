@@ -10,6 +10,20 @@
 function openchurch_defaults_menu_default_menu_links() {
   $menu_links = array();
 
+  // Exported menu link: main-menu:<front>
+  $menu_links['main-menu:<front>'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => '<front>',
+    'router_path' => '',
+    'link_title' => 'Home',
+    'options' => array(),
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '1',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-50',
+  );
   // Exported menu link: main-menu:about/staff
   $menu_links['main-menu:about/staff'] = array(
     'menu_name' => 'main-menu',
@@ -27,7 +41,7 @@ function openchurch_defaults_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'parent_path' => 'node/17',
+    'parent_path' => 'node/15',
   );
   // Exported menu link: main-menu:events
   $menu_links['main-menu:events'] = array(
@@ -46,24 +60,6 @@ function openchurch_defaults_menu_default_menu_links() {
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-46',
-  );
-  // Exported menu link: main-menu:front
-  $menu_links['main-menu:front'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'front',
-    'router_path' => 'front',
-    'link_title' => 'Home',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
   );
   // Exported menu link: main-menu:give
   $menu_links['main-menu:give'] = array(
@@ -87,7 +83,7 @@ function openchurch_defaults_menu_default_menu_links() {
   $menu_links['main-menu:media/bulletins'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'media/bulletins',
-    'router_path' => 'media/%',
+    'router_path' => 'media/bulletins',
     'link_title' => 'Weekly Bulletins',
     'options' => array(
       'attributes' => array(
@@ -157,10 +153,10 @@ function openchurch_defaults_menu_default_menu_links() {
     'expanded' => '1',
     'weight' => '-49',
   );
-  // Exported menu link: main-menu:node/17
-  $menu_links['main-menu:node/17'] = array(
+  // Exported menu link: main-menu:node/15
+  $menu_links['main-menu:node/15'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/17',
+    'link_path' => 'node/15',
     'router_path' => 'node/%',
     'link_title' => 'About',
     'options' => array(),
@@ -171,54 +167,10 @@ function openchurch_defaults_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-44',
   );
-  // Exported menu link: main-menu:node/18
-  $menu_links['main-menu:node/18'] = array(
+  // Exported menu link: main-menu:node/17
+  $menu_links['main-menu:node/17'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/18',
-    'router_path' => 'node/%',
-    'link_title' => 'Map and Directions',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
-    'parent_path' => 'node/17',
-  );
-  // Exported menu link: main-menu:node/19
-  $menu_links['main-menu:node/19'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/19',
-    'router_path' => 'node/%',
-    'link_title' => 'Time & Locations',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
-    'parent_path' => 'node/17',
-  );
-  // Exported menu link: main-menu:node/25
-  $menu_links['main-menu:node/25'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/25',
-    'router_path' => 'node/%',
-    'link_title' => 'Contact Us',
-    'options' => array(),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-42',
-  );
-  // Exported menu link: main-menu:node/26
-  $menu_links['main-menu:node/26'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/26',
+    'link_path' => 'node/17',
     'router_path' => 'node/%',
     'link_title' => 'Serve',
     'options' => array(
@@ -231,27 +183,40 @@ function openchurch_defaults_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-47',
   );
-  // Exported menu link: main-menu:node/7
-  $menu_links['main-menu:node/7'] = array(
+  // Exported menu link: main-menu:node/18
+  $menu_links['main-menu:node/18'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/7',
+    'link_path' => 'node/18',
     'router_path' => 'node/%',
-    'link_title' => 'Youth Ministry',
-    'options' => array(
-      'attributes' => array(),
-    ),
+    'link_title' => 'Time & Locations',
+    'options' => array(),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-50',
-    'parent_path' => 'ministries',
+    'weight' => '0',
+    'parent_path' => 'node/15',
   );
-  // Exported menu link: main-menu:node/8
-  $menu_links['main-menu:node/8'] = array(
+  // Exported menu link: main-menu:node/19
+  $menu_links['main-menu:node/19'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/8',
+    'link_path' => 'node/19',
+    'router_path' => 'node/%',
+    'link_title' => 'Map and Directions',
+    'options' => array(),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'parent_path' => 'node/15',
+  );
+  // Exported menu link: main-menu:node/7
+  $menu_links['main-menu:node/7'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/7',
     'router_path' => 'node/%',
     'link_title' => 'Singles Ministry',
     'options' => array(
@@ -265,10 +230,26 @@ function openchurch_defaults_menu_default_menu_links() {
     'weight' => '-49',
     'parent_path' => 'ministries',
   );
+  // Exported menu link: main-menu:node/8
+  $menu_links['main-menu:node/8'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/8',
+    'router_path' => 'node/%',
+    'link_title' => 'Youth Ministry',
+    'options' => array(
+      'attributes' => array(),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-50',
+    'parent_path' => 'ministries',
+  );
   // Translatables
   // Included for use with string extractors like potx.
   t('About');
-  t('Contact Us');
   t('Events');
   t('Give');
   t('Home');

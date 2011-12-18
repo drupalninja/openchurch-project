@@ -27,9 +27,9 @@ function openchurch_defaults_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-3' => array(
+        'block-5' => array(
           'module' => 'block',
-          'delta' => 3,
+          'delta' => 5,
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
@@ -45,27 +45,27 @@ function openchurch_defaults_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-8',
         ),
-        'block-6' => array(
+        'block-2' => array(
           'module' => 'block',
-          'delta' => 6,
+          'delta' => 2,
           'region' => 'sidebar_second',
           'weight' => '-7',
+        ),
+        'block-3' => array(
+          'module' => 'block',
+          'delta' => 3,
+          'region' => 'footer',
+          'weight' => '-11',
+        ),
+        'block-1' => array(
+          'module' => 'block',
+          'delta' => 1,
+          'region' => 'footer',
+          'weight' => '-10',
         ),
         'block-4' => array(
           'module' => 'block',
           'delta' => 4,
-          'region' => 'footer',
-          'weight' => '-10',
-        ),
-        'block-5' => array(
-          'module' => 'block',
-          'delta' => 5,
-          'region' => 'footer',
-          'weight' => '-10',
-        ),
-        'block-2' => array(
-          'module' => 'block',
-          'delta' => 2,
           'region' => 'footer',
           'weight' => '-9',
         ),
