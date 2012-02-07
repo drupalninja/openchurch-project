@@ -66,3 +66,7 @@ projects[openchurch_theme][download][revision] = "7.x-1.x"
 libraries[tinymce][download][type] = "get"
 libraries[tinymce][download][url] = "http://downloads.sourceforge.net/project/tinymce/TinyMCE/3.2.7/tinymce_3_2_7.zip"
 libraries[tinymce][directory_name] = "tinymce"
+
+libraries[superfish][download][type] = "get"
+libraries[superfish][download][url] = "http://dl.dropbox.com/u/22795799/superfish-library-for-drupal-v1.1.zip"
+libraries[superfish][directory_name] = "superfish"
