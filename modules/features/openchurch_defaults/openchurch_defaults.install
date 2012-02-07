@@ -93,21 +93,6 @@ function openchurch_defaults_install() {
   }
   
   /**
-   * Save menu items that weren't able to be exported
-   */
-
-  $item = array(
-    'link_title' => t('Home'),
-    'link_path' => '<front>',
-    'menu_name' => 'main-menu',
-    'weight' => -99,
-    'customized' => 1,
-    'module'     => 'openchurch_defaults',
-    'mlid'       => 0,
-  );
-  menu_link_save($item);  
-  
-  /**
    * Save staff type terms
    */
   $staff_type_terms = array(
@@ -156,6 +141,8 @@ function openchurch_defaults_install() {
 
     drupal_write_record('taxonomy_term_hierarchy', $term_hierarchy);
   }
+  
+  variable_set('page_manager_node_view_disabled', FALSE);//make sure node template is enabled
 }
 
 /**
