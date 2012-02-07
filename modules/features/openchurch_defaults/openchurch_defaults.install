@@ -145,43 +145,16 @@ function openchurch_defaults_install() {
   variable_set('page_manager_node_view_disabled', FALSE);//make sure node template is enabled
   
   /**
-   * Add Photo Galleries & Staff Directory link
-   * 
-   * These links have to be added manually
-   */
-  $item = array(
-    'link_title' => t('Photo Archives'),
-    'link_path' => 'media/galleries',
-    'router_path' => 'media/galleries',
-    'menu_name' => 'main-menu',
-    'weight' => -99,
-    'customized' => 1,
-    'module'     => 'openchurch_defaults',
-    'plid' => 517,
-  );
-
-  menu_link_save($item);
-
-
-  $item = array(
-    'link_title' => t('Staff Directory'),
-    'link_path' => 'about/staff',
-    'router_path' => 'about/staff',
-    'menu_name' => 'main-menu',
-    'weight' => -99,
-    'customized' => 1,
-    'module'     => 'openchurch_defaults',
-    'plid' => 514,
-  );
-
-  menu_link_save($item);
-  
-  /**
    * Superfish settings
    */
   variable_set('superfish_menu_1', 'main-menu');
-  variable_set('superfish_slide_1', 'horizontal');
+  variable_set('superfish_slide_1', 'vertical');
   variable_set('superfish_type_1', 'horizontal');
+  
+  /**
+   * Add menu links manually
+   */
+  _openchurch_defaults_add_menu_links();
 }
 
 /**
@@ -204,4 +177,261 @@ function _openchurch_defaults_add_block_title($bid, $title){
   $block = (array) $settings;
 
   drupal_write_record('block', $block);
+}
+
+/**
+ * Add menu links
+ */
+function _openchurch_defaults_add_menu_links(){
+  
+  // Exported menu link: main-menu:events
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'events',
+    'router_path' => 'events',
+    'link_title' => 'Events',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-46',
+    'customized' => 1,
+  );
+  
+  menu_link_save($item);
+  
+  // Exported menu link: main-menu:give
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'give',
+    'router_path' => 'give',
+    'link_title' => 'Give',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-45',
+    'customized' => 1,
+  );
+  
+  menu_link_save($item);
+  
+  // Exported menu link: main-menu:ministries
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'ministries',
+    'router_path' => 'ministries',
+    'link_title' => 'Ministries',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '1',
+    'expanded' => '1',
+    'weight' => '-49',
+    'customized' => 1,
+  );
+  
+  menu_link_save($item);
+  
+  // Exported menu link: main-menu:node/15
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/15',
+    'router_path' => 'node/%',
+    'link_title' => 'About',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '1',
+    'expanded' => '0',
+    'weight' => '-44',
+    'customized' => 1,
+  );
+  
+  menu_link_save($item);
+  
+  // Exported menu link: main-menu:node/17
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/17',
+    'router_path' => 'node/%',
+    'link_title' => 'Serve',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-47',
+    'customized' => 1,      
+  );
+  
+  menu_link_save($item);
+  
+  // Exported menu link: main-menu:node/18
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/18',
+    'router_path' => 'node/%',
+    'link_title' => 'Time & Locations',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'plid' => 392,
+    'customized' => 1,
+  );
+  
+  menu_link_save($item);
+  
+  // Exported menu link: main-menu:node/19
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/19',
+    'router_path' => 'node/%',
+    'link_title' => 'Map and Directions',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'plid' => 392,
+    'customized' => 1,
+  );
+  
+  menu_link_save($item);
+  
+  // Exported menu link: main-menu:node/7
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/7',
+    'router_path' => 'node/%',
+    'link_title' => 'Singles Ministry',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-49',
+    'plid' => 391,
+    'customized' => 1,
+  );
+  
+  menu_link_save($item);
+  
+  // Exported menu link: main-menu:node/8
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/8',
+    'router_path' => 'node/%',
+    'link_title' => 'Youth Ministry',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-50',
+    'plid' => 391,
+    'customized' => 1,
+  );
+  
+  menu_link_save($item);
+  
+  $item = array(
+    'link_title' => t('Home'),
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+    'weight' => -99,
+    'customized' => 1,
+    'module'     => 'openchurch_defaults',
+    'mlid'       => 0,
+  );
+  menu_link_save($item);
+ 
+  $item = array(
+    'link_title' => t('Staff Directory'),
+    'link_path' => 'about/staff',
+    'router_path' => 'about/staff',
+    'menu_name' => 'main-menu',
+    'weight' => -99,
+    'customized' => 1,
+    'module'     => 'openchurch_defaults',
+    'plid' => 392,
+  );
+
+  menu_link_save($item);
+  
+  // Exported menu link: main-menu:media/galleries
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'media/galleries',
+    'router_path' => 'media/galleries',
+    'link_title' => 'Media',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '1',
+    'expanded' => '0',
+    'weight' => '-48',
+    'customized' => 1,
+    'plid' => 0,
+  );
+  
+  menu_link_save($item);
+  
+  // Exported menu link: main-menu:media/bulletins
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'media/bulletins',
+    'router_path' => 'media/bulletins',
+    'link_title' => 'Weekly Bulletins',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'plid' => 400,
+    'customized' => 1,
+  );
+  
+  menu_link_save($item);
+  
+  // Exported menu link: main-menu:media/podcasts
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'media/podcasts',
+    'router_path' => 'media/podcasts',
+    'link_title' => 'Sermon Audio Archives',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'plid' => 400,
+    'customized' => 1,
+  );
+  
+  menu_link_save($item);
+  
+  $item = array(
+    'link_title' => t('Photo Archives'),
+    'link_path' => 'media/galleries',
+    'router_path' => 'media/galleries',
+    'menu_name' => 'main-menu',
+    'weight' => -99,
+    'customized' => 1,
+    'module'     => 'openchurch_defaults',
+    'plid' => 400,
+  );
+
+  menu_link_save($item);
+  
+  //Fix router path for media links
+  db_query('UPDATE {menu_links} SET router_path = link_path WHERE router_path LIKE :router_path', array(':router_path' => 'media/%'));
 }

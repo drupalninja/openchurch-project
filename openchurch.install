@@ -134,41 +134,5 @@ function openchurch_install_tasks() {
  * Clean up tasks
  */
 function openchurch_cleanup(){
-  $item = array(
-    'link_title' => t('Home'),
-    'link_path' => '<front>',
-    'menu_name' => 'main-menu',
-    'weight' => -99,
-    'customized' => 1,
-    'module'     => 'openchurch_defaults',
-    'mlid'       => 0,
-  );
-  menu_link_save($item);
   
-  $item = array(
-    'link_title' => t('Photo Archives'),
-    'link_path' => 'media/galleries',
-    'router_path' => 'media/galleries',
-    'menu_name' => 'main-menu',
-    'weight' => -99,
-    'customized' => 1,
-    'module'     => 'openchurch_defaults',
-    'plid' => 514,
-  );
-
-  menu_link_save($item);
-
-
-  $item = array(
-    'link_title' => t('About Staff'),
-    'link_path' => 'about/staff',
-    'router_path' => 'about/staff',
-    'menu_name' => 'main-menu',
-    'weight' => 100,
-    'customized' => 1,
-    'module'     => 'openchurch_defaults',
-    'plid' => 517,
-  );
-
-  menu_link_save($item);
 }
