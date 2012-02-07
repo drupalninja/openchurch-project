@@ -72,7 +72,6 @@ dependencies[] = media_vimeo
 dependencies[] = media_youtube
 dependencies[] = menu_breadcrumb
 dependencies[] = metatag
-dependencies[] = metatag_ui
 dependencies[] = nodequeue
 dependencies[] = node_reference
 dependencies[] = page_manager
