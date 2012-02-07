@@ -175,6 +175,13 @@ function openchurch_defaults_install() {
   );
 
   menu_link_save($item);
+  
+  /**
+   * Superfish settings
+   */
+  variable_set('superfish_menu_1', 'main-menu');
+  variable_set('superfish_slide_1', 'horizontal');
+  variable_set('superfish_type_1', 'horizontal');
 }
 
 /**
