@@ -370,7 +370,6 @@ function _openchurch_defaults_add_menu_links(){
   $item = array(
     'menu_name' => 'main-menu',
     'link_path' => 'media/galleries',
-    'router_path' => 'media/galleries',
     'link_title' => 'Media',
     'module' => 'openchurch_defaults',
     'hidden' => '0',
@@ -388,7 +387,6 @@ function _openchurch_defaults_add_menu_links(){
   $item = array(
     'menu_name' => 'main-menu',
     'link_path' => 'media/bulletins',
-    'router_path' => 'media/bulletins',
     'link_title' => 'Weekly Bulletins',
     'module' => 'openchurch_defaults',
     'hidden' => '0',
@@ -406,7 +404,6 @@ function _openchurch_defaults_add_menu_links(){
   $item = array(
     'menu_name' => 'main-menu',
     'link_path' => 'media/podcasts',
-    'router_path' => 'media/podcasts',
     'link_title' => 'Sermon Audio Archives',
     'module' => 'openchurch_defaults',
     'hidden' => '0',
@@ -423,7 +420,6 @@ function _openchurch_defaults_add_menu_links(){
   $item = array(
     'link_title' => t('Photo Archives'),
     'link_path' => 'media/galleries',
-    'router_path' => 'media/galleries',
     'menu_name' => 'main-menu',
     'weight' => -99,
     'customized' => 1,
@@ -432,7 +428,17 @@ function _openchurch_defaults_add_menu_links(){
   );
 
   menu_link_save($item);
-  
-  //Fix router path for media links
-  db_query('UPDATE {menu_links} SET router_path = link_path WHERE router_path LIKE :router_path', array(':router_path' => 'media/%'));
+}
+
+/**
+ * Implementation of hook_init()
+ */
+function openchurch_defaults_init(){
+
+  //Special menu fix for media links
+  if (variable_get('openchurch_defaults_first_time', '1')){
+    //Fix router path for media links
+    db_query('UPDATE {menu_links} SET router_path = link_path WHERE router_path LIKE :router_path', array(':router_path' => 'media/%'));
+    variable_set('openchurch_defaults_first_time', '0');
+  }
 }
