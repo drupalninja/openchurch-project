@@ -58,9 +58,7 @@ projects[fusion][type] = "theme"
 projects[mix_and_match][type] = "theme"
 
 ; Custom theme developed for OpenChurch (get latest)
-projects[openchurch_theme][download][type] = "git"
-projects[openchurch_theme][download][theme] = "contributions/themes/openchurch_theme"
-projects[openchurch_theme][download][revision] = "7.x-1.x"
+projects[openchurch_theme][type] = "theme"
 
 ; Libraries
 
