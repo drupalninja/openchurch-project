@@ -150,7 +150,7 @@ function openchurch_defaults_install() {
   variable_set('superfish_menu_1', 'main-menu');
   variable_set('superfish_slide_1', 'vertical');
   variable_set('superfish_type_1', 'horizontal');
-  variable_set('superfish_arrow_1', '');
+  variable_set('superfish_arrow_1', '0');
   
   /**
    * Add menu links manually
