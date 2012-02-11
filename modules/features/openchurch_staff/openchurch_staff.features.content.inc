@@ -91,12 +91,12 @@ function openchurch_staff_content_defaults() {
       'und' => array(
         0 => array(
           'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac libero nunc. Nunc tempor magna et lectus interdum et congue augue dictum.
-  
-  Proin malesuada, lectus vel pulvinar auctor, nulla libero placerat sem, eget tincidunt tellus libero in mi..',
+    
+    Proin malesuada, lectus vel pulvinar auctor, nulla libero placerat sem, eget tincidunt tellus libero in mi..',
           'summary' => '',
           'format' => 'filtered_html',
           'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac libero nunc. Nunc tempor magna et lectus interdum et congue augue dictum.</p>
-  <p>Proin malesuada, lectus vel pulvinar auctor, nulla libero placerat sem, eget tincidunt tellus libero in mi..</p>
+  <p>  Proin malesuada, lectus vel pulvinar auctor, nulla libero placerat sem, eget tincidunt tellus libero in mi..</p>
   ',
           'safe_summary' => '',
         ),

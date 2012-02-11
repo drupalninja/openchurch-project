@@ -1,10 +1,15 @@
 <?php
+/**
+ * @file
+ * openchurch_staff.pages_default.inc
+ */
 
 /**
- * Implementation of hook_default_page_manager_handlers().
+ * Implements hook_default_page_manager_handlers().
  */
 function openchurch_staff_default_page_manager_handlers() {
   $export = array();
+
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
@@ -139,26 +144,27 @@ function openchurch_staff_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = '';
     $display->content['new-1'] = $pane;
     $display->panels['staff_info'][0] = 'new-1';
     $pane = new stdClass;
     $pane->pid = 'new-2';
     $pane->panel = 'staff_info';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_oc_position';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_position';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'normal',
-      'formatter' => 'plain',
-      'context' => 'argument_nid_1',
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
       'override_title' => 1,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array(
       'css_id' => '',
@@ -166,19 +172,21 @@ function openchurch_staff_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 1;
+    $pane->locks = array();
     $display->content['new-2'] = $pane;
     $display->panels['staff_info'][1] = 'new-2';
     $pane = new stdClass;
     $pane->pid = 'new-3';
     $pane->panel = 'staff_info';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_oc_phone';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_phone';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'inline',
-      'formatter' => 'plain',
-      'context' => 'argument_nid_1',
+      'formatter' => 'text_default',
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -186,22 +194,27 @@ function openchurch_staff_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+    );
     $pane->extras = array();
     $pane->position = 2;
+    $pane->locks = array();
     $display->content['new-3'] = $pane;
     $display->panels['staff_info'][2] = 'new-3';
     $pane = new stdClass;
     $pane->pid = 'new-4';
     $pane->panel = 'staff_info';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_oc_email';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_email';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'inline',
-      'formatter' => 'default',
-      'context' => 'argument_nid_1',
+      'formatter' => 'email_default',
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -212,6 +225,7 @@ function openchurch_staff_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 3;
+    $pane->locks = array();
     $display->content['new-4'] = $pane;
     $display->panels['staff_info'][3] = 'new-4';
     $pane = new stdClass;
@@ -237,26 +251,30 @@ function openchurch_staff_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 4;
+    $pane->locks = '';
     $display->content['new-5'] = $pane;
     $display->panels['staff_info'][4] = 'new-5';
     $pane = new stdClass;
     $pane->pid = 'new-6';
     $pane->panel = 'staff_photo';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_oc_image';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_image';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'normal',
-      'formatter' => 'oc_staff_image_default',
-      'context' => 'argument_nid_1',
+      'label' => 'title',
+      'formatter' => 'image',
+      'formatter_settings' => array(
+        'image_style' => 'oc_staff_image',
+        'image_link' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
       'override_title' => 1,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array(
       'css_id' => '',
@@ -264,12 +282,13 @@ function openchurch_staff_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = array();
     $display->content['new-6'] = $pane;
     $display->panels['staff_photo'][0] = 'new-6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-5';
   $handler->conf['display'] = $display;
-
   $export['node_view_panel_context_4'] = $handler;
+
   return $export;
 }
