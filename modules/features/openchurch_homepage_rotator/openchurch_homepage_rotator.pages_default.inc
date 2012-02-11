@@ -16,7 +16,10 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
   $page->admin_title = 'Homepage';
   $page->admin_description = 'The main page of a website. It serves as a website\'s introduction, starting point and guide.';
   $page->path = 'front';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array();
@@ -76,6 +79,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = '';
     $display->content['new-1'] = $pane;
     $display->panels['left'][0] = 'new-1';
     $pane = new stdClass;
@@ -97,6 +101,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = '';
     $display->content['new-2'] = $pane;
     $display->panels['middle'][0] = 'new-2';
     $pane = new stdClass;
@@ -118,6 +123,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = '';
     $display->content['new-3'] = $pane;
     $display->panels['right'][0] = 'new-3';
     $pane = new stdClass;
@@ -138,6 +144,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = '';
     $display->content['new-4'] = $pane;
     $display->panels['top'][0] = 'new-4';
   $display->hide_title = PANELS_TITLE_FIXED;
