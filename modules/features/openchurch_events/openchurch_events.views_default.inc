@@ -596,9 +596,6 @@ print date(\'m.d.y\',strtotime($data->field_data_field_oc_date_field_oc_date_val
 
   /* Display: Upcoming Events By Ministry Block */
   $handler = $view->new_display('block', 'Upcoming Events By Ministry Block', 'block');
-
-  /* Display: Upcoming Events By Ministry Block */
-  $handler = $view->new_display('block', 'Upcoming Events By Ministry Block', 'block_1');
   $export['openchurch_upcoming_events'] = $view;
 
   return $export;

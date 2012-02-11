@@ -1,10 +1,15 @@
 <?php
+/**
+ * @file
+ * openchurch_ministry.pages_default.inc
+ */
 
 /**
- * Implementation of hook_default_page_manager_handlers().
+ * Implements hook_default_page_manager_handlers().
  */
 function openchurch_ministry_default_page_manager_handlers() {
   $export = array();
+
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
@@ -156,21 +161,24 @@ function openchurch_ministry_default_page_manager_handlers() {
     $pane = new stdClass;
     $pane->pid = 'new-1';
     $pane->panel = 'center';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_oc_image';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_image';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'normal',
-      'formatter' => 'oc_creative_element_default',
-      'context' => 'argument_nid_1',
+      'label' => 'title',
+      'formatter' => 'image',
+      'formatter_settings' => array(
+        'image_style' => 'oc_creative_element',
+        'image_link' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
       'override_title' => 1,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array(
       'css_id' => '',
@@ -178,6 +186,7 @@ function openchurch_ministry_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = array();
     $display->content['new-1'] = $pane;
     $display->panels['center'][0] = 'new-1';
     $pane = new stdClass;
@@ -199,38 +208,23 @@ function openchurch_ministry_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = '';
     $display->content['new-2'] = $pane;
     $display->panels['ministry_detail'][0] = 'new-2';
     $pane = new stdClass;
     $pane->pid = 'new-3';
     $pane->panel = 'ministry_highlights';
-    $pane->type = 'views';
-    $pane->subtype = 'openchurch_ministry_contacts';
+    $pane->type = 'block';
+    $pane->subtype = 'views-6110b1540457b11a522ded118d35c6cc';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '0',
-      'pager_id' => '',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block_1',
-      'context' => array(
-        0 => '',
-      ),
       'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array(
       'css_id' => '',
@@ -238,77 +232,47 @@ function openchurch_ministry_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = array();
     $display->content['new-3'] = $pane;
     $display->panels['ministry_highlights'][0] = 'new-3';
     $pane = new stdClass;
     $pane->pid = 'new-4';
     $pane->panel = 'recent_photos';
-    $pane->type = 'views';
-    $pane->subtype = 'openchurch_galleries';
+    $pane->type = 'block';
+    $pane->subtype = 'views-openchurch_galleries-block';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '3',
-      'pager_id' => '',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block_1',
-      'context' => array(
-        0 => '',
-      ),
       'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'openchurch-galleries-list',
+      'css_class' => 'ministry-galleries',
     );
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = array();
     $display->content['new-4'] = $pane;
     $display->panels['recent_photos'][0] = 'new-4';
     $pane = new stdClass;
     $pane->pid = 'new-5';
     $pane->panel = 'upcoming_events';
-    $pane->type = 'views';
-    $pane->subtype = 'openchurch_upcoming_events';
+    $pane->type = 'block';
+    $pane->subtype = 'views-274ee450b0319c4f71c4ba154ad04b92';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '3',
-      'pager_id' => '',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block_1',
-      'context' => array(
-        0 => '',
-      ),
       'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array(
       'css_id' => '',
@@ -316,6 +280,7 @@ function openchurch_ministry_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = array();
     $display->content['new-5'] = $pane;
     $display->panels['upcoming_events'][0] = 'new-5';
     $pane = new stdClass;
@@ -342,9 +307,9 @@ return count($results) ? TRUE : FALSE;',
       'admin_title' => '',
       'title' => '',
       'body' => '<?php
-
-return l(\'Online Event Registration\',\'events\', array(\'query\' => \'oc_ministry_nid=\'.arg(1)));',
-      'format' => '3',
+print l(\'Online Event Registration\',\'events\', array(\'query\' => array(\'oc_ministry_nid\' => arg(1))));
+?>',
+      'format' => 'php_code',
       'substitute' => 1,
     );
     $pane->cache = array();
@@ -358,38 +323,23 @@ return l(\'Online Event Registration\',\'events\', array(\'query\' => \'oc_minis
     );
     $pane->extras = array();
     $pane->position = 1;
+    $pane->locks = '';
     $display->content['new-6'] = $pane;
     $display->panels['upcoming_events'][1] = 'new-6';
     $pane = new stdClass;
     $pane->pid = 'new-7';
     $pane->panel = 'upcoming_events';
-    $pane->type = 'views';
-    $pane->subtype = 'openchurch_related_downloads';
+    $pane->type = 'block';
+    $pane->subtype = 'views-fb2a92c9d494b2e43b21cbd5f2379c70';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '10',
-      'pager_id' => '',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block_1',
-      'context' => array(
-        0 => '',
-      ),
-      'override_title' => 1,
-      'override_title_text' => 'Ministry Downloads',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array(
       'css_id' => '',
@@ -397,12 +347,13 @@ return l(\'Online Event Registration\',\'events\', array(\'query\' => \'oc_minis
     );
     $pane->extras = array();
     $pane->position = 2;
+    $pane->locks = array();
     $display->content['new-7'] = $pane;
     $display->panels['upcoming_events'][2] = 'new-7';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
-
   $export['node_view_panel_context_2'] = $handler;
+
   return $export;
 }

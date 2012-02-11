@@ -23,6 +23,7 @@ function openchurch_gallery_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Church Wide Photo Archives';
+  $handler->display->display_options['css_class'] = 'openchurch-galleries-list';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -198,26 +199,6 @@ function openchurch_gallery_views_default_views() {
   $handler->display->display_options['sorts']['field_oc_date_value']['id'] = 'field_oc_date_value';
   $handler->display->display_options['sorts']['field_oc_date_value']['table'] = 'field_data_field_oc_date';
   $handler->display->display_options['sorts']['field_oc_date_value']['field'] = 'field_oc_date_value';
-  /* Contextual filter: Content: Ministry (field_oc_ministry) */
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['id'] = 'field_oc_ministry_nid';
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['table'] = 'field_data_field_oc_ministry';
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['field'] = 'field_oc_ministry_nid';
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['title_enable'] = 1;
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['title'] = '%1 Photo Archives';
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['default_argument_skip_url'] = 0;
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['specify_validation'] = 1;
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['validate']['type'] = 'node';
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['validate_options']['types'] = array(
-    'openchurch_ministry' => 'openchurch_ministry',
-  );
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['validate_options']['access'] = 0;
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['validate']['fail'] = 'ignore';
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['break_phrase'] = 0;
-  $handler->display->display_options['arguments']['field_oc_ministry_nid']['not'] = 0;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -239,25 +220,11 @@ function openchurch_gallery_views_default_views() {
     'openchurch_gallery' => 'openchurch_gallery',
   );
 
-  /* Display: Galleries by Ministry Block */
-  $handler = $view->new_display('block', 'Galleries by Ministry Block', 'block');
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-
   /* Display: Galleries Page */
   $handler = $view->new_display('page', 'Galleries Page', 'page_1');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'openchurch-galleries-list';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Ministry (field_oc_ministry) */
-  $handler->display->display_options['relationships']['field_oc_ministry_nid']['id'] = 'field_oc_ministry_nid';
-  $handler->display->display_options['relationships']['field_oc_ministry_nid']['table'] = 'field_data_field_oc_ministry';
-  $handler->display->display_options['relationships']['field_oc_ministry_nid']['field'] = 'field_oc_ministry_nid';
-  $handler->display->display_options['relationships']['field_oc_ministry_nid']['label'] = 'Ministry';
-  $handler->display->display_options['relationships']['field_oc_ministry_nid']['required'] = 0;
-  $handler->display->display_options['relationships']['field_oc_ministry_nid']['delta'] = '-1';
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -274,6 +241,42 @@ function openchurch_gallery_views_default_views() {
     'openchurch_gallery' => 'openchurch_gallery',
   );
   $handler->display->display_options['path'] = 'multimedia/galleries';
+
+  /* Display: Galleries by Ministry Block */
+  $handler = $view->new_display('block', 'Galleries by Ministry Block', 'block');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Ministry (field_oc_ministry) */
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['id'] = 'field_oc_ministry_nid';
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['table'] = 'field_data_field_oc_ministry';
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['field'] = 'field_oc_ministry_nid';
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['label'] = 'Ministry';
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['required'] = 1;
+  $handler->display->display_options['relationships']['field_oc_ministry_nid']['delta'] = '-1';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Ministry (field_oc_ministry) */
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['id'] = 'field_oc_ministry_nid';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['table'] = 'field_data_field_oc_ministry';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['field'] = 'field_oc_ministry_nid';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['title_enable'] = 1;
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['title'] = '%1 Photo Archives';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['specify_validation'] = 1;
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['validate_options']['types'] = array(
+    'openchurch_ministry' => 'openchurch_ministry',
+  );
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['validate_options']['access'] = 0;
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['field_oc_ministry_nid']['not'] = 0;
   $export['openchurch_galleries'] = $view;
 
   $view = new view;

@@ -8,482 +8,213 @@
  * Implements hook_content_defaults().
  */
 function openchurch_events_content_defaults() {
-$content = array();
-$content['oc_event1'] = (object)array(
-  'title' => 'Scream Free Parenting',
-  'status' => '1',
-  'promote' => '0',
-  'sticky' => '0',
-  'type' => 'openchurch_event',
-  'language' => 'und',
-  'created' => '1323218007',
-  'comment' => '1',
-  'translate' => '0',
-  'machine_name' => 'oc_event1',
-  'body' => array(
-    'und' => array(
-      0 => array(
-        'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis dictum ligula ac dapibus. Nulla dictum varius quam, id rutrum lorem malesuada a. Morbi et velit urna.
+  $content = array();
 
-Morbi vestibulum dui ac ipsum pretium commodo. Donec tristique accumsan iaculis. Nam risus est, gravida ut tempor ut, dapibus sed justo. In hac habitasse platea dictumst. Etiam viverra nisi ut eros dictum ut blandit purus pretium. Phasellus faucibus aliquet auctor. Cras posuere lacus bibendum felis adipiscing quis consectetur turpis egestas. Nam mauris enim, rhoncus non gravida eget, lobortis sed ipsum. Ut orci felis, semper sed molestie vitae, sollicitudin id ipsum. Ut in nibh tellus, eu placerat leo.',
-        'summary' => '',
-        'format' => 'filtered_html',
-        'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis dictum ligula ac dapibus. Nulla dictum varius quam, id rutrum lorem malesuada a. Morbi et velit urna.</p>
-<p>Morbi vestibulum dui ac ipsum pretium commodo. Donec tristique accumsan iaculis. Nam risus est, gravida ut tempor ut, dapibus sed justo. In hac habitasse platea dictumst. Etiam viverra nisi ut eros dictum ut blandit purus pretium. Phasellus faucibus aliquet auctor. Cras posuere lacus bibendum felis adipiscing quis consectetur turpis egestas. Nam mauris enim, rhoncus non gravida eget, lobortis sed ipsum. Ut orci felis, semper sed molestie vitae, sollicitudin id ipsum. Ut in nibh tellus, eu placerat leo.</p>
-',
-        'safe_summary' => '',
+  $content['oc_event1'] = (object) array(
+    'exported_path' => 'content/scream-free-parenting',
+    'title' => 'Scream Free Parenting',
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'openchurch_event',
+    'language' => 'und',
+    'created' => '1323218007',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'oc_event1',
+    'body' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis dictum ligula ac dapibus. Nulla dictum varius quam, id rutrum lorem malesuada a. Morbi et velit urna.
+  
+  Morbi vestibulum dui ac ipsum pretium commodo. Donec tristique accumsan iaculis. Nam risus est, gravida ut tempor ut, dapibus sed justo. In hac habitasse platea dictumst. Etiam viverra nisi ut eros dictum ut blandit purus pretium. Phasellus faucibus aliquet auctor. Cras posuere lacus bibendum felis adipiscing quis consectetur turpis egestas. Nam mauris enim, rhoncus non gravida eget, lobortis sed ipsum. Ut orci felis, semper sed molestie vitae, sollicitudin id ipsum. Ut in nibh tellus, eu placerat leo.',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis dictum ligula ac dapibus. Nulla dictum varius quam, id rutrum lorem malesuada a. Morbi et velit urna.</p>
+  <p>Morbi vestibulum dui ac ipsum pretium commodo. Donec tristique accumsan iaculis. Nam risus est, gravida ut tempor ut, dapibus sed justo. In hac habitasse platea dictumst. Etiam viverra nisi ut eros dictum ut blandit purus pretium. Phasellus faucibus aliquet auctor. Cras posuere lacus bibendum felis adipiscing quis consectetur turpis egestas. Nam mauris enim, rhoncus non gravida eget, lobortis sed ipsum. Ut orci felis, semper sed molestie vitae, sollicitudin id ipsum. Ut in nibh tellus, eu placerat leo.</p>
+  ',
+          'safe_summary' => '',
+        ),
       ),
     ),
-  ),
-  'field_oc_dates' => array(
-    'und' => array(
-      0 => array(
-        'value' => '2012-12-07 00:30:00',
-        'value2' => '2012-12-07 10:30:00',
-        'timezone' => 'UTC',
-        'timezone_db' => 'UTC',
-        'date_type' => 'datetime',
+    'field_oc_cost' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'FREE',
+          'format' => NULL,
+          'safe_value' => 'FREE',
+        ),
       ),
     ),
-  ),
-  'field_oc_url' => array(
-    'und' => array(
-      0 => array(
-        'url' => 'http://google.com',
-        'title' => NULL,
-        'attributes' => array(),
+    'field_oc_dates' => array(
+      'und' => array(
+        0 => array(
+          'value' => '2012-12-07 00:30:00',
+          'value2' => '2012-12-07 10:30:00',
+          'timezone' => 'UTC',
+          'timezone_db' => 'UTC',
+          'date_type' => 'datetime',
+        ),
       ),
     ),
-  ),
-  'field_oc_cost' => array(
-    'und' => array(
-      0 => array(
-        'value' => 'FREE',
-        'format' => NULL,
-        'safe_value' => 'FREE',
+    'field_oc_downloads' => array(
+      'und' => array(
+        0 => array(
+          'display' => '1',
+          'description' => '',
+          'filename' => 'test_pdf.pdf',
+          'uri' => 'public://test_pdf.pdf',
+          'filemime' => 'application/pdf',
+          'filesize' => '39',
+          'status' => '1',
+          'type' => 'application',
+          'uuid' => '6f3f06c6-fb3d-6434-a12a-4b66029e672d',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+          'image' => '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EOrCq72K9gaXoDRG5SZkrRAS2stFMnTmn9bsiWHUnyqSsyKnEA+3knBd8P1dxs3+3pQZV3eelr/70xL0GiM1LDsp1XIp6/B3bcGHnCrnG97uchYKZW5kc3RyZWFtCmVuZG9iagoKOSAwIG9iago8PC9UeXBlL0ZvbnQvU3VidHlwZS9UcnVlVHlwZS9CYXNlRm9udC9CQUFBQUErTGliZXJhdGlvblNlcmlmCi9GaXJzdENoYXIgMAovTGFzdENoYXIgMwovV2lkdGhzWzM2NSAyNzcgNDQzIDM4OSBdCi9Gb250RGVzY3JpcHRvciA3IDAgUgovVG9Vbmljb2RlIDggMCBSCj4+CmVuZG9iagoKMTAgMCBvYmoKPDwvRjEgOSAwIFIKPj4KZW5kb2JqCgoxMSAwIG9iago8PC9Gb250IDEwIDAgUgovUHJvY1NldFsvUERGL1RleHRdCj4+CmVuZG9iagoKMSAwIG9iago8PC9UeXBlL1BhZ2UvUGFyZW50IDQgMCBSL1Jlc291cmNlcyAxMSAwIFIvTWVkaWFCb3hbMCAwIDYxMiA3OTJdL0dyb3VwPDwvUy9UcmFuc3BhcmVuY3kvQ1MvRGV2aWNlUkdCL0kgdHJ1ZT4+L0NvbnRlbnRzIDIgMCBSPj4KZW5kb2JqCgo0IDAgb2JqCjw8L1R5cGUvUGFnZXMKL1Jlc291cmNlcyAxMSAwIFIKL01lZGlhQm94WyAwIDAgNjEyIDc5MiBdCi9LaWRzWyAxIDAgUiBdCi9Db3VudCAxPj4KZW5kb2JqCgoxMiAwIG9iago8PC9UeXBlL0NhdGFsb2cvUGFnZXMgNCAwIFIKL09wZW5BY3Rpb25bMSAwIFIgL1hZWiBudWxsIG51bGwgMF0KL0xhbmcoZW4tVVMpCj4+CmVuZG9iagoKMTMgMCBvYmoKPDwvQXV0aG9yPEZFRkYwMDRBMDA2MTAwNzkwMDIwMDA0MzAwNjEwMDZDMDA2QzAwNjkwMDYzMDA2RjAwNzQwMDc0PgovQ3JlYXRvcjxGRUZGMDA1NzAwNzIwMDY5MDA3NDAwNjUwMDcyPgovUHJvZHVjZXI8RkVGRjAwNEYwMDcwMDA2NTAwNkUwMDRGMDA2NjAwNjYwMDY5MDA2MzAwNjUwMDJFMDA2RjAwNzIwMDY3MDAyMDAwMzMwMDJFMDAzMj4KL0NyZWF0aW9uRGF0ZShEOjIwMTAwODE2MjAxODU4LTA1JzAwJyk+PgplbmRvYmoKCnhyZWYKMCAxNAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDQ4NjAgMDAwMDAgbiAKMDAwMDAwMDAxOSAwMDAwMCBuIAowMDAwMDAwMTg4IDAwMDAwIG4gCjAwMDAwMDUwMDMgMDAwMDAgbiAKMDAwMDAwMDIwNyAwMDAwMCBuIAowMDAwMDA0MDgzIDAwMDAwIG4gCjAwMDAwMDQxMDQgMDAwMDAgbiAKMDAwMDAwNDI5OCAwMDAwMCBuIAowMDAwMDA0NjAyIDAwMDAwIG4gCjAwMDAwMDQ3NzMgMDAwMDAgbiAKMDAwMDAwNDgwNSAwMDAwMCBuIAowMDAwMDA1MTAyIDAwMDAwIG4gCjAwMDAwMDUxOTkgMDAwMDAgbiAKdHJhaWxlcgo8PC9TaXplIDE0L1Jvb3QgMTIgMCBSCi9JbmZvIDEzIDAgUgovSUQgWyA8RDJCNkU0QTExNzExOTUxMURDNjg5NzE3MkNBMzI5MTk+CjxEMkI2RTRBMTE3MTE5NTExREM2ODk3MTcyQ0EzMjkxOT4gXQovRG9jQ2hlY2tzdW0gL0I4MEU4QTM0Qjg5RTUwMDg4QzlCMTlFMTcxMjA4QTAxCj4+CnN0YXJ0eHJlZgo1NDUyCiUlRU9GCg==',
+        ),
       ),
     ),
-  ),
-  'field_oc_downloads' => array(
-    'und' => array(
-      0 => array(
-        'display' => '1',
-        'description' => '',
-        'filename' => 'test_pdf.pdf',
-        'uri' => 'public://test_pdf.pdf',
-        'filemime' => 'application/pdf',
-        'filesize' => '5935',
-        'status' => '1',
-        'type' => 'application',
-        'metatags' => array(),
-        'rdf_mapping' => array(),
-        'image' => '%PDF-1.4
-%Ã¤Ã¼Ã¶ÃŸ
-2 0 obj
-<</Length 3 0 R/Filter/FlateDecode>>
-stream
-xœ3Ð3T(ç*T0PÐ5' . "\0" . '2Í€¤¹%ˆ,JU×RÈK‚`Q:—S—©™ž…‚¹‘	PAHŠ‚¾›¡‚¡‘BHZ´¡‘‘¡±®ˆâÅåÂÈ¨' . "\0" . '' . "\0" . 'xu#
-endstream
-endobj
-
-3 0 obj
-98
-endobj
-
-5 0 obj
-<</Length 6 0 R/Filter/FlateDecode/Length1 6448>>
-stream
-xœåWPW~ÿ¾]I„‘°cËF+¯…Á cÀ!F€$ØAü#acKH’Nøì$5I&9Ÿl_Ü\\›ÄÛ\\f:\\ï:^ì¶CnÜ˜›iæ¦3MÒÎÍMš^|ÇLo¦ÔÔ®{Îtr±é÷=-ûœK{ÓÿºÒ¾ý|¾ï÷¤·ÙôŒÅ0<¸¢S‘TQq' . "\0" . 'ð÷' . "\0" . 'dct6+¬tœ3!^àÊÆSS5ÎŸý;' . "\0" . 'ÿ+€õÄäÉñçS·Ÿ(úy5q)+ÿ¯kJv¢½qdôÞ?Y€ô¤wÆ§²ßø‚|T„ôÒ†Éd4RMÊÒ.šŠ|#õ¶æ´
-éKHÓ‘)ÉÚ }ék8ßT2“ÁÎ€
-&O¥¥ÔÝ‘×µH£œË"à‡^Å5”æxø}©ÏC9øÔO‚Rl|èâ' . "\0" . '[èsåæÃãý+Ÿÿ_F¡Í?Þ€?ƒ¿„óð	Œ*/ø!3ÈYýþ¹ôòÃü9ä¾Äí`åy½0¼¿DÏ¯ÃUøñC³øa
-žÁXþ
->!ðw¸T’p‡háyx½ÞAÞÁÇ¹âJpgp|÷gð&wz¹_"q‘J8g€¿…Kä(zÎbžç×2nû§ß„çp‚8Ì"f—úÉ/þ
-Wþ³zzáè€Éu×È[<î#~ÞÂšþˆñ«ÂœûkŽ»÷$~&ðŽÌ;Ïw€[]êò„‚á¡ÁÿSôõöøº½wWg‡«}ÿ“mOìkmiÞÛÔPï°×ÙjvU[vŠ;Ì¦Ê²Rƒ¾dƒ®¨P[ Q«xŽ€Í#zÃ‚\\–UÕ¢ÏWGi1‚ŒÈ:FXå}XGÂLMxXÓ…šãhºòš®5MbÚ ­Î&xDAþÀ-
-dd ˆø¼[	ò2ÃVU3bf3ZžÊ¸[IXðÈÞÙxÎv£¿y]Q—Ø%ÕÙ`¾H‡P‡H®Só¤f?a€«ñì›ç@»N+óO$&û‚·ÑlÕÙzäÑÍDÐÅ\\Êš.¹€¹4t8+ÌÛsç0¶ÇÄXäHPæ#h›ã=¹Ü7åR«\\+ºåÚS¿¬ÄÌ%Ù&º=²•zí\\›§ïÁ”DV[¢»˜Ž¸|óaNDáh,†»@¡Ë›ËyEÁ›ç"+sc¢`sóÅÅ¹”+þ Z-¬üð¬QöžÉ†pœìS’õöÉ›eÎââäà·]4·Í¥¡Uÿ—‰åÀššÍ4ñ³.CBžæiÆŒWÀå°†d.L%‹«’ò' . "\0" . '•Ì­JÖÌÃ"v³o(˜“U–ž˜èÁŸÈsc¸žŽÓVˆ¹ä3£YÌm,Z!¦+`T=±„ ««±,hµÞ' . "\0" . 'W
-5ÉQòYþ±lÄ	ªK7
-­"º¡~<¢\'¬|gã•è@¨³É>k¾õÃAÙåFàŠ(=òÌ×;Ð"Æ%Ü¬}²CLÉebçZ?iXžÄP™(frY—á¨b%;<n:³àÉ…Ýù¨/q ø.8W–æ÷Æ«NØ!7U®èÂuUíÉcã²)lŒáN‚F³ì
-aƒCbP
-Ñ…†ª]ÂéÌlF™ëö‰}#Á%¼€ºSY<¸ƒÆ¼\\r²Ö¢‚œ‘¡¢‚ØÙ†£\\`ÑâmÀ‚3.]ªmBaUÃkäVô(ýS5]N]¾UoJ¢Ÿ.ŸÑ2ç¯:‡bA™-´´¨¾UoÁ_äqè†±h-+éš‚¢$†Ä¸ »üAš-«²RVs¥WÃQëŠ…e3ŠW	ZLÙk5®/®ÜÍè5Ò÷ˆ¸gU,ä´bßPŽ:‡€‘÷È@—°«¥ÔÈv?ÝÏ¢7‚›w4ÛÏ¹y—‹îå8Ý¶9±\'–‡‚mLAž3ž¢sm„>Ò7ÜYgÃ³Îy‘œ˜w‘3C#Áwxœ:3¼Â®+Üšß‰²à»€‹q9Ê¥LJ” ž‘Ð2}ã».€9&U1££O»Ê#]àò<Ã*Cž*Ïs1½°K•q¬1þ~{„íÏ³¡x.¢k*°"ø%2÷cuÄýó„ÓËE¢Ô)ëÄNÊo§üö<_Cù¸2H©³Ê<âÝÊ:ö·nbê' . "\0" . 'ž~À>OÀÑv¥@¥]nœ×¨?m»Âsaž§l5e_)Ð~Ñv…P¾³Ô\\j1—šÝœp\'yã~\\øüûnÕ@O¡e+7¹:ÕóxºzÚÕÊµhK}*¹l$‹FÒnì7rE%Ý¼¿,\\Æ••' . "\0" . 'oàž×òªb¡«°ÄWX Ó——@´/;ÛZ—‰ãè¨Óé5,7ŽŽ¦êG­êÕM¥bS;q–;ËÅÒ²
-gãÞæòž<>öÌsRûÇ?Qoé1éžè,KOpß©ÛõÓŸß;ÝÑY¤é(*Óåó÷¯Üä½üû`‚ÝuÕ}«Œ¼±‰è6ÝÄU«\\aå–ÊÚÊ‹•*mµÏ¤Ó™l`#ûçlßµÝ¶ñ¶…•Å«]½>útmÞm÷YˆïL©' . "\0" . '¿Å¢ü[šRšAûòÆVÇ2qŒ.7Z­_?:jø°ÑaXn¨?:J/R^VÅ9÷s4vq‡kÚ³×ÙXÅm\'dG	WnÞcçˆª¼==ZÕÙ¹ëæŽ§‚u3oÇl^ï{q¬õþë-M[È«¥VùdcÏËOªµEš½±bƒë÷~xò³;5Gÿdv\\rzæÀg±aìÍO0ç&xÛµ³·1×È=[~®œÛWÑ[qª"W¡RcE-N¾më­Ïn=·UÅ-¬ü“ksá_Uea±Ïâ2”û,–M^hšI3M¾¾Êìëo>Ö|¹™¯ónÓé¶mªSïö›÷T»«¹êj³ÁàWïÑ¹uªãÑéÔXl%ö²utck+q8±&£Ö¯~¾ìtXê­ÖQ`å)+áhUv597WlqÓ»¦iÏ~,YÅærq—ˆ;4XB÷“]Ã/u~jß†ºÓXç¨´Ûýôá§Ý»íCû…6Çî­#ÎÀnOðHÐ³›hÛ}µ:½Aý¯/n«4vØ¶WU·t¹bnqSñS›+ýnûµUB­ë°w*¢®zß½”;¦o»¦üyþÇï/<8’Ò•„;‰ö9……væûxzM‰<ròUq7ÁÍµBüüvFžßF?\' h«`¯âžqñ¼¯ÒiZqÇRé6rhÍ§kÍ?AM—‚9ÜÙ~ó`ÄXòX…:i«ñ}ñkðéÛ
-.€SðÇ
-ÖBÙ¬àB(!Vë0†Öµ·N;	(xœ&/*¸¬G#V"5ÇÕ)˜€Àý…‚9(á>P0{ñ"U ð¥
-VC%ß `Tñ=
-.€_ñ
-ÖBê°‚a›êEë Eõ–‚‹áˆêco€ûj§‚Kà¦Á˜Hd§¤˜‹d#Â÷„Æúúf¡#•¦cRZèJ¦SÉt$›HNÛ…ŽÉI!˜ˆg3BZÊHéY)f?“òraHJ\'Æ¥‰™ÉHzÍAð¨Æ£ô!)¡Dƒ½¾ñìQÕDß,²éHLšŠ¤¿&$Ç…AŒÙÉÚ„žé¨šHd²R™‰i!`²þHVšÎ
-‘é˜0¼fØ?>žˆJŒ•ÒÙ*\'³qôøL:‘‰%¢t¶ŒýqÊJ³’p0’ÍJ™ät<›Mís8Nœ8a(ÊQÔµG“SŽß&ËžLI1)“˜˜Æ¼íñìÔd #Ñ|²qÌq]ÆãI>“Ïžˆ¤%šffì¸Í
-Ù$êJÂ$æ1¦‘‰´$MÑLgXÄ\'â‰h\\8™œ"Ñ¨”ÊbE¨ú—y¶ÿ¶`\'×ŒX¤øšÀÌdñ>Ä@À;‚tÑ÷ðn„zü4#ê€DQg5$Ü|tAŸ)6F˜$JíLw?ò©ÿ8Ê2Œ’ðImgÙ\\v8€ò1Æy`/à«´Ä,ÇaÑÌ ¯r~3‚:¼¿ÊÇWÉ1”Y“4`\\õ˜÷ãì¾Êk‚åIk—eç‹ýkÈK¢Àr¢uö1K¢´²º¥Y¾ÔK–ùÎk&˜ï' . "\0" . 'j1-?³¤uÈ²Ù¦™ÖðcfìÇÇÑžVíf”ù¦=Î{N"Ž+=ŽÕN³bÌn5·Îü?]C,ºY6çAÆÏ²ÎSYœQ)Ø‡8Á>vÔyØsTñkgh
-5W»,œDZbò[ÓJ¿íÌç®­' . "\0" . '[•«ý¡µÈ÷ññ=gOZù³Èb$Ö«Õþg°†cXI‰ÕzL*~©Î¤ÒieÖÆD­ißV{:³®Æ\'X<QÌ%‰2je>R¬²±uÞÿ·1ÛçÊN>f¦5eÿ×ù“…]<æš/¿G
-ð_´×‰Ê"K÷ÈG÷ˆpœþ5ñÿšÌÝ¹p‡ûÛµ¦Ë·¯ßæúo»uù_‹èo-,–ýËáåÔòw—5Eú›¤þ”þËR‹éÎŸ;?ÀÒæ¿1wC¾ÁÓƒÞÈ­Î{ƒðOù
-“aQX¬_L-Î-þÃâÒâíEíÜ{ÞãþæšÃ¤¿fºÆ™®ö_=}•¿Côï˜Þáüo†ßä.\\"úK¦KŽKü]´›.vW™^m—iéµÛ¯qÔ}ÓkJ½Çþœ~õ•W¹ÔËs/_x™Ÿ{éÂKÜåÙë³\\Æ_kJN[MÓÝ»M[œ•\'Ðð+&jé³ÔxÃÇ\\¦c¨tx¤Þ4Ò]kÚäÜPc°*TÔó&¾ïç“ü+üu¾@;è¯2à½ä¿íçôý¦~G?f¸äŠô™ÑQoªw®—ïñÖš|Ý-&}·©ÛÑýQ÷/ºoukŽu“·ðë½ì½îå]ÞZ‡×å­2{·ùŒ
-gyÀàÔ8â„€C¿¢çôúcúÓz^íÀÍU5Y æ‡‡¬Ö¾…‚•Á>Yë?,“3²eˆŽ®YsF†ÀÈáà<!ß½tþ<tnï“‡‚rx{¨OŽ!pQ0‡À°}¾:C™LÖJ/bµ"œÁ¬3È:šÉ3Áº*k†d2É+•1ˆÈX)›r¨AË£ •Z™E™LåÑÿÕSº§
-endstream
-endobj
-
-6 0 obj
-3792
-endobj
-
-7 0 obj
-<</Type/FontDescriptor/FontName/BAAAAA+LiberationSerif
-/Flags 4
-/FontBBox[-176 -303 1005 981]/ItalicAngle 0
-/Ascent 891
-/Descent -216
-/CapHeight 981
-/StemV 80
-/FontFile2 5 0 R>>
-endobj
-
-8 0 obj
-<</Length 235/Filter/FlateDecode>>
-stream
-xœ]P»nÄ ìùŠ-/Å	lçÑXH§‹Nr‘‡âä0¬¤Æ…ÿ>¾$R
-Ð3³–Ÿ»ÇÎÙÄ_£×=&­3¿F0àd«j0V§++·žU`œ²ý¶$œ;7ú¶eü´%Å\'ã¼aü%ŒÖMpø8÷Äû5„/œÑ%LJ08Òœ\'žÕŒ¼¤Ž!Ù¦íH‘?ÃûêÂ«½Šö— 4Få&d­ÚËE2tæŸÖì‰aÔŸ*’³"§·’p]ðý]ÆÍþÞ”Wwž–¿ûÓô#5,;)Õr)ëðwmÁ‡œ*çÞîr
-endstream
-endobj
-
-9 0 obj
-<</Type/Font/Subtype/TrueType/BaseFont/BAAAAA+LiberationSerif
-/FirstChar 0
-/LastChar 3
-/Widths[365 277 443 389 ]
-/FontDescriptor 7 0 R
-/ToUnicode 8 0 R
->>
-endobj
-
-10 0 obj
-<</F1 9 0 R
->>
-endobj
-
-11 0 obj
-<</Font 10 0 R
-/ProcSet[/PDF/Text]
->>
-endobj
-
-1 0 obj
-<</Type/Page/Parent 4 0 R/Resources 11 0 R/MediaBox[0 0 612 792]/Group<</S/Transparency/CS/DeviceRGB/I true>>/Contents 2 0 R>>
-endobj
-
-4 0 obj
-<</Type/Pages
-/Resources 11 0 R
-/MediaBox[ 0 0 612 792 ]
-/Kids[ 1 0 R ]
-/Count 1>>
-endobj
-
-12 0 obj
-<</Type/Catalog/Pages 4 0 R
-/OpenAction[1 0 R /XYZ null null 0]
-/Lang(en-US)
->>
-endobj
-
-13 0 obj
-<</Author<FEFF004A00610079002000430061006C006C00690063006F00740074>
-/Creator<FEFF005700720069007400650072>
-/Producer<FEFF004F00700065006E004F00660066006900630065002E006F0072006700200033002E0032>
-/CreationDate(D:20100816201858-05\'00\')>>
-endobj
-
-xref
-0 14
-0000000000 65535 f 
-0000004860 00000 n 
-0000000019 00000 n 
-0000000188 00000 n 
-0000005003 00000 n 
-0000000207 00000 n 
-0000004083 00000 n 
-0000004104 00000 n 
-0000004298 00000 n 
-0000004602 00000 n 
-0000004773 00000 n 
-0000004805 00000 n 
-0000005102 00000 n 
-0000005199 00000 n 
-trailer
-<</Size 14/Root 12 0 R
-/Info 13 0 R
-/ID [ <D2B6E4A117119511DC6897172CA32919>
-<D2B6E4A117119511DC6897172CA32919> ]
-/DocChecksum /B80E8A34B89E50088C9B19E171208A01
->>
-startxref
-5452
-%%EOF
-',
+    'field_oc_location' => array(
+      'und' => array(
+        0 => array(
+          'country' => 'US',
+          'administrative_area' => 'TX',
+          'sub_administrative_area' => NULL,
+          'locality' => 'Dallas',
+          'dependent_locality' => NULL,
+          'postal_code' => '75081',
+          'thoroughfare' => '1949 Old Hickory Blvd.',
+          'premise' => '',
+          'sub_premise' => NULL,
+          'organisation_name' => NULL,
+          'name_line' => NULL,
+          'first_name' => NULL,
+          'last_name' => NULL,
+          'data' => NULL,
+        ),
       ),
     ),
-  ),
-  'field_oc_ministry' => array(
-    'und' => array(
-      0 => array(
-        'machine_name' => 'oc_ministry1',
+    'field_oc_ministry' => array(
+      'und' => array(
+        0 => array(
+          'machine_name' => 'oc_ministry1',
+        ),
       ),
     ),
-  ),
-  'field_oc_location' => array(
-    'und' => array(
-      0 => array(
-        'country' => 'US',
-        'administrative_area' => 'TX',
-        'sub_administrative_area' => NULL,
-        'locality' => 'Dallas',
-        'dependent_locality' => NULL,
-        'postal_code' => '75081',
-        'thoroughfare' => '1949 Old Hickory Blvd.',
-        'premise' => '',
-        'sub_premise' => NULL,
-        'organisation_name' => NULL,
-        'name_line' => NULL,
-        'first_name' => NULL,
-        'last_name' => NULL,
-        'data' => NULL,
+    'field_oc_url' => array(
+      'und' => array(
+        0 => array(
+          'url' => 'http://google.com',
+          'title' => NULL,
+          'attributes' => array(),
+        ),
       ),
     ),
-  ),
-);
-$content['oc_event2'] = (object)array(
-  'title' => 'Dinner at Bethlehem',
-  'status' => '1',
-  'promote' => '0',
-  'sticky' => '0',
-  'type' => 'openchurch_event',
-  'language' => 'und',
-  'created' => '1323217798',
-  'comment' => '1',
-  'translate' => '0',
-  'machine_name' => 'oc_event2',
-  'body' => array(
-    'und' => array(
-      0 => array(
-        'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis dictum ligula ac dapibus. Nulla dictum varius quam, id rutrum lorem malesuada a. Morbi et velit urna. Morbi vestibulum dui ac ipsum pretium commodo. Donec tristique accumsan iaculis. Nam risus est, gravida ut tempor ut, dapibus sed justo.
+  );
 
-In hac habitasse platea dictumst. Etiam viverra nisi ut eros dictum ut blandit purus pretium. Phasellus faucibus aliquet auctor. Cras posuere lacus bibendum felis adipiscing quis consectetur turpis egestas. Nam mauris enim, rhoncus non gravida eget, lobortis sed ipsum. Ut orci felis, semper sed molestie vitae, sollicitudin id ipsum. Ut in nibh tellus, eu placerat leo.',
-        'summary' => '',
-        'format' => 'filtered_html',
-        'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis dictum ligula ac dapibus. Nulla dictum varius quam, id rutrum lorem malesuada a. Morbi et velit urna. Morbi vestibulum dui ac ipsum pretium commodo. Donec tristique accumsan iaculis. Nam risus est, gravida ut tempor ut, dapibus sed justo.</p>
-<p>In hac habitasse platea dictumst. Etiam viverra nisi ut eros dictum ut blandit purus pretium. Phasellus faucibus aliquet auctor. Cras posuere lacus bibendum felis adipiscing quis consectetur turpis egestas. Nam mauris enim, rhoncus non gravida eget, lobortis sed ipsum. Ut orci felis, semper sed molestie vitae, sollicitudin id ipsum. Ut in nibh tellus, eu placerat leo.</p>
-',
-        'safe_summary' => '',
+  $content['oc_event2'] = (object) array(
+    'exported_path' => 'content/dinner-bethlehem',
+    'title' => 'Dinner at Bethlehem',
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'openchurch_event',
+    'language' => 'und',
+    'created' => '1323217798',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'oc_event2',
+    'body' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis dictum ligula ac dapibus. Nulla dictum varius quam, id rutrum lorem malesuada a. Morbi et velit urna. Morbi vestibulum dui ac ipsum pretium commodo. Donec tristique accumsan iaculis. Nam risus est, gravida ut tempor ut, dapibus sed justo.
+  
+  In hac habitasse platea dictumst. Etiam viverra nisi ut eros dictum ut blandit purus pretium. Phasellus faucibus aliquet auctor. Cras posuere lacus bibendum felis adipiscing quis consectetur turpis egestas. Nam mauris enim, rhoncus non gravida eget, lobortis sed ipsum. Ut orci felis, semper sed molestie vitae, sollicitudin id ipsum. Ut in nibh tellus, eu placerat leo.',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis dictum ligula ac dapibus. Nulla dictum varius quam, id rutrum lorem malesuada a. Morbi et velit urna. Morbi vestibulum dui ac ipsum pretium commodo. Donec tristique accumsan iaculis. Nam risus est, gravida ut tempor ut, dapibus sed justo.</p>
+  <p>In hac habitasse platea dictumst. Etiam viverra nisi ut eros dictum ut blandit purus pretium. Phasellus faucibus aliquet auctor. Cras posuere lacus bibendum felis adipiscing quis consectetur turpis egestas. Nam mauris enim, rhoncus non gravida eget, lobortis sed ipsum. Ut orci felis, semper sed molestie vitae, sollicitudin id ipsum. Ut in nibh tellus, eu placerat leo.</p>
+  ',
+          'safe_summary' => '',
+        ),
       ),
     ),
-  ),
-  'field_oc_dates' => array(
-    'und' => array(
-      0 => array(
-        'value' => '2012-12-07 05:30:00',
-        'value2' => '2012-12-07 10:30:00',
-        'timezone' => 'UTC',
-        'timezone_db' => 'UTC',
-        'date_type' => 'datetime',
+    'field_oc_cost' => array(
+      'und' => array(
+        0 => array(
+          'value' => '$8.00 - Per Attendee',
+          'format' => NULL,
+          'safe_value' => '$8.00 - Per Attendee',
+        ),
       ),
     ),
-  ),
-  'field_oc_url' => array(
-    'und' => array(
-      0 => array(
-        'url' => 'http://www.google.com',
-        'title' => NULL,
-        'attributes' => array(),
+    'field_oc_dates' => array(
+      'und' => array(
+        0 => array(
+          'value' => '2012-12-07 05:30:00',
+          'value2' => '2012-12-07 10:30:00',
+          'timezone' => 'UTC',
+          'timezone_db' => 'UTC',
+          'date_type' => 'datetime',
+        ),
       ),
     ),
-  ),
-  'field_oc_cost' => array(
-    'und' => array(
-      0 => array(
-        'value' => '$8.00 - Per Attendee',
-        'format' => NULL,
-        'safe_value' => '$8.00 - Per Attendee',
+    'field_oc_downloads' => array(
+      'und' => array(
+        0 => array(
+          'display' => '1',
+          'description' => '',
+          'filename' => 'test_pdf.pdf',
+          'uri' => 'public://test_pdf.pdf',
+          'filemime' => 'application/pdf',
+          'filesize' => '39',
+          'status' => '1',
+          'type' => 'application',
+          'uuid' => '98226608-3ecd-fe54-752e-a5bf42bbfdfa',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+          'image' => '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EOrCq72K9gaXoDRG5SZkrRAS2stFMnTmn9bsiWHUnyqSsyKnEA+3knBd8P1dxs3+3pQZV3eelr/70xL0GiM1LDsp1XIp6/B3bcGHnCrnG97uchYKZW5kc3RyZWFtCmVuZG9iagoKOSAwIG9iago8PC9UeXBlL0ZvbnQvU3VidHlwZS9UcnVlVHlwZS9CYXNlRm9udC9CQUFBQUErTGliZXJhdGlvblNlcmlmCi9GaXJzdENoYXIgMAovTGFzdENoYXIgMwovV2lkdGhzWzM2NSAyNzcgNDQzIDM4OSBdCi9Gb250RGVzY3JpcHRvciA3IDAgUgovVG9Vbmljb2RlIDggMCBSCj4+CmVuZG9iagoKMTAgMCBvYmoKPDwvRjEgOSAwIFIKPj4KZW5kb2JqCgoxMSAwIG9iago8PC9Gb250IDEwIDAgUgovUHJvY1NldFsvUERGL1RleHRdCj4+CmVuZG9iagoKMSAwIG9iago8PC9UeXBlL1BhZ2UvUGFyZW50IDQgMCBSL1Jlc291cmNlcyAxMSAwIFIvTWVkaWFCb3hbMCAwIDYxMiA3OTJdL0dyb3VwPDwvUy9UcmFuc3BhcmVuY3kvQ1MvRGV2aWNlUkdCL0kgdHJ1ZT4+L0NvbnRlbnRzIDIgMCBSPj4KZW5kb2JqCgo0IDAgb2JqCjw8L1R5cGUvUGFnZXMKL1Jlc291cmNlcyAxMSAwIFIKL01lZGlhQm94WyAwIDAgNjEyIDc5MiBdCi9LaWRzWyAxIDAgUiBdCi9Db3VudCAxPj4KZW5kb2JqCgoxMiAwIG9iago8PC9UeXBlL0NhdGFsb2cvUGFnZXMgNCAwIFIKL09wZW5BY3Rpb25bMSAwIFIgL1hZWiBudWxsIG51bGwgMF0KL0xhbmcoZW4tVVMpCj4+CmVuZG9iagoKMTMgMCBvYmoKPDwvQXV0aG9yPEZFRkYwMDRBMDA2MTAwNzkwMDIwMDA0MzAwNjEwMDZDMDA2QzAwNjkwMDYzMDA2RjAwNzQwMDc0PgovQ3JlYXRvcjxGRUZGMDA1NzAwNzIwMDY5MDA3NDAwNjUwMDcyPgovUHJvZHVjZXI8RkVGRjAwNEYwMDcwMDA2NTAwNkUwMDRGMDA2NjAwNjYwMDY5MDA2MzAwNjUwMDJFMDA2RjAwNzIwMDY3MDAyMDAwMzMwMDJFMDAzMj4KL0NyZWF0aW9uRGF0ZShEOjIwMTAwODE2MjAxODU4LTA1JzAwJyk+PgplbmRvYmoKCnhyZWYKMCAxNAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDQ4NjAgMDAwMDAgbiAKMDAwMDAwMDAxOSAwMDAwMCBuIAowMDAwMDAwMTg4IDAwMDAwIG4gCjAwMDAwMDUwMDMgMDAwMDAgbiAKMDAwMDAwMDIwNyAwMDAwMCBuIAowMDAwMDA0MDgzIDAwMDAwIG4gCjAwMDAwMDQxMDQgMDAwMDAgbiAKMDAwMDAwNDI5OCAwMDAwMCBuIAowMDAwMDA0NjAyIDAwMDAwIG4gCjAwMDAwMDQ3NzMgMDAwMDAgbiAKMDAwMDAwNDgwNSAwMDAwMCBuIAowMDAwMDA1MTAyIDAwMDAwIG4gCjAwMDAwMDUxOTkgMDAwMDAgbiAKdHJhaWxlcgo8PC9TaXplIDE0L1Jvb3QgMTIgMCBSCi9JbmZvIDEzIDAgUgovSUQgWyA8RDJCNkU0QTExNzExOTUxMURDNjg5NzE3MkNBMzI5MTk+CjxEMkI2RTRBMTE3MTE5NTExREM2ODk3MTcyQ0EzMjkxOT4gXQovRG9jQ2hlY2tzdW0gL0I4MEU4QTM0Qjg5RTUwMDg4QzlCMTlFMTcxMjA4QTAxCj4+CnN0YXJ0eHJlZgo1NDUyCiUlRU9GCg==',
+        ),
       ),
     ),
-  ),
-  'field_oc_downloads' => array(
-    'und' => array(
-      0 => array(
-        'display' => '1',
-        'description' => '',
-        'filename' => 'test_pdf.pdf',
-        'uri' => 'public://test_pdf.pdf',
-        'filemime' => 'application/pdf',
-        'filesize' => '5935',
-        'status' => '1',
-        'type' => 'application',
-        'metatags' => array(),
-        'rdf_mapping' => array(),
-        'image' => '%PDF-1.4
-%Ã¤Ã¼Ã¶ÃŸ
-2 0 obj
-<</Length 3 0 R/Filter/FlateDecode>>
-stream
-xœ3Ð3T(ç*T0PÐ5' . "\0" . '2Í€¤¹%ˆ,JU×RÈK‚`Q:—S—©™ž…‚¹‘	PAHŠ‚¾›¡‚¡‘BHZ´¡‘‘¡±®ˆâÅåÂÈ¨' . "\0" . '' . "\0" . 'xu#
-endstream
-endobj
-
-3 0 obj
-98
-endobj
-
-5 0 obj
-<</Length 6 0 R/Filter/FlateDecode/Length1 6448>>
-stream
-xœåWPW~ÿ¾]I„‘°cËF+¯…Á cÀ!F€$ØAü#acKH’Nøì$5I&9Ÿl_Ü\\›ÄÛ\\f:\\ï:^ì¶CnÜ˜›iæ¦3MÒÎÍMš^|ÇLo¦ÔÔ®{Îtr±é÷=-ûœK{ÓÿºÒ¾ý|¾ï÷¤·ÙôŒÅ0<¸¢S‘TQq' . "\0" . 'ð÷' . "\0" . 'dct6+¬tœ3!^àÊÆSS5ÎŸý;' . "\0" . 'ÿ+€õÄäÉñçS·Ÿ(úy5q)+ÿ¯kJv¢½qdôÞ?Y€ô¤wÆ§²ßø‚|T„ôÒ†Éd4RMÊÒ.šŠ|#õ¶æ´
-éKHÓ‘)ÉÚ }ék8ßT2“ÁÎ€
-&O¥¥ÔÝ‘×µH£œË"à‡^Å5”æxø}©ÏC9øÔO‚Rl|èâ' . "\0" . '[èsåæÃãý+Ÿÿ_F¡Í?Þ€?ƒ¿„óð	Œ*/ø!3ÈYýþ¹ôòÃü9ä¾Äí`åy½0¼¿DÏ¯ÃUøñC³øa
-žÁXþ
->!ðw¸T’p‡háyx½ÞAÞÁÇ¹âJpgp|÷gð&wz¹_"q‘J8g€¿…Kä(zÎbžç×2nû§ß„çp‚8Ì"f—úÉ/þ
-Wþ³zzáè€Éu×È[<î#~ÞÂšþˆñ«ÂœûkŽ»÷$~&ðŽÌ;Ïw€[]êò„‚á¡ÁÿSôõöøº½wWg‡«}ÿ“mOìkmiÞÛÔPï°×ÙjvU[vŠ;Ì¦Ê²Rƒ¾dƒ®¨P[ Q«xŽ€Í#zÃ‚\\–UÕ¢ÏWGi1‚ŒÈ:FXå}XGÂLMxXÓ…šãhºòš®5MbÚ ­Î&xDAþÀ-
-dd ˆø¼[	ò2ÃVU3bf3ZžÊ¸[IXðÈÞÙxÎv£¿y]Q—Ø%ÕÙ`¾H‡P‡H®Só¤f?a€«ñì›ç@»N+óO$&û‚·ÑlÕÙzäÑÍDÐÅ\\Êš.¹€¹4t8+ÌÛsç0¶ÇÄXäHPæ#h›ã=¹Ü7åR«\\+ºåÚS¿¬ÄÌ%Ù&º=²•zí\\›§ïÁ”DV[¢»˜Ž¸|óaNDáh,†»@¡Ë›ËyEÁ›ç"+sc¢`sóÅÅ¹”+þ Z-¬üð¬QöžÉ†pœìS’õöÉ›eÎââäà·]4·Í¥¡Uÿ—‰åÀššÍ4ñ³.CBžæiÆŒWÀå°†d.L%‹«’ò' . "\0" . '•Ì­JÖÌÃ"v³o(˜“U–ž˜èÁŸÈsc¸žŽÓVˆ¹ä3£YÌm,Z!¦+`T=±„ ««±,hµÞ' . "\0" . 'W
-5ÉQòYþ±lÄ	ªK7
-­"º¡~<¢\'¬|gã•è@¨³É>k¾õÃAÙåFàŠ(=òÌ×;Ð"Æ%Ü¬}²CLÉebçZ?iXžÄP™(frY—á¨b%;<n:³àÉ…Ýù¨/q ø.8W–æ÷Æ«NØ!7U®èÂuUíÉcã²)lŒáN‚F³ì
-aƒCbP
-Ñ…†ª]ÂéÌlF™ëö‰}#Á%¼€ºSY<¸ƒÆ¼\\r²Ö¢‚œ‘¡¢‚ØÙ†£\\`ÑâmÀ‚3.]ªmBaUÃkäVô(ýS5]N]¾UoJ¢Ÿ.ŸÑ2ç¯:‡bA™-´´¨¾UoÁ_äqè†±h-+éš‚¢$†Ä¸ »üAš-«²RVs¥WÃQëŠ…e3ŠW	ZLÙk5®/®ÜÍè5Ò÷ˆ¸gU,ä´bßPŽ:‡€‘÷È@—°«¥ÔÈv?ÝÏ¢7‚›w4ÛÏ¹y—‹îå8Ý¶9±\'–‡‚mLAž3ž¢sm„>Ò7ÜYgÃ³Îy‘œ˜w‘3C#Áwxœ:3¼Â®+Üšß‰²à»€‹q9Ê¥LJ” ž‘Ð2}ã».€9&U1££O»Ê#]àò<Ã*Cž*Ïs1½°K•q¬1þ~{„íÏ³¡x.¢k*°"ø%2÷cuÄýó„ÓËE¢Ô)ëÄNÊo§üö<_Cù¸2H©³Ê<âÝÊ:ö·nbê' . "\0" . 'ž~À>OÀÑv¥@¥]nœ×¨?m»Âsaž§l5e_)Ð~Ñv…P¾³Ô\\j1—šÝœp\'yã~\\øüûnÕ@O¡e+7¹:ÕóxºzÚÕÊµhK}*¹l$‹FÒnì7rE%Ý¼¿,\\Æ••' . "\0" . 'oàž×òªb¡«°ÄWX Ó——@´/;ÛZ—‰ãè¨Óé5,7ŽŽ¦êG­êÕM¥bS;q–;ËÅÒ²
-gãÞæòž<>öÌsRûÇ?Qoé1éžè,KOpß©ÛõÓŸß;ÝÑY¤é(*Óåó÷¯Üä½üû`‚ÝuÕ}«Œ¼±‰è6ÝÄU«\\aå–ÊÚÊ‹•*mµÏ¤Ó™l`#ûçlßµÝ¶ñ¶…•Å«]½>útmÞm÷YˆïL©' . "\0" . '¿Å¢ü[šRšAûòÆVÇ2qŒ.7Z­_?:jø°ÑaXn¨?:J/R^VÅ9÷s4vq‡kÚ³×ÙXÅm\'dG	WnÞcçˆª¼==ZÕÙ¹ëæŽ§‚u3oÇl^ï{q¬õþë-M[È«¥VùdcÏËOªµEš½±bƒë÷~xò³;5Gÿdv\\rzæÀg±aìÍO0ç&xÛµ³·1×È=[~®œÛWÑ[qª"W¡RcE-N¾më­Ïn=·UÅ-¬ü“ksá_Uea±Ïâ2”û,–M^hšI3M¾¾Êìëo>Ö|¹™¯ónÓé¶mªSïö›÷T»«¹êj³ÁàWïÑ¹uªãÑéÔXl%ö²utck+q8±&£Ö¯~¾ìtXê­ÖQ`å)+áhUv597WlqÓ»¦iÏ~,YÅærq—ˆ;4XB÷“]Ã/u~jß†ºÓXç¨´Ûýôá§Ý»íCû…6Çî­#ÎÀnOðHÐ³›hÛ}µ:½Aý¯/n«4vØ¶WU·t¹bnqSñS›+ýnûµUB­ë°w*¢®zß½”;¦o»¦üyþÇï/<8’Ò•„;‰ö9……væûxzM‰<ròUq7ÁÍµBüüvFžßF?\' h«`¯âžqñ¼¯ÒiZqÇRé6rhÍ§kÍ?AM—‚9ÜÙ~ó`ÄXòX…:i«ñ}ñkðéÛ
-.€SðÇ
-ÖBÙ¬àB(!Vë0†Öµ·N;	(xœ&/*¸¬G#V"5ÇÕ)˜€Àý…‚9(á>P0{ñ"U ð¥
-VC%ß `Tñ=
-.€_ñ
-ÖBê°‚a›êEë Eõ–‚‹áˆêco€ûj§‚Kà¦Á˜Hd§¤˜‹d#Â÷„Æúúf¡#•¦cRZèJ¦SÉt$›HNÛ…ŽÉI!˜ˆg3BZÊHéY)f?“òraHJ\'Æ¥‰™ÉHzÍAð¨Æ£ô!)¡Dƒ½¾ñìQÕDß,²éHLšŠ¤¿&$Ç…AŒÙÉÚ„žé¨šHd²R™‰i!`²þHVšÎ
-‘é˜0¼fØ?>žˆJŒ•ÒÙ*\'³qôøL:‘‰%¢t¶ŒýqÊJ³’p0’ÍJ™ät<›Mís8Nœ8a(ÊQÔµG“SŽß&ËžLI1)“˜˜Æ¼íñìÔd #Ñ|²qÌq]ÆãI>“Ïžˆ¤%šffì¸Í
-Ù$êJÂ$æ1¦‘‰´$MÑLgXÄ\'â‰h\\8™œ"Ñ¨”ÊbE¨ú—y¶ÿ¶`\'×ŒX¤øšÀÌdñ>Ä@À;‚tÑ÷ðn„zü4#ê€DQg5$Ü|tAŸ)6F˜$JíLw?ò©ÿ8Ê2Œ’ðImgÙ\\v8€ò1Æy`/à«´Ä,ÇaÑÌ ¯r~3‚:¼¿ÊÇWÉ1”Y“4`\\õ˜÷ãì¾Êk‚åIk—eç‹ýkÈK¢Àr¢uö1K¢´²º¥Y¾ÔK–ùÎk&˜ï' . "\0" . 'j1-?³¤uÈ²Ù¦™ÖðcfìÇÇÑžVíf”ù¦=Î{N"Ž+=ŽÕN³bÌn5·Îü?]C,ºY6çAÆÏ²ÎSYœQ)Ø‡8Á>vÔyØsTñkgh
-5W»,œDZbò[ÓJ¿íÌç®­' . "\0" . '[•«ý¡µÈ÷ññ=gOZù³Èb$Ö«Õþg°†cXI‰ÕzL*~©Î¤ÒieÖÆD­ißV{:³®Æ\'X<QÌ%‰2je>R¬²±uÞÿ·1ÛçÊN>f¦5eÿ×ù“…]<æš/¿G
-ð_´×‰Ê"K÷ÈG÷ˆpœþ5ñÿšÌÝ¹p‡ûÛµ¦Ë·¯ßæúo»uù_‹èo-,–ýËáåÔòw—5Eú›¤þ”þËR‹éÎŸ;?ÀÒæ¿1wC¾ÁÓƒÞÈ­Î{ƒðOù
-“aQX¬_L-Î-þÃâÒâíEíÜ{ÞãþæšÃ¤¿fºÆ™®ö_=}•¿Côï˜Þáüo†ßä.\\"úK¦KŽKü]´›.vW™^m—iéµÛ¯qÔ}ÓkJ½Çþœ~õ•W¹ÔËs/_x™Ÿ{éÂKÜåÙë³\\Æ_kJN[MÓÝ»M[œ•\'Ðð+&jé³ÔxÃÇ\\¦c¨tx¤Þ4Ò]kÚäÜPc°*TÔó&¾ïç“ü+üu¾@;è¯2à½ä¿íçôý¦~G?f¸äŠô™ÑQoªw®—ïñÖš|Ý-&}·©ÛÑýQ÷/ºoukŽu“·ðë½ì½îå]ÞZ‡×å­2{·ùŒ
-gyÀàÔ8â„€C¿¢çôúcúÓz^íÀÍU5Y æ‡‡¬Ö¾…‚•Á>Yë?,“3²eˆŽ®YsF†ÀÈáà<!ß½tþ<tnï“‡‚rx{¨OŽ!pQ0‡À°}¾:C™LÖJ/bµ"œÁ¬3È:šÉ3Áº*k†d2É+•1ˆÈX)›r¨AË£ •Z™E™LåÑÿÕSº§
-endstream
-endobj
-
-6 0 obj
-3792
-endobj
-
-7 0 obj
-<</Type/FontDescriptor/FontName/BAAAAA+LiberationSerif
-/Flags 4
-/FontBBox[-176 -303 1005 981]/ItalicAngle 0
-/Ascent 891
-/Descent -216
-/CapHeight 981
-/StemV 80
-/FontFile2 5 0 R>>
-endobj
-
-8 0 obj
-<</Length 235/Filter/FlateDecode>>
-stream
-xœ]P»nÄ ìùŠ-/Å	lçÑXH§‹Nr‘‡âä0¬¤Æ…ÿ>¾$R
-Ð3³–Ÿ»ÇÎÙÄ_£×=&­3¿F0àd«j0V§++·žU`œ²ý¶$œ;7ú¶eü´%Å\'ã¼aü%ŒÖMpø8÷Äû5„/œÑ%LJ08Òœ\'žÕŒ¼¤Ž!Ù¦íH‘?ÃûêÂ«½Šö— 4Få&d­ÚËE2tæŸÖì‰aÔŸ*’³"§·’p]ðý]ÆÍþÞ”Wwž–¿ûÓô#5,;)Õr)ëðwmÁ‡œ*çÞîr
-endstream
-endobj
-
-9 0 obj
-<</Type/Font/Subtype/TrueType/BaseFont/BAAAAA+LiberationSerif
-/FirstChar 0
-/LastChar 3
-/Widths[365 277 443 389 ]
-/FontDescriptor 7 0 R
-/ToUnicode 8 0 R
->>
-endobj
-
-10 0 obj
-<</F1 9 0 R
->>
-endobj
-
-11 0 obj
-<</Font 10 0 R
-/ProcSet[/PDF/Text]
->>
-endobj
-
-1 0 obj
-<</Type/Page/Parent 4 0 R/Resources 11 0 R/MediaBox[0 0 612 792]/Group<</S/Transparency/CS/DeviceRGB/I true>>/Contents 2 0 R>>
-endobj
-
-4 0 obj
-<</Type/Pages
-/Resources 11 0 R
-/MediaBox[ 0 0 612 792 ]
-/Kids[ 1 0 R ]
-/Count 1>>
-endobj
-
-12 0 obj
-<</Type/Catalog/Pages 4 0 R
-/OpenAction[1 0 R /XYZ null null 0]
-/Lang(en-US)
->>
-endobj
-
-13 0 obj
-<</Author<FEFF004A00610079002000430061006C006C00690063006F00740074>
-/Creator<FEFF005700720069007400650072>
-/Producer<FEFF004F00700065006E004F00660066006900630065002E006F0072006700200033002E0032>
-/CreationDate(D:20100816201858-05\'00\')>>
-endobj
-
-xref
-0 14
-0000000000 65535 f 
-0000004860 00000 n 
-0000000019 00000 n 
-0000000188 00000 n 
-0000005003 00000 n 
-0000000207 00000 n 
-0000004083 00000 n 
-0000004104 00000 n 
-0000004298 00000 n 
-0000004602 00000 n 
-0000004773 00000 n 
-0000004805 00000 n 
-0000005102 00000 n 
-0000005199 00000 n 
-trailer
-<</Size 14/Root 12 0 R
-/Info 13 0 R
-/ID [ <D2B6E4A117119511DC6897172CA32919>
-<D2B6E4A117119511DC6897172CA32919> ]
-/DocChecksum /B80E8A34B89E50088C9B19E171208A01
->>
-startxref
-5452
-%%EOF
-',
+    'field_oc_location' => array(
+      'und' => array(
+        0 => array(
+          'country' => 'US',
+          'administrative_area' => 'OH',
+          'sub_administrative_area' => NULL,
+          'locality' => 'Cleveland',
+          'dependent_locality' => NULL,
+          'postal_code' => '37027',
+          'thoroughfare' => '',
+          'premise' => '',
+          'sub_premise' => NULL,
+          'organisation_name' => NULL,
+          'name_line' => NULL,
+          'first_name' => NULL,
+          'last_name' => NULL,
+          'data' => NULL,
+        ),
       ),
     ),
-  ),
-  'field_oc_ministry' => array(
-    'und' => array(
-      0 => array(
-        'machine_name' => 'oc_ministry1',
+    'field_oc_ministry' => array(
+      'und' => array(
+        0 => array(
+          'machine_name' => 'oc_ministry1',
+        ),
       ),
     ),
-  ),
-  'field_oc_location' => array(
-    'und' => array(
-      0 => array(
-        'country' => 'US',
-        'administrative_area' => 'OH',
-        'sub_administrative_area' => NULL,
-        'locality' => 'Cleveland',
-        'dependent_locality' => NULL,
-        'postal_code' => '37027',
-        'thoroughfare' => '',
-        'premise' => '',
-        'sub_premise' => NULL,
-        'organisation_name' => NULL,
-        'name_line' => NULL,
-        'first_name' => NULL,
-        'last_name' => NULL,
-        'data' => NULL,
+    'field_oc_url' => array(
+      'und' => array(
+        0 => array(
+          'url' => 'http://www.google.com',
+          'title' => NULL,
+          'attributes' => array(),
+        ),
       ),
     ),
-  ),
-);
+  );
+
 return $content;
 }
