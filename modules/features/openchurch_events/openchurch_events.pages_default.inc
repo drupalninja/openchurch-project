@@ -1,10 +1,15 @@
 <?php
+/**
+ * @file
+ * openchurch_events.pages_default.inc
+ */
 
 /**
- * Implementation of hook_default_page_manager_handlers().
+ * Implements hook_default_page_manager_handlers().
  */
 function openchurch_events_default_page_manager_handlers() {
   $export = array();
+
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
@@ -132,26 +137,27 @@ function openchurch_events_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 0;
+    $pane->locks = '';
     $display->content['new-1'] = $pane;
     $display->panels['center'][0] = 'new-1';
     $pane = new stdClass;
     $pane->pid = 'new-2';
     $pane->panel = 'center';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_oc_url';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_url';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'normal',
-      'formatter' => 'default',
-      'context' => 'argument_nid_1',
+      'label' => 'title',
+      'formatter' => 'link_default',
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
       'override_title' => 1,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array(
       'css_id' => '',
@@ -159,38 +165,23 @@ function openchurch_events_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 1;
+    $pane->locks = array();
     $display->content['new-2'] = $pane;
     $display->panels['center'][1] = 'new-2';
     $pane = new stdClass;
     $pane->pid = 'new-3';
     $pane->panel = 'center';
-    $pane->type = 'views';
-    $pane->subtype = 'openchurch_related_downloads';
+    $pane->type = 'block';
+    $pane->subtype = 'views-fb2a92c9d494b2e43b21cbd5f2379c70';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '10',
-      'pager_id' => '',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block_1',
-      'context' => array(
-        0 => '',
-      ),
       'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array(
       'css_id' => '',
@@ -198,11 +189,12 @@ function openchurch_events_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 2;
+    $pane->locks = array();
     $display->content['new-3'] = $pane;
     $display->panels['center'][2] = 'new-3';
     $pane = new stdClass;
     $pane->pid = 'new-4';
-    $pane->panel = 'center';
+    $pane->panel = 'event_highlights_';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -210,10 +202,12 @@ function openchurch_events_default_page_manager_handlers() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<?php
-
-return l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));',
-      'format' => '3',
+      'body' => '<div class="back-to-list">
+<?php
+print l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));
+?>
+</div>',
+      'format' => 'php_code',
       'substitute' => 1,
     );
     $pane->cache = array();
@@ -223,51 +217,37 @@ return l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));',
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'back-to-list',
+      'css_class' => '',
     );
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 0;
+    $pane->locks = '';
     $display->content['new-4'] = $pane;
-    $display->panels['center'][3] = 'new-4';
+    $display->panels['event_highlights_'][0] = 'new-4';
     $pane = new stdClass;
     $pane->pid = 'new-5';
     $pane->panel = 'event_highlights_';
-    $pane->type = 'views';
-    $pane->subtype = 'openchurch_event_thumb';
+    $pane->type = 'block';
+    $pane->subtype = 'views-openchurch_event_thumb-block';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '1',
-      'pager_id' => '',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block_1',
-      'context' => array(
-        0 => '',
-      ),
-      'override_title' => 1,
+      'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array(
       'css_id' => '',
       'css_class' => 'ministry-thumb',
     );
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
+    $pane->locks = array();
     $display->content['new-5'] = $pane;
-    $display->panels['event_highlights_'][0] = 'new-5';
+    $display->panels['event_highlights_'][1] = 'new-5';
     $pane = new stdClass;
     $pane->pid = 'new-6';
     $pane->panel = 'event_highlights_';
@@ -291,43 +271,22 @@ return l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));',
       'css_class' => 'event-title',
     );
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
+    $pane->locks = '';
     $display->content['new-6'] = $pane;
-    $display->panels['event_highlights_'][1] = 'new-6';
+    $display->panels['event_highlights_'][2] = 'new-6';
     $pane = new stdClass;
     $pane->pid = 'new-7';
     $pane->panel = 'event_highlights_';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_oc_ministry';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_ministry';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'inline',
-      'formatter' => 'default',
-      'context' => 'argument_nid_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-7'] = $pane;
-    $display->panels['event_highlights_'][2] = 'new-7';
-    $pane = new stdClass;
-    $pane->pid = 'new-8';
-    $pane->panel = 'event_highlights_';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_oc_dates';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'inline',
-      'formatter' => 'default',
-      'context' => 'argument_nid_1',
+      'formatter' => 'node_reference_default',
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -338,19 +297,27 @@ return l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));',
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 3;
-    $display->content['new-8'] = $pane;
-    $display->panels['event_highlights_'][3] = 'new-8';
+    $pane->locks = array();
+    $display->content['new-7'] = $pane;
+    $display->panels['event_highlights_'][3] = 'new-7';
     $pane = new stdClass;
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-8';
     $pane->panel = 'event_highlights_';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_oc_location';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_dates';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'inline',
-      'formatter' => 'default',
-      'context' => 'argument_nid_1',
+      'formatter' => 'date_default',
+      'formatter_settings' => array(
+        'format_type' => 'long',
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_to' => '',
+        'fromto' => 'both',
+      ),
+      'context' => 'argument_entity_id:node_1',
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -361,19 +328,26 @@ return l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));',
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 4;
-    $display->content['new-9'] = $pane;
-    $display->panels['event_highlights_'][4] = 'new-9';
+    $pane->locks = array();
+    $display->content['new-8'] = $pane;
+    $display->panels['event_highlights_'][4] = 'new-8';
     $pane = new stdClass;
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-9';
     $pane->panel = 'event_highlights_';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_oc_cost';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_location';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'inline',
-      'formatter' => 'default',
-      'context' => 'argument_nid_1',
+      'formatter' => 'addressfield_default',
+      'formatter_settings' => array(
+        'use_widget_handlers' => 1,
+        'format_handlers' => array(
+          'address' => 'address',
+        ),
+      ),
+      'context' => 'argument_entity_id:node_1',
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -384,12 +358,38 @@ return l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));',
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 5;
+    $pane->locks = array();
+    $display->content['new-9'] = $pane;
+    $display->panels['event_highlights_'][5] = 'new-9';
+    $pane = new stdClass;
+    $pane->pid = 'new-10';
+    $pane->panel = 'event_highlights_';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_cost';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'inline',
+      'formatter' => 'text_default',
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->locks = array();
     $display->content['new-10'] = $pane;
-    $display->panels['event_highlights_'][5] = 'new-10';
+    $display->panels['event_highlights_'][6] = 'new-10';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-1';
   $handler->conf['display'] = $display;
-
   $export['node_view_panel_context'] = $handler;
+
   return $export;
 }
