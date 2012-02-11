@@ -346,7 +346,7 @@ print date(\'m.d.y\',strtotime($data->field_data_field_oc_date_field_oc_date_val
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
-  $handler->display->display_options['path'] = 'media/podcasts/feed';
+  $handler->display->display_options['path'] = 'multimedia/podcasts/feed';
   $handler->display->display_options['displays'] = array(
     'block' => 'block',
     'default' => 0,
@@ -364,7 +364,7 @@ print date(\'m.d.y\',strtotime($data->field_data_field_oc_date_field_oc_date_val
 <h3 class="title">Recent Sermons</h3>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = 0;
-  $handler->display->display_options['path'] = 'media/podcasts';
+  $handler->display->display_options['path'] = 'multimedia/podcasts';
   $export['openchurch_podcasts'] = $view;
 
   return $export;

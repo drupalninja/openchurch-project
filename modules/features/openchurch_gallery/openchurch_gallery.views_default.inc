@@ -273,7 +273,7 @@ function openchurch_gallery_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'openchurch_gallery' => 'openchurch_gallery',
   );
-  $handler->display->display_options['path'] = 'media/galleries';
+  $handler->display->display_options['path'] = 'multimedia/galleries';
   $export['openchurch_galleries'] = $view;
 
   $view = new view;
@@ -397,7 +397,7 @@ function openchurch_gallery_views_default_views() {
   $handler->display->display_options['header']['php']['field'] = 'php';
   $handler->display->display_options['header']['php']['empty'] = FALSE;
   $handler->display->display_options['header']['php']['php_output'] = '<?php
-$output .= l(\'&laquo; back to galleries\', \'media/galleries\', array(\'attributes\' => array(\'class\' => \'back-to-galleries\'), \'html\' => TRUE));
+$output .= l(\'&laquo; back to galleries\', \'multimedia/galleries\', array(\'attributes\' => array(\'class\' => \'back-to-galleries\'), \'html\' => TRUE));
 
 print $output;
 ?>';
