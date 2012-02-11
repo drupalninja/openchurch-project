@@ -168,6 +168,46 @@
 		<field name="options">a:1:{i:0;s:20:&quot;block-title-lt-green&quot;;}</field>
 		<field name="status">1</field>
 	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__1</field>
+		<field name="skin">fusion_skins_grid12_width</field>
+		<field name="options">a:1:{i:0;s:8:"grid12-4";}</field>
+		<field name="status">1</field>
+	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__3</field>
+		<field name="skin">fusion_skins_grid12_width</field>
+		<field name="options">a:1:{i:0;s:8:"grid12-4";}</field>
+		<field name="status">1</field>
+	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">block__4</field>
+		<field name="skin">fusion_skins_grid12_width</field>
+		<field name="options">a:1:{i:0;s:8:"grid12-4";}</field>
+		<field name="status">1</field>
+	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_theme</field>
+		<field name="module">block</field>
+		<field name="element">menu__menu-secondary-links</field>
+		<field name="skin">fusion_skins_block_positioning</field>
+		<field name="options">a:1:{i:0;s:12:"fusion-right";}</field>
+		<field name="status">1</field>
+	</row>
 
 	</table_data>
 

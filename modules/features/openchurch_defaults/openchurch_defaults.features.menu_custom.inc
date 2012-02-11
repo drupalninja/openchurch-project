@@ -16,9 +16,17 @@ function openchurch_defaults_menu_default_menu_custom() {
     'title' => 'Main menu',
     'description' => 'The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.',
   );
+  // Exported menu: menu-secondary-links
+  $menus['menu-secondary-links'] = array(
+    'menu_name' => 'menu-secondary-links',
+    'title' => 'Secondary Links',
+    'description' => 'Secondary links are often used for pages like legal notices, contact details, and other secondary navigation items that play a lesser role than primary links.',
+  );
   // Translatables
   // Included for use with string extractors like potx.
   t('Main menu');
+  t('Secondary Links');
+  t('Secondary links are often used for pages like legal notices, contact details, and other secondary navigation items that play a lesser role than primary links.');
   t('The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.');
 
 

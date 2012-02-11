@@ -155,6 +155,12 @@ function openchurch_defaults_strongarm() {
       'title' => 'Management',
       'name' => 'management',
     ),
+    'menu-secondary-links' => array(
+      'enabled' => 0,
+      'weight' => '0',
+      'type' => 'menu',
+      'name' => 'menu-secondary-links',
+    ),
     'menu_breadcrumb_default_menu' => array(
       'enabled' => 0,
       'weight' => '0',
@@ -231,6 +237,13 @@ function openchurch_defaults_strongarm() {
   $strongarm->name = 'menu_parent_webform';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_webform'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_secondary_links_source';
+  $strongarm->value = 'menu-secondary-links';
+  $export['menu_secondary_links_source'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

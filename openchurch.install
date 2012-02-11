@@ -134,5 +134,6 @@ function openchurch_install_tasks() {
  * Clean up tasks
  */
 function openchurch_cleanup(){
-  
+  //Set secondary link block title(s) to <none>
+  db_query('UPDATE block SET title = :title WHERE delta = :name', array(':name' => 'menu-secondary-links', ':title' => '<none>'));
 }

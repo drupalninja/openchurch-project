@@ -441,4 +441,15 @@ function _openchurch_defaults_add_menu_links(){
   );
 
   menu_link_save($item);
+  
+  $item = array(
+    'link_title' => t('Image Acknowledgements'),
+    'link_path' => 'node/16',
+    'menu_name' => 'menu-secondary-links',
+    'weight' => 0,
+    'customized' => 1,
+    'module'     => 'openchurch_defaults',
+  );
+
+  menu_link_save($item);
 }
