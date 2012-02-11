@@ -69,3 +69,7 @@ libraries[tinymce][directory_name] = "tinymce"
 libraries[superfish][download][type] = "get"
 libraries[superfish][download][url] = "http://dl.dropbox.com/u/22795799/superfish-library-for-drupal-v1.1.zip"
 libraries[superfish][directory_name] = "superfish"
+
+libraries[jquery.cycle][type] = "libraries"
+libraries[jquery.cycle][download][type] = "file"
+libraries[jquery.cycle][download][url] = "https://raw.github.com/malsup/cycle/master/jquery.cycle.all.js"

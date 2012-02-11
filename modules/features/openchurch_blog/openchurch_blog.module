@@ -12,7 +12,7 @@ function openchurch_blog_form_alter(&$form, &$form_state, $form_id){
     /**
      * Override openchurch blog filter
      */
-    if ($form['#id'] == 'views-exposed-form-openchurch-latest-blogs-block-1') {
+    if ($form['#id'] == 'views-exposed-form-openchurch-latest-blogs-page-1') {
       $form['submit']['#value'] = 'update';
     }
   }

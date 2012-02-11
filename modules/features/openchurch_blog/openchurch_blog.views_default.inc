@@ -23,6 +23,7 @@ function openchurch_blog_views_default_views() {
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->display->display_options['title'] = 'Blog Archives';
+  $handler->display->display_options['css_class'] = 'openchurch-blog-archives-list';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -115,8 +116,9 @@ function openchurch_blog_views_default_views() {
   );
   $handler->display->display_options['filters']['type']['expose']['operator'] = FALSE;
 
-  /* Display: Blog Archives Block */
-  $handler = $view->new_display('block', 'Blog Archives Block', 'block_1');
+  /* Display: Blog Archives Page */
+  $handler = $view->new_display('page', 'Blog Archives Page', 'page_1');
+  $handler->display->display_options['path'] = 'blog/archives';
 
   /* Display: Blog Archives Feed */
   $handler = $view->new_display('feed', 'Blog Archives Feed', 'feed_1');
@@ -144,6 +146,7 @@ function openchurch_blog_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Latest Blog Posts';
+  $handler->display->display_options['css_class'] = 'openchurch-latest-blogs-list';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -167,7 +170,7 @@ function openchurch_blog_views_default_views() {
   $handler->display->display_options['header']['php']['field'] = 'php';
   $handler->display->display_options['header']['php']['empty'] = FALSE;
   $handler->display->display_options['header']['php']['php_output'] = '<?php
-return l("blog archives &raquo;", \'blog/archives\', array(\'html\' => TRUE));
+print l("blog archives &raquo;", \'blog/archives\', array(\'html\' => TRUE));
 ?>';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -318,8 +321,9 @@ return l("blog archives &raquo;", \'blog/archives\', array(\'html\' => TRUE));
   $handler->display->display_options['filters']['field_oc_blog_topc_tid']['hierarchy'] = 1;
   $handler->display->display_options['filters']['field_oc_blog_topc_tid']['error_message'] = 1;
 
-  /* Display: Latest Blog Teaser Block */
-  $handler = $view->new_display('block', 'Latest Blog Teaser Block', 'block');
+  /* Display: Latest Blog Teasers Page */
+  $handler = $view->new_display('page', 'Latest Blog Teasers Page', 'page_1');
+  $handler->display->display_options['path'] = 'blog';
 
   /* Display: Latest Blog Teaser Feed */
   $handler = $view->new_display('feed', 'Latest Blog Teaser Feed', 'feed_1');

@@ -142,16 +142,6 @@ function openchurch_defaults_install() {
     drupal_write_record('taxonomy_term_hierarchy', $term_hierarchy);
   }
   
-  variable_set('page_manager_node_view_disabled', FALSE);//make sure node template is enabled
-  
-  /**
-   * Superfish settings
-   */
-  variable_set('superfish_menu_1', 'main-menu');
-  variable_set('superfish_slide_1', 'vertical');
-  variable_set('superfish_type_1', 'horizontal');
-  variable_set('superfish_arrow_1', '0');
-  
   /**
    * Add menu links manually
    */
@@ -425,6 +415,29 @@ function _openchurch_defaults_add_menu_links(){
     'customized' => 1,
     'module'     => 'openchurch_defaults',
     'plid' => 413,
+  );
+
+  menu_link_save($item);
+  
+  $item = array(
+    'link_title' => t('Blog'),
+    'link_path' => 'blog',
+    'menu_name' => 'main-menu',
+    'weight' => 0,
+    'customized' => 1,
+    'module'     => 'openchurch_defaults',
+  );
+
+  menu_link_save($item);
+  
+  $item = array(
+    'link_title' => t('Blog Archives'),
+    'link_path' => 'blog/archives',
+    'menu_name' => 'main-menu',
+    'weight' => 0,
+    'customized' => 1,
+    'module'     => 'openchurch_defaults',
+    'plid' => 417,
   );
 
   menu_link_save($item);
