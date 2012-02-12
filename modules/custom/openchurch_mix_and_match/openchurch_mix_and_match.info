@@ -1,6 +1,0 @@
-core = "7.x"
-description = "Openchurch mix and match theme."
-name = "Openchurch Mix And Match"
-package = "Openchurch"
-project = "openchurch_mix_and_match"
-version = "7.x-1.0-alpha1"

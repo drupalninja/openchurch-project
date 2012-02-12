@@ -54,9 +54,6 @@ projects[wysiwyg][subdir] = contrib
 ; Base theme for OpenChurch
 projects[fusion][type] = "theme"
 
-; Alternative base theme for OpenChurch
-projects[mix_and_match][type] = "theme"
-
 ; Custom theme developed for OpenChurch (get latest)
 projects[openchurch_theme][type] = "theme"
 
