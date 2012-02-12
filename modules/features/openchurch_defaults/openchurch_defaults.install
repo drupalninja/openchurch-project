@@ -11,19 +11,16 @@ function openchurch_defaults_install() {
    */
   
   $settings = new stdClass;
-  $settings->info = 'Contact Us Bottom Block';
+  $settings->info = 'Weekly Meeting Times Bottom Block';
   $settings->format = 'full_html';
-  $settings->machine_name = 'oc_block_contact_bottom';
-  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/phone.png" alt="" /><span style="font-size: x-large;"><span style="color: #4a7470;">123-456-7890</span></span><br /><a href="#">info@openchurchsite.com</a><br /><strong>OpenChurch</strong><br />1234 Belt Line Rd<br />Dallas, TX 75000</p>';
+  $settings->machine_name = 'oc_block_times_bottom';
+  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/clock.png" alt="" /><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-and-locations"><strong>View More Details</strong></a></p>';
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
   
-  //Update block weight
-  db_query('UPDATE block SET weight = 99 WHERE delta = :bid', array(':bid' => $block['bid']));
-  
   //Save title
-  _openchurch_defaults_add_block_title($block['bid'], 'Contact Us');
+  _openchurch_defaults_add_block_title($block['bid'], 'Weekly Meeting Times');
 
   $settings = new stdClass;
   $settings->info = 'View Maps and Directions Sidebar Block';
@@ -47,16 +44,16 @@ function openchurch_defaults_install() {
   _openchurch_defaults_add_block_title($block['bid'], 'Location & Directions');
   
   $settings = new stdClass;
-  $settings->info = 'Weekly Meeting Times Bottom Block';
+  $settings->info = 'Contact Us Bottom Block';
   $settings->format = 'full_html';
-  $settings->machine_name = 'oc_block_times_bottom';
-  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/clock.png" alt="" /><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-and-locations"><strong>View More Details</strong></a></p>';
+  $settings->machine_name = 'oc_block_contact_bottom';
+  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/phone.png" alt="" /><span style="font-size: x-large;"><span style="color: #4a7470;">123-456-7890</span></span><br /><a href="#">info@openchurchsite.com</a><br /><strong>OpenChurch</strong><br />1234 Belt Line Rd<br />Dallas, TX 75000</p>';
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
   
   //Save title
-  _openchurch_defaults_add_block_title($block['bid'], 'Weekly Meeting Times');
+  _openchurch_defaults_add_block_title($block['bid'], 'Contact Us');
   
   $settings = new stdClass;
   $settings->info = 'Weekly Meeting Times Sidebar Block';
@@ -282,7 +279,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 405,
+    'plid' => 399,
     'customized' => 1,
   );
   
@@ -300,7 +297,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 405,
+    'plid' => 399,
     'customized' => 1,
   );
   
@@ -318,7 +315,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-49',
-    'plid' => 404,
+    'plid' => 398,
     'customized' => 1,
   );
   
@@ -336,7 +333,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-50',
-    'plid' => 404,
+    'plid' => 398,
     'customized' => 1,
   );
   
@@ -361,7 +358,7 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => -99,
     'customized' => 1,
     'module'     => 'openchurch_defaults',
-    'plid' => 405,
+    'plid' => 399,
   );
 
   menu_link_save($item);
@@ -394,7 +391,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 413,
+    'plid' => 407,
     'customized' => 1,
   );
   
@@ -411,7 +408,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 413,
+    'plid' => 407,
     'customized' => 1,
   );
   
@@ -424,7 +421,7 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => -99,
     'customized' => 1,
     'module'     => 'openchurch_defaults',
-    'plid' => 413,
+    'plid' => 407,
   );
 
   menu_link_save($item);
@@ -447,7 +444,7 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => 0,
     'customized' => 1,
     'module'     => 'openchurch_defaults',
-    'plid' => 417,
+    'plid' => 411,
   );
 
   menu_link_save($item);
