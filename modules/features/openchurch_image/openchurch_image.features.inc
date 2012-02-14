@@ -19,7 +19,7 @@ function openchurch_image_ctools_plugin_api() {
  */
 function openchurch_image_node_info() {
   $items = array(
-    'oc_image' => array(
+    'openchurch_image' => array(
       'name' => t('Image'),
       'base' => 'node_content',
       'description' => t('Images are used when only a single image is needed and can be embedded within the sidebar or content area.'),

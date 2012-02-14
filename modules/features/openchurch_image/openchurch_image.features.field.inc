@@ -10,8 +10,8 @@
 function openchurch_image_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-oc_image-body'
-  $fields['node-oc_image-body'] = array(
+  // Exported field: 'node-openchurch_image-body'
+  $fields['node-openchurch_image-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -39,7 +39,7 @@ function openchurch_image_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'oc_image',
+      'bundle' => 'openchurch_image',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -82,8 +82,8 @@ function openchurch_image_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-oc_image-field_oc_image'
-  $fields['node-oc_image-field_oc_image'] = array(
+  // Exported field: 'node-openchurch_image-field_oc_image'
+  $fields['node-openchurch_image-field_oc_image'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -112,7 +112,7 @@ function openchurch_image_field_default_fields() {
       'type' => 'image',
     ),
     'field_instance' => array(
-      'bundle' => 'oc_image',
+      'bundle' => 'openchurch_image',
       'deleted' => '0',
       'description' => '',
       'display' => array(
