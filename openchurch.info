@@ -35,7 +35,7 @@ dependencies[] = toolbar
 ; Contrib
 
 dependencies[] = addressfield
-dependencies[] = admin
+;dependencies[] = admin
 dependencies[] = apps
 dependencies[] = backup_migrate
 dependencies[] = bulk_export
