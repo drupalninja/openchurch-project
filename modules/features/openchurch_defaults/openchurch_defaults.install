@@ -279,7 +279,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 399,
+    'plid' => 397,
     'customized' => 1,
   );
   
@@ -297,7 +297,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 399,
+    'plid' => 397,
     'customized' => 1,
   );
   
@@ -315,7 +315,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-49',
-    'plid' => 398,
+    'plid' => 396,
     'customized' => 1,
   );
   
@@ -333,7 +333,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-50',
-    'plid' => 398,
+    'plid' => 396,
     'customized' => 1,
   );
   
@@ -358,7 +358,7 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => -99,
     'customized' => 1,
     'module'     => 'openchurch_defaults',
-    'plid' => 399,
+    'plid' => 397,
   );
 
   menu_link_save($item);
@@ -391,7 +391,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 407,
+    'plid' => 405,
     'customized' => 1,
   );
   
@@ -408,7 +408,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 407,
+    'plid' => 405,
     'customized' => 1,
   );
   
@@ -421,7 +421,7 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => -99,
     'customized' => 1,
     'module'     => 'openchurch_defaults',
-    'plid' => 407,
+    'plid' => 405,
   );
 
   menu_link_save($item);
@@ -444,7 +444,7 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => 0,
     'customized' => 1,
     'module'     => 'openchurch_defaults',
-    'plid' => 411,
+    'plid' => 409,
   );
 
   menu_link_save($item);
