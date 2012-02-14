@@ -11,7 +11,7 @@ function openchurch_ministry_content_defaults() {
   $content = array();
 
   $content['oc_ministry1'] = (object) array(
-    'exported_path' => 'content/youth-ministry',
+    'exported_path' => 'ministry/youth-ministry',
     'link' => array(
       'menu_name' => 'main-menu',
       'link_path' => 'node-name/oc_ministry1',
@@ -104,7 +104,7 @@ function openchurch_ministry_content_defaults() {
   );
 
   $content['oc_ministry2'] = (object) array(
-    'exported_path' => 'content/singles-ministry',
+    'exported_path' => 'ministry/singles-ministry',
     'link' => array(
       'menu_name' => 'main-menu',
       'link_path' => 'node-name/oc_ministry2',

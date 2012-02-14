@@ -11,7 +11,7 @@ function openchurch_defaults_content_defaults() {
   $content = array();
 
   $content['oc_page_about'] = (object) array(
-    'exported_path' => 'content/about-open-church',
+    'exported_path' => 'about',
     'link' => array(
       'menu_name' => 'main-menu',
       'link_path' => 'node-name/oc_page_about',
@@ -54,7 +54,7 @@ function openchurch_defaults_content_defaults() {
   );
 
   $content['oc_page_image_acknowledgements'] = (object) array(
-    'exported_path' => 'content/image-acknowledgements',
+    'exported_path' => 'image-acknowledgements',
     'title' => 'Image Acknowledgements',
     'status' => '1',
     'promote' => '0',
@@ -128,7 +128,7 @@ function openchurch_defaults_content_defaults() {
   );
 
   $content['oc_page_map_directions'] = (object) array(
-    'exported_path' => 'content/map-and-directions',
+    'exported_path' => 'about/map-and-directions',
     'link' => array(
       'menu_name' => 'main-menu',
       'link_path' => 'node-name/oc_page_map_directions',
@@ -178,7 +178,7 @@ function openchurch_defaults_content_defaults() {
   );
 
   $content['oc_page_serve'] = (object) array(
-    'exported_path' => 'content/serve',
+    'exported_path' => 'serve',
     'link' => array(
       'menu_name' => 'main-menu',
       'link_path' => 'node-name/oc_page_serve',
@@ -230,7 +230,7 @@ function openchurch_defaults_content_defaults() {
   );
 
   $content['oc_page_times'] = (object) array(
-    'exported_path' => 'content/time-locations',
+    'exported_path' => 'about/time-locations',
     'link' => array(
       'menu_name' => 'main-menu',
       'link_path' => 'node-name/oc_page_times',
@@ -279,7 +279,7 @@ function openchurch_defaults_content_defaults() {
   );
 
   $content['oc_webform'] = (object) array(
-    'exported_path' => 'content/contact-us',
+    'exported_path' => 'contact',
     'webform' => array(
       'confirmation' => '',
       'confirmation_format' => NULL,

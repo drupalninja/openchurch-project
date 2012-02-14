@@ -11,7 +11,7 @@ function openchurch_giving_content_defaults() {
   $content = array();
 
   $content['oc_charity1'] = (object) array(
-    'exported_path' => 'content/support-our-food-pantry',
+    'exported_path' => 'charity/support-our-food-pantry',
     'title' => 'Support our Food Pantry',
     'status' => '1',
     'promote' => '0',

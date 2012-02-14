@@ -318,7 +318,7 @@ function openchurch_defaults_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_openchurch_bulletin_pattern';
-  $strongarm->value = 'media/bulletins/[node:title]';
+  $strongarm->value = 'multimedia/bulletins/[node:title]';
   $export['pathauto_node_openchurch_bulletin_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -339,7 +339,7 @@ function openchurch_defaults_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_openchurch_gallery_pattern';
-  $strongarm->value = 'media/galleries/[node:title]';
+  $strongarm->value = 'multimedia/galleries/[node:title]';
   $export['pathauto_node_openchurch_gallery_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -367,7 +367,7 @@ function openchurch_defaults_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_openchurch_podcast_pattern';
-  $strongarm->value = 'media/podcasts/[node:title]';
+  $strongarm->value = 'multimedia/podcasts/[node:title]';
   $export['pathauto_node_openchurch_podcast_pattern'] = $strongarm;
 
   $strongarm = new stdClass;

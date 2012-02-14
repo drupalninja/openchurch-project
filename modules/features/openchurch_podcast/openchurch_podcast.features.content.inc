@@ -11,7 +11,7 @@ function openchurch_podcast_content_defaults() {
   $content = array();
 
   $content['oc_podcast1'] = (object) array(
-    'exported_path' => 'content/what-do-you-do-after-easter',
+    'exported_path' => 'multimedia/podcasts/what-do-you-do-after-easter',
     'title' => 'What Do You Do After Easter?',
     'status' => '1',
     'promote' => '0',
@@ -80,7 +80,7 @@ function openchurch_podcast_content_defaults() {
   );
 
   $content['oc_podcast2'] = (object) array(
-    'exported_path' => 'content/do-it-anyway',
+    'exported_path' => 'multimedia/podcasts/do-it-anyway',
     'title' => 'Do It Anyway',
     'status' => '1',
     'promote' => '0',

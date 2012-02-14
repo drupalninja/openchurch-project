@@ -11,7 +11,7 @@ function openchurch_blog_content_defaults() {
   $content = array();
 
   $content['oc_blog1'] = (object) array(
-    'exported_path' => 'content/blog-post-last-week',
+    'exported_path' => 'blog/blog-post-last-week',
     'title' => 'Blog Post From Last Week',
     'status' => '1',
     'promote' => '0',
@@ -47,7 +47,7 @@ function openchurch_blog_content_defaults() {
   );
 
   $content['oc_blog2'] = (object) array(
-    'exported_path' => 'content/weeks-blog-post',
+    'exported_path' => 'blog/weeks-blog-post',
     'title' => 'This Week\'s Blog Post',
     'status' => '1',
     'promote' => '0',

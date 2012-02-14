@@ -11,7 +11,7 @@ function openchurch_events_content_defaults() {
   $content = array();
 
   $content['oc_event1'] = (object) array(
-    'exported_path' => 'content/scream-free-parenting',
+    'exported_path' => 'events/scream-free-parenting',
     'title' => 'Scream Free Parenting',
     'status' => '1',
     'promote' => '0',
@@ -114,7 +114,7 @@ function openchurch_events_content_defaults() {
   );
 
   $content['oc_event2'] = (object) array(
-    'exported_path' => 'content/dinner-bethlehem',
+    'exported_path' => 'events/dinner-bethlehem',
     'title' => 'Dinner at Bethlehem',
     'status' => '1',
     'promote' => '0',

@@ -11,7 +11,7 @@ function openchurch_staff_content_defaults() {
   $content = array();
 
   $content['oc_staff1'] = (object) array(
-    'exported_path' => 'content/john-smith',
+    'exported_path' => 'about/staff/john-smith',
     'title' => 'John Smith',
     'status' => '1',
     'promote' => '0',
@@ -76,7 +76,7 @@ function openchurch_staff_content_defaults() {
   );
 
   $content['oc_staff2'] = (object) array(
-    'exported_path' => 'content/john-doe',
+    'exported_path' => 'about/staff/john-doe',
     'title' => 'John Doe',
     'status' => '1',
     'promote' => '0',

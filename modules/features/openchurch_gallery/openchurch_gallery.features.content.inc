@@ -11,7 +11,7 @@ function openchurch_gallery_content_defaults() {
   $content = array();
 
   $content['oc_gallery1'] = (object) array(
-    'exported_path' => 'content/high-school-retreat',
+    'exported_path' => 'multimedia/galleries/high-school-retreat',
     'title' => 'High School Retreat',
     'status' => '1',
     'promote' => '0',
@@ -129,7 +129,7 @@ function openchurch_gallery_content_defaults() {
   );
 
   $content['oc_gallery2'] = (object) array(
-    'exported_path' => 'content/youth-ministry-spring-break-gallery',
+    'exported_path' => 'multimedia/galleries/youth-ministry-spring-break-gallery',
     'title' => 'Youth Ministry Spring Break Gallery',
     'status' => '1',
     'promote' => '0',
