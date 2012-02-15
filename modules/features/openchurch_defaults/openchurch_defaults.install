@@ -14,7 +14,7 @@ function openchurch_defaults_install() {
   $settings->info = 'Weekly Meeting Times Bottom Block';
   $settings->format = 'full_html';
   $settings->machine_name = 'oc_block_times_bottom';
-  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/clock.png" alt="" /><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-and-locations"><strong>View More Details</strong></a></p>';
+  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/clock.png" alt="" /><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-locations"><strong>View More Details</strong></a></p>';
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
