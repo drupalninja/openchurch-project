@@ -145,7 +145,7 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<p>Welcome to the OpenChurch event page. Please notice two sections.  Below you will see events listed that are considered featured events.  Some will have online registrations when required and others may just be listed if no registration is required.  If you would like to look at the broader church calendar please click on the icon to the right.  Please enjoy all that OpenChurch has to offer!</p>
+  $handler->display->display_options['header']['area']['content'] = '<p>Welcome to the OpenChurch event page. Below you will see all events for this site with an option to filter by ministry. Some will have online registrations when required and others may just be listed if no registration is required. Please enjoy all that OpenChurch has to offer!</p>
 
 <h3 class="title">Upcoming Events</h3>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
