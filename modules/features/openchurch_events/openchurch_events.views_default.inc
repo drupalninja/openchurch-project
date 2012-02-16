@@ -215,7 +215,8 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['fields']['php_1']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_1']['php_output'] = '<?php
-print date(\'m.d.y\',strtotime($data->field_data_field_oc_date_field_oc_date_value));
+$date = $data->_field_data[\'nid\'][\'entity\']-> field_oc_dates[LANGUAGE_NONE][0][\'value\'];
+print date(\'m.d.y\',strtotime($date));
 ?>';
   $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_1']['php_click_sortable'] = '';
