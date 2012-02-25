@@ -233,6 +233,8 @@ function _openchurch_defaults_add_menu_links(){
   
   menu_link_save($item);
   
+  $ministries_mlid = $item['mlid'];
+  
   // Exported menu link: main-menu:node/15
   $item = array(
     'menu_name' => 'main-menu',
@@ -249,6 +251,8 @@ function _openchurch_defaults_add_menu_links(){
   );
   
   menu_link_save($item);
+  
+  $about_mlid = $item['mlid'];
   
   // Exported menu link: main-menu:node/17
   $item = array(
@@ -279,7 +283,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 370,
+    'plid' => $about_mlid,
     'customized' => 1,
   );
   
@@ -297,7 +301,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 370,
+    'plid' => $about_mlid,
     'customized' => 1,
   );
   
@@ -315,7 +319,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-49',
-    'plid' => 369,
+    'plid' => $ministries_mlid,
     'customized' => 1,
   );
   
@@ -333,7 +337,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-50',
-    'plid' => 369,
+    'plid' => $ministries_mlid,
     'customized' => 1,
   );
   
@@ -358,7 +362,7 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => -99,
     'customized' => 1,
     'module'     => 'openchurch_defaults',
-    'plid' => 370,
+    'plid' => $about_mlid,
   );
 
   menu_link_save($item);
@@ -380,6 +384,8 @@ function _openchurch_defaults_add_menu_links(){
   
   menu_link_save($item);
   
+  $media_mlid = $item['mlid'];
+  
   // Exported menu link: main-menu:multimedia/bulletins
   $item = array(
     'menu_name' => 'main-menu',
@@ -391,7 +397,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 378,
+    'plid' => $media_mlid,
     'customized' => 1,
   );
   
@@ -408,7 +414,7 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '0',
-    'plid' => 378,
+    'plid' => $media_mlid,
     'customized' => 1,
   );
   
@@ -421,7 +427,7 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => -99,
     'customized' => 1,
     'module'     => 'openchurch_defaults',
-    'plid' => 378,
+    'plid' => $media_mlid,
   );
 
   menu_link_save($item);
@@ -437,6 +443,8 @@ function _openchurch_defaults_add_menu_links(){
 
   menu_link_save($item);
   
+  $blog_mlid = $item['mlid'];
+  
   $item = array(
     'link_title' => t('Blog Archives'),
     'link_path' => 'blog/archives',
@@ -444,7 +452,7 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => 0,
     'customized' => 1,
     'module'     => 'openchurch_defaults',
-    'plid' => 382,
+    'plid' => $blog_mlid,
   );
 
   menu_link_save($item);
