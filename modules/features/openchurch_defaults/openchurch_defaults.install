@@ -147,6 +147,17 @@ function openchurch_defaults_install() {
     'value' => 'a:4:{i:4;a:4:{s:6:"weight";s:1:"0";s:9:"vimeo_pid";s:1:"1";s:11:"youtube_pid";s:1:"1";s:10:"public_pid";s:1:"1";}i:3;a:4:{s:6:"weight";s:1:"0";s:9:"vimeo_pid";i:0;s:11:"youtube_pid";i:0;s:10:"public_pid";i:0;}i:2;a:4:{s:6:"weight";i:11;s:9:"vimeo_pid";i:0;s:11:"youtube_pid";i:0;s:10:"public_pid";i:0;}i:1;a:4:{s:6:"weight";i:12;s:9:"vimeo_pid";i:0;s:11:"youtube_pid";i:0;s:10:"public_pid";i:0;}}',
   ))
   ->execute();
+  
+  
+  /**
+   * Display settings for content types (e.g. enabling RSS view mode for podcast)
+   */
+  db_update('variable')
+  ->fields(array(
+    'value' => 'a:2:{s:4:"file";a:4:{s:7:"default";a:2:{s:10:"view_modes";a:0:{}s:12:"extra_fields";a:2:{s:4:"form";a:0:{}s:7:"display";a:1:{s:4:"file";a:1:{s:11:"media_small";a:2:{s:6:"weight";i:0;s:7:"visible";b:0;}}}}}s:5:"image";a:2:{s:10:"view_modes";a:0:{}s:12:"extra_fields";a:2:{s:4:"form";a:0:{}s:7:"display";a:1:{s:4:"file";a:1:{s:11:"media_small";a:2:{s:6:"weight";i:0;s:7:"visible";b:0;}}}}}s:5:"audio";a:2:{s:10:"view_modes";a:0:{}s:12:"extra_fields";a:2:{s:4:"form";a:0:{}s:7:"display";a:1:{s:4:"file";a:1:{s:11:"media_small";a:2:{s:6:"weight";i:0;s:7:"visible";b:0;}}}}}s:5:"video";a:2:{s:10:"view_modes";a:0:{}s:12:"extra_fields";a:2:{s:4:"form";a:0:{}s:7:"display";a:1:{s:4:"file";a:1:{s:11:"media_small";a:2:{s:6:"weight";i:0;s:7:"visible";b:0;}}}}}}s:4:"node";a:1:{s:18:"openchurch_podcast";a:2:{s:10:"view_modes";a:6:{s:6:"teaser";a:1:{s:15:"custom_settings";b:1;}s:3:"rss";a:1:{s:15:"custom_settings";b:1;}s:4:"full";a:1:{s:15:"custom_settings";b:0;}s:12:"search_index";a:1:{s:15:"custom_settings";b:0;}s:13:"search_result";a:1:{s:15:"custom_settings";b:0;}s:5:"token";a:1:{s:15:"custom_settings";b:0;}}s:12:"extra_fields";a:2:{s:4:"form";a:0:{}s:7:"display";a:0:{}}}}}',
+  ))
+  ->condition('name', 'field_bundle_settings')
+  ->execute();
 }
 
 /**

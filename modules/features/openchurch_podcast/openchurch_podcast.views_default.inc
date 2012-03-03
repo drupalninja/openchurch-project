@@ -349,9 +349,15 @@ print date(\'m.d.y\',strtotime($data->field_data_field_oc_date_field_oc_date_val
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<p>Enjoy our weekly sermons below.  You will see that you may press play directly on this page or download them to your own player.  Please be aware the files may be large.</p>
+  $handler->display->display_options['header']['area']['content'] = '<p>
+<?php 
+$image = theme(\'image\', array(\'width\' => \'161\', \'height\' => \'67\', \'path\' => drupal_get_path(\'module\', \'openchurch_podcast\').\'/images/podcast-icon.jpg\', \'attributes\' => array(\'style\' => \'float: right; margin-left: 10px;\'))); 
+print $image;
+?>
+Enjoy our weekly sermons below.  You will see that you may press play directly on this page or download them to your own player.  Please be aware the files may be large.</p>
+<p><strong>Note to site administrators, enable podcast feed by submitting the <a href="/multimedia/podcasts/feed">RSS feed</a> to the <a href="http://www.apple.com/itunes/podcasts/specs.html#submitting">iTunes store</a> and linking that new link to the icon above.</strong></p>
 <h3 class="title">Recent Sermons</h3>';
-  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['format'] = 'php_code';
   $handler->display->display_options['header']['area']['tokenize'] = 0;
   $handler->display->display_options['path'] = 'multimedia/podcasts';
 
@@ -361,10 +367,10 @@ print date(\'m.d.y\',strtotime($data->field_data_field_oc_date_field_oc_date_val
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
   $handler->display->display_options['row_options']['item_length'] = 'rss';
-  $handler->display->display_options['row_options']['links'] = 0;
+  $handler->display->display_options['row_options']['links'] = 1;
   $handler->display->display_options['path'] = 'multimedia/podcasts/feed';
   $handler->display->display_options['displays'] = array(
-    'block' => 'block',
+    'page_1' => 'page_1',
     'default' => 0,
   );
   $export['openchurch_podcasts'] = $view;
