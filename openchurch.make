@@ -39,6 +39,7 @@ projects[recaptcha][subdir] = contrib
 projects[references][subdir] = contrib
 projects[references][version] = 2.x-dev
 projects[references_dialog][subdir] = contrib
+projects[rss_field_formatters][subdir] = contrib
 projects[rules][subdir] = contrib
 projects[strongarm][subdir] = contrib
 projects[styles][subdir] = contrib

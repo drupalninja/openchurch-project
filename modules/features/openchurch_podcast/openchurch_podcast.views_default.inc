@@ -341,17 +341,6 @@ print date(\'m.d.y\',strtotime($data->field_data_field_oc_date_field_oc_date_val
     'openchurch_podcast' => 'openchurch_podcast',
   );
 
-  /* Display: Podcasts and Downloads Feed */
-  $handler = $view->new_display('feed', 'Podcasts and Downloads Feed', 'feed_1');
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['style_plugin'] = 'rss';
-  $handler->display->display_options['row_plugin'] = 'node_rss';
-  $handler->display->display_options['path'] = 'multimedia/podcasts/feed';
-  $handler->display->display_options['displays'] = array(
-    'block' => 'block',
-    'default' => 0,
-  );
-
   /* Display: Podcasts and Downloads Page */
   $handler = $view->new_display('page', 'Podcasts and Downloads Page', 'page_1');
   $handler->display->display_options['defaults']['header'] = FALSE;
@@ -365,6 +354,19 @@ print date(\'m.d.y\',strtotime($data->field_data_field_oc_date_field_oc_date_val
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = 0;
   $handler->display->display_options['path'] = 'multimedia/podcasts';
+
+  /* Display: Podcasts and Downloads Feed */
+  $handler = $view->new_display('feed', 'Podcasts and Downloads Feed', 'feed_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['row_options']['item_length'] = 'rss';
+  $handler->display->display_options['row_options']['links'] = 0;
+  $handler->display->display_options['path'] = 'multimedia/podcasts/feed';
+  $handler->display->display_options['displays'] = array(
+    'block' => 'block',
+    'default' => 0,
+  );
   $export['openchurch_podcasts'] = $view;
 
   return $export;

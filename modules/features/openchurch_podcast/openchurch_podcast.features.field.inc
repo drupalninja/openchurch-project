@@ -51,6 +51,13 @@ function openchurch_podcast_field_default_fields() {
           'type' => 'text_default',
           'weight' => '3',
         ),
+        'rss' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_plain',
+          'weight' => '3',
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
@@ -122,6 +129,15 @@ function openchurch_podcast_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_default',
+          'weight' => '1',
+        ),
+        'rss' => array(
+          'label' => 'above',
+          'module' => 'rss_enclosure',
+          'settings' => array(
+            'image_style' => '',
+          ),
+          'type' => 'rss_enclosure',
           'weight' => '1',
         ),
         'teaser' => array(
@@ -211,6 +227,13 @@ function openchurch_podcast_field_default_fields() {
           'type' => 'text_default',
           'weight' => '0',
         ),
+        'rss' => array(
+          'label' => 'above',
+          'module' => 'rss_creator',
+          'settings' => array(),
+          'type' => 'rss_creator',
+          'weight' => '0',
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -280,9 +303,17 @@ function openchurch_podcast_field_default_fields() {
             'multiple_from' => '',
             'multiple_number' => '',
             'multiple_to' => '',
-            'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
+          'weight' => '2',
+        ),
+        'rss' => array(
+          'label' => 'above',
+          'module' => 'rss_date',
+          'settings' => array(
+            'rss_element' => 'dc:date',
+          ),
+          'type' => 'rss_date',
           'weight' => '2',
         ),
         'teaser' => array(
