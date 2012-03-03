@@ -223,6 +223,24 @@ function _openchurch_defaults_add_menu_links(){
   
   menu_link_save($item);
   
+  $event_mlid = $item['mlid'];
+  
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'events/calendar',
+    'link_title' => 'Event Calendar',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'customized' => 1,
+    'plid' => $event_mlid,
+  );
+  
+  menu_link_save($item);
+  
   // Exported menu link: main-menu:give
   $item = array(
     'menu_name' => 'main-menu',

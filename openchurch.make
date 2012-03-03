@@ -5,6 +5,7 @@ projects[addressfield][subdir] = contrib
 projects[admin][subdir] = contrib
 projects[apps][subdir] = contrib
 projects[backup_migrate][subdir] = contrib
+projects[calendar][subdir] = contrib
 projects[captcha][subdir] = contrib
 projects[cck][subdir] = contrib
 projects[content_taxonomy][subdir] = contrib

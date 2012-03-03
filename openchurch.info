@@ -39,6 +39,7 @@ dependencies[] = addressfield
 ;dependencies[] = apps
 dependencies[] = backup_migrate
 dependencies[] = bulk_export
+dependencies[] = calendar
 dependencies[] = captcha
 dependencies[] = cck
 dependencies[] = content_taxonomy
