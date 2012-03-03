@@ -53,6 +53,11 @@ function openchurch_staff_views_default_views() {
 <p><strong>Church Office Hours</strong>: 8am - 5pm Mon-Fri<br><strong>Phone</strong>: 615.375.0601<br><strong>Fax</strong>: 615.373.5343</p> ';
   $handler->display->display_options['header']['area']['format'] = 'php_code';
   $handler->display->display_options['header']['area']['tokenize'] = 0;
+  /* Relationship: Content: Staff Type (field_oc_staff_type) */
+  $handler->display->display_options['relationships']['field_oc_staff_type_tid']['id'] = 'field_oc_staff_type_tid';
+  $handler->display->display_options['relationships']['field_oc_staff_type_tid']['table'] = 'field_data_field_oc_staff_type';
+  $handler->display->display_options['relationships']['field_oc_staff_type_tid']['field'] = 'field_oc_staff_type_tid';
+  $handler->display->display_options['relationships']['field_oc_staff_type_tid']['required'] = 1;
   /* Field: Content: Staff Type */
   $handler->display->display_options['fields']['field_oc_staff_type']['id'] = 'field_oc_staff_type';
   $handler->display->display_options['fields']['field_oc_staff_type']['table'] = 'field_data_field_oc_staff_type';
@@ -226,10 +231,15 @@ function openchurch_staff_views_default_views() {
     'trim_length' => '200',
   );
   $handler->display->display_options['fields']['body']['field_api_classes'] = 0;
-  /* Sort criterion: Content: Staff Type (field_oc_staff_type) */
-  $handler->display->display_options['sorts']['field_oc_staff_type_tid']['id'] = 'field_oc_staff_type_tid';
-  $handler->display->display_options['sorts']['field_oc_staff_type_tid']['table'] = 'field_data_field_oc_staff_type';
-  $handler->display->display_options['sorts']['field_oc_staff_type_tid']['field'] = 'field_oc_staff_type_tid';
+  /* Sort criterion: Taxonomy term: Weight */
+  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['relationship'] = 'field_oc_staff_type_tid';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
