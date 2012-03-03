@@ -11,7 +11,7 @@ function openchurch_install() {
   $full_html_format = array(
     'format' => 'full_html',
     'name' => 'Full HTML',
-    'weight' => 1,
+    'weight' => 0,
     'filters' => array(
       // URL filter.
       'filter_url' => array(
@@ -36,7 +36,7 @@ function openchurch_install() {
   $filtered_html_format = array(
     'format' => 'filtered_html',
     'name' => 'Filtered HTML',
-    'weight' => 0,
+    'weight' => 1,
     'filters' => array(
       // URL filter.
       'filter_url' => array(

@@ -123,6 +123,30 @@ function openchurch_defaults_install() {
    * Add menu links manually
    */
   _openchurch_defaults_add_menu_links();
+  
+  
+  /**
+   * Update wysiwyg settings
+   */
+  
+  db_insert('wysiwyg')
+  ->fields(array(
+    'format' => 'full_html',
+    'editor' => 'tinymce',
+    'settings' => 'a:20:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:1;s:5:"theme";s:8:"advanced";s:8:"language";s:2:"en";s:7:"buttons";a:6:{s:7:"default";a:21:{s:4:"bold";i:1;s:6:"italic";i:1;s:9:"underline";i:1;s:13:"strikethrough";i:1;s:11:"justifyleft";i:1;s:13:"justifycenter";i:1;s:12:"justifyright";i:1;s:11:"justifyfull";i:1;s:7:"bullist";i:1;s:7:"numlist";i:1;s:7:"outdent";i:1;s:6:"indent";i:1;s:4:"undo";i:1;s:4:"redo";i:1;s:4:"link";i:1;s:6:"unlink";i:1;s:6:"anchor";i:1;s:5:"image";i:1;s:9:"forecolor";i:1;s:9:"backcolor";i:1;s:4:"code";i:1;}s:4:"font";a:1:{s:12:"formatselect";i:1;}s:10:"fullscreen";a:1:{s:10:"fullscreen";i:1;}s:5:"paste";a:2:{s:9:"pastetext";i:1;s:9:"pasteword";i:1;}s:4:"imce";a:1:{s:4:"imce";i:1;}s:6:"drupal";a:1:{s:5:"media";i:1;}}s:11:"toolbar_loc";s:3:"top";s:13:"toolbar_align";s:4:"left";s:8:"path_loc";s:6:"bottom";s:8:"resizing";i:1;s:11:"verify_html";i:1;s:12:"preformatted";i:0;s:22:"convert_fonts_to_spans";i:1;s:17:"remove_linebreaks";i:1;s:23:"apply_source_formatting";i:1;s:27:"paste_auto_cleanup_on_paste";i:1;s:13:"block_formats";s:32:"p,address,pre,h2,h3,h4,h5,h6,div";s:11:"css_setting";s:4:"none";s:8:"css_path";s:0:"";s:11:"css_classes";s:0:"";}',
+  ))
+  ->execute();
+  
+  /**
+   * Update IMCE settings
+   * 
+   */
+  db_insert('variable')
+  ->fields(array(
+    'name' => 'imce_roles_profiles',
+    'value' => 'a:4:{i:4;a:4:{s:6:"weight";s:1:"0";s:9:"vimeo_pid";s:1:"1";s:11:"youtube_pid";s:1:"1";s:10:"public_pid";s:1:"1";}i:3;a:4:{s:6:"weight";s:1:"0";s:9:"vimeo_pid";i:0;s:11:"youtube_pid";i:0;s:10:"public_pid";i:0;}i:2;a:4:{s:6:"weight";i:11;s:9:"vimeo_pid";i:0;s:11:"youtube_pid";i:0;s:10:"public_pid";i:0;}i:1;a:4:{s:6:"weight";i:12;s:9:"vimeo_pid";i:0;s:11:"youtube_pid";i:0;s:10:"public_pid";i:0;}}',
+  ))
+  ->execute();
 }
 
 /**
@@ -461,6 +485,40 @@ function _openchurch_defaults_add_menu_links(){
     'link_title' => t('Image Acknowledgements'),
     'link_path' => 'node/16',
     'menu_name' => 'menu-secondary-links',
+    'weight' => 0,
+    'customized' => 1,
+    'module'     => 'openchurch_defaults',
+  );
+
+  menu_link_save($item);
+  
+  
+  $item = array(
+    'link_title' => t('Manage Menus'),
+    'link_path' => 'admin/structure/menu',
+    'menu_name' => 'shortcut-set-1',
+    'weight' => 0,
+    'customized' => 1,
+    'module'     => 'openchurch_defaults',
+  );
+
+  menu_link_save($item);
+  
+  $item = array(
+    'link_title' => t('Manage Taxonomy'),
+    'link_path' => 'admin/structure/taxonomy',
+    'menu_name' => 'shortcut-set-1',
+    'weight' => 0,
+    'customized' => 1,
+    'module'     => 'openchurch_defaults',
+  );
+
+  menu_link_save($item);
+  
+  $item = array(
+    'link_title' => t('Manage Users'),
+    'link_path' => 'admin/people',
+    'menu_name' => 'shortcut-set-1',
     'weight' => 0,
     'customized' => 1,
     'module'     => 'openchurch_defaults',
