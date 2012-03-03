@@ -82,14 +82,14 @@ function openchurch_blog_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-openchurch_blog-field_oc_blog_topc'
-  $fields['node-openchurch_blog-field_oc_blog_topc'] = array(
+  // Exported field: 'node-openchurch_blog-field_oc_blog_topic'
+  $fields['node-openchurch_blog-field_oc_blog_topic'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_oc_blog_topc',
+      'field_name' => 'field_oc_blog_topic',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -138,7 +138,7 @@ function openchurch_blog_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_oc_blog_topc',
+      'field_name' => 'field_oc_blog_topic',
       'label' => 'Blog Topic',
       'required' => 0,
       'settings' => array(

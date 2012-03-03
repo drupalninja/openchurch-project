@@ -159,7 +159,7 @@ function openchurch_blog_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
     'created' => 'created',
-    'field_oc_blog_topc' => 'field_oc_blog_topc',
+    'field_oc_blog_topic' => 'field_oc_blog_topic',
   );
   $handler->display->display_options['row_options']['separator'] = ' | ';
   $handler->display->display_options['row_options']['hide_empty'] = 1;
@@ -212,28 +212,28 @@ print l("blog archives &raquo;", \'blog/archives\', array(\'html\' => TRUE));
   $handler->display->display_options['fields']['created']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['created']['date_format'] = 'time ago';
   /* Field: Content: Blog Topic */
-  $handler->display->display_options['fields']['field_oc_blog_topc']['id'] = 'field_oc_blog_topc';
-  $handler->display->display_options['fields']['field_oc_blog_topc']['table'] = 'field_data_field_oc_blog_topc';
-  $handler->display->display_options['fields']['field_oc_blog_topc']['field'] = 'field_oc_blog_topc';
-  $handler->display->display_options['fields']['field_oc_blog_topc']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_oc_blog_topc']['field_api_classes'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['id'] = 'field_oc_blog_topic';
+  $handler->display->display_options['fields']['field_oc_blog_topic']['table'] = 'field_data_field_oc_blog_topic';
+  $handler->display->display_options['fields']['field_oc_blog_topic']['field'] = 'field_oc_blog_topic';
+  $handler->display->display_options['fields']['field_oc_blog_topic']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_blog_topic']['field_api_classes'] = 0;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -305,21 +305,21 @@ print l("blog archives &raquo;", \'blog/archives\', array(\'html\' => TRUE));
   $handler->display->display_options['filters']['type']['value'] = array(
     'openchurch_blog' => 'openchurch_blog',
   );
-  /* Filter criterion: Content: Blog Topic (field_oc_blog_topc) */
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['id'] = 'field_oc_blog_topc_tid';
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['table'] = 'field_data_field_oc_blog_topc';
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['field'] = 'field_oc_blog_topc_tid';
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['expose']['operator_id'] = 'field_oc_blog_topc_tid_op';
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['expose']['label'] = 'Filter by Category';
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['expose']['operator'] = 'field_oc_blog_topc_tid_op';
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['expose']['identifier'] = 'blog_tid';
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['expose']['reduce'] = 0;
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['reduce_duplicates'] = 0;
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['vocabulary'] = 'openchurch_blog_topic';
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['hierarchy'] = 1;
-  $handler->display->display_options['filters']['field_oc_blog_topc_tid']['error_message'] = 1;
+  /* Filter criterion: Content: Blog Topic (field_oc_blog_topic) */
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['id'] = 'field_oc_blog_topic_tid';
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['table'] = 'field_data_field_oc_blog_topic';
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['field'] = 'field_oc_blog_topic_tid';
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['expose']['operator_id'] = 'field_oc_blog_topic_tid_op';
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['expose']['label'] = 'Filter by Category';
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['expose']['operator'] = 'field_oc_blog_topic_tid_op';
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['expose']['identifier'] = 'blog_tid';
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['expose']['reduce'] = 0;
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['reduce_duplicates'] = 0;
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['vocabulary'] = 'openchurch_blog_topic';
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['hierarchy'] = 1;
+  $handler->display->display_options['filters']['field_oc_blog_topic_tid']['error_message'] = 1;
 
   /* Display: Latest Blog Teasers Page */
   $handler = $view->new_display('page', 'Latest Blog Teasers Page', 'page_1');

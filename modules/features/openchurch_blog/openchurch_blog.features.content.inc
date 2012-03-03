@@ -37,10 +37,10 @@ function openchurch_blog_content_defaults() {
         ),
       ),
     ),
-    'field_oc_blog_topc' => array(
+    'field_oc_blog_topic' => array(
       'und' => array(
         0 => array(
-          'tid' => '1',
+          'tid' => '11',
         ),
       ),
     ),
@@ -73,10 +73,10 @@ function openchurch_blog_content_defaults() {
         ),
       ),
     ),
-    'field_oc_blog_topc' => array(
+    'field_oc_blog_topic' => array(
       'und' => array(
         0 => array(
-          'tid' => '1',
+          'tid' => '12',
         ),
       ),
     ),
