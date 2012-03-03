@@ -97,7 +97,7 @@ function openchurch_gallery_field_default_fields() {
         'granularity' => array(
           'day' => 'day',
           'hour' => 'hour',
-          'minute' => 0,
+          'minute' => 'minute',
           'month' => 'month',
           'second' => 0,
           'year' => 'year',
