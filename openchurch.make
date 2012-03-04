@@ -20,6 +20,7 @@ projects[features_extra][subdir] = contrib
 projects[file_entity][subdir] = contrib
 projects[filefield_sources][subdir] = contrib
 projects[fusion_accelerator][subdir] = contrib
+projects[fusion_accelerator][version] = 2.x-dev
 projects[google_fonts][subdir] = contrib
 projects[imce][subdir] = contrib
 projects[imce_wysiwyg][subdir] = contrib
