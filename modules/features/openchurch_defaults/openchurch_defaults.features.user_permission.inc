@@ -99,16 +99,6 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'comment',
   );
 
-  // Exported permission: administer files
-  $permissions['administer files'] = array(
-    'name' => 'administer files',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-    ),
-    'module' => 'file_entity',
-  );
-
   // Exported permission: administer filters
   $permissions['administer filters'] = array(
     'name' => 'administer filters',
