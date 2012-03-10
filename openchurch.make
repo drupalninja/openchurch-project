@@ -111,7 +111,7 @@ projects[openchurch_theme][version] = "1.x-dev"
 
 ; Libraries
 
-libraries[tinymce][download][version] = "get"
+libraries[tinymce][download][type] = "get"
 libraries[tinymce][download][url] = "https://github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
 libraries[tinymce][directory_name] = "tinymce"
 
