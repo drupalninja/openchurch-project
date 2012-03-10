@@ -1,7 +1,6 @@
 name = OpenChurch
 description = OpenChurch Distribution
 
-version = 7.x-1.0-alpha1
 core = 7.x
 
 ; Core
