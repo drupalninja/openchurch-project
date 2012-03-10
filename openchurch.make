@@ -114,12 +114,13 @@ projects[openchurch_theme][version] = "1.x-dev"
 libraries[tinymce][download][version] = "get"
 libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
 libraries[tinymce][directory_name] = "tinymce"
-libraries[tinymce][destination] = "libraries"
 
 libraries[jquery.cycle][type] = "libraries"
 libraries[jquery.cycle][download][type] = "file"
 libraries[jquery.cycle][download][url] = "https://raw.github.com/malsup/cycle/master/jquery.cycle.all.js"
 
-libraries[superfish][download][type] = "get"
-libraries[superfish][download][url] = "http://dl.dropbox.com/u/22795799/superfish-library-for-drupal-v1.1.zip"
-libraries[superfish][directory_name] = "superfish"
+; On hold until whitelist issue is corrected here: http://drupal.org/node/1466244#comment-5715040
+; In the meantime this will be included in the profile itself
+;libraries[superfish][download][type] = "get"
+;libraries[superfish][download][url] = "http://dl.dropbox.com/u/22795799/superfish-library-for-drupal-v1.1.zip"
+;libraries[superfish][directory_name] = "superfish"
