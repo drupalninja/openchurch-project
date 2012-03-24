@@ -79,6 +79,7 @@ dependencies[] = page_title
 dependencies[] = panels
 dependencies[] = panels_ipe
 dependencies[] = pathauto
+dependencies[] = plupload
 dependencies[] = references
 dependencies[] = references_dialog
 dependencies[] = recaptcha

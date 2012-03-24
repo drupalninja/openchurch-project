@@ -68,6 +68,8 @@ projects[panels][version] = 3.0
 projects[panels][subdir] = contrib
 projects[pathauto][version] = 1.0
 projects[pathauto][subdir] = contrib
+projects[plupload][version] = 1.0-rc1
+projects[plupload][subdir] = contrib
 projects[recaptcha][version] = 1.7
 projects[recaptcha][subdir] = contrib
 projects[references][version] = 2.x-dev
@@ -122,3 +124,7 @@ libraries[jquery.cycle][download][url] = "https://raw.github.com/malsup/cycle/ma
 libraries[superfish][download][type] = "get"
 libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-for-Drupal/zipball/master"
 libraries[superfish][directory_name] = "superfish"
+
+libraries[plupload][download][type] = "get"
+libraries[plupload][download][url] = "https://github.com/downloads/moxiecode/plupload/plupload_1_5_2.zip"
+libraries[plupload][directory_name] = "plupload"
