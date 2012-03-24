@@ -36,7 +36,7 @@ projects[file_entity][version] = 2.0-unstable3
 projects[file_entity][subdir] = contrib
 projects[filefield_sources][version] = 1.4
 projects[filefield_sources][subdir] = contrib
-projects[fusion_accelerator][version] = 2.x-dev
+projects[fusion_accelerator][version] = 2.0-beta1
 projects[fusion_accelerator][subdir] = contrib
 projects[google_fonts][version] = 2.3
 projects[google_fonts][subdir] = contrib
@@ -105,7 +105,7 @@ projects[wysiwyg][subdir] = contrib
 
 ; Base theme for OpenChurch
 projects[fusion][type] = "theme"
-projects[fusion][version] = 2.x-dev
+projects[fusion][version] = 2.0-beta2
 
 ; Custom theme developed for OpenChurch (get latest)
 projects[openchurch_theme][type] = "theme"
