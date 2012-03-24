@@ -233,7 +233,7 @@ function openchurch_gallery_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'media',
+        'module' => 'plup',
         'settings' => array(
           'allowed_schemes' => array(
             0 => 'public',
@@ -261,7 +261,7 @@ function openchurch_gallery_field_default_fields() {
           'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
         ),
-        'type' => 'media_generic',
+        'type' => 'image_plupload',
         'weight' => '7',
       ),
     ),
