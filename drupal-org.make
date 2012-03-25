@@ -109,9 +109,9 @@ projects[wysiwyg][subdir] = contrib
 projects[fusion][type] = "theme"
 projects[fusion][version] = 2.0-beta2
 
-; Custom theme developed for OpenChurch (get latest)
+; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = "theme"
-projects[openchurch_theme][version] = "1.x-dev"
+projects[openchurch_theme][version] = "1.0-alpha1"
 
 ; Libraries
 
