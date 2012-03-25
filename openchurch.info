@@ -123,6 +123,7 @@ dependencies[] = openchurch_image
 dependencies[] = openchurch_podcast
 dependencies[] = openchurch_staff
 dependencies[] = openchurch_defaults
+dependencies[] = wysiwyg_iframe
 
 files[] = openchurch.profile
 files[] = openchurch.install
