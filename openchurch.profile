@@ -1,21 +1,29 @@
 <?php
 
 /**
+ * Implementation of hook_init()
+ */
+function openchurch_init(){
+  //Fix for apps page
+  drupal_add_css('.app-teaser h2 { margin-top: 0; margin-bottom: 0; }', 'inline');
+}
+
+/**
  * Implements hook_appstore_stores_info
  */
 function openchurch_apps_servers_info() {
- $info =  drupal_parse_info_file(dirname(__file__) . '/openchurch.info');
- return array(
-   'openchurch' => array(
-     'title' => 'OpenChurch',
-     'description' => "Apps for the Openpublic distribution",
-     'manifest' => 'http://appserver.openchurchsiteapp.com/app/query',
-     'profile' => 'openchurch',
-     'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.0-beta1',
-     'server_name' => $_SERVER['SERVER_NAME'],
-     'server_ip' => $_SERVER['SERVER_ADDR'],
-   ),
- );
+  $info =  drupal_parse_info_file(dirname(__file__) . '/openchurch.info');
+  return array(
+    'openchurch' => array(
+      'title' => 'OpenChurch',
+      'description' => "Apps for the OpenChurch distribution",
+      'manifest' => url('profiles/openchurch/apps.js', array('absolute' => TRUE)),
+      'profile' => 'openchurch',
+      'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.0-beta1',
+      'server_name' => $_SERVER['SERVER_NAME'],
+      'server_ip' => $_SERVER['SERVER_ADDR'],
+    ),
+  );
 }
 
 /**
