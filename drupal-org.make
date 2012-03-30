@@ -18,7 +18,7 @@ projects[content_taxonomy][version] = 1.0-beta1
 projects[content_taxonomy][subdir] = contrib
 projects[context][version] = 3.0-beta2
 projects[context][subdir] = contrib
-projects[ctools][version] = 1.0-rc1
+projects[ctools][version] = 1.0
 projects[ctools][subdir] = contrib
 projects[date][version] = 2.2
 projects[date][subdir] = contrib
@@ -121,7 +121,7 @@ libraries[tinymce][directory_name] = "tinymce"
 
 libraries[jquery.cycle][type] = "libraries"
 libraries[jquery.cycle][download][type] = "file"
-libraries[jquery.cycle][download][url] = "https://raw.github.com/malsup/cycle/master/jquery.cycle.all.js"
+libraries[jquery.cycle][download][url] = "http://malsup.github.com/jquery.cycle.all.js"
 
 libraries[superfish][download][type] = "get"
 libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-for-Drupal/zipball/master"
