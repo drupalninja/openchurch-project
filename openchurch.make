@@ -119,10 +119,11 @@ libraries[tinymce][download][type] = "get"
 libraries[tinymce][download][url] = "https://github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
 libraries[tinymce][directory_name] = "tinymce"
 
-libraries[jquery.cycle][type] = "libraries"
-libraries[jquery.cycle][download][type] = "file"
-libraries[jquery.cycle][download][url] = "http://malsup.github.com/jquery.cycle.all.js"
-libraries[jquery.cycle][directory_name] = "jquery.cycle"
+;Disabling for now
+;libraries[jquery.cycle][type] = "libraries"
+;libraries[jquery.cycle][download][type] = "file"
+;libraries[jquery.cycle][download][url] = "http://malsup.github.com/jquery.cycle.all.js"
+;libraries[jquery.cycle][directory_name] = "jquery.cycle"
 
 libraries[superfish][download][type] = "get"
 libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-for-Drupal/zipball/master"
