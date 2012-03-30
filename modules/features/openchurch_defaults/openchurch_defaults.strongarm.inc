@@ -196,6 +196,12 @@ function openchurch_defaults_strongarm() {
       'title' => 'Navigation',
       'name' => 'navigation',
     ),
+    'shortcut-set-1' => array(
+      'enabled' => 0,
+      'weight' => '0',
+      'type' => 'menu',
+      'name' => 'shortcut-set-1',
+    ),
     'user-menu' => array(
       'enabled' => 0,
       'weight' => '0',

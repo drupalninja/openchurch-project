@@ -171,7 +171,6 @@ function openchurch_podcast_views_default_views() {
   $handler->display->display_options['fields']['field_oc_date']['table'] = 'field_data_field_oc_date';
   $handler->display->display_options['fields']['field_oc_date']['field'] = 'field_oc_date';
   $handler->display->display_options['fields']['field_oc_date']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_date']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_oc_date']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_oc_date']['alter']['text'] = '[field_oc_date-value]';
   $handler->display->display_options['fields']['field_oc_date']['alter']['make_link'] = 0;
@@ -182,52 +181,24 @@ function openchurch_podcast_views_default_views() {
   $handler->display->display_options['fields']['field_oc_date']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_oc_date']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_oc_date']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_date']['alter']['more_link'] = 0;
   $handler->display->display_options['fields']['field_oc_date']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['field_oc_date']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_oc_date']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_date']['element_class'] = 'date';
   $handler->display->display_options['fields']['field_oc_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_oc_date']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_oc_date']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_oc_date']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_oc_date']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_oc_date']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'openchurch_short_date',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
-    'show_repeat_rule' => 'show',
   );
   $handler->display->display_options['fields']['field_oc_date']['field_api_classes'] = 0;
-  /* Field: Global: PHP */
-  $handler->display->display_options['fields']['php']['id'] = 'php';
-  $handler->display->display_options['fields']['php']['table'] = 'views';
-  $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = '';
-  $handler->display->display_options['fields']['php']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['php']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['php']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['php']['element_class'] = 'date';
-  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['php']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['php']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['php']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['php']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
-  $handler->display->display_options['fields']['php']['php_output'] = '<?php
-print date(\'m.d.y\',strtotime($data->field_data_field_oc_date_field_oc_date_value));
-?>';
-  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
-  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';

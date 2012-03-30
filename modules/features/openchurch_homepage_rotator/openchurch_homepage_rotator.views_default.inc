@@ -141,16 +141,19 @@ function openchurch_homepage_rotator_views_default_views() {
   $handler->display->display_options['fields']['field_oc_image']['table'] = 'field_data_field_oc_image';
   $handler->display->display_options['fields']['field_oc_image']['field'] = 'field_oc_image';
   $handler->display->display_options['fields']['field_oc_image']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_image']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['text'] = '[field_oc_image]';
+  $handler->display->display_options['fields']['field_oc_image']['alter']['make_link'] = 1;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['path'] = '[field_oc_link]';
   $handler->display->display_options['fields']['field_oc_image']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_oc_image']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_oc_image']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['field_oc_image']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['alt'] = '[title]';
   $handler->display->display_options['fields']['field_oc_image']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_oc_image']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_oc_image']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_image']['alter']['more_link'] = 0;
   $handler->display->display_options['fields']['field_oc_image']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['field_oc_image']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_oc_image']['alter']['html'] = 0;
@@ -165,34 +168,6 @@ function openchurch_homepage_rotator_views_default_views() {
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_oc_image']['field_api_classes'] = 0;
-  /* Field: Global: PHP */
-  $handler->display->display_options['fields']['php']['id'] = 'php';
-  $handler->display->display_options['fields']['php']['table'] = 'views';
-  $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = '';
-  $handler->display->display_options['fields']['php']['alter']['alter_text'] = 1;
-  $handler->display->display_options['fields']['php']['alter']['text'] = '[field_oc_image]';
-  $handler->display->display_options['fields']['php']['alter']['make_link'] = 1;
-  $handler->display->display_options['fields']['php']['alter']['path'] = '[field_oc_link]';
-  $handler->display->display_options['fields']['php']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['alt'] = '[title]';
-  $handler->display->display_options['fields']['php']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['php']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['php']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['php']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['php']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['php']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['php']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['php']['hide_alter_empty'] = 0;
-  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
-  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
-  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
   /* Field: Global: View result counter */
   $handler->display->display_options['fields']['counter']['id'] = 'counter';
   $handler->display->display_options['fields']['counter']['table'] = 'views';
