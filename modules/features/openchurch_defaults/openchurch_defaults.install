@@ -3,7 +3,7 @@
 /**
  * Implementation of hook_update_N()
  */
-function hook_update_7000(&$sandbox){
+function openchurch_defaults_update_7000(&$sandbox){
   /**
    * Add custom date
    * 
