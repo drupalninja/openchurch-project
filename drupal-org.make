@@ -10,6 +10,8 @@ projects[backup_migrate][version] = 2.2
 projects[backup_migrate][subdir] = contrib
 projects[calendar][version] = 3.0
 projects[calendar][subdir] = contrib
+;Granularity patch, see http://drupal.org/node/1503738
+projects[calendar][patch][] = http://drupal.org/files/calendar-granularity-1445228-12.patch
 projects[captcha][version] = 1.0-beta2
 projects[captcha][subdir] = contrib
 projects[cck][version] = 2.x-dev
