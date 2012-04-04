@@ -115,7 +115,7 @@ projects[fusion][version] = 2.0-beta2
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = "theme"
-projects[openchurch_theme][version] = "1.0-alpha2"
+projects[openchurch_theme][version] = "1.x-dev"
 
 ; Libraries
 
