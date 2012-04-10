@@ -195,20 +195,25 @@ function _openchurch_defaults_load_fusion_styles(){
   $json = json_encode($xml);
   $array = json_decode($json, TRUE);
 
-  foreach($array['database']['table_data']['row'] as $row){
+  /**
+   * Go through the 2 OpenChurch themes and add skins
+   */
+  foreach (array('openchurch_theme', 'openchurch_theme_starter') as $theme){
+    foreach($array['database']['table_data']['row'] as $row){
 
-    $row = $row['field'];
+      $row = $row['field'];
 
-    $skin = array(
-      'theme' => $row[1],
-      'module' => $row[2],
-      'element' => $row[3],
-      'skin' => $row[4],
-      'options' => unserialize($row[5]),
-      'status' => $row[6],
-    );
+      $skin = array(
+        'theme' => $theme,
+        'module' => $row[2],
+        'element' => $row[3],
+        'skin' => $row[4],
+        'options' => unserialize($row[5]),
+        'status' => $row[6],
+      );
 
-    drupal_write_record('fusion_apply_skins', $skin);
+      drupal_write_record('fusion_apply_skins', $skin);
+    }
   }
 }
   
