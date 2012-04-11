@@ -1,0 +1,4 @@
+<?php
+
+include_once('openchurch_events_demo_content.features.inc');
+

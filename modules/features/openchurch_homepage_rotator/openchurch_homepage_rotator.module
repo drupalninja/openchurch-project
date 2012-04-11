@@ -12,3 +12,13 @@ function openchurch_homepage_rotator_preprocess_page($vars){
   if (drupal_is_front_page())
     unset($vars['title']);
 }
+
+/**
+ * Implementation of hook_apps_app_info()
+ */
+function openchurch_homepage_rotator_apps_app_info() {
+  return array(
+    'demo content description' => 'This will populate the homepage rotator with a couple of sample homepage rotator content for demonstration.',
+    'demo content module' => 'openchurch_homepage_rotator_demo_content',
+  );
+}

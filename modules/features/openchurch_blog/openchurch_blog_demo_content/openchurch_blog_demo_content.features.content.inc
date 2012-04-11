@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * openchurch_blog.features.content.inc
+ * openchurch_blog_demo_content.features.content.inc
  */
 
 /**
  * Implements hook_content_defaults().
  */
-function openchurch_blog_content_defaults() {
+function openchurch_blog_demo_content_content_defaults() {
   $content = array();
 
   $content['oc_blog1'] = (object) array(

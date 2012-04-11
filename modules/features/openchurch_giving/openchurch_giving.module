@@ -1,4 +1,13 @@
 <?php
 
 include_once('openchurch_giving.features.inc');
-include_once('openchurch_giving.install');
+
+/**
+ * Implementation of hook_apps_app_info()
+ */
+function openchurch_giving_apps_app_info() {
+  return array(
+    'demo content description' => 'This will populate the giving page with a couple of sample giving for demonstration.',
+    'demo content module' => 'openchurch_giving_demo_content',
+  );
+}

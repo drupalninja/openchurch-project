@@ -1,0 +1,11 @@
+name = "Openchurch Blog Demo Content"
+description = "Sample blogs for the Openchurch Blog app."
+core = "7.x"
+;We don't need this on the features page
+package = "Openchurch"
+php = "5.2.4"
+version = "7.x-1.0-alpha1"
+project = "openchurch_blog_demo_content"
+dependencies[] = "openchurch_blog"
+features[content][] = "oc_blog1"
+features[content][] = "oc_blog2"

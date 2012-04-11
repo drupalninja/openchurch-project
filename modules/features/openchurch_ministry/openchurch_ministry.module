@@ -2,3 +2,13 @@
 
 include_once('openchurch_ministry.features.inc');
 include_once('openchurch_ministry.install');
+
+/**
+ * Implementation of hook_apps_app_info()
+ */
+function openchurch_ministry_apps_app_info() {
+  return array(
+    'demo content description' => 'This will populate the ministry pages with a couple of sample ministries for demonstration.',
+    'demo content module' => 'openchurch_ministry_demo_content',
+  );
+}

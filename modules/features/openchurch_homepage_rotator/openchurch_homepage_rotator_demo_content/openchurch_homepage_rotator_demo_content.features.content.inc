@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * openchurch_homepage_rotator.features.content.inc
+ * openchurch_homepage_rotator_demo_content.features.content.inc
  */
 
 /**
  * Implements hook_content_defaults().
  */
-function openchurch_homepage_rotator_content_defaults() {
+function openchurch_homepage_rotator_demo_content_content_defaults() {
   $content = array();
 
   $content['oc_homepage_rotator1'] = (object) array(

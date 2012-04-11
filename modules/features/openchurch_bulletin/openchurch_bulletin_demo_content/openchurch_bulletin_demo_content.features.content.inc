@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * openchurch_bulletin.features.content.inc
+ * openchurch_bulletin_demo_content.features.content.inc
  */
 
 /**
  * Implements hook_content_defaults().
  */
-function openchurch_bulletin_content_defaults() {
+function openchurch_bulletin_demo_content_content_defaults() {
   $content = array();
 
   $content['oc_bulletin1'] = (object) array(

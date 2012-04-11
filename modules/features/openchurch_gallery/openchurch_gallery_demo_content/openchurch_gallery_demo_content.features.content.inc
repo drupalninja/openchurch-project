@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * openchurch_gallery.features.content.inc
+ * openchurch_gallery_demo_content.features.content.inc
  */
 
 /**
  * Implements hook_content_defaults().
  */
-function openchurch_gallery_content_defaults() {
+function openchurch_gallery_demo_content_content_defaults() {
   $content = array();
 
   $content['oc_gallery1'] = (object) array(

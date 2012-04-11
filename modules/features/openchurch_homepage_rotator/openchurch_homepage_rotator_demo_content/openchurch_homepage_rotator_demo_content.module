@@ -1,0 +1,3 @@
+<?php
+
+include_once('openchurch_homepage_rotator_demo_content.features.inc');

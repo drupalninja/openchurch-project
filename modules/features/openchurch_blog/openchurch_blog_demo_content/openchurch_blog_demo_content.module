@@ -1,0 +1,3 @@
+<?php
+
+include_once('openchurch_blog_demo_content.features.inc');

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * openchurch_giving.features.content.inc
+ * openchurch_giving_demo_content.features.content.inc
  */
 
 /**
  * Implements hook_content_defaults().
  */
-function openchurch_giving_content_defaults() {
+function openchurch_giving_demo_content_content_defaults() {
   $content = array();
 
   $content['oc_charity1'] = (object) array(

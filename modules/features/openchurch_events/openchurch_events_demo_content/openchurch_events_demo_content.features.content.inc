@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * openchurch_events.features.content.inc
+ * openchurch_events_demo_content.features.content.inc
  */
 
 /**
  * Implements hook_content_defaults().
  */
-function openchurch_events_content_defaults() {
+function openchurch_events_demo_content_content_defaults() {
   $content = array();
 
   $content['oc_event1'] = (object) array(

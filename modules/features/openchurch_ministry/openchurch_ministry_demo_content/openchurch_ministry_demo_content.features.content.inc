@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * openchurch_ministry.features.content.inc
+ * openchurch_ministry_demo_content.features.content.inc
  */
 
 /**
  * Implements hook_content_defaults().
  */
-function openchurch_ministry_content_defaults() {
+function openchurch_ministry_demo_content_content_defaults() {
   $content = array();
 
   $content['oc_ministry1'] = (object) array(
