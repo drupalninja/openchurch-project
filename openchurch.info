@@ -129,6 +129,7 @@ dependencies[] = openchurch_homepage_rotator_demo_content
 dependencies[] = openchurch_image
 dependencies[] = openchurch_podcast
 dependencies[] = openchurch_podcast_demo_content
+dependencies[] = openchurch_social
 dependencies[] = openchurch_staff
 dependencies[] = openchurch_staff_demo_content
 dependencies[] = openchurch_defaults
