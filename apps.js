@@ -88,5 +88,14 @@
     "screenshots":["http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/screenshots\/staff-screenshot.jpg"],
     "logo":"http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/staff-icon.png",
     "rating":{"count":0,"average":0}
+  },
+  {
+    "name":"OpenChurch Social",
+    "description":"Adds social icons to the site so that visitors can share content with popular social networking sites.",
+    "machine_name":"openchurch_social","version":"1.0",
+    "author":"Jay Callicott","author_url":"http:\/\/www.openchurchsite.com",
+    "screenshots":["http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/screenshots\/social-screenshot.jpg"],
+    "logo":"http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/share-icon.jpg",
+    "rating":{"count":0,"average":0}
   }
 ]}
