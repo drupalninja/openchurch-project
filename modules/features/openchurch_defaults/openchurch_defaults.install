@@ -187,6 +187,7 @@ function openchurch_defaults_install() {
  * Load fusion styles
  */
 function _openchurch_defaults_load_fusion_styles(){
+  
   /**
    * Load fusion skin info for site blocks and save
    */
@@ -215,6 +216,29 @@ function _openchurch_defaults_load_fusion_styles(){
       drupal_write_record('fusion_apply_skins', $skin);
     }
   }
+  
+  /**
+   * Load fusion skin info for site blocks and save
+   */
+  $xml = simplexml_load_file(drupal_get_path('module', 'openchurch_defaults').'/mm_block.xml');
+
+  $json = json_encode($xml);
+  $array = json_decode($json, TRUE);
+
+  foreach($array['database']['table_data']['row'] as $row){
+    $row = $row['field'];
+
+    $skin = array(
+      'theme' => 'openchurch_mm',
+      'module' => $row[2],
+      'element' => $row[3],
+      'skin' => $row[4],
+      'options' => unserialize($row[5]),
+      'status' => $row[6],
+    );
+
+    drupal_write_record('fusion_apply_skins', $skin);
+  }
 }
   
 
@@ -222,22 +246,25 @@ function _openchurch_defaults_load_fusion_styles(){
  * Add block title
  */
 function _openchurch_defaults_add_block_title($bid, $title){
-  $settings = new stdClass;
-  $settings->module = 'block';
-  $settings->delta = $bid;
-  $settings->theme = 'openchurch_theme';
-  $settings->status = 0;
-  $settings->weight = 0;
-  $settings->region = -1;
-  $settings->custom = 0;
-  $settings->visibility = 0;
-  $settings->pages = '';
-  $settings->title = $title;
-  $settings->cache -1;
+  
+  foreach (array('openchurch_theme', 'openchurch_mm') as $theme){
+    $settings = new stdClass;
+    $settings->module = 'block';
+    $settings->delta = $bid;
+    $settings->theme = $theme;
+    $settings->status = 0;
+    $settings->weight = 0;
+    $settings->region = -1;
+    $settings->custom = 0;
+    $settings->visibility = 0;
+    $settings->pages = '';
+    $settings->title = $title;
+    $settings->cache -1;
 
-  $block = (array) $settings;
+    $block = (array) $settings;
 
-  drupal_write_record('block', $block);
+    drupal_write_record('block', $block);
+  }
 }
 
 /**

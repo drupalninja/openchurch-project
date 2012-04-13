@@ -120,6 +120,10 @@ projects[fusion][version] = 2.0-beta2
 projects[openchurch_theme][type] = "theme"
 projects[openchurch_theme][version] = "1.0-alpha3"
 
+; Base theme for OpenChurch Mix and Match
+projects[mix_and_match][type] = "theme"
+projects[mix_and_match][version] = "1.0"
+
 ; Libraries
 
 libraries[tinymce][download][type] = "get"
