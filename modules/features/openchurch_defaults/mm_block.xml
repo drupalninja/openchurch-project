@@ -38,6 +38,16 @@
 		<field name="options">a:1:{i:0;s:14:&quot;blue_header_bg&quot;;}</field>
 		<field name="status">1</field>
 	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">views__794f38e8ce669fc0643cfeb6da701af6</field>
+		<field name="skin">skinr_header_background_color</field>
+		<field name="options">a:1:{i:0;s:14:&quot;blue_header_bg&quot;;}</field>
+		<field name="status">1</field>
+	</row>
 
 	<row>
 		<field name="sid"></field>
