@@ -1,4 +1,4 @@
-name = "Openchurch Staff"
+name = "Openchurch Staff Demo Content"
 description = "Sample staff content for the Openchurch Staff app."
 core = "7.x"
 package = "Openchurch"
