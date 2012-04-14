@@ -1,0 +1,8 @@
+/** ie7 fixes **/
+
+/**
+ * Events list page filter fix
+ */
+.openchurch-events-list .view-filters {
+  margin-top: -35px; top: 0;
+}

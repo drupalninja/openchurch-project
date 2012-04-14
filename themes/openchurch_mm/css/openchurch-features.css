@@ -126,6 +126,7 @@ body .block.view-map-directions .inner .content {
   
   .openchurch-latest-blogs-list .views-exposed-form .views-exposed-widget .form-submit {
     margin-top: 2px; float: left; margin-left: 5px; border: 0; background: #ddd; font-size: .8em;
+    padding: 3px;
   }
   .openchurch-latest-blogs-list .views-exposed-form label { float: left; margin-right: .2em; position: relative; top: .2em; }
   .openchurch-latest-blogs-list .views-exposed-form .views-exposed-widget { margin: 0; padding: 0; }
@@ -234,7 +235,7 @@ body .block.view-map-directions .inner .content {
     color: #333;
   }
   .openchurch-events-list .views-exposed-form .views-exposed-widget .form-submit {
-    margin-top: 2px; float: left; margin-left: 5px; border: 0; background: #ddd; font-size: .8em;
+    margin-top: 2px; float: left; margin-left: 5px; border: 0; background: #ddd; font-size: .8em; padding: 3px;
   }
   .openchurch-events-list .views-exposed-form label { float: left; margin-right: .2em; position: relative; top: .2em; }
   .openchurch-events-list .views-exposed-form .views-exposed-widget { margin: 0; padding: 0; }

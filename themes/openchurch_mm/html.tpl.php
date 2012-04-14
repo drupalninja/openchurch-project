@@ -46,6 +46,9 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   
+  <!--[if IE 8]> 
+  <link type="text/css" rel="stylesheet" media="all" href="<?php print base_path() . path_to_theme(); ?>/css/openchurch-ie8.css" />
+  <![endif]-->
   <!--[if lte IE 7]> 
   <link type="text/css" rel="stylesheet" media="all" href="<?php print base_path() . path_to_theme(); ?>/css/openchurch-ie7.css" />
   <![endif]-->
