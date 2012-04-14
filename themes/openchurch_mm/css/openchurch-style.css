@@ -13,7 +13,10 @@
 
 #main-menu-wrapper {
   padding-top: .5em;
-  margin-bottom: 1em;
+}
+
+#main {
+  padding-top: 1em;
 }
 
 .main-menu {
@@ -73,16 +76,6 @@
     background: #555; color: #fff;
   }
 
-/*  Footer Region
--------------------------------------------------------------- */
-.footer {
-}
-
-  body.not-front .footer { padding-top: 2em; }
-
-.footer .block { margin-bottom: .5em; }
-  
-
 /* Page titles
 /-------------------------------------------------------------- */
 /* Page and full node titles */
@@ -121,10 +114,13 @@ h1.title {
 /**
  * Hide secondary links title
  */
+#block-menu-menu-secondary-links { margin-bottom: 0; }
+ 
 #block-menu-menu-secondary-links h2.title { display: none; }
 
 #block-menu-menu-secondary-links ul.menu { text-align: right; font-size: 1.1em; }
-  #block-menu-menu-secondary-links .inner { margin-left: 0; margin-right: 0; }
+  #block-menu-menu-secondary-links .inner { margin-left: 0; margin-right: 0; padding-bottom: 0; }
+  #block-menu-menu-secondary-links .inner .content { padding-bottom: 0; }
 
 /* Footer - Search
 -------------------------------------------------------------- */
@@ -144,3 +140,12 @@ h1.title {
 div.content-messages {
   margin-bottom: 1em;
 }
+
+/*  Footer Region
+-------------------------------------------------------------- */
+.footer {
+}
+
+  body.not-front .footer { padding-top: 2em; }
+
+.footer .block { margin-bottom: .5em; }

@@ -28,6 +28,10 @@ body .block.view-map-directions .inner a:visited {
   color: #fff;
 }
 
+body .block.view-map-directions .inner .content {
+  padding: 5px 10px;
+}
+
 
 /*************************************
   Podcasts
