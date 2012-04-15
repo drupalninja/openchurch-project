@@ -11,7 +11,7 @@ function openchurch_video_demo_content_enable(){
   /**
    * Add media video 
    */
-  $nid = db_query('SELECT nid FROM {defaultcontent} WHERE machine_name = :machine_name', array(':machine_name' => 'oc_video1'))->fetchColumn();
+  $nid = db_query('SELECT nid FROM {defaultcontent} WHERE name = :machine_name', array(':machine_name' => 'oc_video1'))->fetchColumn();
   
   $node = node_load($nid);
   
@@ -37,7 +37,7 @@ function openchurch_video_demo_content_enable(){
     node_save($node);
   }
   
-  $nid = db_query('SELECT nid FROM {defaultcontent} WHERE machine_name = :machine_name', array(':machine_name' => 'oc_video2'))->fetchColumn();
+  $nid = db_query('SELECT nid FROM {defaultcontent} WHERE name = :machine_name', array(':machine_name' => 'oc_video2'))->fetchColumn();
   
   if ($nid){
     $node = node_load($nid);
