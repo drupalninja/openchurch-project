@@ -34,8 +34,6 @@ projects[features][version] = 1.0-rc1
 projects[features][subdir] = contrib
 projects[features_extra][version] = 1.x-dev
 projects[features_extra][subdir] = contrib
-projects[file_entity][version] = 2.0-unstable3
-projects[file_entity][subdir] = contrib
 projects[filefield_sources][version] = 1.4
 projects[filefield_sources][subdir] = contrib
 projects[fontyourface][version] = 2.2
@@ -118,7 +116,7 @@ projects[fusion][version] = 2.0-beta2
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = "theme"
-projects[openchurch_theme][version] = "1.0-alpha3"
+projects[openchurch_theme][version] = "1.0-alpha5"
 
 ; Base theme for OpenChurch Mix and Match
 projects[mix_and_match][type] = "theme"
