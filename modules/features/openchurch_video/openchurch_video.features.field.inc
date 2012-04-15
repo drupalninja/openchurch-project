@@ -83,14 +83,14 @@ function openchurch_video_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-openchurch_video-field_video'
-  $fields['node-openchurch_video-field_video'] = array(
+  // Exported field: 'node-openchurch_video-field_oc_video'
+  $fields['node-openchurch_video-field_oc_video'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_video',
+      'field_name' => 'field_oc_video',
       'foreign keys' => array(),
       'indexes' => array(
         'fid' => array(
@@ -127,7 +127,7 @@ function openchurch_video_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_video',
+      'field_name' => 'field_oc_video',
       'label' => 'Video',
       'required' => 0,
       'settings' => array(

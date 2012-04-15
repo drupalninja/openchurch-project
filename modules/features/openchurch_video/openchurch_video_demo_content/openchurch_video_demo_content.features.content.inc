@@ -18,7 +18,7 @@ function openchurch_video_demo_content_content_defaults() {
     'sticky' => '0',
     'type' => 'openchurch_video',
     'language' => 'und',
-    'created' => '1334452643',
+    'created' => '1334532163',
     'comment' => '1',
     'translate' => '0',
     'machine_name' => 'oc_video1',
@@ -34,6 +34,15 @@ function openchurch_video_demo_content_content_defaults() {
         ),
       ),
     ),
+    'field_oc_video' => array(
+      'und' => array(
+        0 => array(
+          'fid' => '1',
+          'title' => NULL,
+          'data' => NULL,
+        ),
+      ),
+    ),
   );
 
   $content['oc_video2'] = (object) array(
@@ -44,7 +53,7 @@ function openchurch_video_demo_content_content_defaults() {
     'sticky' => '0',
     'type' => 'openchurch_video',
     'language' => 'und',
-    'created' => '1334453011',
+    'created' => '1334532166',
     'comment' => '1',
     'translate' => '0',
     'machine_name' => 'oc_video2',
@@ -57,6 +66,15 @@ function openchurch_video_demo_content_content_defaults() {
           'safe_value' => '<p>Drupal is a cutting edge, open source web development platform, designed to grow with the expanding needs of your business. Drupal\'s modular CMS system can be effectively adapted and scaled to manage your web presence, irrespective of its complexity. Drupal has been widely used to develop some of the world\'s leading online portals, including those of Harvard, MIT and the Economist.</p>
   ',
           'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_oc_video' => array(
+      'und' => array(
+        0 => array(
+          'fid' => '2',
+          'title' => NULL,
+          'data' => NULL,
         ),
       ),
     ),
