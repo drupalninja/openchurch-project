@@ -541,19 +541,6 @@ function _openchurch_defaults_add_menu_links(){
   menu_link_save($item);
   
   $item = array(
-    'link_title' => t('Video Archives'),
-    'link_path' => 'multimedia/video',
-    'menu_name' => 'main-menu',
-    'weight' => -98,
-    'weight' => 0,
-    'customized' => 1,
-    'module'     => 'openchurch_defaults',
-    'plid' => $media_mlid,
-  );
-
-  menu_link_save($item);
-  
-  $item = array(
     'link_title' => t('Blog'),
     'link_path' => 'blog',
     'menu_name' => 'main-menu',
@@ -619,6 +606,19 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => 0,
     'customized' => 1,
     'module'     => 'openchurch_defaults',
+  );
+
+  menu_link_save($item);
+  
+  $item = array(
+    'link_title' => t('Video Archives'),
+    'link_path' => 'multimedia/video',
+    'menu_name' => 'main-menu',
+    'weight' => -98,
+    'weight' => 0,
+    'customized' => 1,
+    'module'     => 'openchurch_defaults',
+    'plid' => $media_mlid,
   );
 
   menu_link_save($item);
