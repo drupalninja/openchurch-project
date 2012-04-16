@@ -343,10 +343,10 @@ function _openchurch_defaults_add_menu_links(){
   
   $ministries_mlid = $item['mlid'];
   
-  // Exported menu link: main-menu:node/15
+  // Exported menu link: main-menu:node/17
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/15',
+    'link_path' => 'node/17',
     'router_path' => 'node/%',
     'link_title' => 'About',
     'module' => 'openchurch_defaults',
@@ -362,10 +362,10 @@ function _openchurch_defaults_add_menu_links(){
   
   $about_mlid = $item['mlid'];
   
-  // Exported menu link: main-menu:node/17
+  // Exported menu link: main-menu:node/20
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/17',
+    'link_path' => 'node/20',
     'router_path' => 'node/%',
     'link_title' => 'Serve',
     'module' => 'openchurch_defaults',
@@ -379,10 +379,10 @@ function _openchurch_defaults_add_menu_links(){
   
   menu_link_save($item);
   
-  // Exported menu link: main-menu:node/18
+  // Exported menu link: main-menu:node/19
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/18',
+    'link_path' => 'node/19',
     'router_path' => 'node/%',
     'link_title' => 'Time & Locations',
     'module' => 'openchurch_defaults',
@@ -397,10 +397,10 @@ function _openchurch_defaults_add_menu_links(){
   
   menu_link_save($item);
   
-  // Exported menu link: main-menu:node/19
+  // Exported menu link: main-menu:node/21
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/19',
+    'link_path' => 'node/21',
     'router_path' => 'node/%',
     'link_title' => 'Map and Directions',
     'module' => 'openchurch_defaults',
@@ -415,10 +415,10 @@ function _openchurch_defaults_add_menu_links(){
   
   menu_link_save($item);
   
-  // Exported menu link: main-menu:node/7
+  // Exported menu link: main-menu:node/9
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/7',
+    'link_path' => 'node/9',
     'router_path' => 'node/%',
     'link_title' => 'Singles Ministry',
     'module' => 'openchurch_defaults',
@@ -433,10 +433,10 @@ function _openchurch_defaults_add_menu_links(){
   
   menu_link_save($item);
   
-  // Exported menu link: main-menu:node/8
+  // Exported menu link: main-menu:node/10
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/8',
+    'link_path' => 'node/10',
     'router_path' => 'node/%',
     'link_title' => 'Youth Ministry',
     'module' => 'openchurch_defaults',
@@ -567,7 +567,7 @@ function _openchurch_defaults_add_menu_links(){
   
   $item = array(
     'link_title' => t('Image Acknowledgements'),
-    'link_path' => 'node/16',
+    'link_path' => 'node/18',
     'menu_name' => 'menu-secondary-links',
     'weight' => 0,
     'customized' => 1,
