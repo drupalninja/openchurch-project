@@ -97,5 +97,14 @@
     "screenshots":["http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/screenshots\/social-screenshot.jpg"],
     "logo":"http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/share-icon.jpg",
     "rating":{"count":0,"average":0}
+  },
+  {
+    "name":"OpenChurch Video",
+    "description":"Adds 3rd party video content to the site. Uploaded media is only partially supported. Customization is required for uploaded media.",
+    "machine_name":"openchurch_video","version":"1.0",
+    "author":"Jay Callicott","author_url":"http:\/\/www.openchurchsite.com",
+    "screenshots":["http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/screenshots\/video-screenshot.jpg"],
+    "logo":"http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/video-icon.png",
+    "rating":{"count":0,"average":0}
   }
 ]}

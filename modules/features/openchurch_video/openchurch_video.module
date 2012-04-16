@@ -7,6 +7,16 @@
 include_once('openchurch_video.features.inc');
 
 /**
+ * Implementation of hook_apps_app_info()
+ */
+function openchurch_video_apps_app_info() {
+  return array(
+    'demo content description' => 'This will populate the video page with a couple of sample videos for demonstration.',
+    'demo content module' => 'openchurch_video_demo_content',
+  );
+}
+
+/**
  * Implementation of hook_init()
  */
 function openchurch_video_init(){

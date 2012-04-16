@@ -6,7 +6,7 @@ include_once('openchurch_podcast.install');
 /**
  * Implementation of hook_apps_app_info()
  */
-function openchurch_podcast_demo_content_apps_app_info() {
+function openchurch_podcast_apps_app_info() {
   return array(
     'demo content description' => 'This will populate the podcast page with a couple of sample podcasts for demonstration.',
     'demo content module' => 'openchurch_podcast_demo_content',
