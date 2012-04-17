@@ -28,6 +28,10 @@ function openchurch_install() {
         'weight' => 10,
         'status' => 1,
       ),
+      'media_filter' => array(
+        'weight' => 11,
+        'status' => 1,
+      ),
     ),
   );
   $full_html_format = (object) $full_html_format;

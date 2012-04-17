@@ -16,7 +16,49 @@ function openchurch_defaults_update_7000(&$sandbox){
   variable_set('date_format_openchurch_short_date', 'm.d.y');
   
   $sandbox['#finished'] = 1;
+  
+  return t('Adding date formats.');
 }
+
+/**
+ * Implementation of hook_update()
+ */
+function openchurch_defaults_update_7001(&$sandbox){
+  // Add text formats.
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+      'media_filter' => array(
+        'weight' => 11,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
+  
+  $sandbox['#finished'] = 1;
+  
+  return t('Media filter has been enabled for full html text format.');
+}
+
 /**
  * Implementation of hook_install()
  */
