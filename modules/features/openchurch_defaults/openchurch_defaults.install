@@ -60,6 +60,40 @@ function openchurch_defaults_update_7001(&$sandbox){
 }
 
 /**
+ * Implementation of hook_update()
+ */
+function openchurch_defaults_update_7002(&$sandbox){
+  
+  $video_mlid = db_query('SELECT mlid FROM {menu_links} WHERE link_path = :link_path', array(':link_path' => 'multimedia/video'))->fetchColumn();
+  
+  /**
+   * Make sure we don't have a video menu link already 
+   */
+  if (!$video_mlid){
+    $media_mlid = db_query('SELECT mlid FROM {menu_links} WHERE link_path = :link_path AND plid = 0', array(':link_path' => 'multimedia/galleries'))->fetchColumn();
+
+    if ($media_mlid){
+      $item = array(
+        'link_title' => t('Video Archives'),
+        'link_path' => 'multimedia/video',
+        'menu_name' => 'main-menu',
+        'weight' => -98,
+        'weight' => 0,
+        'customized' => 1,
+        'module'     => 'openchurch_defaults',
+        'plid' => $media_mlid,
+      );
+
+      menu_link_save($item);
+    }
+  }
+  
+  $sandbox['#finished'] = 1;
+  
+  return t('Added video menu link under the Media dropdown. You may need to clear caches for this to take effect');
+}
+
+/**
  * Implementation of hook_install()
  */
 function openchurch_defaults_install() {
