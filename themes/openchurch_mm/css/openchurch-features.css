@@ -456,3 +456,33 @@ body .block.view-map-directions .inner .content {
     #openchurch-homepage-rotator .views-slideshow-controls-top .active .views-content-counter {
       background: #bbb;
     }
+    
+/*************************************
+  Video Page
+*************************************/
+.openchurch-video { }
+
+  .openchurch-video .attachment-before .views-field-field-oc-video {
+    margin-bottom: 1em;
+  }
+  .openchurch-video  .views-field-body {
+    
+  }
+  .openchurch-video .view-content { padding-top: 1em; }
+  .openchurch-video .views-row {
+    margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc;
+  }
+  .openchurch-video .views-row h3 {
+    font-size: 1.4em; margin-bottom: .3em; font-weight: normal;
+  }
+  
+  .openchurch-video .views-field-field-oc-video img {
+    border: 5px solid #EFEFEF; float: left; margin-right: 10px;
+  }
+  
+  .openchurch-video .view-content .views-row {
+    min-height: 140px; clear: both;
+  }
+  .openchurch-video .attachment-before .view-content .views-row {
+    min-height: 0;
+  }

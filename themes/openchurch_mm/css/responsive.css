@@ -111,4 +111,33 @@
    .openchurch-latest-blogs-list .view-header a {
      position: static; top: 0;
    }
+   
+  /**
+   * OpenChurch Video
+   */
+   .openchurch-video .media-youtube-outer-wrapper,
+   .openchurch-video .media-youtube-preview-wrapper,
+   .openchurch-video .media-vimeo-outer-wrapper,
+   .openchurch-video .media-vimeo-preview-wrapper {
+     display: inline;
+   }
+   .openchurch-video object, .openchurch-video iframe {
+     max-width: 100%; height: 100%;
+   }
+     
+   .openchurch-video .view-content .views-row img {
+     width: 40%;
+   }
+   
+   .node-openchurch-video .field-name-field-oc-video .media-youtube-outer-wrapper,
+   .node-openchurch-video .field-name-field-oc-video .media-youtube-preview-wrapper,
+   .node-openchurch-video .field-name-field-oc-video .media-vimeo-outer-wrapper,
+   .node-openchurch-video .field-name-field-oc-video .media-vimeo-preview-wrapper { 
+     display: inline;
+   }
+   
+   .node-openchurch-video .field-name-field-oc-video .openchurch-video object, 
+   .node-openchurch-video .field-name-field-oc-video .openchurch-video iframe {
+     max-width: 100%; height: 100%;
+   }
 }
