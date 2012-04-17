@@ -486,3 +486,7 @@ body .block.view-map-directions .inner .content {
   .openchurch-video .attachment-before .view-content .views-row {
     min-height: 0;
   }
+  
+  body.node-type-openchurch-video .node-openchurch-video .field-name-body { 
+    margin-top: 1em; 
+  }
