@@ -121,8 +121,6 @@ settings[responsive_columns] = 12
 ; Supported displays
 ; Display "sidebar" is used for desktop, and for backwards compatibility with non-sidebar_responsive or pre-accelerator themes.
 settings[responsive_displays][] = sidebar
-settings[responsive_displays][] = sidebar_tablet_landscape
-settings[responsive_displays][] = sidebar_tablet_portrait
 settings[responsive_displays][] = sidebar_phone_landscape
 
 ; Desktop layout.
