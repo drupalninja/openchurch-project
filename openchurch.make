@@ -54,8 +54,12 @@ projects[link][version] = 1.0
 projects[link][subdir] = contrib
 projects[media][version] = 1.0
 projects[media][subdir] = contrib
+;Fixes remote fopen problem, see http://drupal.org/node/1485768#comment-5898234
+projects[media_vimeo][patch][] = http://drupal.org/files/media_vimeo-curl_fix-1485768-16.patch
 projects[media_vimeo][version] = 1.0-beta5
 projects[media_vimeo][subdir] = contrib
+;Fixes remote fopen problem, see http://drupal.org/node/1485768#comment-5898234
+projects[media_youtube][patch][] = http://drupal.org/files/media_youtube-curl_fix-1485768-16.patch
 projects[media_youtube][version] = 1.0-beta3
 projects[media_youtube][subdir] = contrib
 projects[menu_breadcrumb][version] = 1.3
@@ -84,6 +88,7 @@ projects[rss_field_formatters][version] = 1.2
 projects[rss_field_formatters][subdir] = contrib
 projects[rules][version] = 2.1
 projects[rules][subdir] = contrib
+;Fixes Save configuration bug
 projects[sharethis][patch][] = http://drupal.org/files/1507684-sharethis-configurations-50.patch
 projects[sharethis][version] = 2.3
 projects[sharethis][subdir] = contrib
