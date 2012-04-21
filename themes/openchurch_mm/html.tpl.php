@@ -46,13 +46,15 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   
-  <!--[if IE 8]> 
-  <link type="text/css" rel="stylesheet" media="all" href="<?php print base_path() . path_to_theme(); ?>/css/openchurch-ie8.css" />
-  <![endif]-->
   <!--[if lte IE 7]> 
   <link type="text/css" rel="stylesheet" media="all" href="<?php print base_path() . path_to_theme(); ?>/css/openchurch-ie7.css" />
   <![endif]-->
   
+  <?php if ($mobile_friendly): ?>    
+  <meta name="viewport" content="width=device-width" />
+  <meta name="MobileOptimized" content="width" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <?php endif; ?>
   <?php print $scripts; ?>
 </head>
 <body id="<?php print $body_id; ?>" class="<?php print $classes; ?>" <?php print $attributes;?>>

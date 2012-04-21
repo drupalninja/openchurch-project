@@ -110,7 +110,7 @@ settings[grid_adjusted_groups_fluid][content_group][] = sidebar_second
 ; --------------------------------------------------------------------------------
 
 ; Set to 0 to remove support for responsive themes.
-settings[responsive_enabled] = 1
+settings[responsive_enabled] = 0
 
 ; Load JavaScript library to support media queries for older versions of IE.  Recommended.
 settings[responsive_ie_shim] = 1

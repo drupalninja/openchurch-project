@@ -67,7 +67,7 @@ settings[grid_mask] = 1
 ; --------------------------------------------------------------------------------
 
 ; Set to 0 to remove support for responsive themes.
-settings[responsive_enabled] = 1
+settings[responsive_enabled] = 0
 
 ; Load JavaScript library to support media queries for older versions of IE.  Recommended.
 settings[responsive_ie_shim] = 1
@@ -175,3 +175,5 @@ settings[grid_adjusted_regions_fluid][content][] = sidebar_first
 settings[grid_adjusted_regions_fluid][content][] = sidebar_second
 ; Regions inside a parent group to subtract to get remaining width
 settings[grid_adjusted_groups_fluid][content_group][] = sidebar_second
+
+fonts[google_fonts_api][] = "Neuton&subset=latin#regular"
