@@ -5,3 +5,13 @@
  */
 
 include_once('openchurch_defaults.features.inc');
+
+/**
+ * Implementation of hook_apps_app_info()
+ */
+function openchurch_defaults_apps_app_info() {
+  return array(
+    'demo content description' => 'This will some sample content that doesn\'t belong to any one feature.',
+    'demo content module' => 'openchurch_defaults_demo_content',
+  );
+}

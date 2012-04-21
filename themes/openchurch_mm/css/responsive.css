@@ -1,0 +1,143 @@
+/**************************************************************************
+ * This is a boilerplate for customizing each display of a responsive
+ * layout.  These will only work properly using the theme's default media
+ * queries.  If you've made changes to the default settings, replace the
+ * media queries found in this file with the ones generated inside of
+ * sites/default/files/fusion/[theme-name].responsive.grid.css.
+ *
+ * Steps to activate responsive.css:
+ * 1. Add your custom CSS to this file
+ * 2. Rename this file to responsive.css
+ * 3. Clear cached data at admin/settings/performance
+ **************************************************************************/
+
+/* Desktop display. */
+@media only screen and (min-width:1200px) {
+  /* Uncomment this style for an easy visual confirmation that your
+   * css file is being included.  It will change the header background to
+   * orange. */
+  /*
+  #header-group-wrapper {
+    background-color: orange !important;
+  }
+  */
+}
+
+/* iPad: landscape. */
+@media only screen and (max-device-width: 1024px) and (orientation:landscape), only screen and (min-width:960px) and (max-width:1199px) and (min-device-width: 1100px) {
+}
+
+/* iPad: portrait. */
+@media only screen and (max-device-width: 1024px) and (orientation:portrait), only screen and (min-width:768px) and (max-width:959px) and (min-device-width: 1100px) {
+}
+
+/* Mobile display. */
+@media only screen and (max-width:460px) {
+  
+  /**
+   * OpenChurch Homepage Rotator
+   */
+  #openchurch-homepage-rotator div.view-openchurch-homepage-rotator {
+    max-width: 440px;
+  }
+  
+  #openchurch-homepage-rotator div.view-openchurch-homepage-rotator img {
+    max-width: 440px;
+    height: 100%;
+  }
+  
+  #openchurch-homepage-rotator .center-wrapper img { 
+    width: 100%; height: 100%;
+  }
+  
+  /**
+   * OpenChurch Ministries
+   */
+  #openchurch-ministry-detail .ministry-image img {
+    width: 100%; height: 100%;
+  }
+  
+  /**
+   * OpenChurch Galleries
+   */
+  .openchurch-galleries-list .views-field-nid {
+    position: static;
+  }
+  
+  /**
+   * OpenChurch Podcasts
+   */
+  .openchurch-podcasts .views-field-field-oc-audio {
+    position: static; background: none; padding: 0; margin: .3em 0;
+  }
+    .openchurch-podcasts .views-field-field-oc-audio a {
+      background: #EFEFEF; padding: .2em .4em;
+    }
+  
+  /**
+   * OpenChurch Bulletins
+   */
+  .openchurch-bulletin-list { margin-bottom: 1.5em; }
+   
+  /**
+   * OpenChurch Events
+   */
+  .openchurch-events-list .view-filters {
+    position: static; top: 0; float: none;
+  }
+  
+  .openchurch-events-list .views-field-php {
+    position: static; margin: .5em 0; display: block;
+  }
+    .openchurch-events-list .views-field-php a {
+      float: none; margin-left: 0;
+    }
+    
+  #openchurch-event-detail .back-to-list a {
+    margin-left: 0; display: inline; position: static; top: 0; right: 0;
+  }
+    
+  #openchurch-event-detail .register-online .pane-content a {
+    margin-left: 0; position: static; right: 0; display: inline;
+  }
+  
+  /**
+   * OpenChurch Blogs
+   */
+   .openchurch-latest-blogs-list .view-filters {
+     top: 0; float: none; position: static;
+   }
+   
+   .openchurch-latest-blogs-list .view-header a {
+     position: static; top: 0;
+   }
+   
+  /**
+   * OpenChurch Video
+   */
+   .openchurch-video .media-youtube-outer-wrapper,
+   .openchurch-video .media-youtube-preview-wrapper,
+   .openchurch-video .media-vimeo-outer-wrapper,
+   .openchurch-video .media-vimeo-preview-wrapper {
+     display: inline;
+   }
+   .openchurch-video object, .openchurch-video iframe {
+     max-width: 100%; height: 100%;
+   }
+     
+   .openchurch-video .view-content .views-row img {
+     width: 40%;
+   }
+   
+   .node-openchurch-video .field-name-field-oc-video .media-youtube-outer-wrapper,
+   .node-openchurch-video .field-name-field-oc-video .media-youtube-preview-wrapper,
+   .node-openchurch-video .field-name-field-oc-video .media-vimeo-outer-wrapper,
+   .node-openchurch-video .field-name-field-oc-video .media-vimeo-preview-wrapper { 
+     display: inline;
+   }
+   
+   .node-openchurch-video .field-name-field-oc-video .openchurch-video object, 
+   .node-openchurch-video .field-name-field-oc-video .openchurch-video iframe {
+     max-width: 100%; height: 100%;
+   }
+}

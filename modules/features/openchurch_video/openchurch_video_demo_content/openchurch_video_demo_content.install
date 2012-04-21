@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * Implementation of hook_enable() 
+ */
+function openchurch_video_demo_content_install(){
+  /**
+   * Save video to file 
+   */
+  $file            = new stdClass();
+  $file->filename  = 'Introducing Drupal 7';
+  $file->status    = 1;
+  $file->filemime  = 'video/vimeo';
+  $file->filesize  = 0;
+  $file->uid       = 1;
+  $file->uri       = 'vimeo://v/18352872';
+  $file->timestamp = time();
+  $file->type      = 'video';
+  drupal_write_record('file_managed', $file);
+  
+  /**
+   * Save video to file 
+   */
+  $file            = new stdClass();
+  $file->filename  = 'What is Drupal?';
+  $file->status    = 1;
+  $file->filemime  = 'video/youtube';
+  $file->filesize  = 0;
+  $file->uid       = 1;
+  $file->uri       = 'youtube://v/26_OZeBmpXs';
+  $file->timestamp = time();
+  $file->type      = 'video';
+  drupal_write_record('file_managed', $file);
+}
+
+/**
+ * Implementation of hook_uninstall() 
+ */
+function openchurch_video_demo_content_uninstall(){
+  
+  db_query('DELETE FROM {file_managed} WHERE uri = :uri', array(':uri' => 'vimeo://v/18352872'));
+  db_query('DELETE FROM {file_managed} WHERE uri = :uri', array(':uri' => 'youtube://v/26_OZeBmpXs'));
+}

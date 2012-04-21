@@ -57,7 +57,6 @@ dependencies[] = entity
 dependencies[] = features
 dependencies[] = fe_nodequeue
 dependencies[] = filefield_sources
-dependencies[] = file_entity
 dependencies[] = file_styles
 dependencies[] = fontyourface
 dependencies[] = fontyourface_ui
@@ -113,16 +112,29 @@ dependencies[] = wysiwyg
 ;Features
 
 dependencies[] = openchurch_ministry
+dependencies[] = openchurch_ministry_demo_content
 dependencies[] = openchurch_blog
+dependencies[] = openchurch_blog_demo_content
 dependencies[] = openchurch_bulletin
+dependencies[] = openchurch_bulletin_demo_content
 dependencies[] = openchurch_events
+dependencies[] = openchurch_events_demo_content
 dependencies[] = openchurch_gallery
+dependencies[] = openchurch_gallery_demo_content
 dependencies[] = openchurch_giving
+dependencies[] = openchurch_giving_demo_content
 dependencies[] = openchurch_homepage_rotator
+dependencies[] = openchurch_homepage_rotator_demo_content
 dependencies[] = openchurch_image
 dependencies[] = openchurch_podcast
+dependencies[] = openchurch_podcast_demo_content
+dependencies[] = openchurch_social
 dependencies[] = openchurch_staff
+dependencies[] = openchurch_staff_demo_content
+dependencies[] = openchurch_video
+dependencies[] = openchurch_video_demo_content
 dependencies[] = openchurch_defaults
+dependencies[] = openchurch_defaults_demo_content
 dependencies[] = wysiwyg_iframe
 
 files[] = openchurch.profile

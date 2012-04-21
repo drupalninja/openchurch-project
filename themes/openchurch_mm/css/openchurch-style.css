@@ -1,0 +1,156 @@
+
+/* Specific Typography
+-------------------------------------------------------------- */
+#site-name {
+  margin-top: 20px;
+  font-size: 2.4em;
+  padding-bottom: 20px; /* ie7 fix */  
+}
+
+
+/* Site info + Header Region
+-------------------------------------------------------------- */
+
+#main-menu-wrapper {
+  padding-top: .5em;
+}
+
+#main {
+  padding-top: 1em;
+}
+
+.main-menu {
+  float: left;
+}
+
+/* Site info + Header Region
+-------------------------------------------------------------- */
+.header-group {
+  position: relative;
+  z-index: 500;
+}
+
+  #header-site-info { margin-top: 30px; width: 100%; }
+
+
+/* Primary Menu
+/-------------------------------------------------------------- */
+/* Add general styles for primary menu here, such as typography, borders, floats,
+  or spacing above/below */
+
+#block-superfish-1 {
+  overflow: visible;
+}
+
+#block-superfish-1 .inner {
+  position: relative;
+}
+
+/** override accents **/ 
+.main-menu-inner #block-superfish-1 ul.sf-menu li li {
+  border-right: 0;
+  border-left: 0;
+}
+
+/* styles for Superfish primary menu */
+
+#block-superfish-1 .sf-shadow ul {
+  border-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+}
+
+/* Style for container of dropdown, add background or border */
+#block-superfish-1 ul.sf-menu ul {
+  background: #ddd; margin-top: 7px;
+  border: 1px solid #ccc;
+}
+
+/* Style for individual dropdown menu items, add border-bottom for separators */
+#block-superfish-1 ul.sf-menu li li {
+}
+  #block-superfish-1 ul.sf-menu li li a,
+  #block-superfish-1 ul.sf-menu li li a.active,
+  #block-superfish-1 ul.sf-menu li li a:visited {
+    border-top: 5px solid #999; color: #000;
+  }
+  #block-superfish-1 ul.sf-menu li li a:hover {
+    border-top: 5px solid #ccc;
+    background: #555; color: #fff;
+  }
+
+/* Page titles
+/-------------------------------------------------------------- */
+/* Page and full node titles */
+h1.title {
+  margin-left: 0;
+  margin-bottom: 1em;
+}
+
+/*  Main Area (content + sidebars)
+-------------------------------------------------------------- */
+.main {
+  clear: both;/* opera fix*/
+}
+
+#content-group-inner { margin-left: 10px; margin-right: 10px; }
+
+
+/* Breadcrumbs
+-------------------------------------------------------------- */
+#breadcrumbs {
+  margin-bottom: 1em;
+}
+.breadcrumbs {
+}
+
+.breadcrumbs a:link,
+.breadcrumbs a:visited {
+}
+
+#breadcrumbs-inner { margin-left: 0; }
+
+
+/* Secondary menu
+-------------------------------------------------------------- */
+
+/**
+ * Hide secondary links title
+ */
+#block-menu-menu-secondary-links { margin-bottom: 0; }
+ 
+#block-menu-menu-secondary-links h2.title { display: none; }
+
+#block-menu-menu-secondary-links ul.menu { text-align: right; font-size: 1.1em; }
+  #block-menu-menu-secondary-links .inner { margin-left: 0; margin-right: 0; padding-bottom: 0; }
+  #block-menu-menu-secondary-links .inner .content { padding-bottom: 0; }
+
+/* Footer - Search
+-------------------------------------------------------------- */
+
+#block-search-form {
+  width: 27em;
+  padding-top: 1em;
+}
+
+#block-search-form input.form-text {
+  width: 23em;
+}
+
+/* Drupal Messages
+/-------------------------------------------------------------- */
+/* General style for all errors/messages (border, padding, etc.) */
+div.content-messages {
+  margin-bottom: 1em;
+}
+
+/*  Footer Region
+-------------------------------------------------------------- */
+.footer {
+}
+
+  body.not-front .footer { padding-top: 2em; }
+
+.footer .block { margin-bottom: .5em; }

@@ -17,3 +17,13 @@ function openchurch_events_form_alter(&$form, &$form_state, $form_id){
     }
   }
 }
+
+/**
+ * Implementation of hook_apps_app_info()
+ */
+function openchurch_events_apps_app_info() {
+  return array(
+    'demo content description' => 'This will populate the events page with a couple of sample events for demonstration.',
+    'demo content module' => 'openchurch_events_demo_content',
+  );
+}

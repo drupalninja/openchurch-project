@@ -2,3 +2,13 @@
 
 include_once('openchurch_bulletin.features.inc');
 include_once('openchurch_bulletin.install');
+
+/**
+ * Implementation of hook_apps_app_info()
+ */
+function openchurch_bulletin_apps_app_info() {
+  return array(
+    'demo content description' => 'This will populate the bulletins archive page with a few of sample bulletins for demonstration.',
+    'demo content module' => 'openchurch_bulletin_demo_content',
+  );
+}

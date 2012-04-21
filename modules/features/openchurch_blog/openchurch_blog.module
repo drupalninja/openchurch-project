@@ -17,3 +17,13 @@ function openchurch_blog_form_alter(&$form, &$form_state, $form_id){
     }
   }
 }
+
+/**
+ * Implementation of hook_apps_app_info()
+ */
+function openchurch_blog_apps_app_info() {
+  return array(
+    'demo content description' => 'This will populate the blogs page with a couple of sample blogs for demonstration.',
+    'demo content module' => 'openchurch_blog_demo_content',
+  );
+}

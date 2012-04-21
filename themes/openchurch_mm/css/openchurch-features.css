@@ -1,0 +1,495 @@
+/* Openchurch features
+/-------------------------------------------------------------- */
+
+/*************************************
+  Member links
+*************************************/
+.member-links {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: auto;
+}
+  .member-links ul {
+    text-align: right;
+  }
+  .member-links ul a { color: #557b6e; }
+
+/*************************************
+  View map directions
+*************************************/
+body .block.view-map-directions .inner {
+  padding: 1px 6px 0; font-size: 1.3em;
+}
+
+body .block.view-map-directions .inner a, 
+body .block.view-map-directions .inner a:link, 
+body .block.view-map-directions .inner a:visited {
+  color: #fff;
+}
+
+body .block.view-map-directions .inner .content {
+  padding: 5px 10px;
+}
+
+
+/*************************************
+  Podcasts
+*************************************/
+.openchurch-podcasts { }
+  .openchurch-podcasts h3.title {
+    background: #efefef; margin: 0;
+    padding: 10px 13px;
+  }
+  .openchurch-podcasts .view-content { padding-top: 1em; }
+  .openchurch-podcasts .views-row {
+    padding-left: 95px; position: relative; margin-bottom: 1em;
+    border-bottom: 1px solid #ccc; padding-bottom: 1em;
+  }
+
+  .openchurch-podcasts .date {
+    font-size: 1.6em; position: absolute; left: 0; top: 2px;
+  }
+  
+  .openchurch-podcasts .views-field-field-oc-audio {
+    font-weight: bold; position: absolute; top: 0; right: 0;
+    background: #efefef; padding: .2em .4em;
+  }
+
+  .openchurch-podcasts .views-field-title {
+    font-size: 1.5em; font-weight: bold; margin-bottom: .3em;
+  }
+
+  .openchurch-podcasts .views-field-field-oc-author {
+    font-size: 1.5em; margin-bottom: .3em; color: #333;
+  }
+  .openchurch-podcasts .views-field-body {
+    margin-bottom: .3em;
+  }
+    .openchurch-podcasts .views-field-body span.views-label {
+      font-weight: bold;
+    }
+
+/*************************************
+  Giving List
+*************************************/
+  .openchurch-giving-list { }
+
+  .openchurch-giving-list h3.title {
+    background: #efefef; margin: 0;
+    padding: 10px 13px;
+  }
+    .openchurch-giving-list .views-row {
+      padding-left: 230px; position: relative; min-height: 120px;
+      padding-bottom: 1em; margin-bottom: 1em; border-bottom: 1px solid #ccc;
+    }
+    .openchurch-giving-list .views-field-field-oc-image {
+      position: absolute; left: 0; top: 0;
+    }
+    .openchurch-giving-list .views-field-view-node {
+      font-style: italic;
+    }
+    .openchurch-giving-list .views-field-title-1 {
+      font-size: 1.4em; font-weight: bold; margin-bottom: .3em;
+    }
+
+/*************************************
+  Bulletin List
+*************************************/
+  .openchurch-bulletin-list { }
+  .openchurch-bulletin-list h3.title {
+    background: #efefef; margin: 0 0 1em;
+    padding: 10px 13px;
+  }
+    .openchurch-bulletin-list .view-content { padding-top: .3em; }
+    .openchurch-bulletin-list .views-field-field-oc-bulletin-file { font-style: italic; }
+    .openchurch-bulletin-list .views-row { margin-bottom: .3em; padding-left: .5em; }
+
+/*************************************
+  Latest Blog List
+*************************************/
+.openchurch-latest-blogs-list {
+  position: relative;
+}
+  .openchurch-latest-blogs-list .view-header a {
+    position: absolute; top: -.2em; right: 0; background: #efefef;
+    padding: .2em .4em;
+  }
+
+  .openchurch-latest-blogs-list .views-row {
+    margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc;
+  }
+  .openchurch-latest-blogs-list .views-field-title {
+    font-size: 1.5em; font-style: italic; margin-bottom: .3em;
+  }
+  .openchurch-latest-blogs-list .views-exposed-form { margin-top: .3em; }
+  
+  .openchurch-latest-blogs-list .views-exposed-form .views-exposed-widget .form-submit {
+    margin-top: 2px; float: left; margin-left: 5px; border: 0; background: #ddd; font-size: .8em;
+    padding: 3px;
+  }
+  .openchurch-latest-blogs-list .views-exposed-form label { float: left; margin-right: .2em; position: relative; top: .2em; }
+  .openchurch-latest-blogs-list .views-exposed-form .views-exposed-widget { margin: 0; padding: 0; }
+  .openchurch-latest-blogs-list #edit-blog-tid-wrapper {
+    float: left; width: 260px; margin-left: .3em;
+  }
+  .openchurch-latest-blogs-list #edit-blog-tid {
+    width: 140px; position: relative; top: .1em;
+  }
+  .openchurch-latest-blogs-list .views-widget { display: inline; }
+  .openchurch-latest-blogs-list .view-filters {
+    text-align: right; position: relative; top: -43px; float: right;
+  }
+  
+
+/*************************************
+  Blog Archives List
+*************************************/
+.openchurch-blog-archives-list { }
+  .openchurch-blog-archives-list li.views-row {
+    list-style-type: square; font-size: 1.2em;
+    margin-bottom: .2em;
+  }
+  .openchurch-blog-archives-list .item-list ul {
+   margin: .5em .5em 1em 1.5em; 
+  }
+  .openchurch-blog-archives-list .item-list h3 {
+    font-size: 1.3em; padding-top: .3em;
+  }
+
+/*************************************
+  Galleries List
+*************************************/
+.openchurch-galleries-list { }
+
+  .openchurch-galleries-list .view-content { padding-top: 1em; }
+  .openchurch-galleries-list .views-row {
+    padding-left: 195px; position: relative; margin-bottom: 1em;
+    padding-bottom: 1em; border-bottom: 1px solid #ccc;
+    min-height: 120px;
+  }
+  .openchurch-galleries-list .views-field-field-oc-thumb {
+    position: absolute; top: 0; left: 0;
+  }
+    .openchurch-galleries-list .views-field-field-oc-thumb img {
+      border: 5px solid #efefef;
+    }
+    .openchurch-galleries-list .views-field-title {
+      font-size: 1.4em; margin-bottom: .3em;
+    }
+    .openchurch-galleries-list span.views-label { font-weight: bold; }
+    .openchurch-galleries-list .views-field-nid {
+      position: absolute; top: 0; right: 0;
+    }
+      .openchurch-galleries-list .views-field-nid a {
+        padding: .2em .4em; background: #efefef;
+      }
+
+/*************************************
+  Gallery Photos
+*************************************/
+.openchurch-gallery-photos {
+}
+  .openchurch-gallery-photos .view { position: relative; }
+  .openchurch-gallery-photos .view-header h2 {
+    border-bottom: 1px solid #333; padding-bottom: .4em;
+    font-style: italic;
+  }
+  .openchurch-gallery-photos .view-header a.back-to-galleries {
+    position: absolute; top: 0; right: 0; background: #efefef;
+    padding: .2em .4em;
+  }
+  .openchurch-gallery-photos .view-footer { text-align: right; margin-top: 1.5em; }
+  .openchurch-gallery-photos .view-footer a.back-to-galleries {
+    padding: .2em .4em; background: #efefef; display: block; float: right;
+  }
+  .openchurch-gallery-photos span.views-label { font-weight: bold; }
+  .openchurch-gallery-photos .views-field-field-oc-images img {
+    border: 3px solid #ccc;
+  }
+  .openchurch-gallery-photos table.views-view-grid { margin-top: 1.5em; }
+
+
+/*************************************
+  Events List
+*************************************/
+.openchurch-events-list {
+  position: relative;
+}
+  .openchurch-events-list .view-content { margin-top: 1em; }
+  .openchurch-events-list h3.title {
+    border-bottom: 1px solid #333; padding-bottom: .4em;
+    font-style: italic; margin-top: 1em;
+  }
+  
+  .openchurch-events-list .views-row {
+    margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc;
+    padding-left: 85px; position: relative; 
+  }
+  .openchurch-events-list .views-field-title {
+    font-size: 1.5em; font-style: italic; margin-bottom: .3em;
+    width: 65%; 
+  }
+  .openchurch-events-list  .date {
+    position: absolute; top: 0; left: 0; font-size: 1.5em;
+    color: #333;
+  }
+  .openchurch-events-list .views-exposed-form .views-exposed-widget .form-submit {
+    margin-top: 2px; float: left; margin-left: 5px; border: 0; background: #ddd; font-size: .8em; padding: 3px;
+  }
+  .openchurch-events-list .views-exposed-form label { float: left; margin-right: .2em; position: relative; top: .2em; }
+  .openchurch-events-list .views-exposed-form .views-exposed-widget { margin: 0; padding: 0; }
+  
+  .openchurch-events-list #edit-oc-ministry-nid-wrapper {
+    float: left; width: 250px; margin-left: .3em;
+  }
+  .openchurch-events-list #edit-oc-ministry-nid {
+    width: 140px; position: relative; top: .1em;
+  }
+  .openchurch-events-list .views-widget { display: inline; }
+  .openchurch-events-list .view-filters {
+    text-align: right; position: relative; top: -33px; float: right;
+  }
+  .openchurch-events-list .views-field-field-oc-dates-1 { display: block; clear: left; }
+  
+  .openchurch-events-list span.views-label { font-weight: bold; }
+  .openchurch-events-list .views-field-php {
+    position: absolute; top: 0; right: 0;
+  }
+
+  .openchurch-events-list .views-field-php a {
+    padding: .2em .4em;
+    float: right; margin-left: .4em;
+  }
+    .openchurch-events-list .more-details a { background: #efefef; }
+    .openchurch-events-list .register-online a { background: #efefef; }
+
+
+/*************************************
+  Event Calendar
+*************************************/
+.openchurch-events-calendar ul.pager a { 
+  border-style: none;
+  padding: 0;
+}
+  .openchurch-events-calendar .date-nav-wrapper .date-heading {
+    z-index: 500;
+  }
+  .openchurch-events-calendar ul.pager a:hover { background: none; }
+
+/*************************************
+  Event Detail Page
+*************************************/
+#openchurch-event-detail {
+  padding-top: .5em; position: relative;
+  padding-bottom: 3em;
+}
+  #openchurch-event-detail .event-details h2.pane-title {
+    background: #efefef; margin: 1em 0 0;
+    padding: 10px 13px;
+  }
+  #openchurch-event-detail div.panels-ipe-display-container .event-details h2.pane-title {
+   padding: 10px 13px;
+  }
+  #openchurch-event-detail .event-highlights {
+    min-height: 140px;
+  }
+  
+  #openchurch-event-detail .ministry-thumb img {
+    border: 3px solid #ccc; float: right; margin-top: 2.4em;
+  }
+
+  #openchurch-event-detail .event-title {
+    border-bottom: 1px solid #333; padding-bottom: .2em;
+    font-style: italic; font-size: 1.5em; margin-bottom: .5em;
+  }
+
+  #openchurch-event-detail .register-online {
+    position: inherit;
+  }
+  #openchurch-event-detail .register-online .pane-content a {
+    background: #efefef; font-weight: bold;
+    padding: .2em .4em; margin-left: .4em;
+    display: block; position: absolute; bottom: 0; right: .5em;
+  }
+  #openchurch-event-detail .back-to-list a {
+    background: #efefef; font-weight: bold;
+    padding: .2em .4em; margin-left: .4em;
+    display: block; position: absolute; top: -1em; right: .5em;
+  }
+  #openchurch-event-detail .related-downloads { padding-top: 1em; }
+  #openchurch-event-detail .related-downloads a {
+    font-style: italic;
+  }
+
+/*************************************
+  Ministries Intro
+*************************************/
+.openchurch-ministries-intro {
+}
+  .openchurch-ministries-intro h3 { }
+
+/*************************************
+  Ministries List
+*************************************/
+.openchurch-ministries-list {
+  position: relative;
+}
+
+  .openchurch-ministries-list .views-row {
+    margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc;
+    position: relative; min-height: 100px;
+  }
+  .openchurch-ministries-list .views-field-title {
+    font-size: 1.5em; font-style: italic; margin-bottom: .4em;
+  }
+  .openchurch-ministries-list .views-field-field-oc-thumb-fid {
+    width: 110px; float: left;
+  }
+    .openchurch-ministries-list .views-field-field-oc-thumb-fid img {
+      border: 2px solid #ccc;
+    }
+  .openchurch-ministries-list .views-field-nid a {
+    position: absolute; top: 0; right: 0; background: #ccc; color: #fff;
+    padding: .2em .4em;
+  }
+
+/*************************************
+  Ministries Detail Page
+*************************************/
+#openchurch-ministry-detail .ministry-image img { border: 3px solid #efefef; }
+
+  #openchurch-ministry-detail .ministry-contacts .pane-block {
+    margin: 1em 0;
+  }
+    #openchurch-ministry-detail .ministry-contacts h2.pane-title,
+    #openchurch-ministry-detail .ministry-galleries h2.pane-title {
+      padding: 10px 13px; background: #efefef; border-bottom: 1px solid #ccc;
+      margin: 0;
+    }
+    #openchurch-ministry-detail .ministry-contacts .pane-content {
+      background: #F9F9F9; padding: 10px;
+    }
+
+  #openchurch-ministry-detail .upcoming-events,
+  #openchurch-ministry-detail .ministry-downloads {
+    margin-bottom: 1em;
+  }
+  #openchurch-ministry-detail .upcoming-events h2.pane-title,
+  #openchurch-ministry-detail .ministry-downloads h2.pane-title {
+    background: whiteSmoke;
+    border-bottom-color: #EFEFEF;
+    padding: 10px 13px; margin: 0;
+  }
+  #openchurch-ministry-detail .upcoming-events .pane-content,
+  #openchurch-ministry-detail .ministry-downloads .pane-content {
+    background: #F9F9F9; padding: 10px;
+  }
+
+  #openchurch-ministry-detail .register-online .pane-content a {
+    background: #efefef; display: block;
+    padding: .4em .6em; font-size: 1.2em;
+  }
+
+/*************************************
+  Staff List
+*************************************/
+.openchurch-staff-list {
+
+}
+  .openchurch-staff-list .view-content h3 {
+    font-style: italic; border-bottom: 1px solid #000; padding-bottom: .3em; font-size: 1.3em;
+    margin-bottom: .8em; margin-top: 1em;
+  }
+  .openchurch-staff-list .staff-type {
+    margin-bottom: .8em; border-bottom: 1px dotted #333; padding-bottom: .5em;
+  }
+  .openchurch-staff-list .staff-type .views-field-title { font-size: 1.3em; padding-right: .3em; }
+  .openchurch-staff-list .staff-type .views-field-field-oc-position-value { font-style: italic; padding-right: .3em; }
+  .openchurch-staff-list .staff-type .views-field-field-oc-email-email { padding-right: .3em; }
+  .openchurch-staff-list .staff-type .views-field-teaser { padding-top: .5em; }
+  .openchurch-staff-list .staff-type .views-field-field-oc-image-fid img { float: left; margin-right: 1em; border: 2px solid #ccc; }
+  .openchurch-staff-list .staff-type .views-field-markup { clear: both; }
+
+  
+.openchurch-staff-list h3.title {
+  background: #efefef; margin: 2em 0 0;
+  padding: 10px 13px;
+}
+
+/*************************************
+  Staff Jump List
+*************************************/
+
+.openchurch-jump-list { margin: 1em 10px 3em 25px; }
+  .openchurch-jump-list .item-list li { margin-bottom: .3em; }
+
+/*************************************
+  Staff Detail
+*************************************/
+#openchurch-staff-detail {
+}
+  #openchurch-staff-detail .staff-info {
+  }
+  #openchurch-staff-detail .title {
+    font-size: 1.5em; margin-bottom: .5em;
+  }
+  #openchurch-staff-detail .position {
+    font-style: italic; margin-bottom: .5em; font-size: 1.1em;
+  }
+  #openchurch-staff-detail .staff-image img {
+    float: right; border: 3px solid #ccc;
+  }
+  #openchurch-staff-detail .about-me { margin-top: 1em; }
+
+/*************************************
+  Homepage Rotator
+*************************************/
+#openchurch-homepage-rotator div.view-openchurch-homepage-rotator {
+  position: relative; z-index: 1;
+}
+  #openchurch-homepage-rotator .views-slideshow-controls-top {
+    position: absolute; bottom: 15px; right: 10px; z-index: 100; text-align: right;
+  }
+    #openchurch-homepage-rotator .views-slideshow-controls-top div { display: inline; }
+    #openchurch-homepage-rotator .views-slideshow-controls-top .views-content-counter {
+      background: #efefef; font-weight: bold; padding: .4em .6em; cursor: pointer;
+      margin-left: 7px;
+    }
+    #openchurch-homepage-rotator .views-slideshow-controls-top .active .views-content-counter {
+      background: #bbb;
+    }
+    
+/*************************************
+  Video Page
+*************************************/
+.openchurch-video { }
+
+  .openchurch-video .attachment-before .views-field-field-oc-video {
+    margin-bottom: 1em;
+  }
+  .openchurch-video  .views-field-body {
+    
+  }
+  .openchurch-video .view-content { padding-top: 1em; }
+  .openchurch-video .views-row {
+    margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc;
+  }
+  .openchurch-video .views-row h3 {
+    font-size: 1.4em; margin-bottom: .3em; font-weight: normal;
+  }
+  
+  .openchurch-video .views-field-field-oc-video img {
+    border: 5px solid #EFEFEF; float: left; margin-right: 10px;
+  }
+  
+  .openchurch-video .view-content .views-row {
+    min-height: 140px; clear: both;
+  }
+  .openchurch-video .attachment-before .view-content .views-row {
+    min-height: 0;
+  }
+  
+  body.node-type-openchurch-video .node-openchurch-video .field-name-body { 
+    margin-top: 1em; 
+  }

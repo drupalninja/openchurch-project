@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+
+<!--
+-
+- Sequel Pro XML dump
+- Version 3408
+-
+- http://www.sequelpro.com/
+- http://code.google.com/p/sequel-pro/
+-
+- Host: 127.0.0.1 (MySQL 5.1.44)
+- Database: openchurch_d7
+- Generation Time Time: 2011-12-15 20:37:08 -0600
+-
+-->
+
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="openchurch_d7">
+
+	<table_data name="fusion_apply_skins">
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">block__5</field>
+		<field name="skin">skinr_header_background_color</field>
+		<field name="options">a:1:{i:0;s:14:&quot;blue_header_bg&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">views__openchurch_latest_podcast-block</field>
+		<field name="skin">skinr_header_background_color</field>
+		<field name="options">a:1:{i:0;s:14:&quot;blue_header_bg&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">views__794f38e8ce669fc0643cfeb6da701af6</field>
+		<field name="skin">skinr_header_background_color</field>
+		<field name="options">a:1:{i:0;s:14:&quot;blue_header_bg&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">block__2</field>
+		<field name="skin">skinr_background_color</field>
+		<field name="options">a:1:{i:0;s:7:&quot;blue_bg&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">block__2</field>
+		<field name="skin">_additional</field>
+		<field name="options">a:1:{i:0;s:19:&quot;view-map-directions&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid">23</field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">block__3</field>
+		<field name="skin">skinr_header_background_color</field>
+		<field name="options">a:1:{i:0;s:14:&quot;blue_header_bg&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">block__1</field>
+		<field name="skin">skinr_header_background_color</field>
+		<field name="options">a:1:{i:0;s:14:&quot;blue_header_bg&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+
+	<row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">block__4</field>
+		<field name="skin">skinr_header_background_color</field>
+		<field name="options">a:1:{i:0;s:14:&quot;blue_header_bg&quot;;}</field>
+		<field name="status">1</field>
+	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">block__1</field>
+		<field name="skin">fusion_skins_grid12_width</field>
+		<field name="options">a:1:{i:0;s:8:"grid12-4";}</field>
+		<field name="status">1</field>
+	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">block__3</field>
+		<field name="skin">fusion_skins_grid12_width</field>
+		<field name="options">a:1:{i:0;s:8:"grid12-4";}</field>
+		<field name="status">1</field>
+	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">block__4</field>
+		<field name="skin">fusion_skins_grid12_width</field>
+		<field name="options">a:1:{i:0;s:8:"grid12-4";}</field>
+		<field name="status">1</field>
+	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">menu__menu-secondary-links</field>
+		<field name="skin">fusion_skins_block_positioning</field>
+		<field name="options">a:1:{i:0;s:12:"fusion-right";}</field>
+		<field name="status">1</field>
+	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">menu__menu-secondary-links</field>
+		<field name="skin">fusion_menu</field>
+		<field name="options">a:1:{i:0;s:18:"fusion-inline-menu";}</field>
+		<field name="status">1</field>
+	</row>
+  
+  <row>
+		<field name="sid"></field>
+		<field name="theme">openchurch_mm</field>
+		<field name="module">block</field>
+		<field name="element">menu__menu-secondary-links</field>
+		<field name="skin">fusion_skins_grid12_width</field>
+		<field name="options">a:1:{i:0;s:8:"grid12-4";}</field>
+		<field name="status">1</field>
+	</row>
+
+	</table_data>
+
+</database>
+</mysqldump>

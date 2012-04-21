@@ -2,3 +2,13 @@
 
 include_once('openchurch_staff.features.inc');
 include_once('openchurch_staff.install');
+
+/**
+ * Implementation of hook_apps_app_info()
+ */
+function openchurch_staff_apps_app_info() {
+  return array(
+    'demo content description' => 'This will populate the staff page with a couple of sample staff pages for demonstration.',
+    'demo content module' => 'openchurch_staff_demo_content',
+  );
+}
