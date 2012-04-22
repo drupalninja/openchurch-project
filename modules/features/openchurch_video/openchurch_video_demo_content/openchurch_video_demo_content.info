@@ -7,3 +7,4 @@ project = "openchurch_video_demo_content"
 features[content][] = "oc_video1"
 features[content][] = "oc_video2"
 dependencies[] = openchurch_video
+files[] = openchurch_video_demo_content.install

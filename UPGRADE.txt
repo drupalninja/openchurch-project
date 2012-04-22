@@ -29,7 +29,6 @@ From OpenChurch 7.x-1.9-beta2:
    need to add this link yoursel). The path is /multimedia/video.
 5. If you enable Openchurch Social, you will see new social icons in the right sidebar which allow users to share pages from your site.
 
-
 From versions earlier than 7.x-1.9-beta2:
 
 1. Run /update.php or 'drush updatedb' 

@@ -4,6 +4,9 @@
  * Implementation of hook_enable() 
  */
 function openchurch_video_demo_content_install(){
+  
+  $video_fids = array();
+  
   /**
    * Save video to file 
    */
@@ -18,6 +21,8 @@ function openchurch_video_demo_content_install(){
   $file->type      = 'video';
   drupal_write_record('file_managed', $file);
   
+  $video_fids['oc_video1'] = $file->fid;//store for later use
+  
   /**
    * Save video to file 
    */
@@ -31,6 +36,11 @@ function openchurch_video_demo_content_install(){
   $file->timestamp = time();
   $file->type      = 'video';
   drupal_write_record('file_managed', $file);
+  
+  $video_fids['oc_video2'] = $file->fid;//store for later use
+  
+  //Save for later
+  variable_set('openchurch_video_fids', $video_fids);
 }
 
 /**
