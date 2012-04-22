@@ -1,0 +1,39 @@
+Author: Jay Callicott
+
+Please read these instructions carefully before filing an issue. DO NOT UPGRADE on a production
+environment without first testing on a local or dev environment! 
+
+ALWAYS back up your data in production even if you have tested first, to make sure that you will 
+be able to roll back completely if you have any problems.
+
+-----------------------------------
+
+Upgrading to 7.x-1.10-alpha1:
+
+From OpenChurch 7.x-1.9-beta2:
+
+1. Run /update.php or 'drush updatedb' 
+2. Clear all caches (From performance page at /admin/config/development/performance or use 'drush cc all')
+3. Review features that have been overridden at /admin/structure/features
+3a. All of the demo features are now in their own module (e.g. OpenChurch Blog Demo Content). 
+    Your content should still be there WITHOUT enabling the demo content module. New installations will have these modules
+    enabled by default, but users upgrading will not need to enable these modules.
+3b. If you have not modified any views, etc. then only the Staff module should display as overridden 
+    (it technically is not overridden, the Feature's module erroneously displays it as overridden). You will want to review
+    overrides one by one and decide whether or not you want to keep the change you have made.
+3c. There are 2 new features available to enable: Openchurch Social and Openchurch Video. You can enable them here, from the modules
+    page, or from the apps page at /admin/apps. If you get a message about 'orphaned dependencies', choose 'Leave enabled'. The
+    Openchurch Video feature also has a companion 'Openchurch Video Demo Content' feaature that you will want to enable if you are
+    testing this feature on a test environment.
+4. If you enable Openchurch Video a new menu item will be added for you underneath the Media (if you have modified your menus you might
+   need to add this link yoursel). The path is /multimedia/video.
+5. If you enable Openchurch Social, you will see new social icons in the right sidebar which allow users to share pages from your site.
+
+
+From versions earlier than 7.x-1.9-beta2:
+
+1. Run /update.php or 'drush updatedb' 
+2. Clear all caches (From performance page at /admin/config/development/performance or use 'drush cc all')
+3. Review features that have been overridden at /admin/structure/features
+
+-----------------------------------
