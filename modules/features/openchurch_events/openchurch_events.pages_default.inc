@@ -10,7 +10,7 @@
 function openchurch_events_default_page_manager_handlers() {
   $export = array();
 
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'node_view_panel_context';
@@ -42,7 +42,7 @@ function openchurch_events_default_page_manager_handlers() {
       'logic' => 'and',
     ),
   );
-  $display = new panels_display;
+  $display = new panels_display();
   $display->layout = 'flexible';
   $display->layout_settings = array(
     'items' => array(
@@ -114,7 +114,7 @@ function openchurch_events_default_page_manager_handlers() {
   $display->title = 'Upcoming Events';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-1';
     $pane->panel = 'center';
     $pane->type = 'node_body';
@@ -140,7 +140,7 @@ function openchurch_events_default_page_manager_handlers() {
     $pane->locks = '';
     $display->content['new-1'] = $pane;
     $display->panels['center'][0] = 'new-1';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-2';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
@@ -168,7 +168,7 @@ function openchurch_events_default_page_manager_handlers() {
     $pane->locks = array();
     $display->content['new-2'] = $pane;
     $display->panels['center'][1] = 'new-2';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-3';
     $pane->panel = 'center';
     $pane->type = 'block';
@@ -192,7 +192,7 @@ function openchurch_events_default_page_manager_handlers() {
     $pane->locks = array();
     $display->content['new-3'] = $pane;
     $display->panels['center'][2] = 'new-3';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-4';
     $pane->panel = 'event_highlights_';
     $pane->type = 'custom';
@@ -224,7 +224,7 @@ print l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));
     $pane->locks = '';
     $display->content['new-4'] = $pane;
     $display->panels['event_highlights_'][0] = 'new-4';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-5';
     $pane->panel = 'event_highlights_';
     $pane->type = 'block';
@@ -248,7 +248,7 @@ print l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));
     $pane->locks = array();
     $display->content['new-5'] = $pane;
     $display->panels['event_highlights_'][1] = 'new-5';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-6';
     $pane->panel = 'event_highlights_';
     $pane->type = 'node_title';
@@ -275,7 +275,7 @@ print l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));
     $pane->locks = '';
     $display->content['new-6'] = $pane;
     $display->panels['event_highlights_'][2] = 'new-6';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-7';
     $pane->panel = 'event_highlights_';
     $pane->type = 'entity_field';
@@ -300,7 +300,7 @@ print l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));
     $pane->locks = array();
     $display->content['new-7'] = $pane;
     $display->panels['event_highlights_'][3] = 'new-7';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-8';
     $pane->panel = 'event_highlights_';
     $pane->type = 'entity_field';
@@ -316,10 +316,14 @@ print l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));
         'multiple_from' => '',
         'multiple_to' => '',
         'fromto' => 'both',
+        'show_repeat_rule' => 'hide',
       ),
       'context' => 'argument_entity_id:node_1',
       'override_title' => 0,
       'override_title_text' => '',
+      'delta_limit' => '5',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -331,7 +335,7 @@ print l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));
     $pane->locks = array();
     $display->content['new-8'] = $pane;
     $display->panels['event_highlights_'][4] = 'new-8';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-9';
     $pane->panel = 'event_highlights_';
     $pane->type = 'entity_field';
@@ -361,7 +365,7 @@ print l("&laquo; back to full list", \'events\', array(\'html\' => TRUE));
     $pane->locks = array();
     $display->content['new-9'] = $pane;
     $display->panels['event_highlights_'][5] = 'new-9';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-10';
     $pane->panel = 'event_highlights_';
     $pane->type = 'entity_field';

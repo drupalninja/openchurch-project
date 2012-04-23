@@ -80,7 +80,7 @@ function openchurch_defaults_views_default_views() {
   $handler->display->display_options['arguments']['nid']['validate_options']['code'] = '$node = node_load(arg(1));
 
 //validate that we have at least 1 download
-if ($node->field_oc_downloads[\'und\'][0][\'fid\'])
+if (isset($node->field_oc_downloads[LANGUAGE_NONE][0][\'fid\']))
   return TRUE;
 else
   return FALSE;';

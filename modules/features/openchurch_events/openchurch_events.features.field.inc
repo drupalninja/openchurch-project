@@ -77,7 +77,7 @@ function openchurch_events_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '9',
+        'weight' => '7',
       ),
     ),
   );
@@ -145,7 +145,7 @@ function openchurch_events_field_default_fields() {
           'size' => '35',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '4',
       ),
     ),
   );
@@ -154,7 +154,7 @@ function openchurch_events_field_default_fields() {
   $fields['node-openchurch_event-field_oc_dates'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_oc_dates',
@@ -162,6 +162,8 @@ function openchurch_events_field_default_fields() {
       'indexes' => array(),
       'module' => 'date',
       'settings' => array(
+        'cache_count' => '4',
+        'cache_enabled' => 0,
         'granularity' => array(
           'day' => 'day',
           'hour' => 'hour',
@@ -170,7 +172,7 @@ function openchurch_events_field_default_fields() {
           'second' => 0,
           'year' => 'year',
         ),
-        'repeat' => '0',
+        'repeat' => '1',
         'timezone_db' => 'UTC',
         'todate' => 'optional',
         'tz_handling' => 'site',
@@ -195,7 +197,7 @@ function openchurch_events_field_default_fields() {
             'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => 1,
+          'weight' => 7,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -210,7 +212,7 @@ function openchurch_events_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'default_value' => 'now',
-        'default_value2' => 'blank',
+        'default_value2' => 'same',
         'default_value_code' => '',
         'default_value_code2' => '',
         'user_register_form' => FALSE,
@@ -219,17 +221,16 @@ function openchurch_events_field_default_fields() {
         'active' => 1,
         'module' => 'date',
         'settings' => array(
-          'display_all_day' => 0,
           'increment' => '15',
-          'input_format' => 'm/d/Y - H:i:s',
+          'input_format' => 'm/d/Y - g:i:sa',
           'input_format_custom' => '',
           'label_position' => 'above',
-          'repeat_collapsed' => 0,
+          'repeat_collapsed' => 1,
           'text_parts' => array(),
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '3',
+        'weight' => '2',
       ),
     ),
   );
@@ -317,7 +318,7 @@ function openchurch_events_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '8',
+        'weight' => '6',
       ),
     ),
   );
@@ -394,7 +395,7 @@ function openchurch_events_field_default_fields() {
           ),
         ),
         'type' => 'addressfield_standard',
-        'weight' => '7',
+        'weight' => '5',
       ),
     ),
   );
@@ -476,7 +477,7 @@ function openchurch_events_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '2',
+        'weight' => '1',
       ),
     ),
   );
@@ -558,7 +559,7 @@ function openchurch_events_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '4',
+        'weight' => '3',
       ),
     ),
   );
