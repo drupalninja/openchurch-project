@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * Implementation of hook_install() 
+ */
+function openchurch_simplenews_install(){
+
+  drupal_flush_all_caches();
+  
+  $delta = db_query('SELECT delta FROM {block} WHERE module = :module AND theme = :theme AND delta != 0', 
+     array(':theme' => 'openchurch_theme', ':module' => 'simplenews'))->fetchColumn();
+  
+  /**
+   * Add skins to database for OpenChurch theme
+   */
+  
+  db_insert('fusion_apply_skins')
+    ->fields(array(
+      'theme' => 'openchurch_theme',
+      'module' => 'block',
+      'element' => 'simplenews__'.$delta,
+      'skin' => 'oc_skins_block_title_background_styles',
+      'options' => 'a:1:{i:0;s:20:"block-title-med-blue";}',
+      'status' =>  1,
+    ))
+    ->execute();
+  
+  db_insert('fusion_apply_skins')
+    ->fields(array(
+      'theme' => 'openchurch_theme',
+      'module' => 'block',
+      'element' => 'simplenews__'.$delta,
+      'skin' => 'oc_skins_block_background_styles',
+      'options' => 'a:1:{i:0;s:24:"block-background-lt-blue";}',
+      'status' =>  1,
+    ))
+    ->execute();
+  
+  db_insert('fusion_apply_skins')
+    ->fields(array(
+      'theme' => 'openchurch_theme',
+      'module' => 'block',
+      'element' => 'simplenews__'.$delta,
+      'skin' => 'oc_skins_block_effects',
+      'options' => 'a:1:{s:15:"rounded-corners";s:15:"rounded-corners";}',
+      'status' =>  1,
+    ))
+    ->execute();
+  
+  /**
+   * Add skins to database for OpenChurch M&M
+   */
+  
+  db_insert('fusion_apply_skins')
+    ->fields(array(
+      'theme' => 'openchurch_mm',
+      'module' => 'block',
+      'element' => 'simplenews__'.$delta,
+      'skin' => 'skinr_header_background_color',
+      'options' => 'a:1:{i:0;s:14:"blue_header_bg";}',
+      'status' =>  1,
+    ))
+    ->execute();
+}
