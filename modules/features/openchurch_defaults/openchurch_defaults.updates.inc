@@ -94,7 +94,7 @@ function openchurch_defaults_update_7002(&$sandbox){
 }
 
 /**
- * Implementation of hook_update_N()
+ * Updating mix and match settings.
  */
 function openchurch_defaults_update_7003(&$sandbox){
   
@@ -123,5 +123,5 @@ function openchurch_defaults_update_7003(&$sandbox){
   
   $sandbox['#finished'] = 1;
   
-  return t('Updating mix and match settings.');
+  return t('Updated mix and match settings.');
 }
