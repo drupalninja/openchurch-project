@@ -106,5 +106,14 @@
     "screenshots":["http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/screenshots\/video-screenshot.jpg"],
     "logo":"http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/video-icon.png",
     "rating":{"count":0,"average":0}
+  },
+  {
+    "name":"OpenChurch Simplenews",
+    "description":"Adds Simplenews integration to OpenChurch with themed subscribe block in the sidebar and some other sensible defaults.",
+    "machine_name":"openchurch_simplenews","version":"1.0",
+    "author":"Jay Callicott","author_url":"http:\/\/www.openchurchsite.com",
+    "screenshots":["http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/screenshots\/simplenews-screenshot.jpg"],
+    "logo":"http:\/\/openchurch-distro.googlecode.com\/svn\/trunk\/images\/apps\/simplenews-icon.png",
+    "rating":{"count":0,"average":0}
   }
 ]}
