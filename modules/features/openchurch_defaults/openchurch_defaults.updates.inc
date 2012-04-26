@@ -94,9 +94,38 @@ function openchurch_defaults_update_7002(&$sandbox){
 }
 
 /**
- * Implementation of hook_update_N()
+ * Updating mix and match settings.
  */
 function openchurch_defaults_update_7003(&$sandbox){
+  
+  /**
+   * Load fusion skin info for site blocks and save
+   */
+  $xml = simplexml_load_file(drupal_get_path('module', 'openchurch_defaults').'/fusion_block.xml');
+
+  $json = json_encode($xml);
+  $array = json_decode($json, TRUE);
+
+  /**
+   * * Load fusion skin info for site blocks and save
+   */
+  foreach (array('openchurch_theme_starter') as $theme){
+    foreach($array['database']['table_data']['row'] as $row){
+
+      $row = $row['field'];
+
+      $skin = array(
+        'theme' => $theme,
+        'module' => $row[2],
+        'element' => $row[3],
+        'skin' => $row[4],
+        'options' => unserialize($row[5]),
+        'status' => $row[6],
+      );
+
+      drupal_write_record('fusion_apply_skins', $skin);
+    }
+  }
   
   /**
    * Load fusion skin info for site blocks and save
@@ -123,5 +152,5 @@ function openchurch_defaults_update_7003(&$sandbox){
   
   $sandbox['#finished'] = 1;
   
-  return t('Updating mix and match settings.');
+  return t('Updated mix and match settings, openchurch starter theme settings.');
 }
