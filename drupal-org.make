@@ -57,7 +57,7 @@ projects[media][subdir] = contrib
 ;Fixes remote fopen problem, see http://drupal.org/node/1485768#comment-5898234
 projects[media_vimeo][patch][] = http://drupal.org/files/media_vimeo-curl_fix-1485768-16.patch
 ;Fixes site install issue, see http://drupal.org/node/1585348#comment-6156282
-projects[media_vimeo][patch][] = http://drupal.org/files/openchurch-media_vimeo_fix-1585348-6156106.patch
+projects[media_vimeo][patch][] = http://drupal.org/files/openchurch-media_vimeo_fix-1585348-6156106-1.patch
 projects[media_vimeo][version] = 1.0-beta5
 projects[media_vimeo][subdir] = contrib
 ;Fixes remote fopen problem, see http://drupal.org/node/1485768#comment-5898234
