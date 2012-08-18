@@ -80,6 +80,7 @@ dependencies[] = page_title
 dependencies[] = panels
 dependencies[] = panels_ipe
 dependencies[] = pathauto
+dependencies[] = pathologic
 dependencies[] = plup
 dependencies[] = plupload
 dependencies[] = references
