@@ -154,3 +154,86 @@ function openchurch_defaults_update_7003(&$sandbox){
   
   return t('Updated mix and match settings, openchurch starter theme settings.');
 }
+
+/**
+ * Adding pathologic filter
+ */
+function openchurch_defaults_update_7004(&$sandbox){
+  
+  //Make sure we enable pathologic
+  if (!module_exists('pathologic'))
+    module_enable(array('pathologic'));
+
+  //Update full html filter
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+      'media_filter' => array(
+        'weight' => 11,
+        'status' => 1,
+      ),
+      'pathologic' => array(
+        'weight' => 99,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
+  
+  //Update full html filter
+  $filtered_html_format = array(
+    'format' => 'filtered_html',
+    'name' => 'Filtered HTML',
+    'weight' => 1,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // HTML filter.
+      'filter_html' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+      'pathologic' => array(
+        'weight' => 99,
+        'status' => 1,
+      ),
+    ),
+  );
+  $filtered_html_format = (object) $filtered_html_format;
+  filter_format_save($filtered_html_format);
+  
+  $sandbox['#finished'] = 1;
+  
+  return t('Pathologic filter has been enabled for full html & filtered text format.');
+}
