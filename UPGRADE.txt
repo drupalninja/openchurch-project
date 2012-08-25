@@ -8,6 +8,13 @@ be able to roll back completely if you have any problems.
 
 -----------------------------------
 
+Upgrading to 7.x-1.11-alpha2:
+
+1. Run /update.php or 'drush updatedb' (VERY IMPORTANT)
+2. Clear all caches (From performance page at /admin/config/development/performance or use 'drush cc all')
+3. Revert the OpenChurch Event feature at /admin/structure/features/openchurch_events - this will add the repeatable events
+4. If you want to enabled OpenChurch SimpleNews go to /admin/apps to enable this new feature
+
 Upgrading to 7.x-1.10-alpha1:
 
 From OpenChurch 7.x-1.9-beta2:
