@@ -143,7 +143,9 @@ h1.title {
 /* Drupal Messages
 /-------------------------------------------------------------- */
 /* General style for all errors/messages (border, padding, etc.) */
-div.content-messages {
+
+#content-messages-inner {
+  margin-left: 0;
   margin-bottom: 1em;
 }
 

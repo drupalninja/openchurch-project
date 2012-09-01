@@ -24,3 +24,33 @@ function openchurch_mm_preprocess_page(&$vars) {
     '#region' => 'main_menu',
   );
 }
+
+/**
+ * HTML preprocessing
+ */
+function openchurch_mm_preprocess_html(&$vars) {
+  global $theme_key;
+
+  $themes = fusion_core_theme_paths($theme_key);
+  
+  //Grid file
+  $file = theme_get_setting('theme_grid') . '.css';
+  
+  //Grid path
+  $path = $themes['fusion_core'];
+  
+  /**
+   * We are forcing the normal grid CSS to load via an IE conditional, even if repsonsive is enabled, this fixes an IE problem
+   */
+  drupal_add_css($path . '/css/' . $file, array('basename' => 'fusion_core' . '-' . $file, 'group' => CSS_THEME, 'preprocess' => TRUE, 'browsers' => array('IE' => TRUE, '!IE' => FALSE)));
+  
+  /**
+   * Add ie7 stylesheet 
+   */
+  drupal_add_css(path_to_theme().'/css/openchurch-ie7.css', array('browsers' => array('IE' => TRUE, '!IE' => FALSE)));
+  
+  /**
+   * Add gt-ie7 stylesheet
+   */
+  drupal_add_css(path_to_theme().'/css/openchurch-gt-ie7.css', array('browsers' => array('IE' => TRUE, '!IE' => FALSE)));
+}

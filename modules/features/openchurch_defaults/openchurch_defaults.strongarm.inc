@@ -495,7 +495,7 @@ function openchurch_defaults_strongarm() {
     'sidebar_second_width' => '3',
     'theme_grid' => 'grid12-960',
     'fluid_grid_width' => 'fluid-100',
-    'responsive_enabled' => '0',
+    'responsive_enabled' => '1',
     'responsive_columns' => '12',
     'responsive_ie_shim' => 1,
     'sidebar_layout' => 'sidebars-split',
