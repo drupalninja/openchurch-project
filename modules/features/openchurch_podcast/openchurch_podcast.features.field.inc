@@ -303,6 +303,7 @@ function openchurch_podcast_field_default_fields() {
             'multiple_from' => '',
             'multiple_number' => '',
             'multiple_to' => '',
+            'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
           'weight' => '2',

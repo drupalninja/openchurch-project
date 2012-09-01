@@ -10,7 +10,7 @@
 function openchurch_gallery_default_page_manager_handlers() {
   $export = array();
 
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'node_view_panel_context_3';
@@ -42,7 +42,7 @@ function openchurch_gallery_default_page_manager_handlers() {
       'logic' => 'and',
     ),
   );
-  $display = new panels_display;
+  $display = new panels_display();
   $display->layout = 'flexible';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -55,7 +55,7 @@ function openchurch_gallery_default_page_manager_handlers() {
   $display->title = '';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-1';
     $pane->panel = 'center';
     $pane->type = 'block';
