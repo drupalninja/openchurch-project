@@ -95,7 +95,8 @@ h1.title {
   clear: both;/* opera fix*/
 }
 
-#content-group-inner { margin-left: 10px; margin-right: 10px; }
+#block-system-main .inner { margin-left: 0; }
+
 
 
 /* Breadcrumbs

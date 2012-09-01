@@ -272,9 +272,6 @@ body .block.view-map-directions .inner .content {
   border-style: none;
   padding: 0;
 }
-  .openchurch-events-calendar .date-nav-wrapper .date-heading {
-    z-index: 500;
-  }
   .openchurch-events-calendar ul.pager a:hover { background: none; }
 
 /*************************************
