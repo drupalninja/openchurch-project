@@ -60,7 +60,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'overlay',
   );
 
-  // Exported permission: access toolbar
+  // Exported permission: access administration menu
   $permissions['access administration menu'] = array(
     'name' => 'access administration menu',
     'roles' => array(
