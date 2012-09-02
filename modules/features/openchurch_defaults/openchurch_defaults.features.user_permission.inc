@@ -61,13 +61,13 @@ function openchurch_defaults_user_default_permissions() {
   );
 
   // Exported permission: access toolbar
-  $permissions['access toolbar'] = array(
-    'name' => 'access toolbar',
+  $permissions['access administration menu'] = array(
+    'name' => 'access administration menu',
     'roles' => array(
       0 => 'administrator',
       1 => 'editor',
     ),
-    'module' => 'toolbar',
+    'module' => 'admin_menu',
   );
 
   // Exported permission: add media from remote sources
