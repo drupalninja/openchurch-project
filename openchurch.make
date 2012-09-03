@@ -24,6 +24,8 @@ projects[context_breadcrumb_current_page][version] = 1.0-beta2
 projects[context_breadcrumb_current_page][subdir] = contrib
 projects[ctools][version] = 1.2
 projects[ctools][subdir] = contrib
+;Fixes "assign property of non-object" error, see http://drupal.org/node/1739718
+projects[ctools][patch][] = http://drupal.org/files/ctools-fix-warning-message-1739718-32.patch
 projects[date][version] = 2.5
 projects[date][subdir] = contrib
 projects[defaultcontent][version] = 1.0-alpha6
