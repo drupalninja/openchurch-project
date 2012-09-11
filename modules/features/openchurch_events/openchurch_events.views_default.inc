@@ -798,6 +798,7 @@ Welcome to the OpenChurch event page. Below you will see all events for this sit
   $handler->display->display_options['fields']['field_oc_dates']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_oc_dates']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_oc_dates']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_dates']['alter']['more_link'] = 0;
   $handler->display->display_options['fields']['field_oc_dates']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['field_oc_dates']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_oc_dates']['alter']['html'] = 0;
@@ -809,11 +810,15 @@ Welcome to the OpenChurch event page. Below you will see all events for this sit
   $handler->display->display_options['fields']['field_oc_dates']['settings'] = array(
     'format_type' => 'short',
     'fromto' => 'value',
-    'multiple_number' => '',
+    'multiple_number' => '1',
     'multiple_from' => '',
     'multiple_to' => '',
-    'show_repeat_rule' => 'show',
+    'show_repeat_rule' => 'hide',
   );
+  $handler->display->display_options['fields']['field_oc_dates']['group_rows'] = 0;
+  $handler->display->display_options['fields']['field_oc_dates']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_oc_dates']['delta_reversed'] = 0;
+  $handler->display->display_options['fields']['field_oc_dates']['delta_first_last'] = 0;
   $handler->display->display_options['fields']['field_oc_dates']['field_api_classes'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
