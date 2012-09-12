@@ -836,11 +836,6 @@ Welcome to the OpenChurch event page. Below you will see all events for this sit
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   /* Sort criterion: Content: When -  start date (field_oc_dates) */
   $handler->display->display_options['sorts']['field_oc_dates_value']['id'] = 'field_oc_dates_value';
   $handler->display->display_options['sorts']['field_oc_dates_value']['table'] = 'field_data_field_oc_dates';
