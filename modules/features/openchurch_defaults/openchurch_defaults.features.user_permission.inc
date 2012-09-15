@@ -10,6 +10,16 @@
 function openchurch_defaults_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: access administration menu
+  $permissions['access administration menu'] = array(
+    'name' => 'access administration menu',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'editor',
+    ),
+    'module' => 'admin_menu',
+  );
+
   // Exported permission: access all webform results
   $permissions['access all webform results'] = array(
     'name' => 'access all webform results',
@@ -58,16 +68,6 @@ function openchurch_defaults_user_default_permissions() {
       1 => 'editor',
     ),
     'module' => 'overlay',
-  );
-
-  // Exported permission: access administration menu
-  $permissions['access administration menu'] = array(
-    'name' => 'access administration menu',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-    ),
-    'module' => 'admin_menu',
   );
 
   // Exported permission: add media from remote sources

@@ -111,6 +111,13 @@ function openchurch_defaults_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'configurable_timezones';
+  $strongarm->value = 0;
+  $export['configurable_timezones'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'date_format_long';
   $strongarm->value = 'l, F j, Y - g:ia';
   $export['date_format_long'] = $strongarm;
@@ -396,7 +403,7 @@ function openchurch_defaults_strongarm() {
   $strongarm->name = 'pathauto_node_openchurch_staff_pattern';
   $strongarm->value = 'about/staff/[node:title]';
   $export['pathauto_node_openchurch_staff_pattern'] = $strongarm;
-  
+
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
@@ -537,6 +544,6 @@ function openchurch_defaults_strongarm() {
     'mix_and_match_corners' => 'round-corners-3',
   );
   $export['theme_openchurch_mm_settings'] = $strongarm;
-  
+
   return $export;
 }
