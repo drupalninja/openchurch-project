@@ -36,6 +36,8 @@ projects[entity][version] = 1.0-rc1
 projects[entity][subdir] = contrib
 projects[features][version] = 1.0-rc1
 projects[features][subdir] = contrib
+;Fixes errors clearning caches, see http://drupal.org/node/1782926
+projects[features][patch][] = http://drupal.org/files/features_static_caches-1063204-32.patch
 projects[features_extra][version] = 1.x-dev
 projects[features_extra][subdir] = contrib
 projects[filefield_sources][version] = 1.4
