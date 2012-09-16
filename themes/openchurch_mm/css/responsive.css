@@ -64,6 +64,17 @@
     position: static;
   }
   
+  .openchurch-galleries-list .views-field-field-oc-thumb {
+    position: static;
+    top: inherit;
+    left: inherit;
+    margin: .5em 0;
+  }
+  
+  .openchurch-galleries-list .views-row {
+    padding-left: 0;
+  }
+  
   /**
    * OpenChurch Podcasts
    */
