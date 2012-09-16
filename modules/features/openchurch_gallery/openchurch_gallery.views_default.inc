@@ -56,6 +56,34 @@ function openchurch_gallery_views_default_views() {
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  /* Field: Content: Thumb */
+  $handler->display->display_options['fields']['field_oc_thumb']['id'] = 'field_oc_thumb';
+  $handler->display->display_options['fields']['field_oc_thumb']['table'] = 'field_data_field_oc_thumb';
+  $handler->display->display_options['fields']['field_oc_thumb']['field'] = 'field_oc_thumb';
+  $handler->display->display_options['fields']['field_oc_thumb']['label'] = '';
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_thumb']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_oc_thumb']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_oc_thumb']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_thumb']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_oc_thumb']['settings'] = array(
+    'image_style' => 'oc_album_cover',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_oc_thumb']['field_api_classes'] = 0;
   /* Field: Content: Date */
   $handler->display->display_options['fields']['field_oc_date']['id'] = 'field_oc_date';
   $handler->display->display_options['fields']['field_oc_date']['table'] = 'field_data_field_oc_date';
@@ -167,34 +195,6 @@ function openchurch_gallery_views_default_views() {
   $handler->display->display_options['fields']['nid']['empty_zero'] = 0;
   $handler->display->display_options['fields']['nid']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['nid']['link_to_node'] = 0;
-  /* Field: Content: Thumb */
-  $handler->display->display_options['fields']['field_oc_thumb']['id'] = 'field_oc_thumb';
-  $handler->display->display_options['fields']['field_oc_thumb']['table'] = 'field_data_field_oc_thumb';
-  $handler->display->display_options['fields']['field_oc_thumb']['field'] = 'field_oc_thumb';
-  $handler->display->display_options['fields']['field_oc_thumb']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_thumb']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_oc_thumb']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_oc_thumb']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_oc_thumb']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_oc_thumb']['settings'] = array(
-    'image_style' => 'oc_album_cover',
-    'image_link' => 'content',
-  );
-  $handler->display->display_options['fields']['field_oc_thumb']['field_api_classes'] = 0;
   /* Sort criterion: Content: Date (field_oc_date) */
   $handler->display->display_options['sorts']['field_oc_date_value']['id'] = 'field_oc_date_value';
   $handler->display->display_options['sorts']['field_oc_date_value']['table'] = 'field_data_field_oc_date';
