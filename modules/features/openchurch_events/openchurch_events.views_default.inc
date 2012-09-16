@@ -461,6 +461,7 @@ Welcome to the OpenChurch event page. Below you will see all events for this sit
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Event Calendar';
   $handler->display->display_options['css_class'] = 'openchurch-events-calendar';
   $handler->display->display_options['link_display'] = 'page_1';
   $handler->display->display_options['access']['type'] = 'perm';
