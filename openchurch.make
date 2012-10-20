@@ -101,7 +101,6 @@ projects[rss_field_formatters][subdir] = contrib
 projects[rules][version] = 2.1
 projects[rules][subdir] = contrib
 ;Fixes Save configuration bug
-projects[sharethis][patch][] = http://drupal.org/files/1507684-sharethis-configurations-50.patch
 projects[sharethis][version] = 2.5
 projects[sharethis][subdir] = contrib
 projects[simplenews][version] = 1.0-rc1
