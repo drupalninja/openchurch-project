@@ -102,7 +102,7 @@ projects[rules][version] = 2.1
 projects[rules][subdir] = contrib
 ;Fixes Save configuration bug
 projects[sharethis][patch][] = http://drupal.org/files/1507684-sharethis-configurations-50.patch
-projects[sharethis][version] = 2.3
+projects[sharethis][version] = 2.5
 projects[sharethis][subdir] = contrib
 projects[simplenews][version] = 1.0-rc1
 projects[simplenews][subdir] = contrib
@@ -112,7 +112,7 @@ projects[styles][version] = 2.0-alpha8
 projects[styles][subdir] = contrib
 projects[superfish][version] = 1.8
 projects[superfish][subdir] = contrib
-projects[token][version] = 1.0
+projects[token][version] = 1.4
 projects[token][subdir] = contrib
 projects[uuid][version] = 1.0-alpha3
 projects[uuid][subdir] = contrib
