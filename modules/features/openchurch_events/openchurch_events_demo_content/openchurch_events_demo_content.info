@@ -8,3 +8,9 @@ project = "openchurch_events_demo_content"
 dependencies[] = "openchurch_events"
 features[content][] = "oc_event1"
 features[content][] = "oc_event2"
+; Information added by drupal.org packaging script on 2012-10-20
+version = "7.x-1.11-beta3"
+core = "7.x"
+project = "openchurch"
+datestamp = "1350754615"
+
