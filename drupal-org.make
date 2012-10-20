@@ -10,7 +10,7 @@ projects[apps][version] = 1.0-beta5
 projects[apps][subdir] = contrib
 projects[backup_migrate][version] = 2.4
 projects[backup_migrate][subdir] = contrib
-projects[calendar][version] = 3.2
+projects[calendar][version] = 3.4
 projects[calendar][subdir] = contrib
 projects[captcha][version] = 1.0-beta2
 projects[captcha][subdir] = contrib
@@ -26,7 +26,7 @@ projects[ctools][version] = 1.2
 projects[ctools][subdir] = contrib
 ;Fixes "assign property of non-object" error, see http://drupal.org/node/1739718
 projects[ctools][patch][] = http://drupal.org/files/ctools-fix-warning-message-1739718-32.patch
-projects[date][version] = 2.5
+projects[date][version] = 2.6
 projects[date][subdir] = contrib
 projects[defaultcontent][version] = 1.0-alpha6
 projects[defaultcontent][subdir] = contrib
