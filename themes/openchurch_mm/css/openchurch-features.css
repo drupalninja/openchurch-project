@@ -296,9 +296,21 @@ body .block.view-map-directions .inner .content {
     border: 3px solid #ccc; float: right; margin-top: 2.4em;
   }
 
+  #openchurch-event-detail .field-label-inline .field-label {
+    margin-right: 5px;
+  }
+  
   #openchurch-event-detail .event-title {
     border-bottom: 1px solid #333; padding-bottom: .2em;
     font-style: italic; font-size: 1.5em; margin-bottom: .5em;
+  }
+  
+  #openchurch-event-detail .field-type-addressfield .field-label {
+    clear: left;
+  }
+  
+  #openchurch-event-detail .view-openchurch-event-dates .field-content {
+    margin-left: 20px;
   }
 
   #openchurch-event-detail .register-online {
