@@ -42,19 +42,20 @@
   }
   
   #openchurch-homepage-rotator div.view-openchurch-homepage-rotator img {
-    max-width: 440px;
-    height: 100%;
+    width: 100%;
+    height: auto;
   }
   
   #openchurch-homepage-rotator .center-wrapper img { 
-    width: 100%; height: 100%;
+    width: 100%;
+    height: auto;
   }
   
   /**
    * OpenChurch Ministries
    */
   #openchurch-ministry-detail .ministry-image img {
-    width: 100%; height: 100%;
+    
   }
   
   /**
