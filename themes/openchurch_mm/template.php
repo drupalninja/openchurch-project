@@ -47,10 +47,10 @@ function openchurch_mm_preprocess_html(&$vars) {
   /**
    * Add ie7 stylesheet 
    */
-  drupal_add_css(path_to_theme().'/css/openchurch-ie7.css', array('browsers' => array('IE' => TRUE, '!IE' => FALSE)));
+  drupal_add_css(path_to_theme().'/css/openchurch-ie7.css', array('browsers' => array('IE' => 'IE 7', '!IE' => FALSE)));
   
   /**
    * Add gt-ie7 stylesheet
    */
-  drupal_add_css(path_to_theme().'/css/openchurch-gt-ie7.css', array('browsers' => array('IE' => TRUE, '!IE' => FALSE)));
+  drupal_add_css(path_to_theme().'/css/openchurch-gt-ie7.css', array('browsers' => array('IE' => 'gt IE 7', '!IE' => FALSE)));
 }
