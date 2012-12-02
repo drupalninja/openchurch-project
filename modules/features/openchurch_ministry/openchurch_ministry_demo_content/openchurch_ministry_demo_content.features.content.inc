@@ -52,7 +52,7 @@ function openchurch_ministry_demo_content_content_defaults() {
     
     It doesn\'t end there. When your ministry has an event that you want to let people know about you can add an event page where people can find all the details of the event, and even register online if you so desire. At open church we provide you with a great open platform that can grow with you as your ministry grows.',
           'summary' => '',
-          'format' => 'filtered_html',
+          'format' => 'full_html',
           'safe_value' => '<p>Welcome to the Youth Ministry - A Sample Ministry Page of Open Church</p>
   <p>  Open Church allows each ministry to have their own page where the ministry can share the ideas and activities.</p>
   <p>  Here you see that you can upload an associated header image that is unique to the specific ministry. A fun feature that can be updated as the year goes on to keep your church site looking fresh.</p>
@@ -143,7 +143,7 @@ function openchurch_ministry_demo_content_content_defaults() {
     
     It doesn\'t end there.  When your ministry has an event that you want to let people know about you can add an event page where people can find all the details of the event, and even register online if you so desire.  At open church we provide you with a great open platform that can grow with you as your ministry grows.  ',
           'summary' => '',
-          'format' => 'filtered_html',
+          'format' => 'full_html',
           'safe_value' => '<p>Welcome to the Singles Ministry - A Sample Ministry Page of Open Church</p>
   <p>  Open Church allows each ministry to have their own page where the ministry can share the ideas and activities.</p>
   <p>  You can even upload associated files with this ministry where they will be kept in a centralized location that is relevant to the ministry.</p>

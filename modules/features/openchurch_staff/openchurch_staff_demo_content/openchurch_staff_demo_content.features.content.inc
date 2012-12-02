@@ -27,7 +27,7 @@ function openchurch_staff_demo_content_content_defaults() {
         0 => array(
           'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac libero nunc. Nunc tempor magna et lectus interdum et congue augue dictum.',
           'summary' => '',
-          'format' => 'filtered_html',
+          'format' => 'full_html',
           'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac libero nunc. Nunc tempor magna et lectus interdum et congue augue dictum.</p>
   ',
           'safe_summary' => '',
@@ -94,7 +94,7 @@ function openchurch_staff_demo_content_content_defaults() {
     
     Proin malesuada, lectus vel pulvinar auctor, nulla libero placerat sem, eget tincidunt tellus libero in mi..',
           'summary' => '',
-          'format' => 'filtered_html',
+          'format' => 'full_html',
           'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac libero nunc. Nunc tempor magna et lectus interdum et congue augue dictum.</p>
   <p>  Proin malesuada, lectus vel pulvinar auctor, nulla libero placerat sem, eget tincidunt tellus libero in mi..</p>
   ',
