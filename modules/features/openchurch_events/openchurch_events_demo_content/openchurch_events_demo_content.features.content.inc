@@ -49,8 +49,8 @@ function openchurch_events_demo_content_content_defaults() {
     'field_oc_dates' => array(
       'und' => array(
         0 => array(
-          'value' => '2012-12-07 00:30:00',
-          'value2' => '2012-12-07 10:30:00',
+          'value' => '2014-12-07 00:30:00',
+          'value2' => '2014-12-07 10:30:00',
           'timezone' => 'UTC',
           'timezone_db' => 'UTC',
           'date_type' => 'datetime',
@@ -152,8 +152,8 @@ function openchurch_events_demo_content_content_defaults() {
     'field_oc_dates' => array(
       'und' => array(
         0 => array(
-          'value' => '2012-12-07 05:30:00',
-          'value2' => '2012-12-07 10:30:00',
+          'value' => '2014-12-07 05:30:00',
+          'value2' => '2014-12-07 10:30:00',
           'timezone' => 'UTC',
           'timezone_db' => 'UTC',
           'date_type' => 'datetime',
