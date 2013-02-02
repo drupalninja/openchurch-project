@@ -48,6 +48,7 @@ projects[fusion_accelerator][version] = 2.0-beta1
 projects[fusion_accelerator][subdir] = contrib
 ;Fixes notice errors on homepage, see http://drupal.org/node/1373296
 projects[fusion_accelerator][patch][] = http://drupal.org/files/panels-fusion-did-1373296-0.patch
+projects[fusion_accelerator][patch][] = http://drupal.org/files/fusion_accelerator-1847392-undefined_fix.patch
 projects[imce][version] = 1.7
 projects[imce][subdir] = contrib
 projects[imce_wysiwyg][version] = 1.0
