@@ -10,6 +10,7 @@ dependencies[] = color
 dependencies[] = comment
 dependencies[] = contextual
 ;dependencies[] = dashboard
+dependencies[] = dblog
 dependencies[] = field
 dependencies[] = field_ui
 dependencies[] = file
