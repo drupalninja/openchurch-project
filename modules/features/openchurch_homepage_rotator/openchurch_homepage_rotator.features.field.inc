@@ -10,7 +10,7 @@
 function openchurch_homepage_rotator_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-openchurch_homepage_rotator-field_oc_image'
+  // Exported field: 'node-openchurch_homepage_rotator-field_oc_image'.
   $fields['node-openchurch_homepage_rotator-field_oc_image'] = array(
     'field_config' => array(
       'active' => '1',
@@ -31,6 +31,7 @@ function openchurch_homepage_rotator_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -67,6 +68,7 @@ function openchurch_homepage_rotator_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'alt_field' => 0,
+        'default_image' => 0,
         'file_directory' => '',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -104,7 +106,7 @@ function openchurch_homepage_rotator_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-openchurch_homepage_rotator-field_oc_link'
+  // Exported field: 'node-openchurch_homepage_rotator-field_oc_link'.
   $fields['node-openchurch_homepage_rotator-field_oc_link'] = array(
     'field_config' => array(
       'active' => '1',
@@ -114,6 +116,7 @@ function openchurch_homepage_rotator_field_default_fields() {
       'field_name' => 'field_oc_link',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'link',
       'settings' => array(
         'attributes' => array(
