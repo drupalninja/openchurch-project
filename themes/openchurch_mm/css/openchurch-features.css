@@ -183,6 +183,7 @@ body .block.view-map-directions .inner .content {
     }
       .openchurch-galleries-list .views-field-nid a {
         padding: .2em .4em; background: #efefef;
+        display: block;
       }
 
 /*************************************

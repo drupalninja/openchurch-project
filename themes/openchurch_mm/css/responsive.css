@@ -25,16 +25,10 @@
 
 /* iPad: landscape. */
 @media only screen and (max-device-width: 1024px) and (orientation:landscape), only screen and (min-width:960px) and (max-width:1199px) and (min-device-width: 1100px) {
-  #block-superfish-1 {
-    overflow: hidden;
-  }
 }
 
 /* iPad: portrait. */
 @media only screen and (max-device-width: 1024px) and (orientation:portrait), only screen and (min-width:768px) and (max-width:959px) and (min-device-width: 1100px) {
-  #block-superfish-1 {
-    overflow: hidden;
-  }
 }
 
 /* Mobile display. */
