@@ -10,7 +10,7 @@
 function openchurch_events_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-openchurch_event-body'
+  // Exported field: 'node-openchurch_event-body'.
   $fields['node-openchurch_event-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -33,6 +33,7 @@ function openchurch_events_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -82,7 +83,7 @@ function openchurch_events_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-openchurch_event-field_oc_cost'
+  // Exported field: 'node-openchurch_event-field_oc_cost'.
   $fields['node-openchurch_event-field_oc_cost'] = array(
     'field_config' => array(
       'active' => '1',
@@ -103,6 +104,7 @@ function openchurch_events_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -150,7 +152,7 @@ function openchurch_events_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-openchurch_event-field_oc_dates'
+  // Exported field: 'node-openchurch_event-field_oc_dates'.
   $fields['node-openchurch_event-field_oc_dates'] = array(
     'field_config' => array(
       'active' => '1',
@@ -160,6 +162,7 @@ function openchurch_events_field_default_fields() {
       'field_name' => 'field_oc_dates',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'date',
       'settings' => array(
         'cache_count' => '4',
@@ -235,7 +238,7 @@ function openchurch_events_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-openchurch_event-field_oc_downloads'
+  // Exported field: 'node-openchurch_event-field_oc_downloads'.
   $fields['node-openchurch_event-field_oc_downloads'] = array(
     'field_config' => array(
       'active' => '1',
@@ -256,6 +259,7 @@ function openchurch_events_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'file',
       'settings' => array(
         'display_default' => 0,
@@ -323,7 +327,7 @@ function openchurch_events_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-openchurch_event-field_oc_location'
+  // Exported field: 'node-openchurch_event-field_oc_location'.
   $fields['node-openchurch_event-field_oc_location'] = array(
     'field_config' => array(
       'active' => '1',
@@ -333,6 +337,7 @@ function openchurch_events_field_default_fields() {
       'field_name' => 'field_oc_location',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'addressfield',
       'settings' => array(),
       'translatable' => '0',
@@ -400,7 +405,7 @@ function openchurch_events_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-openchurch_event-field_oc_ministry'
+  // Exported field: 'node-openchurch_event-field_oc_ministry'.
   $fields['node-openchurch_event-field_oc_ministry'] = array(
     'field_config' => array(
       'active' => '1',
@@ -421,6 +426,7 @@ function openchurch_events_field_default_fields() {
           0 => 'nid',
         ),
       ),
+      'locked' => '0',
       'module' => 'node_reference',
       'settings' => array(
         'referenceable_types' => array(
@@ -482,7 +488,7 @@ function openchurch_events_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-openchurch_event-field_oc_url'
+  // Exported field: 'node-openchurch_event-field_oc_url'.
   $fields['node-openchurch_event-field_oc_url'] = array(
     'field_config' => array(
       'active' => '1',
@@ -492,6 +498,7 @@ function openchurch_events_field_default_fields() {
       'field_name' => 'field_oc_url',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'link',
       'settings' => array(
         'attributes' => array(
