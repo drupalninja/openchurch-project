@@ -40,6 +40,7 @@ projects[features][subdir] = contrib
 projects[features][patch][] = http://drupal.org/files/features_static_caches-1063204-32.patch
 projects[features_extra][version] = 1.0-alpha2
 projects[features_extra][subdir] = contrib
+projects[features_extra][patch][] = http://drupal.org/files/1338000-17-features_extra-nodequeue_references.patch
 projects[filefield_sources][version] = 1.7
 projects[filefield_sources][subdir] = contrib
 projects[fontyourface][version] = 2.7
