@@ -32,7 +32,7 @@ projects[defaultcontent][version] = 1.0-alpha9
 projects[defaultcontent][subdir] = contrib
 projects[email][version] = 1.2
 projects[email][subdir] = contrib
-projects[entity][version] = 1.0-rc1
+projects[entity][version] = 1.0
 projects[entity][subdir] = contrib
 projects[features][version] = 1.0
 projects[features][subdir] = contrib
@@ -105,7 +105,7 @@ projects[rules][subdir] = contrib
 ;Fixes Save configuration bug
 projects[sharethis][version] = 2.5
 projects[sharethis][subdir] = contrib
-projects[simplenews][version] = 1.0-rc1
+projects[simplenews][version] = 1.0
 projects[simplenews][subdir] = contrib
 projects[strongarm][version] = 2.0
 projects[strongarm][subdir] = contrib
