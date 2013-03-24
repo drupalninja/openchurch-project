@@ -8,6 +8,10 @@ be able to roll back completely if you have any problems.
 
 -----------------------------------
 
+Upgrading to 7.x-1.11-beta9:
+1. Run /update.php or 'drush updatedb' (VERY IMPORTANT)
+2. Clear all caches (From performance page at /admin/config/development/performance or use 'drush cc all')
+
 Upgrading to 7.x-1.11-beta5:
 1. Run /update.php or 'drush updatedb' (VERY IMPORTANT)
 2. Clear all caches (From performance page at /admin/config/development/performance or use 'drush cc all')
