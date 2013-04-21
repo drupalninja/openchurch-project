@@ -10,7 +10,7 @@
 function openchurch_defaults_views_default_views() {
   $export = array();
 
-  $view = new view;
+  $view = new view();
   $view->name = 'openchurch_related_downloads';
   $view->description = '';
   $view->tag = 'default';
@@ -23,6 +23,7 @@ function openchurch_defaults_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Related Downloads';
+  $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -37,29 +38,11 @@ function openchurch_defaults_views_default_views() {
   $handler->display->display_options['fields']['field_oc_downloads']['table'] = 'field_data_field_oc_downloads';
   $handler->display->display_options['fields']['field_oc_downloads']['field'] = 'field_oc_downloads';
   $handler->display->display_options['fields']['field_oc_downloads']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_oc_downloads']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_downloads']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_oc_downloads']['hide_empty'] = 1;
-  $handler->display->display_options['fields']['field_oc_downloads']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_oc_downloads']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_oc_downloads']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_oc_downloads']['group_rows'] = 0;
+  $handler->display->display_options['fields']['field_oc_downloads']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_oc_downloads']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_oc_downloads']['delta_reversed'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['delta_first_last'] = 0;
-  $handler->display->display_options['fields']['field_oc_downloads']['field_api_classes'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -71,11 +54,10 @@ function openchurch_defaults_views_default_views() {
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['nid']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['nid']['specify_validation'] = 1;
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'php';
   $handler->display->display_options['arguments']['nid']['validate_options']['code'] = '$node = node_load(arg(1));
 
@@ -84,8 +66,6 @@ if (isset($node->field_oc_downloads[LANGUAGE_NONE][0][\'fid\']))
   return TRUE;
 else
   return FALSE;';
-  $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
-  $handler->display->display_options['arguments']['nid']['not'] = 0;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';

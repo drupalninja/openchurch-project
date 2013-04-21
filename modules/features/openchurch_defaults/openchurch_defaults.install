@@ -71,6 +71,9 @@ function openchurch_defaults_install() {
   //Save title
   _openchurch_defaults_add_block_title($block['bid'], 'Weekly Meeting Times');
   
+  //Add mobile menu
+  _openchurch_defaults_add_block_title(1, '', 'menu_block');
+  
   _openchurch_defaults_load_fusion_styles();
   
   /**
@@ -233,11 +236,11 @@ function _openchurch_defaults_load_fusion_styles(){
 /**
  * Add block title
  */
-function _openchurch_defaults_add_block_title($bid, $title){
+function _openchurch_defaults_add_block_title($bid, $title, $module='block'){
   
   foreach (array('openchurch_theme', 'openchurch_mm') as $theme){
     $settings = new stdClass;
-    $settings->module = 'block';
+    $settings->module = $module;
     $settings->delta = $bid;
     $settings->theme = $theme;
     $settings->status = 0;

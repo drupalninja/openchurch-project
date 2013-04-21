@@ -22,10 +22,7 @@ function openchurch_defaults_ctools_plugin_api() {
  * Implements hook_views_api().
  */
 function openchurch_defaults_views_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "views" && $api == "views_default") {
-    return array("version" => "3.0");
-  }
+  return array("version" => "3.0");
 }
 
 /**
@@ -34,7 +31,7 @@ function openchurch_defaults_views_api() {
 function openchurch_defaults_image_default_styles() {
   $styles = array();
 
-  // Exported image style: oc_creative_element
+  // Exported image style: oc_creative_element.
   $styles['oc_creative_element'] = array(
     'name' => 'oc_creative_element',
     'effects' => array(
@@ -56,7 +53,7 @@ function openchurch_defaults_image_default_styles() {
     ),
   );
 
-  // Exported image style: oc_thumb
+  // Exported image style: oc_thumb.
   $styles['oc_thumb'] = array(
     'name' => 'oc_thumb',
     'effects' => array(

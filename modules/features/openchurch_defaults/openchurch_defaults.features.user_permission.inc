@@ -10,7 +10,7 @@
 function openchurch_defaults_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: access administration menu
+  // Exported permission: access administration menu.
   $permissions['access administration menu'] = array(
     'name' => 'access administration menu',
     'roles' => array(
@@ -20,7 +20,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'admin_menu',
   );
 
-  // Exported permission: access all webform results
+  // Exported permission: access all webform results.
   $permissions['access all webform results'] = array(
     'name' => 'access all webform results',
     'roles' => array(
@@ -30,7 +30,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'webform',
   );
 
-  // Exported permission: access content overview
+  // Exported permission: access content overview.
   $permissions['access content overview'] = array(
     'name' => 'access content overview',
     'roles' => array(
@@ -40,7 +40,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: access contextual links
+  // Exported permission: access contextual links.
   $permissions['access contextual links'] = array(
     'name' => 'access contextual links',
     'roles' => array(
@@ -50,7 +50,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'contextual',
   );
 
-  // Exported permission: access dashboard
+  // Exported permission: access dashboard.
   $permissions['access dashboard'] = array(
     'name' => 'access dashboard',
     'roles' => array(
@@ -60,7 +60,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'dashboard',
   );
 
-  // Exported permission: access overlay
+  // Exported permission: access overlay.
   $permissions['access overlay'] = array(
     'name' => 'access overlay',
     'roles' => array(
@@ -70,7 +70,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'overlay',
   );
 
-  // Exported permission: add media from remote sources
+  // Exported permission: add media from remote sources.
   $permissions['add media from remote sources'] = array(
     'name' => 'add media from remote sources',
     'roles' => array(
@@ -79,7 +79,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'media_internet',
   );
 
-  // Exported permission: administer blocks
+  // Exported permission: administer blocks.
   $permissions['administer blocks'] = array(
     'name' => 'administer blocks',
     'roles' => array(
@@ -89,7 +89,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'block',
   );
 
-  // Exported permission: administer comments
+  // Exported permission: administer comments.
   $permissions['administer comments'] = array(
     'name' => 'administer comments',
     'roles' => array(
@@ -99,7 +99,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'comment',
   );
 
-  // Exported permission: administer filters
+  // Exported permission: administer filters.
   $permissions['administer filters'] = array(
     'name' => 'administer filters',
     'roles' => array(
@@ -109,7 +109,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'filter',
   );
 
-  // Exported permission: administer media
+  // Exported permission: administer media.
   $permissions['administer media'] = array(
     'name' => 'administer media',
     'roles' => array(
@@ -119,7 +119,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'media',
   );
 
-  // Exported permission: administer nodes
+  // Exported permission: administer nodes.
   $permissions['administer nodes'] = array(
     'name' => 'administer nodes',
     'roles' => array(
@@ -129,7 +129,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: administer shortcuts
+  // Exported permission: administer shortcuts.
   $permissions['administer shortcuts'] = array(
     'name' => 'administer shortcuts',
     'roles' => array(
@@ -139,7 +139,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'shortcut',
   );
 
-  // Exported permission: administer taxonomy
+  // Exported permission: administer taxonomy.
   $permissions['administer taxonomy'] = array(
     'name' => 'administer taxonomy',
     'roles' => array(
@@ -149,7 +149,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: administer users
+  // Exported permission: administer users.
   $permissions['administer users'] = array(
     'name' => 'administer users',
     'roles' => array(
@@ -159,7 +159,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'user',
   );
 
-  // Exported permission: bypass node access
+  // Exported permission: bypass node access.
   $permissions['bypass node access'] = array(
     'name' => 'bypass node access',
     'roles' => array(
@@ -169,7 +169,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: create url aliases
+  // Exported permission: create url aliases.
   $permissions['create url aliases'] = array(
     'name' => 'create url aliases',
     'roles' => array(
@@ -179,7 +179,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'path',
   );
 
-  // Exported permission: download original image
+  // Exported permission: download original image.
   $permissions['download original image'] = array(
     'name' => 'download original image',
     'roles' => array(
@@ -189,7 +189,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'lightbox2',
   );
 
-  // Exported permission: edit meta tags
+  // Exported permission: edit meta tags.
   $permissions['edit meta tags'] = array(
     'name' => 'edit meta tags',
     'roles' => array(
@@ -199,7 +199,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'metatag',
   );
 
-  // Exported permission: import media
+  // Exported permission: import media.
   $permissions['import media'] = array(
     'name' => 'import media',
     'roles' => array(
@@ -209,7 +209,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'media',
   );
 
-  // Exported permission: manipulate all queues
+  // Exported permission: manipulate all queues.
   $permissions['manipulate all queues'] = array(
     'name' => 'manipulate all queues',
     'roles' => array(
@@ -219,7 +219,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'nodequeue',
   );
 
-  // Exported permission: post comments
+  // Exported permission: post comments.
   $permissions['post comments'] = array(
     'name' => 'post comments',
     'roles' => array(
@@ -230,7 +230,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'comment',
   );
 
-  // Exported permission: search content
+  // Exported permission: search content.
   $permissions['search content'] = array(
     'name' => 'search content',
     'roles' => array(
@@ -241,7 +241,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'search',
   );
 
-  // Exported permission: set page title
+  // Exported permission: set page title.
   $permissions['set page title'] = array(
     'name' => 'set page title',
     'roles' => array(
@@ -251,7 +251,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'page_title',
   );
 
-  // Exported permission: skip CAPTCHA
+  // Exported permission: skip CAPTCHA.
   $permissions['skip CAPTCHA'] = array(
     'name' => 'skip CAPTCHA',
     'roles' => array(
@@ -261,7 +261,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'captcha',
   );
 
-  // Exported permission: skip comment approval
+  // Exported permission: skip comment approval.
   $permissions['skip comment approval'] = array(
     'name' => 'skip comment approval',
     'roles' => array(
@@ -272,7 +272,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'comment',
   );
 
-  // Exported permission: use page manager
+  // Exported permission: use page manager.
   $permissions['use page manager'] = array(
     'name' => 'use page manager',
     'roles' => array(
@@ -282,7 +282,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'page_manager',
   );
 
-  // Exported permission: use panels in place editing
+  // Exported permission: use panels in place editing.
   $permissions['use panels in place editing'] = array(
     'name' => 'use panels in place editing',
     'roles' => array(
@@ -292,7 +292,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'panels',
   );
 
-  // Exported permission: use text format full_html
+  // Exported permission: use text format full_html.
   $permissions['use text format full_html'] = array(
     'name' => 'use text format full_html',
     'roles' => array(
@@ -302,7 +302,7 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'filter',
   );
 
-  // Exported permission: view pane admin links
+  // Exported permission: view pane admin links.
   $permissions['view pane admin links'] = array(
     'name' => 'view pane admin links',
     'roles' => array(

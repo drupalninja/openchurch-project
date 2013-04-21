@@ -76,6 +76,8 @@ projects[media_youtube][version] = 1.0-beta3
 projects[media_youtube][subdir] = contrib
 projects[menu_breadcrumb][version] = 1.3
 projects[menu_breadcrumb][subdir] = contrib
+projects[menu_block][version] = 2.3
+projects[menu_block][subdir] = contrib
 projects[metatag][version] = 1.0-beta6
 projects[metatag][subdir] = contrib
 projects[nodequeue][version] = 2.0-beta1
@@ -113,6 +115,8 @@ projects[styles][version] = 2.0-alpha8
 projects[styles][subdir] = contrib
 projects[superfish][version] = 1.8
 projects[superfish][subdir] = contrib
+projects[tinynav][version] = 1.2
+projects[tinynav][subdir] = contrib
 projects[token][version] = 1.5
 projects[token][subdir] = contrib
 projects[uuid][version] = 1.0-alpha3
@@ -136,7 +140,7 @@ projects[fusion][version] = 2.0-beta2
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = "theme"
-projects[openchurch_theme][version] = "1.0-beta8"
+projects[openchurch_theme][version] = "1.0-beta9"
 
 ; Base theme for OpenChurch Mix and Match
 projects[mix_and_match][type] = "theme"

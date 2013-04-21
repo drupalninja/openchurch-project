@@ -139,6 +139,62 @@ function openchurch_defaults_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_block_1_admin_title';
+  $strongarm->value = 'Mobile Menu';
+  $export['menu_block_1_admin_title'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_block_1_depth';
+  $strongarm->value = '0';
+  $export['menu_block_1_depth'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_block_1_expanded';
+  $strongarm->value = 1;
+  $export['menu_block_1_expanded'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_block_1_follow';
+  $strongarm->value = 0;
+  $export['menu_block_1_follow'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_block_1_level';
+  $strongarm->value = '1';
+  $export['menu_block_1_level'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_block_1_parent';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_block_1_parent'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_block_1_sort';
+  $strongarm->value = 0;
+  $export['menu_block_1_sort'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_block_1_title_link';
+  $strongarm->value = 0;
+  $export['menu_block_1_title_link'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_breadcrumb_append_node_title';
   $strongarm->value = 1;
   $export['menu_breadcrumb_append_node_title'] = $strongarm;
@@ -182,6 +238,18 @@ function openchurch_defaults_strongarm() {
       'type' => 'menu',
       'title' => 'Management',
       'name' => 'management',
+    ),
+    'menu-openchurch-admin-links' => array(
+      'enabled' => 0,
+      'weight' => '0',
+      'type' => 'menu',
+      'name' => 'menu-openchurch-admin-links',
+    ),
+    'menu-openchurch-new-content' => array(
+      'enabled' => 0,
+      'weight' => '0',
+      'type' => 'menu',
+      'name' => 'menu-openchurch-new-content',
     ),
     'menu-secondary-links' => array(
       'enabled' => 0,
@@ -544,6 +612,34 @@ function openchurch_defaults_strongarm() {
     'mix_and_match_corners' => 'round-corners-3',
   );
   $export['theme_openchurch_mm_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'tinynav_active_class';
+  $strongarm->value = 'active';
+  $export['tinynav_active_class'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'tinynav_css_selector';
+  $strongarm->value = '#block-menu_block-1 ul.menu';
+  $export['tinynav_css_selector'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'tinynav_header';
+  $strongarm->value = '1';
+  $export['tinynav_header'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'tinynav_media_query';
+  $strongarm->value = 'only screen and (max-width:460px)';
+  $export['tinynav_media_query'] = $strongarm;
 
   return $export;
 }

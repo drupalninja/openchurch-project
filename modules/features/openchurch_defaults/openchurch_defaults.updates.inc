@@ -237,3 +237,25 @@ function openchurch_defaults_update_7004(&$sandbox){
   
   return t('Pathologic filter has been enabled for full html & filtered text format.');
 }
+
+/**
+ * Enabled Menu Block & Tiny Nav for mobile menu
+ */
+function openchurch_defaults_update_7005(&$sandbox){
+ 
+  //Enable TinyNAv & Menu Block
+  module_enable(array('menu_block', 'tinynav'));
+  
+  //Add mobile menu
+  _openchurch_defaults_add_block_title(1, '', 'menu_block');
+  
+  //Update Tiny Nav settings
+  variable_set('tinynav_active_class', 'active');
+  variable_set('tinynav_css_selector', '#block-menu_block-1 ul.menu');
+  variable_set('tinynav_header', '1');
+  variable_set('tinynav_media_query', 'only screen and (max-width:460px)');
+  
+  //Update Mobile Menu
+  variable_set('menu_block_1_admin_title', 'Mobile Menu');
+  variable_set('menu_block_1_expanded', '1');
+}
