@@ -22,6 +22,8 @@ projects[context][version] = 3.0-beta6
 projects[context][subdir] = contrib
 projects[context_breadcrumb_current_page][version] = 1.0-beta2
 projects[context_breadcrumb_current_page][subdir] = contrib
+;Fixes "Warning: strlen() expects parameter 1 to be string"
+projects[ctools][patch][] = https://drupal.org/files/ctools-1925018-61.patch
 projects[ctools][version] = 1.3
 projects[ctools][subdir] = contrib
 projects[date][version] = 2.6
