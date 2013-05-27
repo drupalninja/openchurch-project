@@ -246,16 +246,21 @@ function openchurch_defaults_update_7005(&$sandbox){
   //Enable TinyNAv & Menu Block
   module_enable(array('menu_block', 'tinynav'));
   
+  $delta = 1 + (integer)db_query('SELECT delta FROM {block} WHERE module = :module AND theme = :theme ORDER BY delta DESC LIMIT 1', 
+    array(':module' => 'menu_block', ':theme' => 'openchurch_theme'))->fetchColumn();
+  
   //Add mobile menu
-  _openchurch_defaults_add_block_title(1, '', 'menu_block');
+  _openchurch_defaults_add_block_title($delta, '', 'menu_block');
+
+  variable_set('openchurch_menu_block_delta', $delta);
   
   //Update Tiny Nav settings
   variable_set('tinynav_active_class', 'active');
-  variable_set('tinynav_css_selector', '#block-menu_block-1 ul.menu');
+  variable_set('tinynav_css_selector', '#block-menu_block-'.$delta.' ul.menu');
   variable_set('tinynav_header', '1');
   variable_set('tinynav_media_query', 'only screen and (max-width:460px)');
   
   //Update Mobile Menu
-  variable_set('menu_block_1_admin_title', 'Mobile Menu');
-  variable_set('menu_block_1_expanded', '1');
+  variable_set('menu_block_'.$delta.'_admin_title', 'Mobile Menu');
+  variable_set('menu_block_'.$delta.'_expanded', '1');
 }
