@@ -146,7 +146,6 @@ features[variable][] = superfish_slide_1
 features[variable][] = superfish_style_1
 features[variable][] = superfish_type_1
 features[variable][] = theme_default
-features[variable][] = theme_openchurch_mm_settings
 features[variable][] = tinynav_active_class
 features[variable][] = tinynav_css_selector
 features[variable][] = tinynav_header

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Include update_N() hooks 
+ * Include update_N() hooks
  */
 include_once('openchurch_defaults.updates.inc');
 
@@ -9,11 +9,11 @@ include_once('openchurch_defaults.updates.inc');
  * Implementation of hook_install()
  */
 function openchurch_defaults_install() {
-  
+
   /**
    * Create custom blocks for this site
    */
-  
+
   $settings = new stdClass;
   $settings->info = 'Weekly Meeting Times Bottom Block';
   $settings->format = 'full_html';
@@ -22,7 +22,7 @@ function openchurch_defaults_install() {
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
-  
+
   //Save title
   _openchurch_defaults_add_block_title($block['bid'], 'Weekly Meeting Times');
 
@@ -34,7 +34,7 @@ function openchurch_defaults_install() {
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
-  
+
   $settings = new stdClass;
   $settings->info = 'Location & Directions Bottom Block';
   $settings->format = 'full_html';
@@ -43,10 +43,10 @@ function openchurch_defaults_install() {
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
-  
+
   //Save title
   _openchurch_defaults_add_block_title($block['bid'], 'Location & Directions');
-  
+
   $settings = new stdClass;
   $settings->info = 'Contact Us Bottom Block';
   $settings->format = 'full_html';
@@ -55,10 +55,10 @@ function openchurch_defaults_install() {
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
-  
+
   //Save title
   _openchurch_defaults_add_block_title($block['bid'], 'Contact Us');
-  
+
   $settings = new stdClass;
   $settings->info = 'Weekly Meeting Times Sidebar Block';
   $settings->format = 'full_html';
@@ -67,15 +67,15 @@ function openchurch_defaults_install() {
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
-  
+
   //Save title
   _openchurch_defaults_add_block_title($block['bid'], 'Weekly Meeting Times');
-  
+
   //Add mobile menu
   _openchurch_defaults_add_block_title(1, '', 'menu_block');
-  
+
   _openchurch_defaults_load_fusion_styles();
-  
+
   /**
    * Save staff type terms
    */
@@ -91,7 +91,7 @@ function openchurch_defaults_install() {
     'Pulpit Minister',
     'Youth Ministry',
   );
-  
+
   foreach ($staff_type_terms as $term_name){
     $term = array(
       'vid' => 2,
@@ -104,7 +104,7 @@ function openchurch_defaults_install() {
 
     drupal_write_record('taxonomy_term_hierarchy', $term_hierarchy);
   }
-  
+
   /**
    * Save blog terms
    */
@@ -112,7 +112,7 @@ function openchurch_defaults_install() {
     'Uncategorized',
     'Weekly Newsletters',
   );
-  
+
   foreach ($blog_terms as $term_name){
     $term = array(
       'vid' => 1,
@@ -125,17 +125,17 @@ function openchurch_defaults_install() {
 
     drupal_write_record('taxonomy_term_hierarchy', $term_hierarchy);
   }
-  
+
   /**
    * Add menu links manually
    */
   _openchurch_defaults_add_menu_links();
-  
-  
+
+
   /**
    * Update wysiwyg settings
    */
-  
+
   db_insert('wysiwyg')
   ->fields(array(
     'format' => 'full_html',
@@ -143,10 +143,10 @@ function openchurch_defaults_install() {
     'settings' => 'a:20:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:1;s:5:"theme";s:8:"advanced";s:8:"language";s:2:"en";s:7:"buttons";a:7:{s:7:"default";a:21:{s:4:"bold";i:1;s:6:"italic";i:1;s:9:"underline";i:1;s:13:"strikethrough";i:1;s:11:"justifyleft";i:1;s:13:"justifycenter";i:1;s:12:"justifyright";i:1;s:11:"justifyfull";i:1;s:7:"bullist";i:1;s:7:"numlist";i:1;s:7:"outdent";i:1;s:6:"indent";i:1;s:4:"undo";i:1;s:4:"redo";i:1;s:4:"link";i:1;s:6:"unlink";i:1;s:6:"anchor";i:1;s:5:"image";i:1;s:9:"forecolor";i:1;s:9:"backcolor";i:1;s:4:"code";i:1;}s:4:"font";a:1:{s:12:"formatselect";i:1;}s:10:"fullscreen";a:1:{s:10:"fullscreen";i:1;}s:5:"paste";a:2:{s:9:"pastetext";i:1;s:9:"pasteword";i:1;}s:4:"imce";a:1:{s:4:"imce";i:1;}s:6:"iframe";a:1:{s:6:"iframe";i:1;}s:6:"drupal";a:1:{s:5:"media";i:1;}}s:11:"toolbar_loc";s:3:"top";s:13:"toolbar_align";s:4:"left";s:8:"path_loc";s:6:"bottom";s:8:"resizing";i:1;s:11:"verify_html";i:1;s:12:"preformatted";i:0;s:22:"convert_fonts_to_spans";i:1;s:17:"remove_linebreaks";i:1;s:23:"apply_source_formatting";i:1;s:27:"paste_auto_cleanup_on_paste";i:1;s:13:"block_formats";s:32:"p,address,pre,h2,h3,h4,h5,h6,div";s:11:"css_setting";s:4:"none";s:8:"css_path";s:0:"";s:11:"css_classes";s:0:"";}',
   ))
   ->execute();
-  
+
   /**
    * Update IMCE settings
-   * 
+   *
    */
   db_insert('variable')
   ->fields(array(
@@ -154,8 +154,8 @@ function openchurch_defaults_install() {
     'value' => 'a:4:{i:4;a:4:{s:6:"weight";s:1:"0";s:9:"vimeo_pid";s:1:"1";s:11:"youtube_pid";s:1:"1";s:10:"public_pid";s:1:"1";}i:3;a:4:{s:6:"weight";s:1:"0";s:9:"vimeo_pid";i:0;s:11:"youtube_pid";i:0;s:10:"public_pid";i:0;}i:2;a:4:{s:6:"weight";i:11;s:9:"vimeo_pid";i:0;s:11:"youtube_pid";i:0;s:10:"public_pid";i:0;}i:1;a:4:{s:6:"weight";i:12;s:9:"vimeo_pid";i:0;s:11:"youtube_pid";i:0;s:10:"public_pid";i:0;}}',
   ))
   ->execute();
-  
-  
+
+
   /**
    * Display settings for content types (e.g. enabling RSS view mode for podcast)
    */
@@ -165,12 +165,12 @@ function openchurch_defaults_install() {
   ))
   ->condition('name', 'field_bundle_settings')
   ->execute();
-  
+
   //Add custom date
   db_query('INSERT INTO {date_format_type} VALUES (:type, :title, 0)', array(':type' => 'openchurch_short_date', ':title' => 'OpenChurch Short Date'));
-  
+
   db_query('INSERT INTO {date_formats} VALUES (NULL, :format, :type, 0)', array(':format' => 'm.d.y', ':type' => 'short'));
-  
+
   variable_set('date_format_openchurch_short_date', 'm.d.y');
 }
 
@@ -178,7 +178,7 @@ function openchurch_defaults_install() {
  * Load fusion styles
  */
 function _openchurch_defaults_load_fusion_styles(){
-  
+
   /**
    * Load fusion skin info for site blocks and save
    */
@@ -207,38 +207,15 @@ function _openchurch_defaults_load_fusion_styles(){
       drupal_write_record('fusion_apply_skins', $skin);
     }
   }
-  
-  /**
-   * Load fusion skin info for site blocks and save
-   */
-  $xml = simplexml_load_file(drupal_get_path('module', 'openchurch_defaults').'/mm_block.xml');
-
-  $json = json_encode($xml);
-  $array = json_decode($json, TRUE);
-
-  foreach($array['database']['table_data']['row'] as $row){
-    $row = $row['field'];
-
-    $skin = array(
-      'theme' => 'openchurch_mm',
-      'module' => $row[2],
-      'element' => $row[3],
-      'skin' => $row[4],
-      'options' => unserialize($row[5]),
-      'status' => $row[6],
-    );
-
-    drupal_write_record('fusion_apply_skins', $skin);
-  }
 }
-  
+
 
 /**
  * Add block title
  */
 function _openchurch_defaults_add_block_title($bid, $title, $module='block'){
-  
-  foreach (array('openchurch_theme', 'openchurch_mm') as $theme){
+
+  foreach (array('openchurch_theme') as $theme){
     $settings = new stdClass;
     $settings->module = $module;
     $settings->delta = $bid;
@@ -262,7 +239,7 @@ function _openchurch_defaults_add_block_title($bid, $title, $module='block'){
  * Add menu links
  */
 function _openchurch_defaults_add_menu_links(){
-  
+
   // Exported menu link: main-menu:events
   $item = array(
     'menu_name' => 'main-menu',
@@ -277,11 +254,11 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => '-46',
     'customized' => 1,
   );
-  
+
   menu_link_save($item);
-  
+
   $event_mlid = $item['mlid'];
-  
+
   $item = array(
     'menu_name' => 'main-menu',
     'link_path' => 'events/calendar',
@@ -295,9 +272,9 @@ function _openchurch_defaults_add_menu_links(){
     'customized' => 1,
     'plid' => $event_mlid,
   );
-  
+
   menu_link_save($item);
-  
+
   // Exported menu link: main-menu:give
   $item = array(
     'menu_name' => 'main-menu',
@@ -312,9 +289,9 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => '-45',
     'customized' => 1,
   );
-  
+
   menu_link_save($item);
-  
+
   // Exported menu link: main-menu:ministries
   $item = array(
     'menu_name' => 'main-menu',
@@ -329,11 +306,11 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => '-49',
     'customized' => 1,
   );
-  
+
   menu_link_save($item);
-  
+
   $ministries_mlid = $item['mlid'];
-  
+
   // Exported menu link: main-menu:node/17
   $item = array(
     'menu_name' => 'main-menu',
@@ -348,11 +325,11 @@ function _openchurch_defaults_add_menu_links(){
     'weight' => '-44',
     'customized' => 1,
   );
-  
+
   menu_link_save($item);
-  
+
   $about_mlid = $item['mlid'];
-  
+
   // Exported menu link: main-menu:node/20
   $item = array(
     'menu_name' => 'main-menu',
@@ -365,11 +342,11 @@ function _openchurch_defaults_add_menu_links(){
     'has_children' => '0',
     'expanded' => '0',
     'weight' => '-47',
-    'customized' => 1,      
+    'customized' => 1,
   );
-  
+
   menu_link_save($item);
-  
+
   // Exported menu link: main-menu:node/19
   $item = array(
     'menu_name' => 'main-menu',
@@ -385,9 +362,9 @@ function _openchurch_defaults_add_menu_links(){
     'plid' => $about_mlid,
     'customized' => 1,
   );
-  
+
   menu_link_save($item);
-  
+
   // Exported menu link: main-menu:node/21
   $item = array(
     'menu_name' => 'main-menu',
@@ -403,9 +380,9 @@ function _openchurch_defaults_add_menu_links(){
     'plid' => $about_mlid,
     'customized' => 1,
   );
-  
+
   menu_link_save($item);
-  
+
   // Exported menu link: main-menu:node/9
   $item = array(
     'menu_name' => 'main-menu',
@@ -421,9 +398,9 @@ function _openchurch_defaults_add_menu_links(){
     'plid' => $ministries_mlid,
     'customized' => 1,
   );
-  
+
   menu_link_save($item);
-  
+
   // Exported menu link: main-menu:node/10
   $item = array(
     'menu_name' => 'main-menu',
@@ -439,9 +416,9 @@ function _openchurch_defaults_add_menu_links(){
     'plid' => $ministries_mlid,
     'customized' => 1,
   );
-  
+
   menu_link_save($item);
-  
+
   $item = array(
     'link_title' => t('Home'),
     'link_path' => '<front>',
@@ -452,7 +429,7 @@ function _openchurch_defaults_add_menu_links(){
     'mlid'       => 0,
   );
   menu_link_save($item);
- 
+
   $item = array(
     'link_title' => t('Staff Directory'),
     'link_path' => 'about/staff',
@@ -465,7 +442,7 @@ function _openchurch_defaults_add_menu_links(){
   );
 
   menu_link_save($item);
-  
+
   // Exported menu link: main-menu:multimedia/galleries
   $item = array(
     'menu_name' => 'main-menu',
@@ -480,11 +457,11 @@ function _openchurch_defaults_add_menu_links(){
     'customized' => 1,
     'plid' => 0,
   );
-  
+
   menu_link_save($item);
-  
+
   $media_mlid = $item['mlid'];
-  
+
   // Exported menu link: main-menu:multimedia/bulletins
   $item = array(
     'menu_name' => 'main-menu',
@@ -499,9 +476,9 @@ function _openchurch_defaults_add_menu_links(){
     'plid' => $media_mlid,
     'customized' => 1,
   );
-  
+
   menu_link_save($item);
-  
+
   // Exported menu link: main-menu:multimedia/podcasts
   $item = array(
     'menu_name' => 'main-menu',
@@ -516,9 +493,9 @@ function _openchurch_defaults_add_menu_links(){
     'plid' => $media_mlid,
     'customized' => 1,
   );
-  
+
   menu_link_save($item);
-  
+
   $item = array(
     'link_title' => t('Photo Archives'),
     'link_path' => 'multimedia/galleries',
@@ -530,7 +507,7 @@ function _openchurch_defaults_add_menu_links(){
   );
 
   menu_link_save($item);
-  
+
   $item = array(
     'link_title' => t('Blog'),
     'link_path' => 'blog',
@@ -541,9 +518,9 @@ function _openchurch_defaults_add_menu_links(){
   );
 
   menu_link_save($item);
-  
+
   $blog_mlid = $item['mlid'];
-  
+
   $item = array(
     'link_title' => t('Blog Archives'),
     'link_path' => 'blog/archives',
@@ -555,7 +532,7 @@ function _openchurch_defaults_add_menu_links(){
   );
 
   menu_link_save($item);
-  
+
   $item = array(
     'link_title' => t('Image Acknowledgements'),
     'link_path' => 'node/18',
@@ -566,8 +543,8 @@ function _openchurch_defaults_add_menu_links(){
   );
 
   menu_link_save($item);
-  
-  
+
+
   $item = array(
     'link_title' => t('Manage Menus'),
     'link_path' => 'admin/structure/menu',
@@ -578,7 +555,7 @@ function _openchurch_defaults_add_menu_links(){
   );
 
   menu_link_save($item);
-  
+
   $item = array(
     'link_title' => t('Manage Taxonomy'),
     'link_path' => 'admin/structure/taxonomy',
@@ -589,7 +566,7 @@ function _openchurch_defaults_add_menu_links(){
   );
 
   menu_link_save($item);
-  
+
   $item = array(
     'link_title' => t('Manage Users'),
     'link_path' => 'admin/people',
@@ -600,7 +577,7 @@ function _openchurch_defaults_add_menu_links(){
   );
 
   menu_link_save($item);
-  
+
   $item = array(
     'link_title' => t('Video Archives'),
     'link_path' => 'multimedia/video',

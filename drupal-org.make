@@ -139,11 +139,7 @@ projects[fusion][version] = 2.0-beta2
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = "theme"
-projects[openchurch_theme][version] = "1.0-beta11"
-
-; Base theme for OpenChurch Mix and Match
-projects[mix_and_match][type] = "theme"
-projects[mix_and_match][version] = "1.0"
+projects[openchurch_theme][version] = "1.0-beta12"
 
 ; Libraries
 

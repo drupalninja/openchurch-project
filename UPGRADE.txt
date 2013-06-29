@@ -1,12 +1,21 @@
 Author: Jay Callicott
 
 Please read these instructions carefully before filing an issue. DO NOT UPGRADE on a production
-environment without first testing on a local or dev environment! 
+environment without first testing on a local or dev environment!
 
-ALWAYS back up your data in production even if you have tested first, to make sure that you will 
+ALWAYS back up your data in production even if you have tested first, to make sure that you will
 be able to roll back completely if you have any problems.
 
 -----------------------------------
+
+Upgrading to 7.x-1.11-beta11:
+Pre-install notes:
+Make SURE you have copied your OpenChurch MM theme to your sites/all/themes folder if you are
+using that theme. This theme is no longer supported by OpenChurch.
+
+1. Run /update.php or 'drush updatedb'
+2. Clear all caches (From performance page at /admin/config/development/performance or use 'drush cc all')
+3. OpenChurch MM has now been deprecated (this should have no effect if you are not using this theme)
 
 Upgrading to 7.x-1.11-beta10:
 1. Run /update.php or 'drush updatedb' (VERY IMPORTANT)
@@ -21,7 +30,7 @@ Upgrading to 7.x-1.11-beta9:
 Upgrading to 7.x-1.11-beta5:
 1. Run /update.php or 'drush updatedb' (VERY IMPORTANT)
 2. Clear all caches (From performance page at /admin/config/development/performance or use 'drush cc all')
-3. Go to /admin/appearance/settings/openchurch_theme OR /admin/appearance/settings/openchurch_mm and select 
+3. Go to /admin/appearance/settings/openchurch_theme OR /admin/appearance/settings/openchurch_mm and select
 "Yes" under "Enable responsive", otherwise your layout might be broken.
 
 Upgrading to 7.x-1.11-beta4:
@@ -48,13 +57,13 @@ Upgrading to 7.x-1.10-alpha1:
 
 From OpenChurch 7.x-1.9-beta2:
 
-1. Run /update.php or 'drush updatedb' 
+1. Run /update.php or 'drush updatedb'
 2. Clear all caches (From performance page at /admin/config/development/performance or use 'drush cc all')
 3. Review features that have been overridden at /admin/structure/features
-3a. All of the demo features are now in their own module (e.g. OpenChurch Blog Demo Content). 
+3a. All of the demo features are now in their own module (e.g. OpenChurch Blog Demo Content).
     Your content should still be there WITHOUT enabling the demo content module. New installations will have these modules
     enabled by default, but users upgrading will not need to enable these modules.
-3b. If you have not modified any views, etc. then only the Staff module should display as overridden 
+3b. If you have not modified any views, etc. then only the Staff module should display as overridden
     (it technically is not overridden, the Feature's module erroneously displays it as overridden). You will want to review
     overrides one by one and decide whether or not you want to keep the change you have made.
 3c. There are 2 new features available to enable: Openchurch Social and Openchurch Video. You can enable them here, from the modules
@@ -67,7 +76,7 @@ From OpenChurch 7.x-1.9-beta2:
 
 From versions earlier than 7.x-1.9-beta2:
 
-1. Run /update.php or 'drush updatedb' 
+1. Run /update.php or 'drush updatedb'
 2. Clear all caches (From performance page at /admin/config/development/performance or use 'drush cc all')
 3. Review features that have been overridden at /admin/structure/features
 
