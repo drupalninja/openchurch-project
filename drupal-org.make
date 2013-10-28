@@ -18,7 +18,7 @@ projects[cck][version] = 2.x-dev
 projects[cck][subdir] = contrib
 projects[content_taxonomy][version] = 1.0-beta2
 projects[content_taxonomy][subdir] = contrib
-projects[context][version] = 3.0-beta7
+projects[context][version] = 3.1
 projects[context][subdir] = contrib
 projects[context_breadcrumb_current_page][version] = 1.0-beta2
 projects[context_breadcrumb_current_page][subdir] = contrib
@@ -106,7 +106,7 @@ projects[rules][subdir] = contrib
 ;Fixes Save configuration bug
 projects[sharethis][version] = 2.5
 projects[sharethis][subdir] = contrib
-projects[simplenews][version] = 1.0
+projects[simplenews][version] = 1.1
 projects[simplenews][subdir] = contrib
 projects[strongarm][version] = 2.0
 projects[strongarm][subdir] = contrib
