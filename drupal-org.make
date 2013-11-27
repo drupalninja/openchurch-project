@@ -1,5 +1,5 @@
 api = 2
-core = 7.23
+core = 7.24
 projects[addressfield][version] = 1.0-beta4
 projects[addressfield][subdir] = contrib
 projects[admin][version] = 2.0-beta3
