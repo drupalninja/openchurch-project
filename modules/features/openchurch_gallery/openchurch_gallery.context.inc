@@ -27,7 +27,7 @@ function openchurch_gallery_context_default_contexts() {
     ),
   );
   $context->reactions = array(
-    'breadcrumb' => 'multimedia/galleries',
+    'breadcrumb' => 'media/galleries',
     'breadcrumb_current_page' => array(
       'breadcrumb_show_current_page' => 1,
       'breadcrumb_show_current_page_title' => '',

@@ -443,10 +443,10 @@ function _openchurch_defaults_add_menu_links(){
 
   menu_link_save($item);
 
-  // Exported menu link: main-menu:multimedia/galleries
+  // Exported menu link: main-menu:media/galleries
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'multimedia/galleries',
+    'link_path' => 'media/galleries',
     'link_title' => 'Media',
     'module' => 'openchurch_defaults',
     'hidden' => '0',
@@ -462,10 +462,10 @@ function _openchurch_defaults_add_menu_links(){
 
   $media_mlid = $item['mlid'];
 
-  // Exported menu link: main-menu:multimedia/bulletins
+  // Exported menu link: main-menu:media/bulletins
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'multimedia/bulletins',
+    'link_path' => 'media/bulletins',
     'link_title' => 'Weekly Bulletins',
     'module' => 'openchurch_defaults',
     'hidden' => '0',
@@ -479,10 +479,10 @@ function _openchurch_defaults_add_menu_links(){
 
   menu_link_save($item);
 
-  // Exported menu link: main-menu:multimedia/podcasts
+  // Exported menu link: main-menu:media/podcasts
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'multimedia/podcasts',
+    'link_path' => 'media/podcasts',
     'link_title' => 'Sermon Audio Archives',
     'module' => 'openchurch_defaults',
     'hidden' => '0',
@@ -498,7 +498,7 @@ function _openchurch_defaults_add_menu_links(){
 
   $item = array(
     'link_title' => t('Photo Archives'),
-    'link_path' => 'multimedia/galleries',
+    'link_path' => 'media/galleries',
     'menu_name' => 'main-menu',
     'weight' => -99,
     'customized' => 1,
@@ -580,7 +580,7 @@ function _openchurch_defaults_add_menu_links(){
 
   $item = array(
     'link_title' => t('Video Archives'),
-    'link_path' => 'multimedia/video',
+    'link_path' => 'media/video',
     'menu_name' => 'main-menu',
     'weight' => -98,
     'weight' => 0,

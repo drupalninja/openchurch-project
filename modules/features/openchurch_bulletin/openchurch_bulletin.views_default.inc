@@ -145,7 +145,7 @@ function openchurch_bulletin_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="/multimedia/bulletins">View Full Archives &raquo;</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<a href="/media/bulletins">View Full Archives &raquo;</a>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   /* Field: Content: Bulletin */
   $handler->display->display_options['fields']['field_oc_bulletin_file']['id'] = 'field_oc_bulletin_file';

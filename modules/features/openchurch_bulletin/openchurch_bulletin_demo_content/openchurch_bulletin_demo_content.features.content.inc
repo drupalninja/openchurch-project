@@ -11,7 +11,7 @@ function openchurch_bulletin_demo_content_content_defaults() {
   $content = array();
 
   $content['oc_bulletin1'] = (object) array(
-    'exported_path' => 'multimedia/bulletins/sunday-november-28-2010',
+    'exported_path' => 'media/bulletins/sunday-november-28-2010',
     'title' => 'Sunday, November 28, 2010',
     'status' => '1',
     'promote' => '0',
@@ -68,7 +68,7 @@ function openchurch_bulletin_demo_content_content_defaults() {
   );
 
   $content['oc_bulletin2'] = (object) array(
-    'exported_path' => 'multimedia/bulletins/november-14th-2010-bulletin',
+    'exported_path' => 'media/bulletins/november-14th-2010-bulletin',
     'title' => 'November 14th, 2010 Bulletin',
     'status' => '1',
     'promote' => '0',
@@ -125,7 +125,7 @@ function openchurch_bulletin_demo_content_content_defaults() {
   );
 
   $content['oc_bulletin3'] = (object) array(
-    'exported_path' => 'multimedia/bulletins/sunday-november-21-2010',
+    'exported_path' => 'media/bulletins/sunday-november-21-2010',
     'title' => 'Sunday, November 21, 2010',
     'status' => '1',
     'promote' => '0',

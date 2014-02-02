@@ -27,7 +27,7 @@ function openchurch_video_context_default_contexts() {
     ),
   );
   $context->reactions = array(
-    'breadcrumb' => 'multimedia/video',
+    'breadcrumb' => 'media/video',
     'breadcrumb_current_page' => array(
       'breadcrumb_show_current_page' => 1,
       'breadcrumb_show_current_page_title' => '',

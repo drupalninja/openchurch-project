@@ -9,11 +9,11 @@
  */
 function openchurch_video_demo_content_content_defaults() {
   $content = array();
-  
+
   $video_fids = variable_get('openchurch_video_fids', '');
 
   $content['oc_video1'] = (object) array(
-    'exported_path' => 'multimedia/video/introducing-drupal-7',
+    'exported_path' => 'media/video/introducing-drupal-7',
     'title' => 'Introducing Drupal 7',
     'status' => '1',
     'promote' => '0',
@@ -48,7 +48,7 @@ function openchurch_video_demo_content_content_defaults() {
   );
 
   $content['oc_video2'] = (object) array(
-    'exported_path' => 'multimedia/video/what-drupal',
+    'exported_path' => 'media/video/what-drupal',
     'title' => 'What is Drupal?',
     'status' => '1',
     'promote' => '0',

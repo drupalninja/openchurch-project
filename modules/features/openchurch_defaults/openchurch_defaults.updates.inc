@@ -64,18 +64,18 @@ function openchurch_defaults_update_7001(&$sandbox){
  */
 function openchurch_defaults_update_7002(&$sandbox){
 
-  $video_mlid = db_query('SELECT mlid FROM {menu_links} WHERE link_path = :link_path', array(':link_path' => 'multimedia/video'))->fetchColumn();
+  $video_mlid = db_query('SELECT mlid FROM {menu_links} WHERE link_path = :link_path', array(':link_path' => 'media/video'))->fetchColumn();
 
   /**
    * Make sure we don't have a video menu link already
    */
   if (!$video_mlid){
-    $media_mlid = db_query('SELECT mlid FROM {menu_links} WHERE link_path = :link_path AND plid = 0', array(':link_path' => 'multimedia/galleries'))->fetchColumn();
+    $media_mlid = db_query('SELECT mlid FROM {menu_links} WHERE link_path = :link_path AND plid = 0', array(':link_path' => 'media/galleries'))->fetchColumn();
 
     if ($media_mlid){
       $item = array(
         'link_title' => t('Video Archives'),
-        'link_path' => 'multimedia/video',
+        'link_path' => 'media/video',
         'menu_name' => 'main-menu',
         'weight' => -98,
         'weight' => 0,

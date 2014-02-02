@@ -288,7 +288,7 @@ function openchurch_gallery_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = '<?php
-l(\'&laquo; back to galleries\', \'multimedia/galleries\', array(\'attributes\' => array(\'class\' => \'back-to-galleries\'), \'html\' => TRUE));
+l(\'&laquo; back to galleries\', \'media/galleries\', array(\'attributes\' => array(\'class\' => \'back-to-galleries\'), \'html\' => TRUE));
 ?>';
   $handler->display->display_options['header']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
