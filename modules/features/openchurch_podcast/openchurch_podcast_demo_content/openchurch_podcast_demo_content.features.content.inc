@@ -11,7 +11,7 @@ function openchurch_podcast_demo_content_content_defaults() {
   $content = array();
 
   $content['oc_podcast1'] = (object) array(
-    'exported_path' => 'multimedia/podcasts/what-do-you-do-after-easter',
+    'exported_path' => 'media/podcasts/what-do-you-do-after-easter',
     'title' => 'What Do You Do After Easter?',
     'status' => '1',
     'promote' => '0',
@@ -25,10 +25,10 @@ function openchurch_podcast_demo_content_content_defaults() {
     'body' => array(
       'und' => array(
         0 => array(
-          'value' => 'You have the ability to type a detailed lesson or sermon description which allows people to learn more before they download or subscribe to listen.  It also provides a great way to have your church\'s lessons indexed in major search engines.  
-  
+          'value' => 'You have the ability to type a detailed lesson or sermon description which allows people to learn more before they download or subscribe to listen.  It also provides a great way to have your church\'s lessons indexed in major search engines.
+
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales est et augue facilisis vel gravida tortor dapibus. Quisque porta lorem vitae metus suscipit hendrerit. Aliquam ut pulvinar odio. Mauris non justo quis ligula facilisis facilisis in nec velit. Suspendisse posuere leo quis est laoreet sed bibendum arcu mattis. Donec vitae tellus tincidunt eros adipiscing scelerisque. Nunc mollis purus id arcu aliquet suscipit ut at ligula. Sed sapien magna, vulputate quis eleifend nec, rhoncus eu neque. Sed lectus turpis, fringilla at scelerisque ut, laoreet at dui. Praesent convallis lectus vitae augue cursus in tincidunt odio dictum. Cras arcu tellus, fermentum ac tempor sit amet, consequat nec justo. Nam auctor molestie turpis nec vulputate. Integer vitae enim mi, ac hendrerit dolor. Proin pellentesque fermentum tristique. Duis molestie orci id mauris pellentesque nec rhoncus nibh dapibus. Nam vel tempus dui. Etiam vel consequat est. Pellentesque vitae diam lorem, et pretium massa.
-  
+
   Maecenas ac purus ut odio sagittis gravida. Nunc massa quam, sagittis a malesuada sed, euismod varius justo. Duis vehicula aliquam magna, quis ornare arcu congue ut. Sed vitae libero magna. Quisque eget enim mauris. Vivamus ut condimentum turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed lorem arcu, blandit rutrum molestie ac, tristique at orci. Suspendisse ornare tincidunt enim eu facilisis. Curabitur malesuada, libero nec pretium varius, lectus justo elementum nulla, consequat pulvinar nisl sem sed eros. Mauris massa augue, rhoncus a blandit sit amet, aliquam eget erat. Nam pretium lacinia velit, a posuere eros convallis ut. Vestibulum tempor magna ut massa rhoncus ultrices.',
           'summary' => '',
           'format' => 'panopoly_wysiwyg_text',
@@ -80,7 +80,7 @@ function openchurch_podcast_demo_content_content_defaults() {
   );
 
   $content['oc_podcast2'] = (object) array(
-    'exported_path' => 'multimedia/podcasts/do-it-anyway',
+    'exported_path' => 'media/podcasts/do-it-anyway',
     'title' => 'Do It Anyway',
     'status' => '1',
     'promote' => '0',
@@ -94,10 +94,10 @@ function openchurch_podcast_demo_content_content_defaults() {
     'body' => array(
       'und' => array(
         0 => array(
-          'value' => 'You have the ability to type a detailed lesson or sermon description which allows people to learn more before they download or subscribe to listen.  It also provides a great way to have your church\'s lessons indexed in major search engines.  
-  
+          'value' => 'You have the ability to type a detailed lesson or sermon description which allows people to learn more before they download or subscribe to listen.  It also provides a great way to have your church\'s lessons indexed in major search engines.
+
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis dictum ligula ac dapibus. Nulla dictum varius quam, id rutrum lorem malesuada a. Morbi et velit urna.
-  
+
   Morbi vestibulum dui ac ipsum pretium commodo. Donec tristique accumsan iaculis. Nam risus est, gravida ut tempor ut, dapibus sed justo. In hac habitasse platea dictumst. Etiam viverra nisi ut eros dictum ut blandit purus pretium. Phasellus faucibus aliquet auctor. Cras posuere lacus bibendum felis adipiscing quis consectetur turpis egestas. Nam mauris enim, rhoncus non gravida eget, lobortis sed ipsum. Ut orci felis, semper sed molestie vitae, sollicitudin id ipsum. Ut in nibh tellus, eu placerat leo.',
           'summary' => '',
           'format' => 'panopoly_wysiwyg_text',
