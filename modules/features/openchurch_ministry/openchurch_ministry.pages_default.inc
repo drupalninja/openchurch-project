@@ -10,7 +10,7 @@
 function openchurch_ministry_default_page_manager_handlers() {
   $export = array();
 
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'node_view_panel_context_2';
@@ -42,7 +42,7 @@ function openchurch_ministry_default_page_manager_handlers() {
       'logic' => 'and',
     ),
   );
-  $display = new panels_display;
+  $display = new panels_display();
   $display->layout = 'flexible';
   $display->layout_settings = array(
     'items' => array(
@@ -158,7 +158,7 @@ function openchurch_ministry_default_page_manager_handlers() {
   $display->title = '';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-1';
     $pane->panel = 'center';
     $pane->type = 'entity_field';
@@ -169,7 +169,7 @@ function openchurch_ministry_default_page_manager_handlers() {
       'label' => 'title',
       'formatter' => 'image',
       'formatter_settings' => array(
-        'image_style' => 'oc_creative_element',
+        'image_style' => '',
         'image_link' => '',
       ),
       'context' => 'argument_entity_id:node_1',
@@ -189,7 +189,7 @@ function openchurch_ministry_default_page_manager_handlers() {
     $pane->locks = array();
     $display->content['new-1'] = $pane;
     $display->panels['center'][0] = 'new-1';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-2';
     $pane->panel = 'ministry_detail';
     $pane->type = 'node_body';
@@ -211,7 +211,7 @@ function openchurch_ministry_default_page_manager_handlers() {
     $pane->locks = '';
     $display->content['new-2'] = $pane;
     $display->panels['ministry_detail'][0] = 'new-2';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-3';
     $pane->panel = 'ministry_highlights';
     $pane->type = 'block';
@@ -235,7 +235,7 @@ function openchurch_ministry_default_page_manager_handlers() {
     $pane->locks = array();
     $display->content['new-3'] = $pane;
     $display->panels['ministry_highlights'][0] = 'new-3';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-4';
     $pane->panel = 'recent_photos';
     $pane->type = 'block';
@@ -259,7 +259,7 @@ function openchurch_ministry_default_page_manager_handlers() {
     $pane->locks = array();
     $display->content['new-4'] = $pane;
     $display->panels['recent_photos'][0] = 'new-4';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-5';
     $pane->panel = 'upcoming_events';
     $pane->type = 'block';
@@ -283,7 +283,7 @@ function openchurch_ministry_default_page_manager_handlers() {
     $pane->locks = array();
     $display->content['new-5'] = $pane;
     $display->panels['upcoming_events'][0] = 'new-5';
-    $pane = new stdClass;
+    $pane = new stdClass();
     $pane->pid = 'new-6';
     $pane->panel = 'upcoming_events';
     $pane->type = 'custom';
@@ -326,30 +326,6 @@ print l(\'Online Event Registration\',\'events\', array(\'query\' => array(\'oc_
     $pane->locks = '';
     $display->content['new-6'] = $pane;
     $display->panels['upcoming_events'][1] = 'new-6';
-    $pane = new stdClass;
-    $pane->pid = 'new-7';
-    $pane->panel = 'upcoming_events';
-    $pane->type = 'block';
-    $pane->subtype = 'views-fb2a92c9d494b2e43b21cbd5f2379c70';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'ministry-downloads',
-    );
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $display->content['new-7'] = $pane;
-    $display->panels['upcoming_events'][2] = 'new-7';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
