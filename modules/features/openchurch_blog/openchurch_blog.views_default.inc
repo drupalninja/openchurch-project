@@ -91,6 +91,12 @@ function openchurch_blog_views_default_views() {
   /* Display: Blog Archives Page */
   $handler = $view->new_display('page', 'Blog Archives Page', 'page_1');
   $handler->display->display_options['path'] = 'blog/archives';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Blog Archives';
+  $handler->display->display_options['menu']['weight'] = '1';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: Blog Archives Feed */
   $handler = $view->new_display('feed', 'Blog Archives Feed', 'feed_1');
@@ -219,6 +225,12 @@ function openchurch_blog_views_default_views() {
   /* Display: Latest Blog Teasers Page */
   $handler = $view->new_display('page', 'Latest Blog Teasers Page', 'page_1');
   $handler->display->display_options['path'] = 'blog';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Blog';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: Latest Blog Teaser Feed */
   $handler = $view->new_display('feed', 'Latest Blog Teaser Feed', 'feed_1');
