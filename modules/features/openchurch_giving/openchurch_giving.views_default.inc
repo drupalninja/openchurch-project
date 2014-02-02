@@ -10,7 +10,7 @@
 function openchurch_giving_views_default_views() {
   $export = array();
 
-  $view = new view;
+  $view = new view();
   $view->name = 'openchurch_giving';
   $view->description = '';
   $view->tag = 'default';
@@ -24,6 +24,7 @@ function openchurch_giving_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Faithful Giving';
   $handler->display->display_options['css_class'] = 'openchurch-giving-list';
+  $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -46,106 +47,40 @@ function openchurch_giving_views_default_views() {
 
 <p>Occasionally, opportunities arise for our body to give to individual causes that will help our community, missions abroad, and many other causes. In addition to our standard online giving system, you may use this site to give specifically to any of the following causes:</p>';
   $handler->display->display_options['header']['area']['format'] = 'panopoly_wysiwyg_text';
-  $handler->display->display_options['header']['area']['tokenize'] = 0;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_oc_image']['id'] = 'field_oc_image';
   $handler->display->display_options['fields']['field_oc_image']['table'] = 'field_data_field_oc_image';
   $handler->display->display_options['fields']['field_oc_image']['field'] = 'field_oc_image';
   $handler->display->display_options['fields']['field_oc_image']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_image']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_oc_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_image']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_oc_image']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_oc_image']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_oc_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_oc_image']['settings'] = array(
     'image_style' => 'oc_charity_thumb',
     'image_link' => 'content',
   );
-  $handler->display->display_options['fields']['field_oc_image']['field_api_classes'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
   $handler->display->display_options['fields']['title_1']['label'] = '';
-  $handler->display->display_options['fields']['title_1']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['title_1']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['title_1']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['title_1']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['title_1']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['title_1']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['title_1']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['title_1']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['title_1']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['title_1']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['title_1']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['title_1']['alter']['html'] = 0;
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title_1']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['title_1']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['title_1']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['title_1']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['title_1']['link_to_node'] = 1;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['body']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 1;
-  $handler->display->display_options['fields']['body']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['body']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['body']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['body']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['body']['type'] = 'text_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '150',
   );
-  $handler->display->display_options['fields']['body']['field_api_classes'] = 0;
   /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
-  $handler->display->display_options['fields']['view_node']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['view_node']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['view_node']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['html'] = 0;
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['view_node']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['view_node']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['view_node']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['view_node']['text'] = 'Click here for info';
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
@@ -174,6 +109,12 @@ function openchurch_giving_views_default_views() {
   /* Display: Giving Page */
   $handler = $view->new_display('page', 'Giving Page', 'page_1');
   $handler->display->display_options['path'] = 'give';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Faithful Giving';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['openchurch_giving'] = $view;
 
   return $export;

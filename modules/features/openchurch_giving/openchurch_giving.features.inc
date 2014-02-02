@@ -7,12 +7,10 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function openchurch_giving_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function openchurch_giving_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
-  list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -21,8 +19,8 @@ function openchurch_giving_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function openchurch_giving_views_api() {
-  return array("version" => "3.0");
+function openchurch_giving_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -31,7 +29,7 @@ function openchurch_giving_views_api() {
 function openchurch_giving_image_default_styles() {
   $styles = array();
 
-  // Exported image style: oc_charity_thumb
+  // Exported image style: oc_charity_thumb.
   $styles['oc_charity_thumb'] = array(
     'name' => 'oc_charity_thumb',
     'effects' => array(
@@ -45,13 +43,14 @@ function openchurch_giving_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '220',
-          'height' => '110',
+          'width' => 220,
+          'height' => 110,
           'upscale' => 0,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
+    'label' => 'oc_charity_thumb',
   );
 
   return $styles;
