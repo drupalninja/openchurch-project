@@ -7,15 +7,13 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function openchurch_gallery_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "page_manager" && $api == "pages_default") {
-    return array("version" => "1");
-  }
+function openchurch_gallery_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
-  list($module, $api) = func_get_args();
+  if ($module == "page_manager" && $api == "pages_default") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -24,8 +22,8 @@ function openchurch_gallery_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function openchurch_gallery_views_api() {
-  return array("version" => "3.0");
+function openchurch_gallery_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -34,7 +32,7 @@ function openchurch_gallery_views_api() {
 function openchurch_gallery_image_default_styles() {
   $styles = array();
 
-  // Exported image style: oc_album_cover
+  // Exported image style: oc_album_cover.
   $styles['oc_album_cover'] = array(
     'name' => 'oc_album_cover',
     'effects' => array(
@@ -48,12 +46,13 @@ function openchurch_gallery_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '170',
-          'height' => '110',
+          'width' => 170,
+          'height' => 110,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
+    'label' => 'oc_album_cover',
   );
 
   return $styles;
