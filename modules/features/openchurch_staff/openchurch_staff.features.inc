@@ -7,15 +7,16 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function openchurch_staff_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "page_manager" && $api == "pages_default") {
-    return array("version" => "1");
-  }
+function openchurch_staff_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
-  list($module, $api) = func_get_args();
+  if ($module == "page_manager" && $api == "pages_default") {
+    return array("version" => "1");
+  }
+  if ($module == "panels" && $api == "layouts") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -24,8 +25,8 @@ function openchurch_staff_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function openchurch_staff_views_api() {
-  return array("version" => "3.0");
+function openchurch_staff_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -34,7 +35,7 @@ function openchurch_staff_views_api() {
 function openchurch_staff_image_default_styles() {
   $styles = array();
 
-  // Exported image style: oc_staff_image
+  // Exported image style: oc_staff_image.
   $styles['oc_staff_image'] = array(
     'name' => 'oc_staff_image',
     'effects' => array(
@@ -48,16 +49,17 @@ function openchurch_staff_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '200',
-          'height' => '250',
+          'width' => 200,
+          'height' => 250,
           'upscale' => 0,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
+    'label' => 'oc_staff_image',
   );
 
-  // Exported image style: oc_staff_thumb
+  // Exported image style: oc_staff_thumb.
   $styles['oc_staff_thumb'] = array(
     'name' => 'oc_staff_thumb',
     'effects' => array(
@@ -71,13 +73,14 @@ function openchurch_staff_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '100',
-          'height' => '125',
+          'width' => 100,
+          'height' => 125,
           'upscale' => 0,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
+    'label' => 'oc_staff_thumb',
   );
 
   return $styles;
