@@ -16,7 +16,7 @@ function openchurch_defaults_install() {
 
   $settings = new stdClass;
   $settings->info = 'Weekly Meeting Times Bottom Block';
-  $settings->format = 'full_html';
+  $settings->format = 'panopoly_wysiwyg_text';
   $settings->machine_name = 'oc_block_times_bottom';
   $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/clock.png" alt="" /><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-locations"><strong>View More Details</strong></a></p>';
 
@@ -37,7 +37,7 @@ function openchurch_defaults_install() {
 
   $settings = new stdClass;
   $settings->info = 'Location & Directions Bottom Block';
-  $settings->format = 'full_html';
+  $settings->format = 'panopoly_wysiwyg_text';
   $settings->machine_name = 'oc_block_location_bottom';
   $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/location-google-map.jpg" alt="" width="150" height="115" />We\'re located on Belt Line Rd., just south of Downtown.</p>';
 
@@ -49,7 +49,7 @@ function openchurch_defaults_install() {
 
   $settings = new stdClass;
   $settings->info = 'Contact Us Bottom Block';
-  $settings->format = 'full_html';
+  $settings->format = 'panopoly_wysiwyg_text';
   $settings->machine_name = 'oc_block_contact_bottom';
   $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/phone.png" alt="" /><span style="font-size: x-large;"><span style="color: #4a7470;">123-456-7890</span></span><br /><a href="#">info@openchurchsite.com</a><br /><strong>OpenChurch</strong><br />1234 Belt Line Rd<br />Dallas, TX 75000</p>';
 
@@ -61,7 +61,7 @@ function openchurch_defaults_install() {
 
   $settings = new stdClass;
   $settings->info = 'Weekly Meeting Times Sidebar Block';
-  $settings->format = 'full_html';
+  $settings->format = 'panopoly_wysiwyg_text';
   $settings->machine_name = 'oc_block_times_sidebar';
   $settings->body = '<p><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-locations"><strong>View More Details</strong></a></p>';
 
@@ -138,7 +138,7 @@ function openchurch_defaults_install() {
 
   db_insert('wysiwyg')
   ->fields(array(
-    'format' => 'full_html',
+    'format' => 'panopoly_wysiwyg_text',
     'editor' => 'tinymce',
     'settings' => 'a:20:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:1;s:5:"theme";s:8:"advanced";s:8:"language";s:2:"en";s:7:"buttons";a:7:{s:7:"default";a:21:{s:4:"bold";i:1;s:6:"italic";i:1;s:9:"underline";i:1;s:13:"strikethrough";i:1;s:11:"justifyleft";i:1;s:13:"justifycenter";i:1;s:12:"justifyright";i:1;s:11:"justifyfull";i:1;s:7:"bullist";i:1;s:7:"numlist";i:1;s:7:"outdent";i:1;s:6:"indent";i:1;s:4:"undo";i:1;s:4:"redo";i:1;s:4:"link";i:1;s:6:"unlink";i:1;s:6:"anchor";i:1;s:5:"image";i:1;s:9:"forecolor";i:1;s:9:"backcolor";i:1;s:4:"code";i:1;}s:4:"font";a:1:{s:12:"formatselect";i:1;}s:10:"fullscreen";a:1:{s:10:"fullscreen";i:1;}s:5:"paste";a:2:{s:9:"pastetext";i:1;s:9:"pasteword";i:1;}s:4:"imce";a:1:{s:4:"imce";i:1;}s:6:"iframe";a:1:{s:6:"iframe";i:1;}s:6:"drupal";a:1:{s:5:"media";i:1;}}s:11:"toolbar_loc";s:3:"top";s:13:"toolbar_align";s:4:"left";s:8:"path_loc";s:6:"bottom";s:8:"resizing";i:1;s:11:"verify_html";i:1;s:12:"preformatted";i:0;s:22:"convert_fonts_to_spans";i:1;s:17:"remove_linebreaks";i:1;s:23:"apply_source_formatting";i:1;s:27:"paste_auto_cleanup_on_paste";i:1;s:13:"block_formats";s:32:"p,address,pre,h2,h3,h4,h5,h6,div";s:11:"css_setting";s:4:"none";s:8:"css_path";s:0:"";s:11:"css_classes";s:0:"";}',
   ))

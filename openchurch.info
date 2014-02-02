@@ -35,60 +35,28 @@ dependencies[] = taxonomy
 ; Contrib
 
 dependencies[] = addressfield
-;dependencies[] = admin
-dependencies[] = admin_menu_toolbar
-dependencies[] = apps
 dependencies[] = backup_migrate
 dependencies[] = bulk_export
 dependencies[] = calendar
-dependencies[] = captcha
 dependencies[] = cck
 dependencies[] = content_taxonomy
 dependencies[] = content_taxonomy_autocomplete
 dependencies[] = context
 dependencies[] = context_ui
-dependencies[] = ctools
-dependencies[] = date
-dependencies[] = date_repeat
-dependencies[] = date_popup
-dependencies[] = date_tools
-dependencies[] = date_views
-dependencies[] = defaultcontent
 dependencies[] = email
-dependencies[] = entity
-dependencies[] = features
 dependencies[] = fe_nodequeue
 dependencies[] = filefield_sources
 dependencies[] = file_styles
 dependencies[] = fontyourface
 dependencies[] = fontyourface_ui
-dependencies[] = fusion_accelerator
-dependencies[] = fusion_apply_ui
 dependencies[] = google_fonts_api
-dependencies[] = imce
-dependencies[] = imce_wysiwyg
-dependencies[] = libraries
 dependencies[] = lightbox2
-dependencies[] = link
-dependencies[] = media
-dependencies[] = media_vimeo
-dependencies[] = media_youtube
-dependencies[] = menu_block
 dependencies[] = menu_breadcrumb
 dependencies[] = metatag
 dependencies[] = nodequeue
-dependencies[] = node_reference
-dependencies[] = page_manager
-dependencies[] = page_title
-dependencies[] = panels
-dependencies[] = panels_ipe
-dependencies[] = pathauto
 dependencies[] = pathologic
 dependencies[] = plup
 dependencies[] = plupload
-dependencies[] = references
-dependencies[] = references_dialog
-dependencies[] = recaptcha
 dependencies[] = rss_category
 dependencies[] = rss_creator
 dependencies[] = rss_date
@@ -96,22 +64,14 @@ dependencies[] = rss_enclosure
 dependencies[] = rss_georss
 dependencies[] = rules
 dependencies[] = rules_admin
-dependencies[] = strongarm
 dependencies[] = styles
 dependencies[] = styles_ui
-dependencies[] = tinynav
-dependencies[] = token
-dependencies[] = user_reference
-dependencies[] = views
-dependencies[] = views_bulk_operations
 dependencies[] = views_php
 dependencies[] = views_slideshow
 dependencies[] = views_slideshow_cycle
-dependencies[] = views_ui
 dependencies[] = webform
-dependencies[] = wysiwyg
 
-; Custom 
+; Custom
 
 
 ;Features

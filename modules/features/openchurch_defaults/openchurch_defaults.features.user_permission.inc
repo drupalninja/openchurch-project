@@ -292,9 +292,9 @@ function openchurch_defaults_user_default_permissions() {
     'module' => 'panels',
   );
 
-  // Exported permission: use text format full_html.
-  $permissions['use text format full_html'] = array(
-    'name' => 'use text format full_html',
+  // Exported permission: use text format panopoly_wysiwyg_text.
+  $permissions['use text format panopoly_wysiwyg_text'] = array(
+    'name' => 'use text format panopoly_wysiwyg_text',
     'roles' => array(
       0 => 'administrator',
       1 => 'editor',

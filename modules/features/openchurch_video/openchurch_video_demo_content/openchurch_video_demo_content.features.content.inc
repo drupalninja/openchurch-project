@@ -29,7 +29,7 @@ function openchurch_video_demo_content_content_defaults() {
         0 => array(
           'value' => '<p>Want to know more about Drupal? Watch this video to find out more.</p>',
           'summary' => '',
-          'format' => 'full_html',
+          'format' => 'panopoly_wysiwyg_text',
           'safe_value' => '<p>Want to know more about Drupal? Watch this video to find out more.</p>
   ',
           'safe_summary' => '',
@@ -64,7 +64,7 @@ function openchurch_video_demo_content_content_defaults() {
         0 => array(
           'value' => '<p>Drupal is a cutting edge, open source web development platform, designed to grow with the expanding needs of your business. Drupal\'s modular CMS system can be effectively adapted and scaled to manage your web presence, irrespective of its complexity. Drupal has been widely used to develop some of the world\'s leading online portals, including those of Harvard, MIT and the Economist.</p>',
           'summary' => '',
-          'format' => 'full_html',
+          'format' => 'panopoly_wysiwyg_text',
           'safe_value' => '<p>Drupal is a cutting edge, open source web development platform, designed to grow with the expanding needs of your business. Drupal\'s modular CMS system can be effectively adapted and scaled to manage your web presence, irrespective of its complexity. Drupal has been widely used to develop some of the world\'s leading online portals, including those of Harvard, MIT and the Economist.</p>
   ',
           'safe_summary' => '',

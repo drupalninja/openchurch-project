@@ -25,8 +25,8 @@ function openchurch_defaults_update_7000(&$sandbox){
  */
 function openchurch_defaults_update_7001(&$sandbox){
   // Add text formats.
-  $full_html_format = array(
-    'format' => 'full_html',
+  $panopoly_wysiwyg_text_format = array(
+    'format' => 'panopoly_wysiwyg_text',
     'name' => 'Full HTML',
     'weight' => 0,
     'filters' => array(
@@ -51,8 +51,8 @@ function openchurch_defaults_update_7001(&$sandbox){
       ),
     ),
   );
-  $full_html_format = (object) $full_html_format;
-  filter_format_save($full_html_format);
+  $panopoly_wysiwyg_text_format = (object) $panopoly_wysiwyg_text_format;
+  filter_format_save($panopoly_wysiwyg_text_format);
 
   $sandbox['#finished'] = 1;
 
@@ -165,8 +165,8 @@ function openchurch_defaults_update_7004(&$sandbox){
     module_enable(array('pathologic'));
 
   //Update full html filter
-  $full_html_format = array(
-    'format' => 'full_html',
+  $panopoly_wysiwyg_text_format = array(
+    'format' => 'panopoly_wysiwyg_text',
     'name' => 'Full HTML',
     'weight' => 0,
     'filters' => array(
@@ -195,8 +195,8 @@ function openchurch_defaults_update_7004(&$sandbox){
       ),
     ),
   );
-  $full_html_format = (object) $full_html_format;
-  filter_format_save($full_html_format);
+  $panopoly_wysiwyg_text_format = (object) $panopoly_wysiwyg_text_format;
+  filter_format_save($panopoly_wysiwyg_text_format);
 
   //Update full html filter
   $filtered_html_format = array(

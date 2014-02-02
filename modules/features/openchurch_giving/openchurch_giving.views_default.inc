@@ -45,7 +45,7 @@ function openchurch_giving_views_default_views() {
 <h3 class="title">Special Needs Giving</h3>
 
 <p>Occasionally, opportunities arise for our body to give to individual causes that will help our community, missions abroad, and many other causes. In addition to our standard online giving system, you may use this site to give specifically to any of the following causes:</p>';
-  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['format'] = 'panopoly_wysiwyg_text';
   $handler->display->display_options['header']['area']['tokenize'] = 0;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_oc_image']['id'] = 'field_oc_image';

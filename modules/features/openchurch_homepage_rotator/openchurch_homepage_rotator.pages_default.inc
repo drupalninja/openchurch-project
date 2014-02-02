@@ -71,7 +71,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
       'admin_title' => 'Homepage Promo 1',
       'title' => '',
       'body' => '<p><img src="/profiles/openchurch/images/homepage-rotator/winter_sermons.jpg" alt="" width="220" height="110"></p>',
-      'format' => 'full_html',
+      'format' => 'panopoly_wysiwyg_text',
       'substitute' => TRUE,
     );
     $pane->cache = array();
@@ -93,7 +93,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
       'admin_title' => 'Homepage Promo 2',
       'title' => '',
       'body' => '<p><img src="/profiles/openchurch/images/homepage-rotator/food_pantry.jpg" alt="" width="220" height="110"></p>',
-      'format' => 'full_html',
+      'format' => 'panopoly_wysiwyg_text',
       'substitute' => TRUE,
     );
     $pane->cache = array();
@@ -115,7 +115,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
       'admin_title' => 'Homepage Promo 3',
       'title' => '',
       'body' => '<p style="text-align: right;"><img src="/profiles/openchurch/images/homepage-rotator/childrens_church.jpg" alt="" width="220" height="110"></p>',
-      'format' => 'full_html',
+      'format' => 'panopoly_wysiwyg_text',
       'substitute' => TRUE,
     );
     $pane->cache = array();

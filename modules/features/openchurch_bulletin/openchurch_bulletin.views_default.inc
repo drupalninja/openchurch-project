@@ -53,7 +53,7 @@ function openchurch_bulletin_views_default_views() {
   $handler->display->display_options['header']['text']['content'] = '<p>OpenChurch creates weekly bulletins to keep everyone informed about the inner workings of our church. Here you will find an archive of bulletins as a resource if you need it. If you would like a bulletin not found here please contact the church office.</p>
 
 <h3 class="title">Bulletin Archives</h3>';
-  $handler->display->display_options['header']['text']['format'] = 'full_html';
+  $handler->display->display_options['header']['text']['format'] = 'panopoly_wysiwyg_text';
   $handler->display->display_options['header']['text']['tokenize'] = 0;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['text']['id'] = 'area';
