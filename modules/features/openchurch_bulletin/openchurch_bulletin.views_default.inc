@@ -10,7 +10,7 @@
 function openchurch_bulletin_views_default_views() {
   $export = array();
 
-  $view = new view;
+  $view = new view();
   $view->name = 'openchurch_bulletins';
   $view->description = 'Openchurch digital bulletin download list';
   $view->tag = '';
@@ -25,6 +25,7 @@ function openchurch_bulletin_views_default_views() {
   $handler->display->display_options['title'] = 'Weekly Bulletins';
   $handler->display->display_options['css_class'] = 'openchurch-bulletin-list';
   $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -34,7 +35,6 @@ function openchurch_bulletin_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = 'phpcode';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -43,23 +43,18 @@ function openchurch_bulletin_views_default_views() {
     'field_oc_bulletin_file' => 'field_oc_bulletin_file',
   );
   $handler->display->display_options['row_options']['separator'] = ' ';
-  $handler->display->display_options['row_options']['hide_empty'] = 0;
-  $handler->display->display_options['row_options']['default_field_elements'] = 1;
   /* Header: Global: Text area */
   $handler->display->display_options['header']['text']['id'] = 'text';
   $handler->display->display_options['header']['text']['table'] = 'views';
   $handler->display->display_options['header']['text']['field'] = 'area';
-  $handler->display->display_options['header']['text']['empty'] = FALSE;
   $handler->display->display_options['header']['text']['content'] = '<p>OpenChurch creates weekly bulletins to keep everyone informed about the inner workings of our church. Here you will find an archive of bulletins as a resource if you need it. If you would like a bulletin not found here please contact the church office.</p>
 
 <h3 class="title">Bulletin Archives</h3>';
   $handler->display->display_options['header']['text']['format'] = 'panopoly_wysiwyg_text';
-  $handler->display->display_options['header']['text']['tokenize'] = 0;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['text']['id'] = 'area';
   $handler->display->display_options['empty']['text']['table'] = 'views';
   $handler->display->display_options['empty']['text']['field'] = 'area';
-  $handler->display->display_options['empty']['text']['empty'] = FALSE;
   $handler->display->display_options['empty']['text']['content'] = 'No bulletins found';
   $handler->display->display_options['empty']['text']['format'] = '1';
   /* Field: Content: Bulletin Date */
@@ -67,23 +62,7 @@ function openchurch_bulletin_views_default_views() {
   $handler->display->display_options['fields']['field_oc_bulletin_date']['table'] = 'field_data_field_oc_bulletin_date';
   $handler->display->display_options['fields']['field_oc_bulletin_date']['field'] = 'field_oc_bulletin_date';
   $handler->display->display_options['fields']['field_oc_bulletin_date']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_oc_bulletin_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_oc_bulletin_date']['settings'] = array(
     'format_type' => 'long',
     'fromto' => 'both',
@@ -92,35 +71,19 @@ function openchurch_bulletin_views_default_views() {
     'multiple_to' => '',
     'show_repeat_rule' => 'show',
   );
-  $handler->display->display_options['fields']['field_oc_bulletin_date']['field_api_classes'] = 0;
   /* Field: Content: Bulletin */
   $handler->display->display_options['fields']['field_oc_bulletin_file']['id'] = 'field_oc_bulletin_file';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['table'] = 'field_data_field_oc_bulletin_file';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['field'] = 'field_oc_bulletin_file';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['text'] = 'Download PDF &raquo;';
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['make_link'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['path'] = '[field_oc_bulletin_file]';
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['trim_whitespace'] = 0;
   $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['alt'] = 'Download Bulletin PDF';
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_oc_bulletin_file']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_oc_bulletin_file']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['type'] = 'file_url_plain';
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['field_api_classes'] = 0;
   /* Sort criterion: Content: Bulletin Date (field_oc_bulletin_date) */
   $handler->display->display_options['sorts']['field_oc_bulletin_date_value']['id'] = 'field_oc_bulletin_date_value';
   $handler->display->display_options['sorts']['field_oc_bulletin_date_value']['table'] = 'field_data_field_oc_bulletin_date';
@@ -143,10 +106,15 @@ function openchurch_bulletin_views_default_views() {
 
   /* Display: Bulletin Archive Page */
   $handler = $view->new_display('page', 'Bulletin Archive Page', 'page_1');
-  $handler->display->display_options['path'] = 'multimedia/bulletins';
+  $handler->display->display_options['path'] = 'media/bulletins';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Weekly Bulletins';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['openchurch_bulletins'] = $view;
 
-  $view = new view;
+  $view = new view();
   $view->name = 'openchurch_latest_bulletin';
   $view->description = 'Links to the latest digital church bulletin.';
   $view->tag = '';
@@ -176,36 +144,18 @@ function openchurch_bulletin_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['empty'] = FALSE;
   $handler->display->display_options['footer']['area']['content'] = '<a href="/multimedia/bulletins">View Full Archives &raquo;</a>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
-  $handler->display->display_options['footer']['area']['tokenize'] = 0;
   /* Field: Content: Bulletin */
   $handler->display->display_options['fields']['field_oc_bulletin_file']['id'] = 'field_oc_bulletin_file';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['table'] = 'field_data_field_oc_bulletin_file';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['field'] = 'field_oc_bulletin_file';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['text'] = '<a href="[field_oc_bulletin_file]">Download Latest (PDF)</a> &raquo;';
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_oc_bulletin_file']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_oc_bulletin_file']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['type'] = 'file_url_plain';
-  $handler->display->display_options['fields']['field_oc_bulletin_file']['field_api_classes'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
