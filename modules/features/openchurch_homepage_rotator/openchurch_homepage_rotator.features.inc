@@ -37,7 +37,7 @@ function openchurch_homepage_rotator_fe_nodequeue_export_fields() {
     'name' => 'openchurch_homepage_rotator',
     'title' => 'Homepage Rotator',
     'subqueue_title' => '',
-    'size' => '5',
+    'size' => '0',
     'link' => '',
     'link_remove' => '',
     'owner' => 'nodequeue',

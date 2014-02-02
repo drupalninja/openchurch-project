@@ -13,3 +13,10 @@ function openchurch_homepage_rotator_install(){
  */
 function openchurch_homepage_rotator_uninstall(){
 }
+
+/**
+ * Update nodequeue size to unlimited
+ */
+function openchurch_homepage_rotator_update_7000(&$sandbox) {
+  db_query('UPDATe {nodequeue_queue} SET size = 0 where qid = 1');
+}
