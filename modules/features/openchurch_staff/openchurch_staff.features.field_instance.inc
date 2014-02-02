@@ -352,7 +352,7 @@ function openchurch_staff_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_oc_staff_type',
     'label' => 'Staff Type',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -360,7 +360,7 @@ function openchurch_staff_field_default_field_instances() {
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-        'content_taxonomy_opt_groups' => FALSE,
+        'content_taxonomy_opt_groups' => 0,
       ),
       'type' => 'options_select',
       'weight' => 3,

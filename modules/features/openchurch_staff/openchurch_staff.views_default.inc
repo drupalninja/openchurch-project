@@ -50,12 +50,11 @@ function openchurch_staff_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = '<h3 class="title">About Our Staff</h3>
 <p>OpenChurch\'s full time and part time staff and ministers are dedicated to serving the needs of the Church and would be happy to talk to you and help you in any way we can! Feel free to call the church and speak with our receptionist, or you may contact a staff member directly below.</p>
 <p><strong>Church Office Hours</strong>: 8am - 5pm Mon-Fri<br><strong>Phone</strong>: 615.375.0601<br><strong>Fax</strong>: 615.373.5343</p> ';
-  $handler->display->display_options['header']['area']['format'] = 'php_code';
+  $handler->display->display_options['header']['area']['format'] = 'panopoly_wysiwyg_text';
   /* Relationship: Content: Staff Type (field_oc_staff_type) */
   $handler->display->display_options['relationships']['field_oc_staff_type_tid']['id'] = 'field_oc_staff_type_tid';
   $handler->display->display_options['relationships']['field_oc_staff_type_tid']['table'] = 'field_data_field_oc_staff_type';
   $handler->display->display_options['relationships']['field_oc_staff_type_tid']['field'] = 'field_oc_staff_type_tid';
-  $handler->display->display_options['relationships']['field_oc_staff_type_tid']['required'] = TRUE;
   /* Field: Content: Staff Type */
   $handler->display->display_options['fields']['field_oc_staff_type']['id'] = 'field_oc_staff_type';
   $handler->display->display_options['fields']['field_oc_staff_type']['table'] = 'field_data_field_oc_staff_type';
@@ -150,6 +149,13 @@ function openchurch_staff_views_default_views() {
 
   /* Display: Staff List Page */
   $handler = $view->new_display('page_with_page_title', 'Staff List Page', 'page_with_page_title_1');
+  $handler->display->display_options['path'] = 'about/staff';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Staff Directory';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['openchurch_staff'] = $view;
 
   return $export;
