@@ -13,25 +13,9 @@ function openchurch_blog_taxonomy_default_vocabularies() {
       'name' => 'Blog Topic',
       'machine_name' => 'openchurch_blog_topic',
       'description' => '',
-      'hierarchy' => '0',
+      'hierarchy' => 0,
       'module' => 'openchurch_blog',
-      'weight' => '0',
-      'metatags' => array(),
-      'rdf_mapping' => array(
-        'rdftype' => array(
-          0 => 'skos:ConceptScheme',
-        ),
-        'name' => array(
-          'predicates' => array(
-            0 => 'dc:title',
-          ),
-        ),
-        'description' => array(
-          'predicates' => array(
-            0 => 'rdfs:comment',
-          ),
-        ),
-      ),
+      'weight' => 0,
     ),
   );
 }
