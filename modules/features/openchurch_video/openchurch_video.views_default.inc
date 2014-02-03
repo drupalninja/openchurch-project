@@ -147,9 +147,9 @@ function openchurch_video_views_default_views() {
   $handler->display->display_options['fields']['field_oc_video']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_oc_video']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_oc_video']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_oc_video']['type'] = 'media';
+  $handler->display->display_options['fields']['field_oc_video']['type'] = 'file_rendered';
   $handler->display->display_options['fields']['field_oc_video']['settings'] = array(
-    'file_view_mode' => 'default',
+    'file_view_mode' => 'preview',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';

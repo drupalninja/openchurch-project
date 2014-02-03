@@ -10,8 +10,6 @@
 function openchurch_video_demo_content_content_defaults() {
   $content = array();
 
-  $video_fids = variable_get('openchurch_video_fids', '');
-
   $content['oc_video1'] = (object) array(
     'exported_path' => 'media/video/introducing-drupal-7',
     'title' => 'Introducing Drupal 7',
@@ -39,9 +37,10 @@ function openchurch_video_demo_content_content_defaults() {
     'field_oc_video' => array(
       'und' => array(
         0 => array(
-          'fid' => $video_fids['oc_video1'] ? $video_fids['oc_video1'] : '1',//install will default to 1
+          'fid' => '1',//install will default to 1
           'title' => NULL,
           'data' => NULL,
+          'display' => 1,
         ),
       ),
     ),
@@ -74,9 +73,10 @@ function openchurch_video_demo_content_content_defaults() {
     'field_oc_video' => array(
       'und' => array(
         0 => array(
-          'fid' => $video_fids['oc_video2'] ? $video_fids['oc_video2'] : '2',//install will default to 2
+          'fid' => '2',//install will default to 2
           'title' => NULL,
           'data' => NULL,
+          'display' => 1,
         ),
       ),
     ),
