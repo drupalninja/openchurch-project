@@ -10,7 +10,7 @@
 function openchurch_social_context_default_contexts() {
   $export = array();
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'openchurch-social';
@@ -30,7 +30,13 @@ function openchurch_social_context_default_contexts() {
           'module' => 'sharethis',
           'delta' => 'sharethis_block',
           'region' => 'sidebar_second',
-          'weight' => '100',
+          'weight' => '-21',
+        ),
+        'simplenews-1' => array(
+          'module' => 'simplenews',
+          'delta' => '1',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
         ),
       ),
     ),
