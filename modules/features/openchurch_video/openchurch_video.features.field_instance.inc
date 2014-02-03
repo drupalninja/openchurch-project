@@ -69,11 +69,11 @@ function openchurch_video_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'file',
+        'module' => 'file_entity',
         'settings' => array(
           'file_view_mode' => 'default',
         ),
-        'type' => 'file_default',
+        'type' => 'file_rendered',
         'weight' => 0,
       ),
       'featured' => array(

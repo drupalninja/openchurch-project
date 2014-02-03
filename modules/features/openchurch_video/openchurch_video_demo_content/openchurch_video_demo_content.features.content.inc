@@ -37,7 +37,7 @@ function openchurch_video_demo_content_content_defaults() {
     'field_oc_video' => array(
       'und' => array(
         0 => array(
-          'fid' => '1',//install will default to 1
+          'fid' => db_query('SELECT fid FROM {file_managed} WHERE uri = :uri', array(':uri' => 'vimeo://v/18352872'))->fetchColumn(),
           'title' => NULL,
           'data' => NULL,
           'display' => 1,
@@ -73,7 +73,7 @@ function openchurch_video_demo_content_content_defaults() {
     'field_oc_video' => array(
       'und' => array(
         0 => array(
-          'fid' => '2',//install will default to 2
+          'fid' => db_query('SELECT fid FROM {file_managed} WHERE uri = :uri', array(':uri' => 'youtube://v/26_OZeBmpXs'))->fetchColumn(),
           'title' => NULL,
           'data' => NULL,
           'display' => 1,
