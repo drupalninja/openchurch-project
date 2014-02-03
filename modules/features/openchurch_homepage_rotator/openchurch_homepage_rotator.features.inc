@@ -7,12 +7,10 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function openchurch_homepage_rotator_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function openchurch_homepage_rotator_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
-  list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -21,8 +19,8 @@ function openchurch_homepage_rotator_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function openchurch_homepage_rotator_views_api() {
-  return array("version" => "3.0");
+function openchurch_homepage_rotator_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -33,21 +31,20 @@ function openchurch_homepage_rotator_fe_nodequeue_export_fields() {
 
   // Exported nodequeues: openchurch_homepage_rotator
   $nodequeues['openchurch_homepage_rotator'] = array(
-    'qid' => '1',
     'name' => 'openchurch_homepage_rotator',
     'title' => 'Homepage Rotator',
     'subqueue_title' => '',
-    'size' => '0',
+    'size' => 0,
     'link' => '',
     'link_remove' => '',
     'owner' => 'nodequeue',
-    'show_in_ui' => '1',
-    'show_in_tab' => '1',
-    'show_in_links' => '0',
-    'reference' => '0',
-    'reverse' => '0',
-    'i18n' => '0',
-    'subqueues' => '1',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'subqueues' => 1,
     'types' => array(
       0 => 'openchurch_homepage_rotator',
     ),
@@ -78,12 +75,13 @@ function openchurch_homepage_rotator_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '700',
-          'height' => '357',
+          'width' => 700,
+          'height' => 357,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
+    'label' => 'oc_homepage_rotator',
   );
 
   return $styles;

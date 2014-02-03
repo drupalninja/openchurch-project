@@ -42,7 +42,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'threecol_33_34_33_stacked';
+  $display->layout = 'geary';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -62,7 +62,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-1';
-    $pane->panel = 'left';
+    $pane->panel = 'column1';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -81,10 +81,10 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane->position = 0;
     $pane->locks = '';
     $display->content['new-1'] = $pane;
-    $display->panels['left'][0] = 'new-1';
+    $display->panels['column1'][0] = 'new-1';
     $pane = new stdClass();
     $pane->pid = 'new-2';
-    $pane->panel = 'middle';
+    $pane->panel = 'column2';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -103,10 +103,10 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane->position = 0;
     $pane->locks = '';
     $display->content['new-2'] = $pane;
-    $display->panels['middle'][0] = 'new-2';
+    $display->panels['column2'][0] = 'new-2';
     $pane = new stdClass();
     $pane->pid = 'new-3';
-    $pane->panel = 'right';
+    $pane->panel = 'column3';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -114,7 +114,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => 'Homepage Promo 3',
       'title' => '',
-      'body' => '<p style="text-align: right;"><img src="/profiles/openchurch/images/homepage-rotator/childrens_church.jpg" alt="" width="220" height="110"></p>',
+      'body' => '<p><img src="/profiles/openchurch/images/homepage-rotator/childrens_church.jpg" alt="" width="220" height="110"></p>',
       'format' => 'panopoly_wysiwyg_text',
       'substitute' => TRUE,
     );
@@ -125,10 +125,10 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane->position = 0;
     $pane->locks = '';
     $display->content['new-3'] = $pane;
-    $display->panels['right'][0] = 'new-3';
+    $display->panels['column3'][0] = 'new-3';
     $pane = new stdClass();
     $pane->pid = 'new-4';
-    $pane->panel = 'top';
+    $pane->panel = 'header';
     $pane->type = 'block';
     $pane->subtype = 'views-6fecfdbc78165d726632dd0cc551ff58';
     $pane->shown = TRUE;
@@ -146,7 +146,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane->position = 0;
     $pane->locks = '';
     $display->content['new-4'] = $pane;
-    $display->panels['top'][0] = 'new-4';
+    $display->panels['header'][0] = 'new-4';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
