@@ -149,7 +149,7 @@ function openchurch_video_views_default_views() {
   $handler->display->display_options['fields']['field_oc_video']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_oc_video']['type'] = 'file_rendered';
   $handler->display->display_options['fields']['field_oc_video']['settings'] = array(
-    'file_view_mode' => 'preview',
+    'file_view_mode' => 'default',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
