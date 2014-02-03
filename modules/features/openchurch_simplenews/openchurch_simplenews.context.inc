@@ -8,9 +8,6 @@
  * Implements hook_context_default_contexts().
  */
 function openchurch_simplenews_context_default_contexts() {
-  $delta = db_query('SELECT delta FROM {block} WHERE module = :module AND theme = :theme AND delta != 0', 
-     array(':theme' => 'openchurch_theme', ':module' => 'simplenews'))->fetchColumn();
-  
   $export = array();
 
   $context = new stdClass();
@@ -30,9 +27,9 @@ function openchurch_simplenews_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'simplenews-'.$delta => array(
+        'simplenews-' => array(
           'module' => 'simplenews',
-          'delta' => $delta,
+          'delta' => FALSE,
           'region' => 'sidebar_second',
           'weight' => '-9',
         ),

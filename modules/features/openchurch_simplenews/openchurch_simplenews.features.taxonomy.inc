@@ -13,25 +13,9 @@ function openchurch_simplenews_taxonomy_default_vocabularies() {
       'name' => 'Newsletter',
       'machine_name' => 'newsletter',
       'description' => 'Simplenews newsletter categories.',
-      'hierarchy' => '0',
+      'hierarchy' => 0,
       'module' => 'simplenews',
-      'weight' => '0',
-      'metatags' => array(),
-      'rdf_mapping' => array(
-        'rdftype' => array(
-          0 => 'skos:ConceptScheme',
-        ),
-        'name' => array(
-          'predicates' => array(
-            0 => 'dc:title',
-          ),
-        ),
-        'description' => array(
-          'predicates' => array(
-            0 => 'rdfs:comment',
-          ),
-        ),
-      ),
+      'weight' => 0,
     ),
   );
 }

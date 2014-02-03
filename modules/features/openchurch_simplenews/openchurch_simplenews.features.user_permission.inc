@@ -10,13 +10,13 @@
 function openchurch_simplenews_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: subscribe to newsletters
+  // Exported permission: 'subscribe to newsletters'.
   $permissions['subscribe to newsletters'] = array(
     'name' => 'subscribe to newsletters',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'anonymous user',
-      2 => 'authenticated user',
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'simplenews',
   );
