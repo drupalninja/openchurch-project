@@ -3,37 +3,56 @@ description = OpenChurch Distribution
 
 core = 7.x
 
-; Core
-
+; Drupal Core
 dependencies[] = block
-dependencies[] = color
-dependencies[] = comment
-dependencies[] = contextual
-;dependencies[] = dashboard
-dependencies[] = dblog
+dependencies[] = menu
+dependencies[] = image
+dependencies[] = list
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = search
+dependencies[] = shortcut
 dependencies[] = field
 dependencies[] = field_ui
 dependencies[] = file
-dependencies[] = help
-dependencies[] = image
-dependencies[] = list
-dependencies[] = menu
-dependencies[] = number
-dependencies[] = options
-dependencies[] = overlay
-dependencies[] = path
-dependencies[] = php
-dependencies[] = rdf
-dependencies[] = search
-dependencies[] = shortcut
-dependencies[] = statistics
-dependencies[] = syslog
-dependencies[] = taxonomy
-;dependencies[] = toolbar
+dependencies[] = dblog
+dependencies[] = update
 
+; Panopoly Foundation
+dependencies[] = panopoly_core
+dependencies[] = panopoly_images
+dependencies[] = panopoly_theme
+dependencies[] = panopoly_magic
+dependencies[] = panopoly_widgets
+dependencies[] = panopoly_admin
+dependencies[] = panopoly_users
+
+; Panopoly Toolset
+dependencies[] = panopoly_pages
+dependencies[] = panopoly_search
+dependencies[] = panopoly_wysiwyg
+
+; Panopoly Recommended - Admin & UI
+dependencies[] = navbar
+dependencies[] = breakpoints
+dependencies[] = backports
+dependencies[] = simplified_menu_admin
+dependencies[] = save_draft
+dependencies[] = module_filter
+dependencies[] = date_popup_authored
+dependencies[] = views_ui
+
+; Panopoly Recommended - Other
+dependencies[] = devel
+dependencies[] = uuid
+dependencies[] = defaultcontent
+dependencies[] = apps
 
 ; Contrib
 
+dependencies[] = apps
 dependencies[] = addressfield
 dependencies[] = backup_migrate
 dependencies[] = bulk_export
@@ -98,9 +117,6 @@ dependencies[] = openchurch_staff
 dependencies[] = openchurch_staff_demo_content
 dependencies[] = openchurch_video
 dependencies[] = openchurch_video_demo_content
-dependencies[] = openchurch_defaults
-dependencies[] = openchurch_defaults_demo_content
-dependencies[] = wysiwyg_iframe
 
 files[] = openchurch.profile
 files[] = openchurch.install

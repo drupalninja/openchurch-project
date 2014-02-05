@@ -79,19 +79,7 @@ projects[panopoly_wysiwyg][subdir] = panopoly
 projects[panopoly_search][version] = 1.1
 projects[panopoly_search][subdir] = panopoly
 
-; Base theme for OpenChurch
-projects[fusion][type] = "theme"
-projects[fusion][version] = 2.0-beta2
-
-; Custom theme developed for OpenChurch
-projects[openchurch_theme][type] = "theme"
-projects[openchurch_theme][version] = "1.0-beta14"
-
 ; Libraries
-
-libraries[tinymce][download][type] = "get"
-libraries[tinymce][download][url] = "https://github.com/downloads/tinymce/tinymce/tinymce_3.4.8.zip"
-libraries[tinymce][directory_name] = "tinymce"
 
 ;Disabling for now
 ;libraries[jquery.cycle][type] = "libraries"

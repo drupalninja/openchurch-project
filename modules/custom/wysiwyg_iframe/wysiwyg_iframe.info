@@ -1,4 +1,0 @@
-name = Wysiwyg iFrame
-description = Extends TinyMCE to allow other elements e.g. iframes
-core = 7.x
-dependencies[] = wysiwyg
