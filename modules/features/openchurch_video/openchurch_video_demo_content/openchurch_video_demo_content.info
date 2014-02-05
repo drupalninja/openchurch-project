@@ -4,7 +4,5 @@ core = "7.x"
 package = "Openchurch"
 version = "7.x-1.0-alpha1"
 project = "openchurch_video_demo_content"
-features[content][] = "oc_video1"
-features[content][] = "oc_video2"
 dependencies[] = openchurch_video
 files[] = openchurch_video_demo_content.install
