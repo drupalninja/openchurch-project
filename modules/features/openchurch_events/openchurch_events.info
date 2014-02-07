@@ -17,6 +17,7 @@ dependencies[] = link
 dependencies[] = menu
 dependencies[] = node_reference
 dependencies[] = page_manager
+dependencies[] = panels
 dependencies[] = panopoly_pages
 dependencies[] = strongarm
 dependencies[] = views

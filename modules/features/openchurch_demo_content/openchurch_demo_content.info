@@ -1,0 +1,14 @@
+name = Openchurch Demo Content
+description = Demo content for the Openchurch profile that doesn't belong to any one feature.
+core = 7.x
+package = Openchurch
+version = 7.x-1.11-beta3
+project = openchurch_demo_content
+dependencies[] = defaultcontent
+features[content][] = oc_page_about
+features[content][] = oc_page_image_acknowledgements
+features[content][] = oc_page_map_directions
+features[content][] = oc_page_serve
+features[content][] = oc_page_times
+features[content][] = oc_webform
+features[features_api][] = api:2

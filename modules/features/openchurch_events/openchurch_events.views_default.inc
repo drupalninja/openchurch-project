@@ -110,7 +110,7 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['relationships']['field_oc_ministry_nid']['label'] = 'Ministry';
   $handler->display->display_options['relationships']['field_oc_ministry_nid']['required'] = TRUE;
   $handler->display->display_options['relationships']['field_oc_ministry_nid']['delta'] = '-1';
-  /* Field: Content: Album Cover */
+  /* Field: Content: Thumb */
   $handler->display->display_options['fields']['field_oc_thumb']['id'] = 'field_oc_thumb';
   $handler->display->display_options['fields']['field_oc_thumb']['table'] = 'field_data_field_oc_thumb';
   $handler->display->display_options['fields']['field_oc_thumb']['field'] = 'field_oc_thumb';
@@ -185,13 +185,19 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'field_oc_ministry' => 'field_oc_ministry',
-    'field_oc_dates_1' => 'field_oc_dates_1',
-    'body' => 'body',
+  $handler->display->display_options['row_plugin'] = 'panels_fields';
+  $handler->display->display_options['row_options']['layout'] = 'burr';
+  $handler->display->display_options['row_options']['regions'] = array(
+    'field_oc_dates' => 'sidebar',
+    'title' => 'contentmain',
+    'field_oc_ministry' => 'contentmain',
+    'field_oc_dates_1' => 'contentmain',
+    'field_oc_location' => 'contentmain',
+    'body' => 'contentmain',
+    'nid' => 'contentmain',
+    'field_oc_url' => 'contentmain',
+    'nothing' => 'contentmain',
   );
-  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';

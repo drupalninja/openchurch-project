@@ -65,7 +65,6 @@ dependencies[] = context_ui
 dependencies[] = email
 dependencies[] = fe_nodequeue
 dependencies[] = filefield_sources
-dependencies[] = file_styles
 dependencies[] = fontyourface
 dependencies[] = fontyourface_ui
 dependencies[] = google_fonts_api
@@ -117,6 +116,7 @@ dependencies[] = openchurch_staff
 dependencies[] = openchurch_staff_demo_content
 dependencies[] = openchurch_video
 dependencies[] = openchurch_video_demo_content
+dependencies[] = openchurch_demo_content
 
 files[] = openchurch.profile
 files[] = openchurch.install

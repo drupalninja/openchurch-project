@@ -1,11 +1,29 @@
 <?php
-
 /**
  * Implements hook_install().
  *
  * Perform actions to set up the site for this profile.
  */
 function openchurch_install() {
+
+  // Enable the admin theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'seven')
+    ->execute();
+  variable_set('admin_theme', 'seven');
+  variable_set('node_admin_theme', '1');
+
+  /**
+   * Enable openchurch theme as default
+   */
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', 'responsive_bartik')
+    ->execute();
+
   /**
    * Set superfish style
    */
@@ -30,4 +48,260 @@ function openchurch_install_tasks_alter(&$tasks, $install_state) {
   // Magically go one level deeper in solving years of dependency problems
   require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
   $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
+  $tasks['install_post_tasks']['function'] = 'openchurch_post_install';
+}
+
+/**
+ * Post install tasks
+ *
+ * @param type $install_state
+ */
+function openchurch_post_install(&$install_state) {
+
+  // Add pathologic
+  foreach (array('panopoly_wysiwyg_text', 'panopoly_html_text') as $format) {
+    db_query("REPLACE INTO {filter} VALUES (:format, :module, :name, 99, 1, NULL)", array(
+      ':format' => $format,
+      ':module' => 'pathologic',
+      ':name' => 'pathologic'
+    ));
+  }
+
+  /**
+   * Create custom blocks for this site
+   */
+
+  $settings = new stdClass;
+  $settings->info = 'Weekly Meeting Times Bottom Block';
+  $settings->format = 'full_html';
+  $settings->machine_name = 'oc_block_times_bottom';
+  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/clock.png" alt="" /><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-locations"><strong>View More Details</strong></a></p>';
+
+  $block = (array) $settings;
+  drupal_write_record('block_custom', $block);
+
+  //Save title
+  _openchurch_defaults_add_block_title($block['bid'], 'Weekly Meeting Times');
+
+  $settings = new stdClass;
+  $settings->info = 'View Maps and Directions Sidebar Block';
+  $settings->format = 'filtered_html';
+  $settings->machine_name = 'oc_block_directions_sidebar';
+  $settings->body = '<p><a href="/about/map-and-directions">View Maps and Directions</a></p>';
+
+  $block = (array) $settings;
+  drupal_write_record('block_custom', $block);
+
+  $settings = new stdClass;
+  $settings->info = 'Location & Directions Bottom Block';
+  $settings->format = 'full_html';
+  $settings->machine_name = 'oc_block_location_bottom';
+  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/location-google-map.jpg" alt="" width="150" height="115" />We\'re located on Belt Line Rd., just south of Downtown.</p>';
+
+  $block = (array) $settings;
+  drupal_write_record('block_custom', $block);
+
+  //Save title
+  _openchurch_defaults_add_block_title($block['bid'], 'Location & Directions');
+
+  $settings = new stdClass;
+  $settings->info = 'Contact Us Bottom Block';
+  $settings->format = 'full_html';
+  $settings->machine_name = 'oc_block_contact_bottom';
+  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/phone.png" alt="" /><span style="font-size: x-large;"><span style="color: #4a7470;">123-456-7890</span></span><br /><a href="#">info@openchurchsite.com</a><br /><strong>OpenChurch</strong><br />1234 Belt Line Rd<br />Dallas, TX 75000</p>';
+
+  $block = (array) $settings;
+  drupal_write_record('block_custom', $block);
+
+  //Save title
+  _openchurch_defaults_add_block_title($block['bid'], 'Contact Us');
+
+  $settings = new stdClass;
+  $settings->info = 'Weekly Meeting Times Sidebar Block';
+  $settings->format = 'full_html';
+  $settings->machine_name = 'oc_block_times_sidebar';
+  $settings->body = '<p><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-locations"><strong>View More Details</strong></a></p>';
+
+  $block = (array) $settings;
+  drupal_write_record('block_custom', $block);
+
+  /**
+   * Save staff type terms
+   */
+  $staff_type_terms = array(
+    'Administrative Minister',
+    'Administrative Staff',
+    'Adult Ministry',
+    'Building Maintenance',
+    'Children\'s Ministry',
+    'College Ministry',
+    'Counseling Center',
+    'Elder',
+    'Pulpit Minister',
+    'Youth Ministry',
+  );
+
+  foreach ($staff_type_terms as $term_name){
+    $term = array(
+      'vid' => 2,
+      'name' => $term_name
+    );
+
+    drupal_write_record('taxonomy_term_data', $term);
+
+    $term_hierarchy = array('tid' => $term['tid']);
+
+    drupal_write_record('taxonomy_term_hierarchy', $term_hierarchy);
+  }
+
+  /**
+   * Save blog terms
+   */
+  $blog_terms = array(
+    'Uncategorized',
+    'Weekly Newsletters',
+  );
+
+  foreach ($blog_terms as $term_name){
+    $term = array(
+      'vid' => 1,
+      'name' => $term_name
+    );
+
+    drupal_write_record('taxonomy_term_data', $term);
+
+    $term_hierarchy = array('tid' => $term['tid']);
+
+    drupal_write_record('taxonomy_term_hierarchy', $term_hierarchy);
+  }
+
+  //Add custom date
+  db_query('INSERT INTO {date_format_type} VALUES (:type, :title, 0)', array(':type' => 'openchurch_short_date', ':title' => 'OpenChurch Short Date'));
+
+  db_query('INSERT INTO {date_formats} VALUES (NULL, :format, :type, 0)', array(':format' => 'm.d.y', ':type' => 'short'));
+
+  variable_set('date_format_openchurch_short_date', 'm.d.y');
+
+  /**
+   * Add menu items
+   */
+
+  $menu = array(
+    'menu_name' => 'menu-secondary-links',
+    'title' => 'Secondary Links',
+    'description' => 'Secondary links are often used for pages like legal notices, contact details, and other secondary navigation items that play a lesser role than primary links.',
+  );
+
+  menu_save($menu);
+
+  // Exported menu link: main-menu:node/17
+//  $item = array(
+//    'menu_name' => 'main-menu',
+//    'link_path' => 'node/17',
+//    'router_path' => 'node/%',
+//    'link_title' => 'About',
+//    'module' => 'openchurch_defaults',
+//    'hidden' => '0',
+//    'external' => '0',
+//    'has_children' => '1',
+//    'expanded' => '0',
+//    'weight' => '-44',
+//    'customized' => 1,
+//  );
+//
+//  menu_link_save($item);
+//
+//  $about_mlid = $item['mlid'];
+
+  // Exported menu link: main-menu:node/20
+//  $item = array(
+//    'menu_name' => 'main-menu',
+//    'link_path' => 'node/20',
+//    'router_path' => 'node/%',
+//    'link_title' => 'Serve',
+//    'module' => 'openchurch_defaults',
+//    'hidden' => '0',
+//    'external' => '0',
+//    'has_children' => '0',
+//    'expanded' => '0',
+//    'weight' => '-47',
+//    'customized' => 1,
+//  );
+//
+//  menu_link_save($item);
+
+  // Exported menu link: main-menu:node/19
+//  $item = array(
+//    'menu_name' => 'main-menu',
+//    'link_path' => 'node/19',
+//    'router_path' => 'node/%',
+//    'link_title' => 'Time & Locations',
+//    'module' => 'openchurch_defaults',
+//    'hidden' => '0',
+//    'external' => '0',
+//    'has_children' => '0',
+//    'expanded' => '0',
+//    'weight' => '0',
+//    'plid' => $about_mlid,
+//    'customized' => 1,
+//  );
+//
+//  menu_link_save($item);
+
+  // Exported menu link: main-menu:node/21
+//  $item = array(
+//    'menu_name' => 'main-menu',
+//    'link_path' => 'node/21',
+//    'router_path' => 'node/%',
+//    'link_title' => 'Map and Directions',
+//    'module' => 'openchurch_defaults',
+//    'hidden' => '0',
+//    'external' => '0',
+//    'has_children' => '0',
+//    'expanded' => '0',
+//    'weight' => '0',
+//    'plid' => $about_mlid,
+//    'customized' => 1,
+//  );
+//
+//  menu_link_save($item);
+
+  $item = array(
+    'link_title' => t('Home'),
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+    'weight' => -99,
+    'customized' => 1,
+    'module'     => 'openchurch_defaults',
+    'mlid'       => 0,
+  );
+  menu_link_save($item);
+
+  // Exported menu link: main-menu:multimedia/galleries
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'multimedia/galleries',
+    'link_title' => 'Media',
+    'module' => 'openchurch_defaults',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '1',
+    'expanded' => '0',
+    'weight' => '-48',
+    'customized' => 1,
+    'plid' => 0,
+  );
+
+  menu_link_save($item);
+
+//  $item = array(
+//    'link_title' => t('Image Acknowledgements'),
+//    'link_path' => 'node/18',
+//    'menu_name' => 'menu-secondary-links',
+//    'weight' => 0,
+//    'customized' => 1,
+//    'module'     => 'openchurch_defaults',
+//  );
+//
+//  menu_link_save($item);
 }
