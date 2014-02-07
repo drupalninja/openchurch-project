@@ -24,39 +24,12 @@ function openchurch_install() {
     ->condition('name', 'responsive_bartik')
     ->execute();
 
+  variable_set('theme_default', 'responsive_bartik');
+
   /**
    * Set superfish style
    */
   variable_set('superfish_style_1', 'none');
-}
-
-/**
- * Implements hook_install_tasks().
- */
-function openchurch_install_tasks($install_state) {
-  $tasks = array();
-  // Add the Panopoly App Server to the Installation Process
-  require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
-  $tasks = $tasks + apps_profile_install_tasks($install_state, array('machine name' => 'panopoly', 'default apps' => array('panopoly_demo')));
-  return $tasks;
-}
-
-/**
- * Implements hook_install_tasks_alter()
- */
-function openchurch_install_tasks_alter(&$tasks, $install_state) {
-  // Magically go one level deeper in solving years of dependency problems
-  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
-  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
-  $tasks['install_post_tasks']['function'] = 'openchurch_post_install';
-}
-
-/**
- * Post install tasks
- *
- * @param type $install_state
- */
-function openchurch_post_install(&$install_state) {
 
   // Add pathologic
   foreach (array('panopoly_wysiwyg_text', 'panopoly_html_text') as $format) {
@@ -80,9 +53,6 @@ function openchurch_post_install(&$install_state) {
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
 
-  //Save title
-  _openchurch_defaults_add_block_title($block['bid'], 'Weekly Meeting Times');
-
   $settings = new stdClass;
   $settings->info = 'View Maps and Directions Sidebar Block';
   $settings->format = 'filtered_html';
@@ -101,9 +71,6 @@ function openchurch_post_install(&$install_state) {
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
 
-  //Save title
-  _openchurch_defaults_add_block_title($block['bid'], 'Location & Directions');
-
   $settings = new stdClass;
   $settings->info = 'Contact Us Bottom Block';
   $settings->format = 'panopoly_wysiwyg_text';
@@ -112,9 +79,6 @@ function openchurch_post_install(&$install_state) {
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
-
-  //Save title
-  _openchurch_defaults_add_block_title($block['bid'], 'Contact Us');
 
   $settings = new stdClass;
   $settings->info = 'Weekly Meeting Times Sidebar Block';
@@ -143,7 +107,7 @@ function openchurch_post_install(&$install_state) {
 
   foreach ($staff_type_terms as $term_name){
     $term = array(
-      'vid' => 2,
+      'vid' => 4,
       'name' => $term_name
     );
 
@@ -164,7 +128,7 @@ function openchurch_post_install(&$install_state) {
 
   foreach ($blog_terms as $term_name){
     $term = array(
-      'vid' => 1,
+      'vid' => 2,
       'name' => $term_name
     );
 
@@ -276,7 +240,7 @@ function openchurch_post_install(&$install_state) {
   // Exported menu link: main-menu:multimedia/galleries
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'multimedia/galleries',
+    'link_path' => 'media/galleries',
     'link_title' => 'Media',
     'module' => 'openchurch_demo_content',
     'hidden' => '0',
@@ -300,4 +264,35 @@ function openchurch_post_install(&$install_state) {
   );
 
   menu_link_save($item);
+}
+
+/**
+ * Implements hook_install_tasks().
+ */
+function openchurch_install_tasks($install_state) {
+  $tasks = array();
+  // Add the Panopoly App Server to the Installation Process
+  require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
+  $tasks = $tasks + apps_profile_install_tasks($install_state, array('machine name' => 'panopoly', 'default apps' => array('panopoly_demo')));
+
+  $tasks['install_post_tasks']['function'] = 'openchurch_post_install';
+
+  return $tasks;
+}
+
+/**
+ * Implements hook_install_tasks_alter()
+ */
+function openchurch_install_tasks_alter(&$tasks, $install_state) {
+  // Magically go one level deeper in solving years of dependency problems
+  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
+  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
+}
+
+/**
+ * Post install tasks
+ *
+ * @param type $install_state
+ */
+function openchurch_post_install(&$install_state) {
 }
