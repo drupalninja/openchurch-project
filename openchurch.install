@@ -73,7 +73,7 @@ function openchurch_post_install(&$install_state) {
 
   $settings = new stdClass;
   $settings->info = 'Weekly Meeting Times Bottom Block';
-  $settings->format = 'full_html';
+  $settings->format = 'panopoly_wysiwyg_text';
   $settings->machine_name = 'oc_block_times_bottom';
   $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/clock.png" alt="" /><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-locations"><strong>View More Details</strong></a></p>';
 
@@ -94,7 +94,7 @@ function openchurch_post_install(&$install_state) {
 
   $settings = new stdClass;
   $settings->info = 'Location & Directions Bottom Block';
-  $settings->format = 'full_html';
+  $settings->format = 'panopoly_wysiwyg_text';
   $settings->machine_name = 'oc_block_location_bottom';
   $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/location-google-map.jpg" alt="" width="150" height="115" />We\'re located on Belt Line Rd., just south of Downtown.</p>';
 
@@ -106,7 +106,7 @@ function openchurch_post_install(&$install_state) {
 
   $settings = new stdClass;
   $settings->info = 'Contact Us Bottom Block';
-  $settings->format = 'full_html';
+  $settings->format = 'panopoly_wysiwyg_text';
   $settings->machine_name = 'oc_block_contact_bottom';
   $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/phone.png" alt="" /><span style="font-size: x-large;"><span style="color: #4a7470;">123-456-7890</span></span><br /><a href="#">info@openchurchsite.com</a><br /><strong>OpenChurch</strong><br />1234 Belt Line Rd<br />Dallas, TX 75000</p>';
 
@@ -118,7 +118,7 @@ function openchurch_post_install(&$install_state) {
 
   $settings = new stdClass;
   $settings->info = 'Weekly Meeting Times Sidebar Block';
-  $settings->format = 'full_html';
+  $settings->format = 'panopoly_wysiwyg_text';
   $settings->machine_name = 'oc_block_times_sidebar';
   $settings->body = '<p><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br /><strong>Bible Classes</strong> - Sunday Events<br /><strong>LIFE Groups</strong> - Sunday Evenings<br /><strong>Wednesday Evening</strong> - 7 pm<br /><a href="/about/time-locations"><strong>View More Details</strong></a></p>';
 
@@ -194,77 +194,73 @@ function openchurch_post_install(&$install_state) {
 
   menu_save($menu);
 
-  // Exported menu link: main-menu:node/17
-//  $item = array(
-//    'menu_name' => 'main-menu',
-//    'link_path' => 'node/17',
-//    'router_path' => 'node/%',
-//    'link_title' => 'About',
-//    'module' => 'openchurch_defaults',
-//    'hidden' => '0',
-//    'external' => '0',
-//    'has_children' => '1',
-//    'expanded' => '0',
-//    'weight' => '-44',
-//    'customized' => 1,
-//  );
-//
-//  menu_link_save($item);
-//
-//  $about_mlid = $item['mlid'];
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/3',
+    'router_path' => 'node/%',
+    'link_title' => 'About',
+    'module' => 'openchurch_demo_content',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '1',
+    'expanded' => '0',
+    'weight' => '-44',
+    'customized' => 1,
+  );
 
-  // Exported menu link: main-menu:node/20
-//  $item = array(
-//    'menu_name' => 'main-menu',
-//    'link_path' => 'node/20',
-//    'router_path' => 'node/%',
-//    'link_title' => 'Serve',
-//    'module' => 'openchurch_defaults',
-//    'hidden' => '0',
-//    'external' => '0',
-//    'has_children' => '0',
-//    'expanded' => '0',
-//    'weight' => '-47',
-//    'customized' => 1,
-//  );
-//
-//  menu_link_save($item);
+  menu_link_save($item);
 
-  // Exported menu link: main-menu:node/19
-//  $item = array(
-//    'menu_name' => 'main-menu',
-//    'link_path' => 'node/19',
-//    'router_path' => 'node/%',
-//    'link_title' => 'Time & Locations',
-//    'module' => 'openchurch_defaults',
-//    'hidden' => '0',
-//    'external' => '0',
-//    'has_children' => '0',
-//    'expanded' => '0',
-//    'weight' => '0',
-//    'plid' => $about_mlid,
-//    'customized' => 1,
-//  );
-//
-//  menu_link_save($item);
+  $about_mlid = $item['mlid'];
 
-  // Exported menu link: main-menu:node/21
-//  $item = array(
-//    'menu_name' => 'main-menu',
-//    'link_path' => 'node/21',
-//    'router_path' => 'node/%',
-//    'link_title' => 'Map and Directions',
-//    'module' => 'openchurch_defaults',
-//    'hidden' => '0',
-//    'external' => '0',
-//    'has_children' => '0',
-//    'expanded' => '0',
-//    'weight' => '0',
-//    'plid' => $about_mlid,
-//    'customized' => 1,
-//  );
-//
-//  menu_link_save($item);
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/25',
+    'router_path' => 'node/%',
+    'link_title' => 'Serve',
+    'module' => 'openchurch_demo_content',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-47',
+    'customized' => 1,
+  );
+
+  menu_link_save($item);
+
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/24',
+    'router_path' => 'node/%',
+    'link_title' => 'Time & Locations',
+    'module' => 'openchurch_demo_content',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'plid' => $about_mlid,
+    'customized' => 1,
+  );
+
+  menu_link_save($item);
+
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/21',
+    'router_path' => 'node/%',
+    'link_title' => 'Map and Directions',
+    'module' => 'openchurch_demo_content',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'plid' => $about_mlid,
+    'customized' => 1,
+  );
+
+  menu_link_save($item);
 
   $item = array(
     'link_title' => t('Home'),
@@ -272,7 +268,7 @@ function openchurch_post_install(&$install_state) {
     'menu_name' => 'main-menu',
     'weight' => -99,
     'customized' => 1,
-    'module'     => 'openchurch_defaults',
+    'module'     => 'openchurch_demo_content',
     'mlid'       => 0,
   );
   menu_link_save($item);
@@ -282,7 +278,7 @@ function openchurch_post_install(&$install_state) {
     'menu_name' => 'main-menu',
     'link_path' => 'multimedia/galleries',
     'link_title' => 'Media',
-    'module' => 'openchurch_defaults',
+    'module' => 'openchurch_demo_content',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '1',
@@ -294,14 +290,14 @@ function openchurch_post_install(&$install_state) {
 
   menu_link_save($item);
 
-//  $item = array(
-//    'link_title' => t('Image Acknowledgements'),
-//    'link_path' => 'node/18',
-//    'menu_name' => 'menu-secondary-links',
-//    'weight' => 0,
-//    'customized' => 1,
-//    'module'     => 'openchurch_defaults',
-//  );
-//
-//  menu_link_save($item);
+  $item = array(
+    'link_title' => t('Image Acknowledgements'),
+    'link_path' => 'node/20',
+    'menu_name' => 'menu-secondary-links',
+    'weight' => 0,
+    'customized' => 1,
+    'module'     => 'openchurch_demo_content',
+  );
+
+  menu_link_save($item);
 }
