@@ -38,13 +38,13 @@ function openchurch_events_update_7000(&$sandbox){
 }
 
 /**
- * Implementation of hook_install()
+ * Implements hook_install().
  */
 function openchurch_events_install(){
 }
 
 /**
- * Implementation of hook_uninstall()
+ * Implements hook_uninstall().
  */
 function openchurch_events_uninstall(){
 }

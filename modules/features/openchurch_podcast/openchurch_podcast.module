@@ -1,14 +1,53 @@
 <?php
 
+/**
+ * @file
+ */
+
 include_once('openchurch_podcast.features.inc');
 include_once('openchurch_podcast.install');
 
 /**
- * Implementation of hook_apps_app_info()
+ * Implements hook_apps_app_info().
  */
 function openchurch_podcast_apps_app_info() {
   return array(
     'demo content description' => 'This will populate the podcast page with a couple of sample podcasts for demonstration.',
     'demo content module' => 'openchurch_podcast_demo_content',
   );
+}
+
+/**
+ * Implements hook_enable().
+ */
+function openchurch_podcast_enable() {
+  _openchurch_podcast_add_block_info('openchurch_latest_podcast-block', 'views', '-98', 'sidebar_second');
+}
+
+/**
+ * Add block info including title and region
+ */
+function _openchurch_podcast_add_block_info($delta, $module='block', $weight = 0, $region = NULL){
+  foreach (array('openchurch_theme') as $theme){
+    $settings = new stdClass;
+    $settings->module = $module;
+    $settings->delta = $delta;
+    $settings->theme = $theme;
+    $settings->status = 1;
+    $settings->weight = $weight;
+    $settings->region = -1;
+    $settings->custom = 0;
+    $settings->visibility = 0;
+    $settings->pages = '';
+    $settings->title = '';
+    $settings->cache -1;
+
+    if ($region) {
+      $settings->region = $region;
+    }
+
+    $block = (array) $settings;
+
+    drupal_write_record('block', $block);
+  }
 }

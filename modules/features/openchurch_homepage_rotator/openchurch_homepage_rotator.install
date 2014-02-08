@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Implementation of hook_install()
+ * Implements hook_install().
  */
 function openchurch_homepage_rotator_install(){
   //assign frontpage to the homepage panel
@@ -9,7 +9,7 @@ function openchurch_homepage_rotator_install(){
 }
 
 /**
- * Implementation of hook_uninstall()
+ * Implements hook_uninstall().
  */
 function openchurch_homepage_rotator_uninstall(){
 }

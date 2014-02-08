@@ -16,20 +16,25 @@ function openchurch_install() {
   variable_set('node_admin_theme', '1');
 
   /**
-   * Enable openchurch theme as default
+   * Enable Openchurch theme as default
    */
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'responsive_bartik')
+    ->condition('name', 'openchurch_theme')
     ->execute();
 
-  variable_set('theme_default', 'responsive_bartik');
+  variable_set('theme_default', 'openchurch_theme');
 
   /**
-   * Set superfish style
+   * Set superfish styles
    */
   variable_set('superfish_style_1', 'none');
+  variable_set('superfish_arrow_1', '0');
+  variable_set('superfish_menu_1', 'main-menu:0');
+  variable_set('superfish_shadow_1', '0');
+  variable_set('superfish_slide_1', 'vertical');
+  variable_set('superfish_type_1', 'horizontal');
 
   // Add pathologic
   foreach (array('panopoly_wysiwyg_text', 'panopoly_html_text') as $format) {
@@ -53,14 +58,20 @@ function openchurch_install() {
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
 
+  //Save more info
+  _openchurch_add_block_info($block['bid'], 'Weekly Meeting Times', 'block', -99, 'triptych_middle');
+
   $settings = new stdClass;
   $settings->info = 'View Maps and Directions Sidebar Block';
-  $settings->format = 'filtered_html';
+  $settings->format = 'panopoly_wysiwyg_text';
   $settings->machine_name = 'oc_block_directions_sidebar';
   $settings->body = '<p><a href="/about/map-and-directions">View Maps and Directions</a></p>';
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
+
+  //Save more info
+  _openchurch_add_block_info($block['bid'], '', 'block', -96, 'sidebar_second');
 
   $settings = new stdClass;
   $settings->info = 'Location & Directions Bottom Block';
@@ -71,6 +82,9 @@ function openchurch_install() {
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
 
+  //Save more info
+  _openchurch_add_block_info($block['bid'], 'Location & Directions', 'block', 0, 'triptych_first');
+
   $settings = new stdClass;
   $settings->info = 'Contact Us Bottom Block';
   $settings->format = 'panopoly_wysiwyg_text';
@@ -80,6 +94,9 @@ function openchurch_install() {
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
 
+  //Save more info
+  _openchurch_add_block_info($block['bid'], 'Contact Us', 'block', 0, 'triptych_last');
+
   $settings = new stdClass;
   $settings->info = 'Weekly Meeting Times Sidebar Block';
   $settings->format = 'panopoly_wysiwyg_text';
@@ -88,6 +105,9 @@ function openchurch_install() {
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
+
+  //Save more info
+  _openchurch_add_block_info($block['bid'], 'Weekly Meeting Times', 'block', -99, 'sidebar_second');
 
   /**
    * Save staff type terms
@@ -254,6 +274,9 @@ function openchurch_install() {
 
   menu_link_save($item);
 
+  // Make other media links children of this one
+  db_query('UPDATE {menu_links} SET plid = :plid WHERE link_path LIKE :link_path AND mlid != :plid', array(':plid' => $item['mlid'], ':link_path' => 'media%'));
+
   $item = array(
     'link_title' => t('Image Acknowledgements'),
     'link_path' => 'node/20',
@@ -295,4 +318,36 @@ function openchurch_install_tasks_alter(&$tasks, $install_state) {
  * @param type $install_state
  */
 function openchurch_post_install(&$install_state) {
+  if (stristr(variable_get('site_name', ''), 'Site-Install')) {
+    variable_set('site_name', 'OpenChurch');
+  }
+}
+
+/**
+ * Add block info including title and region
+ */
+function _openchurch_add_block_info($bid, $title, $module='block', $weight = 0, $region = NULL) {
+
+  foreach (array('openchurch_theme') as $theme){
+    $settings = new stdClass;
+    $settings->module = $module;
+    $settings->delta = $bid;
+    $settings->theme = $theme;
+    $settings->status = 1;
+    $settings->weight = $weight;
+    $settings->region = -1;
+    $settings->custom = 0;
+    $settings->visibility = 0;
+    $settings->pages = '';
+    $settings->title = $title;
+    $settings->cache -1;
+
+    if ($region) {
+      $settings->region = $region;
+    }
+
+    $block = (array) $settings;
+
+    drupal_write_record('block', $block);
+  }
 }

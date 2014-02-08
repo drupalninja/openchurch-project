@@ -1,7 +1,43 @@
 <?php
+
 /**
  * @file
  * Code for the Openchurch Social feature.
  */
 
 include_once 'openchurch_social.features.inc';
+
+/**
+ * Implements hook_enable().
+ */
+function openchurch_social_enable() {
+  _openchurch_social_add_block_info('sharethis_block', 'sharethis', 99, 'sidebar_second');
+}
+
+/**
+ * Add block info including title and region
+ */
+function _openchurch_social_add_block_info($delta, $module='block', $weight = 0, $region = NULL){
+  foreach (array('openchurch_theme') as $theme){
+    $settings = new stdClass;
+    $settings->module = $module;
+    $settings->delta = $delta;
+    $settings->theme = $theme;
+    $settings->status = 1;
+    $settings->weight = $weight;
+    $settings->region = -1;
+    $settings->custom = 0;
+    $settings->visibility = 0;
+    $settings->pages = '';
+    $settings->title = '';
+    $settings->cache -1;
+
+    if ($region) {
+      $settings->region = $region;
+    }
+
+    $block = (array) $settings;
+
+    drupal_write_record('block', $block);
+  }
+}

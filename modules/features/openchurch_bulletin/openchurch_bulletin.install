@@ -1,13 +1,19 @@
 <?php
 
 /**
- * Implementation of hook_install()
+ * @file
  */
-function openchurch_bulletin_install(){
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_bulletin_install() {
+
 }
 
 /**
- * Implementation of hook_uninstall()
+ * Implements hook_uninstall().
  */
-function openchurch_bulletin_uninstall(){
+function openchurch_bulletin_uninstall() {
+
 }

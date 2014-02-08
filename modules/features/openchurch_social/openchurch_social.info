@@ -1,16 +1,12 @@
 name = Openchurch Social
-description = Adds social icons to the site which allows visitors to share content
+description = Adds social icons to the site which allows visitors to share content.
 core = 7.x
 package = Features
 version = 7.x-1.0-alpha1
 project = openchurch_social
-dependencies[] = context
 dependencies[] = ctools
 dependencies[] = sharethis
-dependencies[] = simplenews
 dependencies[] = strongarm
-features[context][] = openchurch-social
-features[ctools][] = context:context:3
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[variable][] = sharethis_button_option
