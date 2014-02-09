@@ -65,6 +65,7 @@ dependencies[] = context_ui
 dependencies[] = email
 dependencies[] = fe_nodequeue
 dependencies[] = filefield_sources
+dependencies[] = fitvids
 dependencies[] = fontyourface
 dependencies[] = fontyourface_ui
 dependencies[] = google_fonts_api

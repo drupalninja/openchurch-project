@@ -22,6 +22,8 @@ projects[features_extra][version] = 1.0-beta1
 projects[features_extra][subdir] = contrib
 projects[filefield_sources][version] = 1.9
 projects[filefield_sources][subdir] = contrib
+projects[fitvids][version] = 1.14
+projects[fitvids][subdir] = contrib
 projects[fontyourface][version] = 2.8
 projects[fontyourface][subdir] = contrib
 projects[menu_breadcrumb][version] = 1.5
@@ -40,7 +42,6 @@ projects[rss_field_formatters][version] = 1.2
 projects[rss_field_formatters][subdir] = contrib
 projects[rules][version] = 2.6
 projects[rules][subdir] = contrib
-;Fixes Save configuration bug
 projects[sharethis][version] = 2.5
 projects[sharethis][subdir] = contrib
 projects[simplenews][version] = 1.1
