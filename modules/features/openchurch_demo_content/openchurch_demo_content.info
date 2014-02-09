@@ -1,7 +1,7 @@
-name = Openchurch Demo Content
-description = Demo content for the Openchurch profile that doesn't belong to any one feature.
+name = OpenChurch Demo Content
+description = Demo content for the OpenChurch profile that doesn't belong to any one feature.
 core = 7.x
-package = Openchurch
+package = OpenChurch
 version = 7.x-1.11-beta3
 project = openchurch_demo_content
 dependencies[] = defaultcontent

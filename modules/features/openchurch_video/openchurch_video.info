@@ -1,4 +1,4 @@
-name = Openchurch Video
+name = OpenChurch Video
 description = Adds 3rd party video content type and video page.
 core = 7.x
 package = Features

@@ -42,14 +42,15 @@ function openchurch_gallery_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'body',
-    'label' => 'Body',
-    'required' => FALSE,
+    'label' => 'Description',
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
+      'display_summary' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
@@ -396,8 +397,8 @@ function openchurch_gallery_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Album Cover');
-  t('Body');
   t('Date');
+  t('Description');
   t('Gallery Images');
   t('Location');
   t('Ministry');

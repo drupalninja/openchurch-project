@@ -1,4 +1,4 @@
-name = Openchurch Staff
+name = OpenChurch Staff
 description = A staff member is someone that works in the church, including both administrative and church leadership.
 core = 7.x
 package = Features

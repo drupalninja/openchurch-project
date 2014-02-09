@@ -1,4 +1,4 @@
-name = Openchurch Podcast
+name = OpenChurch Podcast
 description = Podcasts can be sermons, lectures or other church-related audio files.
 core = 7.x
 package = Features
@@ -12,6 +12,7 @@ dependencies[] = features
 dependencies[] = file
 dependencies[] = menu
 dependencies[] = openchurch_gallery
+dependencies[] = panels
 dependencies[] = panopoly_pages
 dependencies[] = rss_creator
 dependencies[] = rss_date

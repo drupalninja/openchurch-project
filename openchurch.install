@@ -16,7 +16,7 @@ function openchurch_install() {
   variable_set('node_admin_theme', '1');
 
   /**
-   * Enable Openchurch theme as default
+   * Enable OpenChurch theme as default
    */
   db_update('system')
     ->fields(array('status' => 1))
@@ -25,6 +25,26 @@ function openchurch_install() {
     ->execute();
 
   variable_set('theme_default', 'openchurch_theme');
+
+  // Add pathologic
+  foreach (array('panopoly_wysiwyg_text', 'panopoly_html_text') as $format) {
+    db_query("REPLACE INTO {filter} VALUES (:format, :module, :name, 99, 1, NULL)", array(
+      ':format' => $format,
+      ':module' => 'pathologic',
+      ':name' => 'pathologic'
+    ));
+  }
+
+  /**
+   * Update wysiwyg settings
+   */
+
+  db_update('wysiwyg')
+  ->fields(array(
+    'settings' => 'a:20:{s:7:"default";i:1;s:11:"user_choose";i:0;s:11:"show_toggle";i:0;s:5:"theme";s:8:"advanced";s:8:"language";s:2:"en";s:7:"buttons";a:9:{s:7:"default";a:20:{s:4:"bold";i:1;s:6:"italic";i:1;s:9:"underline";i:1;s:13:"strikethrough";i:1;s:11:"justifyleft";i:1;s:13:"justifycenter";i:1;s:12:"justifyright";i:1;s:11:"justifyfull";i:1;s:7:"bullist";i:1;s:7:"numlist";i:1;s:7:"outdent";i:1;s:6:"indent";i:1;s:4:"undo";i:1;s:4:"redo";i:1;s:6:"unlink";i:1;s:12:"formatselect";i:1;s:9:"forecolor";i:1;s:10:"blockquote";i:1;s:12:"removeformat";i:1;s:7:"charmap";i:1;}s:10:"fullscreen";a:1:{s:10:"fullscreen";i:1;}s:5:"paste";a:2:{s:9:"pastetext";i:1;s:9:"pasteword";i:1;}s:6:"linkit";a:1:{s:6:"linkit";i:1;}s:3:"pdw";a:1:{s:10:"pdw_toggle";i:1;}s:12:"spellchecker";a:1:{s:12:"spellchecker";i:1;}s:6:"iframe";a:1:{s:6:"iframe";i:1;}s:13:"captionfilter";a:1:{s:13:"captionfilter";i:1;}s:6:"drupal";a:2:{s:5:"media";i:1;s:5:"break";i:1;}}s:11:"toolbar_loc";s:3:"top";s:13:"toolbar_align";s:4:"left";s:8:"path_loc";s:6:"bottom";s:8:"resizing";i:1;s:11:"verify_html";i:1;s:12:"preformatted";i:0;s:22:"convert_fonts_to_spans";i:1;s:17:"remove_linebreaks";i:1;s:23:"apply_source_formatting";i:0;s:27:"paste_auto_cleanup_on_paste";i:1;s:13:"block_formats";s:17:"h1,h2,h3,h4,h5,h6";s:11:"css_setting";s:5:"theme";s:8:"css_path";s:0:"";s:11:"css_classes";s:0:"";}',
+  ))
+  ->condition('format', 'panopoly_wysiwyg_text', '=')
+  ->execute();
 
   /**
    * Set superfish styles
@@ -36,14 +56,7 @@ function openchurch_install() {
   variable_set('superfish_slide_1', 'vertical');
   variable_set('superfish_type_1', 'horizontal');
 
-  // Add pathologic
-  foreach (array('panopoly_wysiwyg_text', 'panopoly_html_text') as $format) {
-    db_query("REPLACE INTO {filter} VALUES (:format, :module, :name, 99, 1, NULL)", array(
-      ':format' => $format,
-      ':module' => 'pathologic',
-      ':name' => 'pathologic'
-    ));
-  }
+  _openchurch_add_block_info(1, '', 'superfish', 0, 'header');
 
   /**
    * Create custom blocks for this site
@@ -287,6 +300,82 @@ function openchurch_install() {
   );
 
   menu_link_save($item);
+
+  // Override Page Panelizer settings
+
+  $settings = new stdClass;
+  $settings->layout = 'boxton';
+  $settings->panel_settings = 'a:1:{s:14:"style_settings";a:5:{s:7:"default";N;s:7:"column1";N;s:7:"column2";N;s:7:"sidebar";N;s:11:"contentmain";N;}}';
+  $settings->cache = 'a:0:{}';
+  $settings->title = '%node:title';
+  $settings->hide_title = 0;
+  $settings->title_pane = 12;
+
+  $display = (array) $settings;
+
+  drupal_write_record('panels_display', $display);
+
+  $settings = new stdClass;
+  $settings->pnid = 1;
+  $settings->name = 'node:panopoly_page:default';
+  $settings->title = 'Default';
+  $settings->panelizer_type = 'node';
+  $settings->panelizer_key = 'panopoly_page';
+  $settings->no_blocks = 0;
+  $settings->css_id = 'page-page';
+  $settings->css = '';
+  $settings->pipeline = 'ipe';
+  $settings->contexts = 'a:0:{}';
+  $settings->relationships = 'a:0:{}';
+  $settings->did = $display['did'];
+  $settings->access = 's:0:"";';
+  $settings->view_mode = 'page_manager';
+  $settings->css_class = '';
+  $settings->title_element = 'H2';
+  $settings->link_to_entity = 1;
+  $settings->extra = 's:0:"";';
+
+  $defaults = (array) $settings;
+
+  drupal_write_record('panelizer_defaults', $defaults);
+
+  $settings = new stdClass;
+  $settings->did = $display['did'];
+  $settings->panel = 'contentmain';
+  $settings->type = 'entity_field';
+  $settings->subtype = 'node:field_featured_image';
+  $settings->shown = 1;
+  $settings->access = 'a:0:{}';
+  $settings->configuration = 'a:9:{s:5:"label";s:6:"hidden";s:9:"formatter";s:5:"image";s:11:"delta_limit";i:0;s:12:"delta_offset";s:1:"0";s:14:"delta_reversed";b:0;s:18:"formatter_settings";a:2:{s:10:"image_link";s:7:"content";s:11:"image_style";s:19:"panopoly_image_half";}s:7:"context";s:9:"panelizer";s:14:"override_title";i:0;s:19:"override_title_text";s:0:"";}';
+  $settings->cache = 'a:0:{}';
+  $settings->style = 'a:1:{s:8:"settings";N;}';
+  $settings->css = 'a:0:{}';
+  $settings->extras = 'a:0:{}';
+  $settings->position = 0;
+  $settings->locks = 'a:0:{}';
+
+  $pane = (array) $settings;
+
+  drupal_write_record('panels_pane', $pane);
+
+  $settings = new stdClass;
+  $settings->did = $display['did'];
+  $settings->panel = 'contentmain';
+  $settings->type = 'entity_field';
+  $settings->subtype = 'node:body';
+  $settings->shown = 1;
+  $settings->access = 'a:0:{}';
+  $settings->configuration = 'a:9:{s:5:"label";s:6:"hidden";s:9:"formatter";s:12:"text_default";s:11:"delta_limit";i:0;s:12:"delta_offset";s:1:"0";s:14:"delta_reversed";b:0;s:18:"formatter_settings";a:1:{s:11:"trim_length";s:3:"250";}s:7:"context";s:9:"panelizer";s:14:"override_title";i:0;s:19:"override_title_text";s:0:"";}';
+  $settings->cache = 'a:0:{}';
+  $settings->style = 'a:1:{s:8:"settings";N;}';
+  $settings->css = 'a:0:{}';
+  $settings->extras = 'a:0:{}';
+  $settings->position = 1;
+  $settings->locks = 'a:0:{}';
+
+  $pane = (array) $settings;
+
+  drupal_write_record('panels_pane', $pane);
 }
 
 /**
@@ -326,12 +415,12 @@ function openchurch_post_install(&$install_state) {
 /**
  * Add block info including title and region
  */
-function _openchurch_add_block_info($bid, $title, $module='block', $weight = 0, $region = NULL) {
+function _openchurch_add_block_info($delta, $title, $module='block', $weight = 0, $region = NULL) {
 
   foreach (array('openchurch_theme') as $theme){
     $settings = new stdClass;
     $settings->module = $module;
-    $settings->delta = $bid;
+    $settings->delta = $delta;
     $settings->theme = $theme;
     $settings->status = 1;
     $settings->weight = $weight;

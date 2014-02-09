@@ -4,17 +4,17 @@ include_once('openchurch_homepage_rotator.features.inc');
 include_once('openchurch_homepage_rotator.install');
 
 /**
- * Implementation of hook_preprocess_page()
+ * Implements hook_init().
  */
-function openchurch_homepage_rotator_preprocess_page($vars){
-
-  //We are going to hide the title on the homepage
-  if (drupal_is_front_page())
-    unset($vars['title']);
+function openchurch_homepage_rotator_init() {
+  // Add Slideshow fix
+  if (drupal_is_front_page()) {
+    drupal_add_js(drupal_get_path('module', 'openchurch_homepage_rotator').'/openchurch_homepage_rotator.js');
+  }
 }
 
 /**
- * Implementation of hook_apps_app_info()
+ * Implements hook_apps_app_info().
  */
 function openchurch_homepage_rotator_apps_app_info() {
   return array(

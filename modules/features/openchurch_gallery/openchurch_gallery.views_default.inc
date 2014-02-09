@@ -33,7 +33,16 @@ function openchurch_gallery_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_plugin'] = 'panels_fields';
+  $handler->display->display_options['row_options']['layout'] = 'bryant';
+  $handler->display->display_options['row_options']['regions'] = array(
+    'title' => 'contentmain',
+    'field_oc_thumb' => 'sidebar',
+    'field_oc_date' => 'contentmain',
+    'field_oc_location' => 'contentmain',
+    'body' => 'contentmain',
+    'nid' => 'contentmain',
+  );
   /* Relationship: Content: Ministry (field_oc_ministry) */
   $handler->display->display_options['relationships']['field_oc_ministry_nid']['id'] = 'field_oc_ministry_nid';
   $handler->display->display_options['relationships']['field_oc_ministry_nid']['table'] = 'field_data_field_oc_ministry';
@@ -48,7 +57,7 @@ function openchurch_gallery_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Album Cover */
+  /* Field: Content: Thumb */
   $handler->display->display_options['fields']['field_oc_thumb']['id'] = 'field_oc_thumb';
   $handler->display->display_options['fields']['field_oc_thumb']['table'] = 'field_data_field_oc_thumb';
   $handler->display->display_options['fields']['field_oc_thumb']['field'] = 'field_oc_thumb';
@@ -188,143 +197,6 @@ function openchurch_gallery_views_default_views() {
     'openchurch_ministry' => 'openchurch_ministry',
   );
   $export['openchurch_galleries'] = $view;
-
-  $view = new view();
-  $view->name = 'openchurch_gallery_photos';
-  $view->description = '';
-  $view->tag = 'default';
-  $view->base_table = 'node';
-  $view->human_name = 'Openchurch Gallery Photos';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['css_class'] = 'openchurch-gallery-photos';
-  $handler->display->display_options['use_ajax'] = TRUE;
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '28';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['style_plugin'] = 'grid';
-  $handler->display->display_options['style_options']['columns'] = '7';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: Gallery Images */
-  $handler->display->display_options['fields']['field_oc_images']['id'] = 'field_oc_images';
-  $handler->display->display_options['fields']['field_oc_images']['table'] = 'field_data_field_oc_images';
-  $handler->display->display_options['fields']['field_oc_images']['field'] = 'field_oc_images';
-  $handler->display->display_options['fields']['field_oc_images']['label'] = '';
-  $handler->display->display_options['fields']['field_oc_images']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_images']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_oc_images']['type'] = 'lightbox2__lightbox__oc_thumb__original';
-  $handler->display->display_options['fields']['field_oc_images']['settings'] = array(
-    'image_style' => '',
-    'image_link' => '',
-  );
-  $handler->display->display_options['fields']['field_oc_images']['group_rows'] = FALSE;
-  $handler->display->display_options['fields']['field_oc_images']['delta_offset'] = '0';
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Nid */
-  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['table'] = 'node';
-  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
-  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'openchurch_gallery' => 'openchurch_gallery',
-  );
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '1';
-  $handler->display->display_options['filters']['status']['group'] = 0;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'openchurch_gallery' => 'openchurch_gallery',
-  );
-
-  /* Display: Gallery Photos List Block */
-  $handler = $view->new_display('block', 'Gallery Photos List Block', 'block');
-
-  /* Display: Gallery Photos Info Attachment */
-  $handler = $view->new_display('attachment', 'Gallery Photos Info Attachment', 'attachment_1');
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'field_oc_date' => 'field_oc_date',
-  );
-  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<?php
-l(\'&laquo; back to galleries\', \'media/galleries\', array(\'attributes\' => array(\'class\' => \'back-to-galleries\'), \'html\' => TRUE));
-?>';
-  $handler->display->display_options['header']['area']['format'] = 'php_code';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Date */
-  $handler->display->display_options['fields']['field_oc_date']['id'] = 'field_oc_date';
-  $handler->display->display_options['fields']['field_oc_date']['table'] = 'field_data_field_oc_date';
-  $handler->display->display_options['fields']['field_oc_date']['field'] = 'field_oc_date';
-  $handler->display->display_options['fields']['field_oc_date']['settings'] = array(
-    'format_type' => 'short',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'show',
-  );
-  /* Field: Content: Location */
-  $handler->display->display_options['fields']['field_oc_location']['id'] = 'field_oc_location';
-  $handler->display->display_options['fields']['field_oc_location']['table'] = 'field_data_field_oc_location';
-  $handler->display->display_options['fields']['field_oc_location']['field'] = 'field_oc_location';
-  $handler->display->display_options['fields']['field_oc_location']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_oc_location']['settings'] = array(
-    'use_widget_handlers' => 1,
-    'format_handlers' => array(
-      'address' => 'address',
-    ),
-  );
-  /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['label'] = 'Description';
-  $handler->display->display_options['displays'] = array(
-    'block' => 'block',
-    'default' => 0,
-  );
-  $export['openchurch_gallery_photos'] = $view;
 
   return $export;
 }

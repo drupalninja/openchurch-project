@@ -15,7 +15,7 @@ function openchurch_podcast_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Latest Podcast';
+  $view->human_name = 'OpenChurch Latest Podcast';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -95,7 +95,7 @@ function openchurch_podcast_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Podcasts';
+  $view->human_name = 'OpenChurch Podcasts';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -113,7 +113,15 @@ function openchurch_podcast_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '25';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_plugin'] = 'panels_fields';
+  $handler->display->display_options['row_options']['layout'] = 'bryant';
+  $handler->display->display_options['row_options']['regions'] = array(
+    'field_oc_date' => 'sidebar',
+    'title' => 'contentmain',
+    'field_oc_author' => 'contentmain',
+    'body' => 'contentmain',
+    'field_oc_audio' => 'contentmain',
+  );
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';

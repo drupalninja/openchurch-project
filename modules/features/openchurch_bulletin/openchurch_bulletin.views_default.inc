@@ -12,10 +12,10 @@ function openchurch_bulletin_views_default_views() {
 
   $view = new view();
   $view->name = 'openchurch_bulletins';
-  $view->description = 'Openchurch digital bulletin download list';
+  $view->description = 'OpenChurch digital bulletin download list';
   $view->tag = '';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Bulletins';
+  $view->human_name = 'OpenChurch Bulletins';
   $view->core = 0;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -120,7 +120,7 @@ function openchurch_bulletin_views_default_views() {
   $view->description = 'Links to the latest digital church bulletin.';
   $view->tag = '';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Latest Bulletin';
+  $view->human_name = 'OpenChurch Latest Bulletin';
   $view->core = 0;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */

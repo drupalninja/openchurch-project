@@ -54,6 +54,10 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
       'bottom' => NULL,
       'center' => NULL,
       'center_' => NULL,
+      'header' => NULL,
+      'column1' => NULL,
+      'column2' => NULL,
+      'column3' => NULL,
     ),
   );
   $display->cache = array();
@@ -75,7 +79,9 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
       'substitute' => TRUE,
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
@@ -97,7 +103,9 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
       'substitute' => TRUE,
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
@@ -119,7 +127,9 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
       'substitute' => TRUE,
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
@@ -147,7 +157,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     $pane->locks = '';
     $display->content['new-4'] = $pane;
     $display->panels['header'][0] = 'new-4';
-  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;

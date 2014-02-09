@@ -66,13 +66,13 @@ From OpenChurch 7.x-1.9-beta2:
 3b. If you have not modified any views, etc. then only the Staff module should display as overridden
     (it technically is not overridden, the Feature's module erroneously displays it as overridden). You will want to review
     overrides one by one and decide whether or not you want to keep the change you have made.
-3c. There are 2 new features available to enable: Openchurch Social and Openchurch Video. You can enable them here, from the modules
+3c. There are 2 new features available to enable: OpenChurch Social and OpenChurch Video. You can enable them here, from the modules
     page, or from the apps page at /admin/apps. If you get a message about 'orphaned dependencies', choose 'Leave enabled'. The
-    Openchurch Video feature also has a companion 'Openchurch Video Demo Content' feature that you will want to enable if you are
+    OpenChurch Video feature also has a companion 'OpenChurch Video Demo Content' feature that you will want to enable if you are
     testing this feature on a test environment.
-4. If you enable Openchurch Video a new menu item will be added for you underneath the Media (if you have modified your menus you might
+4. If you enable OpenChurch Video a new menu item will be added for you underneath the Media (if you have modified your menus you might
    need to add this link yoursel). The path is /multimedia/video.
-5. If you enable Openchurch Social, you will see new social icons in the right sidebar which allow users to share pages from your site.
+5. If you enable OpenChurch Social, you will see new social icons in the right sidebar which allow users to share pages from your site.
 
 From versions earlier than 7.x-1.9-beta2:
 

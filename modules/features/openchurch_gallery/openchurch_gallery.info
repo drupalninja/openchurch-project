@@ -1,4 +1,4 @@
-name = Openchurch Gallery
+name = OpenChurch Gallery
 description = Galleries are collections of images with descriptions.
 core = 7.x
 package = Features
@@ -51,4 +51,3 @@ features[variable][] = node_options_openchurch_gallery
 features[variable][] = node_preview_openchurch_gallery
 features[variable][] = node_submitted_openchurch_gallery
 features[views_view][] = openchurch_galleries
-features[views_view][] = openchurch_gallery_photos

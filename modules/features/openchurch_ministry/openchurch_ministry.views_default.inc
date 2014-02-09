@@ -15,7 +15,7 @@ function openchurch_ministry_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Ministries';
+  $view->human_name = 'OpenChurch Ministries';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -139,14 +139,14 @@ function openchurch_ministry_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Ministry Contacts';
+  $view->human_name = 'OpenChurch Ministry Contacts';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Openchurch Ministry Contacts';
+  $handler->display->display_options['title'] = 'OpenChurch Ministry Contacts';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';

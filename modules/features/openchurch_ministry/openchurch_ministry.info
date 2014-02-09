@@ -1,4 +1,4 @@
-name = Openchurch Ministry
+name = OpenChurch Ministry
 description = Ministry pages describe various church ministries that members want to know more about.
 core = 7.x
 package = Features

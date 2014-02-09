@@ -1,4 +1,4 @@
-name = Openchurch Image
+name = OpenChurch Image
 description = Images are used when only a single image is needed and can be embedded within the sidebar or content area.
 core = 7.x
 package = Features

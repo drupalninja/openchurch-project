@@ -15,7 +15,7 @@ function openchurch_events_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Event Dates';
+  $view->human_name = 'OpenChurch Event Dates';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -77,8 +77,8 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
 
-  /* Display: Openchurch Event Dates Block */
-  $handler = $view->new_display('block', 'Openchurch Event Dates Block', 'block_1');
+  /* Display: OpenChurch Event Dates Block */
+  $handler = $view->new_display('block', 'OpenChurch Event Dates Block', 'block_1');
   $export['openchurch_event_dates'] = $view;
 
   $view = new view();
@@ -86,7 +86,7 @@ function openchurch_events_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Event Thumb';
+  $view->human_name = 'OpenChurch Event Thumb';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -167,7 +167,7 @@ function openchurch_events_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Events';
+  $view->human_name = 'OpenChurch Events';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -353,7 +353,7 @@ function openchurch_events_views_default_views() {
   $view->description = '';
   $view->tag = 'Calendar';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Events Calendar';
+  $view->human_name = 'OpenChurch Events Calendar';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -630,7 +630,7 @@ function openchurch_events_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Upcoming Events';
+  $view->human_name = 'OpenChurch Upcoming Events';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */

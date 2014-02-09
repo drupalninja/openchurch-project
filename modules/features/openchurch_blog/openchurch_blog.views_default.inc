@@ -15,7 +15,7 @@ function openchurch_blog_views_default_views() {
   $view->description = 'Blog archive list';
   $view->tag = '';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Blog Archives';
+  $view->human_name = 'OpenChurch Blog Archives';
   $view->core = 0;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */

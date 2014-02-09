@@ -1,4 +1,4 @@
-name = Openchurch Blog
+name = OpenChurch Blog
 description = Simple church blog content type and list
 core = 7.x
 package = Features

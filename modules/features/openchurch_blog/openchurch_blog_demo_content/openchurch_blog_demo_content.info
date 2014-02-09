@@ -1,8 +1,8 @@
-name = "Openchurch Blog Demo Content"
-description = "Sample blogs for the Openchurch Blog app."
+name = "OpenChurch Blog Demo Content"
+description = "Sample blogs for the OpenChurch Blog app."
 core = "7.x"
 ;We don't need this on the features page
-package = "Openchurch"
+package = "OpenChurch"
 php = "5.2.4"
 version = "7.x-1.0-alpha1"
 project = "openchurch_blog_demo_content"

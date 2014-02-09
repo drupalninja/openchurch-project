@@ -117,6 +117,7 @@ dependencies[] = openchurch_staff_demo_content
 dependencies[] = openchurch_video
 dependencies[] = openchurch_video_demo_content
 dependencies[] = openchurch_demo_content
+dependencies[] = wysiwyg_iframe
 
 files[] = openchurch.profile
 files[] = openchurch.install

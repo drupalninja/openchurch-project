@@ -1,4 +1,4 @@
-name = Openchurch Social
+name = OpenChurch Social
 description = Adds social icons to the site which allows visitors to share content.
 core = 7.x
 package = Features

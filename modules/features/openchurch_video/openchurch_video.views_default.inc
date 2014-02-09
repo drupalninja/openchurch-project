@@ -15,7 +15,7 @@ function openchurch_video_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Openchurch Video';
+  $view->human_name = 'OpenChurch Video';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -114,8 +114,8 @@ function openchurch_video_views_default_views() {
     'openchurch_video' => 'openchurch_video',
   );
 
-  /* Display: Openchurch Video Page */
-  $handler = $view->new_display('page', 'Openchurch Video Page', 'page');
+  /* Display: OpenChurch Video Page */
+  $handler = $view->new_display('page', 'OpenChurch Video Page', 'page');
   $handler->display->display_options['path'] = 'media/video';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Video Gallery';
@@ -124,8 +124,8 @@ function openchurch_video_views_default_views() {
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
 
-  /* Display: Openchurch Video Attachment */
-  $handler = $view->new_display('attachment', 'Openchurch Video Attachment', 'attachment_1');
+  /* Display: OpenChurch Video Attachment */
+  $handler = $view->new_display('attachment', 'OpenChurch Video Attachment', 'attachment_1');
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['pager']['options']['offset'] = '0';

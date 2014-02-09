@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the Openchurch Simplenews feature.
+ * Code for the OpenChurch Simplenews feature.
  */
 
 include_once 'openchurch_simplenews.features.inc';

@@ -1,4 +1,4 @@
-name = Openchurch Simplenews
+name = OpenChurch Simplenews
 description = Simplenews newsletter starter kit with signup block
 core = 7.x
 package = Features

@@ -1,4 +1,4 @@
-name = Openchurch Homepage Rotator
+name = OpenChurch Homepage Rotator
 description = Homepage promotional rotator
 core = 7.x
 package = Features

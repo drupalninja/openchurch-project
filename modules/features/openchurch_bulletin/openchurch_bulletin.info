@@ -1,4 +1,4 @@
-name = Openchurch Bulletin
+name = OpenChurch Bulletin
 description = Electronic bulletin for viewing and download.
 core = 7.x
 package = Features

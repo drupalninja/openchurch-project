@@ -1,4 +1,4 @@
-name = Openchurch Events
+name = OpenChurch Events
 description = Events can be church activities, special meetings, etc.
 core = 7.x
 package = Features

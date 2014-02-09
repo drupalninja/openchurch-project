@@ -1,4 +1,4 @@
-name = Openchurch Giving
+name = OpenChurch Giving
 description = Charities and online giving information
 core = 7.x
 package = Features

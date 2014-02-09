@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Code for the Openchurch Social feature.
+ * Code for the OpenChurch Social feature.
  */
 
 include_once 'openchurch_social.features.inc';
