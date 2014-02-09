@@ -186,7 +186,7 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'panels_fields';
-  $handler->display->display_options['row_options']['layout'] = 'burr';
+  $handler->display->display_options['row_options']['layout'] = 'bryant';
   $handler->display->display_options['row_options']['regions'] = array(
     'field_oc_dates' => 'sidebar',
     'title' => 'contentmain',

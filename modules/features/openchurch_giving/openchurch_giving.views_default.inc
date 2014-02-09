@@ -33,7 +33,14 @@ function openchurch_giving_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_plugin'] = 'panels_fields';
+  $handler->display->display_options['row_options']['layout'] = 'bryant';
+  $handler->display->display_options['row_options']['regions'] = array(
+    'field_oc_image' => 'sidebar',
+    'title_1' => 'contentmain',
+    'body' => 'contentmain',
+    'view_node' => 'contentmain',
+  );
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
@@ -110,7 +117,7 @@ function openchurch_giving_views_default_views() {
   $handler = $view->new_display('page', 'Giving Page', 'page_1');
   $handler->display->display_options['path'] = 'give';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Faithful Giving';
+  $handler->display->display_options['menu']['title'] = 'Give';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;

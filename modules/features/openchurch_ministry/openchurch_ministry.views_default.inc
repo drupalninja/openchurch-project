@@ -32,7 +32,15 @@ function openchurch_ministry_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_plugin'] = 'panels_fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['layout'] = 'bryant';
+  $handler->display->display_options['row_options']['regions'] = array(
+    'field_oc_thumb' => 'sidebar',
+    'title' => 'contentmain',
+    'body' => 'contentmain',
+    'nid' => 'contentmain',
+  );
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
@@ -43,7 +51,7 @@ function openchurch_ministry_views_default_views() {
 <p>Open Church is a platform to help you spread the word about your ministries and the ongoing efforts to make a difference. &nbsp;We would use this area to tell others about the overall mission of your church and how and where your ministries are headed. &nbsp;</p>
 <p>Spread the word through the use of the internet where you can keep everyone informed of all the activities, needs, and events. &nbsp;Now with open church you don\'t have to have a full time web staff to spread the word, you can start for free, and the add features as you grow. &nbsp;If your church grows to a point you want more customization or features we\'re here to help either directly or by connecting you with one of our approved partners.</p>';
   $handler->display->display_options['header']['area']['format'] = 'panopoly_wysiwyg_text';
-  /* Field: Content: Album Cover */
+  /* Field: Content: Thumb */
   $handler->display->display_options['fields']['field_oc_thumb']['id'] = 'field_oc_thumb';
   $handler->display->display_options['fields']['field_oc_thumb']['table'] = 'field_data_field_oc_thumb';
   $handler->display->display_options['fields']['field_oc_thumb']['field'] = 'field_oc_thumb';
@@ -52,7 +60,7 @@ function openchurch_ministry_views_default_views() {
   $handler->display->display_options['fields']['field_oc_thumb']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_oc_thumb']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_oc_thumb']['settings'] = array(
-    'image_style' => 'oc_thumb',
+    'image_style' => 'media_thumbnail',
     'image_link' => 'content',
   );
   /* Field: Content: Title */

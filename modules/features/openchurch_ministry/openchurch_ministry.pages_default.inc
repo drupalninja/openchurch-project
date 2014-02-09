@@ -43,7 +43,7 @@ function openchurch_ministry_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'flexible';
+  $display->layout = 'moscone_flipped';
   $display->layout_settings = array(
     'items' => array(
       'canvas' => array(
@@ -160,38 +160,7 @@ function openchurch_ministry_default_page_manager_handlers() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-1';
-    $pane->panel = 'center';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_oc_image';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'title',
-      'formatter' => 'image',
-      'formatter_settings' => array(
-        'image_style' => '',
-        'image_link' => '',
-      ),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'ministry-image',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['center'][0] = 'new-1';
-    $pane = new stdClass();
-    $pane->pid = 'new-2';
-    $pane->panel = 'ministry_detail';
+    $pane->panel = 'contentmain';
     $pane->type = 'node_body';
     $pane->subtype = 'node_body';
     $pane->shown = TRUE;
@@ -209,35 +178,11 @@ function openchurch_ministry_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = '';
-    $display->content['new-2'] = $pane;
-    $display->panels['ministry_detail'][0] = 'new-2';
+    $display->content['new-1'] = $pane;
+    $display->panels['contentmain'][0] = 'new-1';
     $pane = new stdClass();
-    $pane->pid = 'new-3';
-    $pane->panel = 'ministry_highlights';
-    $pane->type = 'block';
-    $pane->subtype = 'views-6110b1540457b11a522ded118d35c6cc';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'ministry-contacts',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $display->content['new-3'] = $pane;
-    $display->panels['ministry_highlights'][0] = 'new-3';
-    $pane = new stdClass();
-    $pane->pid = 'new-4';
-    $pane->panel = 'recent_photos';
+    $pane->pid = 'new-2';
+    $pane->panel = 'footer';
     $pane->type = 'block';
     $pane->subtype = 'views-openchurch_galleries-block';
     $pane->shown = TRUE;
@@ -257,11 +202,66 @@ function openchurch_ministry_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
+    $display->content['new-2'] = $pane;
+    $display->panels['footer'][0] = 'new-2';
+    $pane = new stdClass();
+    $pane->pid = 'new-3';
+    $pane->panel = 'header';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_image';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'image',
+      'formatter_settings' => array(
+        'image_style' => 'oc_event_header',
+        'image_link' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'ministry-image',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-3'] = $pane;
+    $display->panels['header'][0] = 'new-3';
+    $pane = new stdClass();
+    $pane->pid = 'new-4';
+    $pane->panel = 'header';
+    $pane->type = 'block';
+    $pane->subtype = 'views-6110b1540457b11a522ded118d35c6cc';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'ministry-contacts',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
     $display->content['new-4'] = $pane;
-    $display->panels['recent_photos'][0] = 'new-4';
+    $display->panels['header'][1] = 'new-4';
     $pane = new stdClass();
     $pane->pid = 'new-5';
-    $pane->panel = 'upcoming_events';
+    $pane->panel = 'sidebar';
     $pane->type = 'block';
     $pane->subtype = 'views-274ee450b0319c4f71c4ba154ad04b92';
     $pane->shown = TRUE;
@@ -282,10 +282,10 @@ function openchurch_ministry_default_page_manager_handlers() {
     $pane->position = 0;
     $pane->locks = array();
     $display->content['new-5'] = $pane;
-    $display->panels['upcoming_events'][0] = 'new-5';
+    $display->panels['sidebar'][0] = 'new-5';
     $pane = new stdClass();
     $pane->pid = 'new-6';
-    $pane->panel = 'upcoming_events';
+    $pane->panel = 'sidebar';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -306,10 +306,8 @@ return count($results) ? TRUE : FALSE;',
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<?php
-print l(\'Online Event Registration\',\'events\', array(\'query\' => array(\'oc_ministry_nid\' => arg(1))));
-?>',
-      'format' => 'php_code',
+      'body' => '<p><a href="/events?oc_ministry_nid=%node:nid">Online Event Registration</a></p><p></p>',
+      'format' => 'panopoly_wysiwyg_text',
       'substitute' => 1,
     );
     $pane->cache = array();
@@ -325,7 +323,33 @@ print l(\'Online Event Registration\',\'events\', array(\'query\' => array(\'oc_
     $pane->position = 1;
     $pane->locks = '';
     $display->content['new-6'] = $pane;
-    $display->panels['upcoming_events'][1] = 'new-6';
+    $display->panels['sidebar'][1] = 'new-6';
+    $pane = new stdClass();
+    $pane->pid = 'new-7';
+    $pane->panel = 'sidebar';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_oc_downloads';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'file_default',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(),
+      'context' => array(),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $display->content['new-7'] = $pane;
+    $display->panels['sidebar'][2] = 'new-7';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
