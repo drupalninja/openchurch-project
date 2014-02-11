@@ -35,12 +35,16 @@ function openchurch_staff_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = 'field_oc_staff_type';
   $handler->display->display_options['style_options']['row_class'] = 'staff-type';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'title' => 'title',
-    'field_oc_position' => 'field_oc_position',
-    'field_oc_email' => 'field_oc_email',
-    'field_oc_phone' => 'field_oc_phone',
+  $handler->display->display_options['row_plugin'] = 'panels_fields';
+  $handler->display->display_options['row_options']['layout'] = 'bryant';
+  $handler->display->display_options['row_options']['regions'] = array(
+    'field_oc_staff_type' => 'contentmain',
+    'field_oc_image' => 'sidebar',
+    'title' => 'contentmain',
+    'field_oc_position' => 'contentmain',
+    'field_oc_email' => 'contentmain',
+    'field_oc_phone' => 'contentmain',
+    'body' => 'contentmain',
   );
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
@@ -71,6 +75,7 @@ function openchurch_staff_views_default_views() {
   $handler->display->display_options['fields']['field_oc_image']['field'] = 'field_oc_image';
   $handler->display->display_options['fields']['field_oc_image']['label'] = '';
   $handler->display->display_options['fields']['field_oc_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_oc_image']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_oc_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_oc_image']['settings'] = array(
     'image_style' => 'oc_staff_thumb',
