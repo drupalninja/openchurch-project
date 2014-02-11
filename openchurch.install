@@ -201,7 +201,7 @@ function openchurch_install() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-44',
+    'weight' => '5',
     'customized' => 1,
   );
 
@@ -219,7 +219,7 @@ function openchurch_install() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-47',
+    'weight' => '2',
     'customized' => 1,
   );
 
@@ -280,7 +280,7 @@ function openchurch_install() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-48',
+    'weight' => '1',
     'customized' => 1,
     'plid' => 0,
   );
