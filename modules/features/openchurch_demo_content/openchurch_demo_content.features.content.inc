@@ -193,7 +193,7 @@ function openchurch_demo_content_content_defaults() {
         'external' => '0',
         'has_children' => '0',
         'expanded' => '0',
-        'weight' => '-47',
+        'weight' => '2',
         'identifier' => 'main-menu:node-name/oc_page_serve',
       ),
       'title' => 'Serve',

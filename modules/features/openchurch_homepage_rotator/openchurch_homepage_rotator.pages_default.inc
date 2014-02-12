@@ -40,6 +40,14 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
+    'metatag_panels' => array(
+      'enabled' => 1,
+      'metatags' => array(
+        'title' => array(
+          'value' => 'Welcome | [site:name]',
+        ),
+      ),
+    ),
   );
   $display = new panels_display();
   $display->layout = 'geary';
@@ -61,7 +69,7 @@ function openchurch_homepage_rotator_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Welcome';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();

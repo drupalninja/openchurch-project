@@ -15,7 +15,6 @@ dependencies[] = node_reference
 dependencies[] = openchurch_events
 dependencies[] = openchurch_giving
 dependencies[] = page_manager
-dependencies[] = page_title
 dependencies[] = panels
 dependencies[] = strongarm
 dependencies[] = taxonomy

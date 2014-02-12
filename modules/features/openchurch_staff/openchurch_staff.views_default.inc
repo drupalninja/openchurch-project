@@ -153,7 +153,7 @@ function openchurch_staff_views_default_views() {
   );
 
   /* Display: Staff List Page */
-  $handler = $view->new_display('page_with_page_title', 'Staff List Page', 'page_with_page_title_1');
+  $handler = $view->new_display('page', 'Staff List Page', 'page_1');
   $handler->display->display_options['path'] = 'about/staff';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Staff Directory';

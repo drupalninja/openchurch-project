@@ -13,7 +13,7 @@ function openchurch_video_install() {
   db_query('DELETE FROM {file_display} WHERE name = :name', array(':name' => 'video__teaser__media_vimeo_image'));
   db_query('UPDATE {file_display} SET status = 0 WHERE name = :name', array(':name' => 'video__teaser__media_vimeo_video'));
   db_query('DELETE FROM {file_display} WHERE name = :name', array(':name' => 'video__teaser__media_youtube_image'));
-  db_query('DELETE FROM {file_display} SET status = 0 WHERE name = :name', array(':name' => 'video__teaser__media_youtube_video'));
+  db_query('UPDATE {file_display} SET status = 0 WHERE name = :name', array(':name' => 'video__teaser__media_youtube_video'));
 
   $settings = new stdClass;
   $settings->name = 'video__teaser__media_vimeo_image';

@@ -85,6 +85,7 @@ dependencies[] = rules
 dependencies[] = rules_admin
 dependencies[] = styles
 dependencies[] = styles_ui
+dependencies[] = superfish
 dependencies[] = views_php
 dependencies[] = views_slideshow
 dependencies[] = views_slideshow_cycle

@@ -301,6 +301,9 @@ function openchurch_install() {
 
   menu_link_save($item);
 
+  db_query('UPDATE {menu_item} SET plid = :plid, p2 = :plid WHERE link_path = :link_path',
+    array(':plid' => $about_mlid, ':link_path' => 'about/staff'));
+
   // Override Page Panelizer settings
 
   $settings = new stdClass;
