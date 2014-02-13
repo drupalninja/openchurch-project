@@ -5,6 +5,7 @@ core = 7.x
 
 ; Drupal Core
 dependencies[] = block
+dependencies[] = color
 dependencies[] = menu
 dependencies[] = image
 dependencies[] = list
