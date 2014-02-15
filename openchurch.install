@@ -35,6 +35,9 @@ function openchurch_install() {
     ));
   }
 
+  // Disable wysiwyg filter
+  db_query('DELETE FROM {filter} WHERE module = :module', array(':module' => 'wysiwyg_filter'));
+
   /**
    * Update wysiwyg settings
    */
@@ -102,7 +105,7 @@ function openchurch_install() {
   $settings->info = 'Contact Us Bottom Block';
   $settings->format = 'panopoly_wysiwyg_text';
   $settings->machine_name = 'oc_block_contact_bottom';
-  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/phone.png" alt="" /><span style="color: #4a7470; font-size: 2em;">123-456-7890</span><br /><a href="#">info@openchurchsite.com</a><br /><strong>OpenChurch</strong><br />1234 Belt Line Rd<br />Dallas, TX 75000</p>';
+  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/phone.png" alt="" /><span class="large" style="color: #4a7470;">123-456-7890</span><br /><a href="#">info@openchurchsite.com</a><br /><strong>OpenChurch</strong><br />1234 Belt Line Rd<br />Dallas, TX 75000</p>';
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);

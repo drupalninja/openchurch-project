@@ -312,7 +312,7 @@ function openchurch_demo_content_content_defaults() {
             'extra' => array(
               'title_display' => 'before',
               'private' => 0,
-              'width' => '25',
+              'width' => '50',
               'disabled' => 0,
               'unique' => 0,
               'conditional_operator' => '=',
@@ -337,7 +337,7 @@ function openchurch_demo_content_content_defaults() {
             'extra' => array(
               'title_display' => 'before',
               'private' => 0,
-              'width' => '25',
+              'width' => '50',
               'disabled' => 0,
               'unique' => 0,
               'conditional_operator' => '=',
@@ -362,7 +362,7 @@ function openchurch_demo_content_content_defaults() {
             'extra' => array(
               'title_display' => 'before',
               'private' => 0,
-              'width' => '25',
+              'width' => '50',
               'disabled' => 0,
               'unique' => 0,
               'conditional_operator' => '=',
@@ -384,7 +384,7 @@ function openchurch_demo_content_content_defaults() {
             'extra' => array(
               'title_display' => 'before',
               'private' => 0,
-              'width' => '25',
+              'width' => '50',
               'disabled' => 0,
               'unique' => 0,
               'conditional_operator' => '=',

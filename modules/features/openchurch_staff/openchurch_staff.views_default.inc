@@ -36,6 +36,13 @@ function openchurch_staff_views_default_views() {
   $handler->display->display_options['style_options']['grouping'] = 'field_oc_staff_type';
   $handler->display->display_options['style_options']['row_class'] = 'staff-type';
   $handler->display->display_options['row_plugin'] = 'panels_fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'title' => 'title',
+    'field_oc_position' => 'field_oc_position',
+    'field_oc_email' => 'field_oc_email',
+    'field_oc_phone' => 'field_oc_phone',
+  );
+  $handler->display->display_options['row_options']['separator'] = ' | ';
   $handler->display->display_options['row_options']['layout'] = 'bryant';
   $handler->display->display_options['row_options']['regions'] = array(
     'field_oc_staff_type' => 'contentmain',
