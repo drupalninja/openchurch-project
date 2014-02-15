@@ -102,7 +102,7 @@ function openchurch_install() {
   $settings->info = 'Contact Us Bottom Block';
   $settings->format = 'panopoly_wysiwyg_text';
   $settings->machine_name = 'oc_block_contact_bottom';
-  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/phone.png" alt="" /><span style="font-size: x-large;"><span style="color: #4a7470;">123-456-7890</span></span><br /><a href="#">info@openchurchsite.com</a><br /><strong>OpenChurch</strong><br />1234 Belt Line Rd<br />Dallas, TX 75000</p>';
+  $settings->body = '<p><img style="float: right;" src="/profiles/openchurch/images/phone.png" alt="" /><span style="color: #4a7470; font-size: 2em;">123-456-7890</span><br /><a href="#">info@openchurchsite.com</a><br /><strong>OpenChurch</strong><br />1234 Belt Line Rd<br />Dallas, TX 75000</p>';
 
   $block = (array) $settings;
   drupal_write_record('block_custom', $block);
@@ -301,84 +301,8 @@ function openchurch_install() {
 
   menu_link_save($item);
 
-  db_query('UPDATE {menu_item} SET plid = :plid, p2 = :plid WHERE link_path = :link_path',
+  db_query('UPDATE {menu_links} SET plid = :plid, p2 = :plid WHERE link_path = :link_path',
     array(':plid' => $about_mlid, ':link_path' => 'about/staff'));
-
-  // Override Page Panelizer settings
-
-  $settings = new stdClass;
-  $settings->layout = 'boxton';
-  $settings->panel_settings = 'a:1:{s:14:"style_settings";a:5:{s:7:"default";N;s:7:"column1";N;s:7:"column2";N;s:7:"sidebar";N;s:11:"contentmain";N;}}';
-  $settings->cache = 'a:0:{}';
-  $settings->title = '%node:title';
-  $settings->hide_title = 0;
-  $settings->title_pane = 12;
-
-  $display = (array) $settings;
-
-  drupal_write_record('panels_display', $display);
-
-  $settings = new stdClass;
-  $settings->pnid = 1;
-  $settings->name = 'node:panopoly_page:default';
-  $settings->title = 'Default';
-  $settings->panelizer_type = 'node';
-  $settings->panelizer_key = 'panopoly_page';
-  $settings->no_blocks = 0;
-  $settings->css_id = 'page-page';
-  $settings->css = '';
-  $settings->pipeline = 'ipe';
-  $settings->contexts = 'a:0:{}';
-  $settings->relationships = 'a:0:{}';
-  $settings->did = $display['did'];
-  $settings->access = 's:0:"";';
-  $settings->view_mode = 'page_manager';
-  $settings->css_class = '';
-  $settings->title_element = 'H2';
-  $settings->link_to_entity = 1;
-  $settings->extra = 's:0:"";';
-
-  $defaults = (array) $settings;
-
-  drupal_write_record('panelizer_defaults', $defaults);
-
-  $settings = new stdClass;
-  $settings->did = $display['did'];
-  $settings->panel = 'contentmain';
-  $settings->type = 'entity_field';
-  $settings->subtype = 'node:field_featured_image';
-  $settings->shown = 1;
-  $settings->access = 'a:0:{}';
-  $settings->configuration = 'a:9:{s:5:"label";s:6:"hidden";s:9:"formatter";s:5:"image";s:11:"delta_limit";i:0;s:12:"delta_offset";s:1:"0";s:14:"delta_reversed";b:0;s:18:"formatter_settings";a:2:{s:10:"image_link";s:7:"content";s:11:"image_style";s:19:"panopoly_image_half";}s:7:"context";s:9:"panelizer";s:14:"override_title";i:0;s:19:"override_title_text";s:0:"";}';
-  $settings->cache = 'a:0:{}';
-  $settings->style = 'a:1:{s:8:"settings";N;}';
-  $settings->css = 'a:0:{}';
-  $settings->extras = 'a:0:{}';
-  $settings->position = 0;
-  $settings->locks = 'a:0:{}';
-
-  $pane = (array) $settings;
-
-  drupal_write_record('panels_pane', $pane);
-
-  $settings = new stdClass;
-  $settings->did = $display['did'];
-  $settings->panel = 'contentmain';
-  $settings->type = 'entity_field';
-  $settings->subtype = 'node:body';
-  $settings->shown = 1;
-  $settings->access = 'a:0:{}';
-  $settings->configuration = 'a:9:{s:5:"label";s:6:"hidden";s:9:"formatter";s:12:"text_default";s:11:"delta_limit";i:0;s:12:"delta_offset";s:1:"0";s:14:"delta_reversed";b:0;s:18:"formatter_settings";a:1:{s:11:"trim_length";s:3:"250";}s:7:"context";s:9:"panelizer";s:14:"override_title";i:0;s:19:"override_title_text";s:0:"";}';
-  $settings->cache = 'a:0:{}';
-  $settings->style = 'a:1:{s:8:"settings";N;}';
-  $settings->css = 'a:0:{}';
-  $settings->extras = 'a:0:{}';
-  $settings->position = 1;
-  $settings->locks = 'a:0:{}';
-
-  $pane = (array) $settings;
-
-  drupal_write_record('panels_pane', $pane);
 }
 
 /**

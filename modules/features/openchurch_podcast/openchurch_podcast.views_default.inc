@@ -114,6 +114,9 @@ function openchurch_podcast_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '25';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'panels_fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'body' => 'body',
+  );
   $handler->display->display_options['row_options']['layout'] = 'bryant';
   $handler->display->display_options['row_options']['regions'] = array(
     'field_oc_date' => 'sidebar',
@@ -203,7 +206,8 @@ function openchurch_podcast_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = 'Enjoy our weekly sermons below.  You will see that you may press play directly on this page or download them to your own player.  Please be aware the files may be large.</p>';
+  $handler->display->display_options['header']['area']['content'] = '<p>Enjoy our weekly sermons below.  You will see that you may press play directly on this page or download them to your own player.  Please be aware the files may be large.</p>
+<h3 class="title">Recent Sermons</h3>';
   $handler->display->display_options['header']['area']['format'] = 'panopoly_wysiwyg_text';
   $handler->display->display_options['path'] = 'media/podcasts';
   $handler->display->display_options['menu']['type'] = 'normal';

@@ -5,6 +5,7 @@ package = Features
 version = 7.x-1.8-alpha1
 project = openchurch_gallery
 dependencies[] = addressfield
+dependencies[] = colorbox
 dependencies[] = context
 dependencies[] = context_breadcrumb_current_page
 dependencies[] = ctools

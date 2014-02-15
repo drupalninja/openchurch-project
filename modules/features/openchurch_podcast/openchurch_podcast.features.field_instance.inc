@@ -75,9 +75,14 @@ function openchurch_podcast_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
+        'module' => 'file_entity',
+        'settings' => array(
+          'autoplay' => FALSE,
+          'controls' => TRUE,
+          'loop' => FALSE,
+          'multiple_file_behavior' => 'tags',
+        ),
+        'type' => 'file_audio',
         'weight' => 1,
       ),
       'featured' => array(

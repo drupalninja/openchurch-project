@@ -101,10 +101,17 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'panels_fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_oc_dates' => 'field_oc_dates',
+    'field_oc_ministry' => 'field_oc_ministry',
+    'field_oc_dates_1' => 'field_oc_dates_1',
+    'body' => 'body',
+  );
   $handler->display->display_options['row_options']['layout'] = 'bryant';
   $handler->display->display_options['row_options']['regions'] = array(
     'field_oc_dates' => 'sidebar',

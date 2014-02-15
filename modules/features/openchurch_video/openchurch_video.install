@@ -14,24 +14,33 @@ function openchurch_video_install() {
   db_query('UPDATE {file_display} SET status = 0 WHERE name = :name', array(':name' => 'video__teaser__media_vimeo_video'));
   db_query('DELETE FROM {file_display} WHERE name = :name', array(':name' => 'video__teaser__media_youtube_image'));
   db_query('UPDATE {file_display} SET status = 0 WHERE name = :name', array(':name' => 'video__teaser__media_youtube_video'));
+  db_query('UPDATE {file_display} SET status = 0 WHERE name LIKE :name', array(':name' => 'video__teaser%'));
 
-  $settings = new stdClass;
-  $settings->name = 'video__teaser__media_vimeo_image';
-  $settings->weight = 2;
-  $settings->status = 1;
-  $settings->settings = 'a:1:{s:11:"image_style";s:6:"medium";}';
-
-  $display = (array) $settings;
+  $display = array(
+    'status' => 1,
+    'weight' => 2,
+    'settings' => array(
+      'image_style' => 'medium',
+    ),
+    'name' => 'video__teaser__media_vimeo_image',
+    'table' => 'file_display',
+    'type' => 'Local',
+    'export_type' => EXPORT_IN_DATABASE
+  );
 
   drupal_write_record('file_display', $display);
 
-  $settings = new stdClass;
-  $settings->name = 'video__teaser__media_youtube_image';
-  $settings->weight = 1;
-  $settings->status = 1;
-  $settings->settings = 'a:1:{s:11:"image_style";s:6:"medium";}';
-
-  $display = (array) $settings;
+  $display = array(
+    'status' => 1,
+    'weight' => 1,
+    'settings' => array(
+      'image_style' => 'medium',
+    ),
+    'name' => 'video__teaser__media_youtube_image',
+    'table' => 'file_display',
+    'type' => 'Local',
+    'export_type' => EXPORT_IN_DATABASE
+  );
 
   drupal_write_record('file_display', $display);
 }
