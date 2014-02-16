@@ -174,7 +174,7 @@ function openchurch_podcast_views_default_views() {
   $handler->display->display_options['fields']['field_oc_audio']['field'] = 'field_oc_audio';
   $handler->display->display_options['fields']['field_oc_audio']['label'] = '';
   $handler->display->display_options['fields']['field_oc_audio']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_oc_audio']['alter']['text'] = '<a href="[field_oc_audio]" title="download podcast mp3 file">download mp3 file</a>';
+  $handler->display->display_options['fields']['field_oc_audio']['alter']['text'] = '<a href="[field_oc_audio]" title="download podcast mp3 file">play mp3 file</a>';
   $handler->display->display_options['fields']['field_oc_audio']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_oc_audio']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_oc_audio']['type'] = 'file_url_plain';

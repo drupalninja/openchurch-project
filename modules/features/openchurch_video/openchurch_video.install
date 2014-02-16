@@ -10,11 +10,8 @@
 function openchurch_video_install() {
 
   // Delete old settings
-  db_query('DELETE FROM {file_display} WHERE name = :name', array(':name' => 'video__teaser__media_vimeo_image'));
-  db_query('UPDATE {file_display} SET status = 0 WHERE name = :name', array(':name' => 'video__teaser__media_vimeo_video'));
-  db_query('DELETE FROM {file_display} WHERE name = :name', array(':name' => 'video__teaser__media_youtube_image'));
-  db_query('UPDATE {file_display} SET status = 0 WHERE name = :name', array(':name' => 'video__teaser__media_youtube_video'));
-  db_query('UPDATE {file_display} SET status = 0 WHERE name LIKE :name', array(':name' => 'video__teaser%'));
+  db_query('DELETE FROM {file_display} WHERE name = :name', array(':name' => 'video__preview__media_vimeo_image'));
+  db_query('DELETE FROM {file_display} WHERE name = :name', array(':name' => 'video__preview__media_youtube_image'));
 
   $display = array(
     'status' => 1,
@@ -22,7 +19,7 @@ function openchurch_video_install() {
     'settings' => array(
       'image_style' => 'medium',
     ),
-    'name' => 'video__teaser__media_vimeo_image',
+    'name' => 'video__preview__media_vimeo_image',
     'table' => 'file_display',
     'type' => 'Local',
     'export_type' => EXPORT_IN_DATABASE
@@ -36,7 +33,7 @@ function openchurch_video_install() {
     'settings' => array(
       'image_style' => 'medium',
     ),
-    'name' => 'video__teaser__media_youtube_image',
+    'name' => 'video__preview__media_youtube_image',
     'table' => 'file_display',
     'type' => 'Local',
     'export_type' => EXPORT_IN_DATABASE
