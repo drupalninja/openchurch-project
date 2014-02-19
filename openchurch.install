@@ -125,6 +125,24 @@ function openchurch_install() {
   //Save more info
   _openchurch_add_block_info($block['bid'], 'Weekly Meeting Times', 'block', -99, 'sidebar_second');
 
+  //Update Image Acknowledgements block
+  db_query('UPDATE {block} SET title = :title, region = :region, weight = :weight WHERE delta = :delta',
+    array(
+      ':region' => 'footer',
+      ':weight' => -20,
+      ':title' => '<none>',
+      ':delta' => 'menu-secondary-links')
+    );
+
+  //Update Search block
+  db_query('UPDATE {block} SET title = :title, region = :region, weight = :weight WHERE delta = :delta',
+    array(
+      ':region' => 'footer',
+      ':weight' => -21,
+      ':title' => '<none>',
+      ':delta' => 'search')
+    );
+
   /**
    * Save staff type terms
    */
