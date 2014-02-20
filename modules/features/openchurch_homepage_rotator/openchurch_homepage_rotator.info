@@ -1,7 +1,7 @@
 name = OpenChurch Homepage Rotator
 description = Homepage promotional rotator
 core = 7.x
-package = Features
+package = OpenChurch
 version = 7.x-1.0-alpha1
 project = openchurch_homepage_rotator
 dependencies[] = ctools
@@ -9,7 +9,6 @@ dependencies[] = fe_nodequeue
 dependencies[] = features
 dependencies[] = image
 dependencies[] = link
-dependencies[] = openchurch_giving
 dependencies[] = page_manager
 dependencies[] = strongarm
 dependencies[] = views

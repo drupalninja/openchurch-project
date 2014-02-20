@@ -1,0 +1,134 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_homepage_rotator_demo_content_install() {
+  $content = array();
+
+  $fids = array();
+
+  $fids['autumn'] = db_query('SELECT fid FROM {file_managed} WHERE filename = :filename', array(':filename' => '/autumn_hero.jpg'))->fetchColumn();
+
+  if (!$fids['autumn']) {
+    file_unmanaged_copy(drupal_get_path('module', 'openchurch_homepage_rotator_demo_content').'/images/autumn_hero.jpg', NULL, FILE_EXISTS_REPLACE);
+
+    $file            = new stdClass();
+    $file->filename  = 'autumn_hero.jpg';
+    $file->status    = 1;
+    $file->filemime  = 'image/jpeg';
+    $file->filesize  = 0;
+    $file->uid       = 1;
+    $file->uri       = 'public://autumn_hero.jpg';
+    $file->timestamp = time();
+    $file->type      = 'image';
+    drupal_write_record('file_managed', $file);
+
+    $fids['autumn'] = $file->fid;//store for later use
+  }
+
+  $fids['homepage'] = db_query('SELECT fid FROM {file_managed} WHERE filename = :filename', array(':filename' => '/homepage_image.jpg'))->fetchColumn();
+
+  if (!$fids['homepage']) {
+    file_unmanaged_copy(drupal_get_path('module', 'openchurch_homepage_rotator_demo_content').'/images/homepage_image.jpg', NULL, FILE_EXISTS_REPLACE);
+
+    $file            = new stdClass();
+    $file->filename  = 'homepage_image.jpg';
+    $file->status    = 1;
+    $file->filemime  = 'image/jpeg';
+    $file->filesize  = 0;
+    $file->uid       = 1;
+    $file->uri       = 'public://homepage_image.jpg';
+    $file->timestamp = time();
+    $file->type      = 'image';
+    drupal_write_record('file_managed', $file);
+
+    $fids['homepage'] = $file->fid;//store for later use
+  }
+
+  $content['oc_homepage_rotator1'] = (object) array(
+    'title' => 'Autumn Is Here!',
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'openchurch_homepage_rotator',
+    'language' => 'und',
+    'created' => '1323218649',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'oc_homepage_rotator1',
+    'field_oc_image' => array(
+      'und' => array(
+        0 => array(
+          'fid' => $fids['autumn'],
+          'alt' => '',
+          'title' => '',
+          'width' => '700',
+          'height' => '355',
+          'filename' => 'autumn_hero.jpg',
+          'uri' => 'public://autumn_hero.jpg',
+          'filemime' => 'image/jpeg',
+          'filesize' => '91149',
+          'status' => '1',
+          'type' => 'image',
+          'uuid' => 'c1e7c9a7-218e-e564-c15c-5fd95419d487',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
+  );
+
+  $content['oc_homepage_rotator2'] = (object) array(
+    'title' => 'The power of love',
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'openchurch_homepage_rotator',
+    'language' => 'und',
+    'created' => '1323218583',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'oc_homepage_rotator2',
+    'field_oc_image' => array(
+      'und' => array(
+        0 => array(
+          'fid' => $fids['homepage'],
+          'alt' => '',
+          'title' => '',
+          'width' => '700',
+          'height' => '355',
+          'filename' => 'homepage_image.jpg',
+          'uri' => 'public://homepage_image.jpg',
+          'filemime' => 'image/jpeg',
+          'filesize' => '112869',
+          'status' => '1',
+          'type' => 'image',
+          'uuid' => 'e883b468-8c60-2f64-893c-40101dcc5667',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
+  );
+
+  $qid = db_query('SELECT qid FROM {nodequeue_queue} WHERE name = :name',
+    array(':name' => 'openchurch_homepage_rotator'))->fetchColumn();
+
+  // Save each node
+  foreach ($content as $node) {
+    node_save($node);
+
+    $record = new stdClass;
+    $record->qid = $qid;
+    $record->sqid = $qid;
+    $record->nid = $node->nid;
+    $record->position = 1;
+    $record->timestamp = date('U');
+
+    drupal_write_record('nodequeue_nodes', $record);
+  }
+}

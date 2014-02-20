@@ -1,7 +1,7 @@
 name = OpenChurch Video
 description = Adds 3rd party video content type and video page.
 core = 7.x
-package = Features
+package = OpenChurch
 version = 7.x-1.0-alpha1
 project = openchurch_video
 dependencies[] = context
@@ -47,4 +47,5 @@ features[variable][] = menu_parent_openchurch_video
 features[variable][] = node_options_openchurch_video
 features[variable][] = node_preview_openchurch_video
 features[variable][] = node_submitted_openchurch_video
+features[variable][] = pathauto_node_openchurch_video_pattern
 features[views_view][] = openchurch_video

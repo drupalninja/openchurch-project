@@ -1,0 +1,332 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_gallery_demo_content_install() {
+  $content = array();
+
+  $fids = array();
+
+  $fids['hs_album'] = db_query('SELECT fid FROM {file_managed} WHERE filename = :filename', array(':filename' => 'high_school_retreat_album.jpg'))->fetchColumn();
+
+  if (!$fids['hs_album']) {
+    file_unmanaged_copy(drupal_get_path('module', 'openchurch_gallery_demo_content').'/images/high_school_retreat_album.jpg', NULL, FILE_EXISTS_REPLACE);
+
+    $file            = new stdClass();
+    $file->filename  = 'high_school_retreat_album.jpg';
+    $file->status    = 1;
+    $file->filemime  = 'image/jpeg';
+    $file->filesize  = 0;
+    $file->uid       = 1;
+    $file->uri       = 'public://high_school_retreat_album.jpg';
+    $file->timestamp = time();
+    $file->type      = 'image';
+    drupal_write_record('file_managed', $file);
+
+    $fids['hs_album'] = $file->fid;//store for later use
+  }
+
+  $fids['sb_album'] = db_query('SELECT fid FROM {file_managed} WHERE filename = :filename', array(':filename' => '/youth-ministry-spring-break-gallery.jpg'))->fetchColumn();
+
+  if (!$fids['sb_album']) {
+    file_unmanaged_copy(drupal_get_path('module', 'openchurch_gallery_demo_content').'/images/youth-ministry-spring-break-gallery.jpg', NULL, FILE_EXISTS_REPLACE);
+
+    $file            = new stdClass();
+    $file->filename  = 'youth-ministry-spring-break-gallery.jpg';
+    $file->status    = 1;
+    $file->filemime  = 'image/jpeg';
+    $file->filesize  = 0;
+    $file->uid       = 1;
+    $file->uri       = 'public://youth-ministry-spring-break-gallery.jpg';
+    $file->timestamp = time();
+    $file->type      = 'image';
+    drupal_write_record('file_managed', $file);
+
+    $fids['sb_album'] = $file->fid;//store for later use
+  }
+
+  $fids['sample1'] = db_query('SELECT fid FROM {file_managed} WHERE filename = :filename', array(':filename' => '/sampleimage1.jpg'))->fetchColumn();
+
+  if (!$fids['sample1']) {
+    file_unmanaged_copy(drupal_get_path('module', 'openchurch_gallery_demo_content').'/images/sampleimage1.jpg', NULL, FILE_EXISTS_REPLACE);
+
+    $file            = new stdClass();
+    $file->filename  = 'sampleimage1.jpg';
+    $file->status    = 1;
+    $file->filemime  = 'image/jpeg';
+    $file->filesize  = 0;
+    $file->uid       = 1;
+    $file->uri       = 'public://sampleimage1.jpg';
+    $file->timestamp = time();
+    $file->type      = 'image';
+    drupal_write_record('file_managed', $file);
+
+    $fids['sample1'] = $file->fid;//store for later use
+  }
+
+  $fids['sample2'] = db_query('SELECT fid FROM {file_managed} WHERE filename = :filename', array(':filename' => '/sampleimage2.jpg'))->fetchColumn();
+
+  if (!$fids['sample2']) {
+    file_unmanaged_copy(drupal_get_path('module', 'openchurch_gallery_demo_content').'/images/sampleimage2.jpg', NULL, FILE_EXISTS_REPLACE);
+
+    $file            = new stdClass();
+    $file->filename  = 'sampleimage2.jpg';
+    $file->status    = 1;
+    $file->filemime  = 'image/jpeg';
+    $file->filesize  = 0;
+    $file->uid       = 1;
+    $file->uri       = 'public://sampleimage2.jpg';
+    $file->timestamp = time();
+    $file->type      = 'image';
+    drupal_write_record('file_managed', $file);
+
+    $fids['sample2'] = $file->fid;//store for later use
+  }
+
+  $content['oc_gallery1'] = (object) array(
+    'title' => 'High School Retreat',
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'openchurch_gallery',
+    'language' => 'und',
+    'created' => '1323218456',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'oc_gallery1',
+    'body' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'Share your photo memories with the world, and include descriptions of where the event took place and anything else you think people would be interested in reading.  It\'s a great way to keep people connected by sharing the moments with others even if they could not be there in person.
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consequat suscipit nisl et laoreet. Mauris commodo, nisl sit amet ultricies congue, nisl lacus fringilla tortor, eget ultricies ipsum neque at erat. Nam hendrerit fermentum felis id dapibus. Sed aliquet posuere dictum. Praesent dictum erat vitae magna ultrices volutpat. Duis ac nibh mi. Sed fermentum congue aliquet. Mauris sed molestie ante. Vestibulum mi felis, posuere at pulvinar sit amet, posuere varius arcu. Integer ullamcorper neque enim, non feugiat sem. Etiam euismod lacus in libero consequat tristique. Etiam mattis, urna id volutpat ultrices, ligula libero imperdiet massa, rhoncus sollicitudin ligula ipsum eget nisi. Nam tempus adipiscing porta. In hac habitasse platea dictumst. Aenean rhoncus sem facilisis lacus aliquet posuere. Proin viverra sapien nec erat interdum aliquam posuere ante sodales. Cras fringilla purus eget lorem vehicula posuere. Integer eu ipsum non nulla dictum interdum quis in urna. Duis varius fringilla purus sed pellentesque. Vivamus condimentum fringilla dolor pharetra auctor.
+
+    Nam gravida risus ac turpis porta vitae pretium arcu convallis. Nullam quis tortor sit amet mauris ullamcorper tristique. Fusce gravida hendrerit neque sed dictum. Nullam at venenatis metus. Morbi eget ligula magna, at gravida mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in mauris dui. Mauris et ante mauris. Ut quis vehicula erat. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed urna risus, lacinia non fermentum rhoncus, ornare sit amet mauris. Pellentesque pharetra metus ac quam dictum malesuada. Morbi libero risus, condimentum et varius vel, convallis a urna.',
+          'summary' => '',
+          'format' => 'panopoly_wysiwyg_text',
+          'safe_value' => '<p>Share your photo memories with the world, and include descriptions of where the event took place and anything else you think people would be interested in reading.  It\'s a great way to keep people connected by sharing the moments with others even if they could not be there in person.</p>
+  <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consequat suscipit nisl et laoreet. Mauris commodo, nisl sit amet ultricies congue, nisl lacus fringilla tortor, eget ultricies ipsum neque at erat. Nam hendrerit fermentum felis id dapibus. Sed aliquet posuere dictum. Praesent dictum erat vitae magna ultrices volutpat. Duis ac nibh mi. Sed fermentum congue aliquet. Mauris sed molestie ante. Vestibulum mi felis, posuere at pulvinar sit amet, posuere varius arcu. Integer ullamcorper neque enim, non feugiat sem. Etiam euismod lacus in libero consequat tristique. Etiam mattis, urna id volutpat ultrices, ligula libero imperdiet massa, rhoncus sollicitudin ligula ipsum eget nisi. Nam tempus adipiscing porta. In hac habitasse platea dictumst. Aenean rhoncus sem facilisis lacus aliquet posuere. Proin viverra sapien nec erat interdum aliquam posuere ante sodales. Cras fringilla purus eget lorem vehicula posuere. Integer eu ipsum non nulla dictum interdum quis in urna. Duis varius fringilla purus sed pellentesque. Vivamus condimentum fringilla dolor pharetra auctor.</p>
+  <p>  Nam gravida risus ac turpis porta vitae pretium arcu convallis. Nullam quis tortor sit amet mauris ullamcorper tristique. Fusce gravida hendrerit neque sed dictum. Nullam at venenatis metus. Morbi eget ligula magna, at gravida mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in mauris dui. Mauris et ante mauris. Ut quis vehicula erat. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed urna risus, lacinia non fermentum rhoncus, ornare sit amet mauris. Pellentesque pharetra metus ac quam dictum malesuada. Morbi libero risus, condimentum et varius vel, convallis a urna.</p>
+  ',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_oc_date' => array(
+      'und' => array(
+        0 => array(
+          'value' => '2011-12-07 00:00:00',
+          'timezone' => 'UTC',
+          'timezone_db' => 'UTC',
+          'date_type' => 'datetime',
+        ),
+      ),
+    ),
+    'field_oc_images' => array(
+      'und' => array(
+        0 => array(
+          'fid' => $fids['sample1'],
+          'alt' => '',
+          'title' => '',
+          'width' => '604',
+          'height' => '453',
+          'filename' => 'sampleimage1.jpg',
+          'uri' => 'public://sampleimage1.jpg',
+          'filemime' => 'image/jpeg',
+          'filesize' => '92878',
+          'status' => '1',
+          'type' => 'image',
+          'uuid' => '992a85bd-128a-a124-61e9-eb81e51bebdf',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+        1 => array(
+          'fid' => $fids['sample2'],
+          'alt' => '',
+          'title' => '',
+          'width' => '604',
+          'height' => '453',
+          'filename' => 'sampleimage2.jpg',
+          'uri' => 'public://sampleimage2.jpg',
+          'filemime' => 'image/jpeg',
+          'filesize' => '89485',
+          'status' => '1',
+          'type' => 'image',
+          'uuid' => '70bf9391-44c7-2744-6154-0e4c0bfb82b8',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
+    'field_oc_location' => array(
+      'und' => array(
+        0 => array(
+          'country' => 'US',
+          'administrative_area' => 'TX',
+          'sub_administrative_area' => NULL,
+          'locality' => 'Dallas',
+          'dependent_locality' => NULL,
+          'postal_code' => '75081',
+          'thoroughfare' => '',
+          'premise' => '',
+          'sub_premise' => NULL,
+          'organisation_name' => NULL,
+          'name_line' => NULL,
+          'first_name' => NULL,
+          'last_name' => NULL,
+          'data' => NULL,
+        ),
+      ),
+    ),
+    'field_oc_thumb' => array(
+      'und' => array(
+        0 => array(
+          'fid' => $fids['hs_album'],
+          'alt' => '',
+          'title' => '',
+          'width' => '170',
+          'height' => '110',
+          'filename' => 'high_school_retreat_album.jpeg',
+          'uri' => 'public://high_school_retreat_album.jpeg',
+          'filemime' => 'image/jpeg',
+          'filesize' => '8192',
+          'status' => '1',
+          'type' => 'image',
+          'uuid' => 'dd494dd7-84e8-dfe4-4530-24b8afe9d738',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
+  );
+
+  $content['oc_gallery2'] = (object) array(
+    'title' => 'Youth Ministry Spring Break Gallery',
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'openchurch_gallery',
+    'language' => 'und',
+    'created' => '1323218252',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'oc_gallery2',
+    'body' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'Share your photo memories with the world, and include descriptions of where the event took place and anything else you think people would be interested in reading.  It\'s a great way to keep people connected by sharing the moments with others even if they could not be there in person.
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere blandit nisi a ullamcorper. Maecenas rutrum, tellus vel rutrum luctus, ipsum dolor auctor quam, sed vestibulum sem nibh quis nisi. Sed bibendum luctus neque ac viverra. Donec viverra nibh eget dui vestibulum non convallis elit luctus. Duis eget sem augue, et posuere mauris. Etiam varius aliquam lectus, non lobortis lacus molestie ac. Morbi laoreet imperdiet tortor, sit amet pellentesque tortor euismod eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue pulvinar leo, ac rutrum sapien volutpat quis. Donec fermentum quam eu tortor bibendum ullamcorper. Etiam interdum diam ac neque convallis mollis. Praesent lobortis tellus justo, quis mattis orci. Aliquam ullamcorper orci et eros viverra blandit. Aenean diam felis, ullamcorper non facilisis et, auctor sit amet diam. Nam imperdiet eleifend leo, ut fermentum risus luctus ut. Ut eu nunc consequat justo posuere interdum.',
+          'summary' => '',
+          'format' => 'panopoly_wysiwyg_text',
+          'safe_value' => '<p>Share your photo memories with the world, and include descriptions of where the event took place and anything else you think people would be interested in reading.  It\'s a great way to keep people connected by sharing the moments with others even if they could not be there in person.</p>
+  <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere blandit nisi a ullamcorper. Maecenas rutrum, tellus vel rutrum luctus, ipsum dolor auctor quam, sed vestibulum sem nibh quis nisi. Sed bibendum luctus neque ac viverra. Donec viverra nibh eget dui vestibulum non convallis elit luctus. Duis eget sem augue, et posuere mauris. Etiam varius aliquam lectus, non lobortis lacus molestie ac. Morbi laoreet imperdiet tortor, sit amet pellentesque tortor euismod eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue pulvinar leo, ac rutrum sapien volutpat quis. Donec fermentum quam eu tortor bibendum ullamcorper. Etiam interdum diam ac neque convallis mollis. Praesent lobortis tellus justo, quis mattis orci. Aliquam ullamcorper orci et eros viverra blandit. Aenean diam felis, ullamcorper non facilisis et, auctor sit amet diam. Nam imperdiet eleifend leo, ut fermentum risus luctus ut. Ut eu nunc consequat justo posuere interdum.</p>
+  ',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_oc_date' => array(
+      'und' => array(
+        0 => array(
+          'value' => '2011-12-07 00:00:00',
+          'timezone' => 'UTC',
+          'timezone_db' => 'UTC',
+          'date_type' => 'datetime',
+        ),
+      ),
+    ),
+    'field_oc_images' => array(
+      'und' => array(
+        0 => array(
+          'fid' => $fids['sample1'],
+          'alt' => '',
+          'title' => '',
+          'width' => '604',
+          'height' => '453',
+          'filename' => 'sampleimage1.jpg',
+          'uri' => 'public://sampleimage1.jpg',
+          'filemime' => 'image/jpeg',
+          'filesize' => '92878',
+          'status' => '1',
+          'type' => 'image',
+          'uuid' => '1421f18c-02d4-e114-a141-6cdfafb741d0',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+        1 => array(
+          'fid' => $fids['sample2'],
+          'alt' => '',
+          'title' => '',
+          'width' => '604',
+          'height' => '453',
+          'filename' => 'sampleimage2.jpg',
+          'uri' => 'public://sampleimage2.jpg',
+          'filemime' => 'image/jpeg',
+          'filesize' => '89485',
+          'status' => '1',
+          'type' => 'image',
+          'uuid' => '918c852c-48d3-7114-e1c8-8bb3189d2bdc',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
+    'field_oc_location' => array(
+      'und' => array(
+        0 => array(
+          'country' => 'US',
+          'administrative_area' => '',
+          'sub_administrative_area' => NULL,
+          'locality' => '',
+          'dependent_locality' => NULL,
+          'postal_code' => '',
+          'thoroughfare' => '',
+          'premise' => '',
+          'sub_premise' => NULL,
+          'organisation_name' => NULL,
+          'name_line' => NULL,
+          'first_name' => NULL,
+          'last_name' => NULL,
+          'data' => NULL,
+        ),
+      ),
+    ),
+    'field_oc_ministry' => array(
+      'und' => array(
+        0 => array(
+          'machine_name' => 'oc_ministry1',
+        ),
+      ),
+    ),
+    'field_oc_thumb' => array(
+      'und' => array(
+        0 => array(
+          'fid' => $fids['sb_album'],
+          'alt' => '',
+          'title' => '',
+          'width' => '170',
+          'height' => '110',
+          'filename' => 'youth-ministry-spring-break-gallery.jpeg',
+          'uri' => 'public://youth-ministry-spring-break-gallery.jpeg',
+          'filemime' => 'image/jpeg',
+          'filesize' => '5430',
+          'status' => '1',
+          'type' => 'image',
+          'uuid' => '26057719-86ba-7904-45b9-30f8514142a8',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
+  );
+
+  // Save each node
+  foreach ($content as $node) {
+    node_save($node);
+  }
+}

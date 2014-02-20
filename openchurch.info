@@ -47,7 +47,6 @@ dependencies[] = views_ui
 
 ; Panopoly Recommended - Other
 dependencies[] = uuid
-dependencies[] = defaultcontent
 dependencies[] = apps
 
 ; Contrib
@@ -100,7 +99,6 @@ dependencies[] = openchurch_giving
 dependencies[] = openchurch_giving_demo_content
 dependencies[] = openchurch_homepage_rotator
 dependencies[] = openchurch_homepage_rotator_demo_content
-dependencies[] = openchurch_image
 dependencies[] = openchurch_podcast
 dependencies[] = openchurch_podcast_demo_content
 dependencies[] = openchurch_social

@@ -1,17 +1,15 @@
 <?php
 /**
  * @file
- * openchurch_staff_demo_content.features.content.inc
  */
 
 /**
- * Implements hook_content_defaults().
+ * Implements hook_install().
  */
-function openchurch_staff_demo_content_content_defaults() {
+function openchurch_staff_demo_content_install() {
   $content = array();
 
   $content['oc_staff1'] = (object) array(
-    'exported_path' => 'about/staff/john-smith',
     'title' => 'John Smith',
     'status' => '1',
     'promote' => '0',
@@ -76,7 +74,6 @@ function openchurch_staff_demo_content_content_defaults() {
   );
 
   $content['oc_staff2'] = (object) array(
-    'exported_path' => 'about/staff/john-doe',
     'title' => 'John Doe',
     'status' => '1',
     'promote' => '0',
@@ -91,7 +88,7 @@ function openchurch_staff_demo_content_content_defaults() {
       'und' => array(
         0 => array(
           'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac libero nunc. Nunc tempor magna et lectus interdum et congue augue dictum.
-    
+
     Proin malesuada, lectus vel pulvinar auctor, nulla libero placerat sem, eget tincidunt tellus libero in mi..',
           'summary' => '',
           'format' => 'panopoly_wysiwyg_text',
@@ -143,5 +140,8 @@ function openchurch_staff_demo_content_content_defaults() {
     ),
   );
 
-return $content;
+  // Save each node
+  foreach ($content as $node) {
+    node_save($node);
+  }
 }

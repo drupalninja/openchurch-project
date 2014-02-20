@@ -2,17 +2,15 @@
 
 /**
  * @file
- * openchurch_defaults_demo_content.features.content.inc
  */
 
 /**
- * Implements hook_content_defaults().
+ * Implements hook_install().
  */
-function openchurch_demo_content_content_defaults() {
+function openchurch_demo_content_install() {
   $content = array();
 
   $content['oc_page_about'] = (object) array(
-      'exported_path' => 'about',
       'link' => array(
         'menu_name' => 'main-menu',
         'link_path' => 'node-name/oc_page_about',
@@ -55,7 +53,6 @@ function openchurch_demo_content_content_defaults() {
   );
 
   $content['oc_page_image_acknowledgements'] = (object) array(
-      'exported_path' => 'image-acknowledgements',
       'title' => 'Image Acknowledgements',
       'status' => '1',
       'promote' => '0',
@@ -129,7 +126,6 @@ function openchurch_demo_content_content_defaults() {
   );
 
   $content['oc_page_map_directions'] = (object) array(
-      'exported_path' => 'about/map-and-directions',
       'link' => array(
         'menu_name' => 'main-menu',
         'link_path' => 'node-name/oc_page_map_directions',
@@ -179,7 +175,6 @@ function openchurch_demo_content_content_defaults() {
   );
 
   $content['oc_page_serve'] = (object) array(
-      'exported_path' => 'serve',
       'link' => array(
         'menu_name' => 'main-menu',
         'link_path' => 'node-name/oc_page_serve',
@@ -231,7 +226,6 @@ function openchurch_demo_content_content_defaults() {
   );
 
   $content['oc_page_times'] = (object) array(
-      'exported_path' => 'about/time-locations',
       'link' => array(
         'menu_name' => 'main-menu',
         'link_path' => 'node-name/oc_page_times',
@@ -280,7 +274,6 @@ function openchurch_demo_content_content_defaults() {
   );
 
   $content['oc_webform'] = (object) array(
-      'exported_path' => 'contact',
       'webform' => array(
         'confirmation' => '',
         'confirmation_format' => NULL,
@@ -463,5 +456,8 @@ function openchurch_demo_content_content_defaults() {
       ),
   );
 
-  return $content;
+  // Save each node
+  foreach ($content as $node) {
+    node_save($node);
+  }
 }

@@ -125,24 +125,6 @@ function openchurch_install() {
   //Save more info
   _openchurch_add_block_info($block['bid'], 'Weekly Meeting Times', 'block', -99, 'sidebar_second');
 
-  //Update Image Acknowledgements block
-  db_query('UPDATE {block} SET title = :title, region = :region, weight = :weight WHERE delta = :delta',
-    array(
-      ':region' => 'footer',
-      ':weight' => -20,
-      ':title' => '<none>',
-      ':delta' => 'menu-secondary-links')
-    );
-
-  //Update Search block
-  db_query('UPDATE {block} SET title = :title, region = :region, weight = :weight WHERE delta = :delta',
-    array(
-      ':region' => 'footer',
-      ':weight' => -21,
-      ':title' => '<none>',
-      ':delta' => 'search')
-    );
-
   /**
    * Save staff type terms
    */
@@ -324,6 +306,9 @@ function openchurch_install() {
 
   db_query('UPDATE {menu_links} SET plid = :plid, p2 = :plid WHERE link_path = :link_path',
     array(':plid' => $about_mlid, ':link_path' => 'about/staff'));
+
+  _openchurch_add_block_info('menu-secondary-links', '<none>', 'menu', -20, 'footer');
+  _openchurch_add_block_info('form', '<none>', 'search', -21, 'footer');
 }
 
 /**

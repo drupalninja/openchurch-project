@@ -1,7 +1,7 @@
 name = OpenChurch Staff
 description = A staff member is someone that works in the church, including both administrative and church leadership.
 core = 7.x
-package = Features
+package = OpenChurch
 version = 7.x-1.0-alpha1
 project = openchurch_staff
 dependencies[] = context

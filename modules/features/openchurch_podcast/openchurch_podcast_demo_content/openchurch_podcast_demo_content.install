@@ -1,0 +1,172 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_podcast_demo_content_install() {
+  $content = array();
+
+  $fid = db_query('SELECT fid FROM {file_managed} WHERE filename = :filename', array(':filename' => 'test_audio.mp3'))->fetchColumn();
+
+  if (!$fid) {
+    file_unmanaged_copy(drupal_get_path('module', 'openchurch_podcast_demo_content').'/files/test_audio.mp3', NULL, FILE_EXISTS_REPLACE);
+
+    $file            = new stdClass();
+    $file->filename  = 'test_audio.mp3';
+    $file->status    = 1;
+    $file->filemime  = 'audio/mpeg';
+    $file->filesize  = 0;
+    $file->uid       = 1;
+    $file->uri       = 'public://test_audio.mp3';
+    $file->timestamp = time();
+    $file->type      = 'default';
+    drupal_write_record('file_managed', $file);
+
+    $fid = $file->fid;//store for later use
+  }
+
+  $content['oc_podcast1'] = (object) array(
+    'title' => 'What Do You Do After Easter?',
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'openchurch_podcast',
+    'language' => 'und',
+    'created' => '1323219909',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'oc_podcast1',
+    'body' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'You have the ability to type a detailed lesson or sermon description which allows people to learn more before they download or subscribe to listen.  It also provides a great way to have your church\'s lessons indexed in major search engines.
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales est et augue facilisis vel gravida tortor dapibus. Quisque porta lorem vitae metus suscipit hendrerit. Aliquam ut pulvinar odio. Mauris non justo quis ligula facilisis facilisis in nec velit. Suspendisse posuere leo quis est laoreet sed bibendum arcu mattis. Donec vitae tellus tincidunt eros adipiscing scelerisque. Nunc mollis purus id arcu aliquet suscipit ut at ligula. Sed sapien magna, vulputate quis eleifend nec, rhoncus eu neque. Sed lectus turpis, fringilla at scelerisque ut, laoreet at dui. Praesent convallis lectus vitae augue cursus in tincidunt odio dictum. Cras arcu tellus, fermentum ac tempor sit amet, consequat nec justo. Nam auctor molestie turpis nec vulputate. Integer vitae enim mi, ac hendrerit dolor. Proin pellentesque fermentum tristique. Duis molestie orci id mauris pellentesque nec rhoncus nibh dapibus. Nam vel tempus dui. Etiam vel consequat est. Pellentesque vitae diam lorem, et pretium massa.
+
+  Maecenas ac purus ut odio sagittis gravida. Nunc massa quam, sagittis a malesuada sed, euismod varius justo. Duis vehicula aliquam magna, quis ornare arcu congue ut. Sed vitae libero magna. Quisque eget enim mauris. Vivamus ut condimentum turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed lorem arcu, blandit rutrum molestie ac, tristique at orci. Suspendisse ornare tincidunt enim eu facilisis. Curabitur malesuada, libero nec pretium varius, lectus justo elementum nulla, consequat pulvinar nisl sem sed eros. Mauris massa augue, rhoncus a blandit sit amet, aliquam eget erat. Nam pretium lacinia velit, a posuere eros convallis ut. Vestibulum tempor magna ut massa rhoncus ultrices.',
+          'summary' => '',
+          'format' => 'panopoly_wysiwyg_text',
+          'safe_value' => '<p>You have the ability to type a detailed lesson or sermon description which allows people to learn more before they download or subscribe to listen.  It also provides a great way to have your church\'s lessons indexed in major search engines.  </p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales est et augue facilisis vel gravida tortor dapibus. Quisque porta lorem vitae metus suscipit hendrerit. Aliquam ut pulvinar odio. Mauris non justo quis ligula facilisis facilisis in nec velit. Suspendisse posuere leo quis est laoreet sed bibendum arcu mattis. Donec vitae tellus tincidunt eros adipiscing scelerisque. Nunc mollis purus id arcu aliquet suscipit ut at ligula. Sed sapien magna, vulputate quis eleifend nec, rhoncus eu neque. Sed lectus turpis, fringilla at scelerisque ut, laoreet at dui. Praesent convallis lectus vitae augue cursus in tincidunt odio dictum. Cras arcu tellus, fermentum ac tempor sit amet, consequat nec justo. Nam auctor molestie turpis nec vulputate. Integer vitae enim mi, ac hendrerit dolor. Proin pellentesque fermentum tristique. Duis molestie orci id mauris pellentesque nec rhoncus nibh dapibus. Nam vel tempus dui. Etiam vel consequat est. Pellentesque vitae diam lorem, et pretium massa.</p>
+  <p>Maecenas ac purus ut odio sagittis gravida. Nunc massa quam, sagittis a malesuada sed, euismod varius justo. Duis vehicula aliquam magna, quis ornare arcu congue ut. Sed vitae libero magna. Quisque eget enim mauris. Vivamus ut condimentum turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed lorem arcu, blandit rutrum molestie ac, tristique at orci. Suspendisse ornare tincidunt enim eu facilisis. Curabitur malesuada, libero nec pretium varius, lectus justo elementum nulla, consequat pulvinar nisl sem sed eros. Mauris massa augue, rhoncus a blandit sit amet, aliquam eget erat. Nam pretium lacinia velit, a posuere eros convallis ut. Vestibulum tempor magna ut massa rhoncus ultrices.</p>
+  ',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_oc_audio' => array(
+      'und' => array(
+        0 => array(
+          'fid' => $fid,
+          'display' => '1',
+          'description' => '',
+          'filename' => 'test_audio.mp3',
+          'uri' => 'public://test_audio.mp3',
+          'filemime' => 'audio/mpeg',
+          'filesize' => '2',
+          'status' => '1',
+          'type' => 'audio',
+          'uuid' => 'eff20455-21f6-a7e4-8153-8f4bf36b81e1',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+          'fid' => $fid,
+        ),
+      ),
+    ),
+    'field_oc_author' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'John Calvin',
+          'format' => NULL,
+          'safe_value' => 'John Calvin',
+        ),
+      ),
+    ),
+    'field_oc_date' => array(
+      'und' => array(
+        0 => array(
+          'value' => '2011-12-07 01:00:00',
+          'timezone' => 'UTC',
+          'timezone_db' => 'UTC',
+          'date_type' => 'datetime',
+        ),
+      ),
+    ),
+  );
+
+  $content['oc_podcast2'] = (object) array(
+    'title' => 'Do It Anyway',
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'openchurch_podcast',
+    'language' => 'und',
+    'created' => '1323219886',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'oc_podcast2',
+    'body' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'You have the ability to type a detailed lesson or sermon description which allows people to learn more before they download or subscribe to listen.  It also provides a great way to have your church\'s lessons indexed in major search engines.
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis dictum ligula ac dapibus. Nulla dictum varius quam, id rutrum lorem malesuada a. Morbi et velit urna.
+
+  Morbi vestibulum dui ac ipsum pretium commodo. Donec tristique accumsan iaculis. Nam risus est, gravida ut tempor ut, dapibus sed justo. In hac habitasse platea dictumst. Etiam viverra nisi ut eros dictum ut blandit purus pretium. Phasellus faucibus aliquet auctor. Cras posuere lacus bibendum felis adipiscing quis consectetur turpis egestas. Nam mauris enim, rhoncus non gravida eget, lobortis sed ipsum. Ut orci felis, semper sed molestie vitae, sollicitudin id ipsum. Ut in nibh tellus, eu placerat leo.',
+          'summary' => '',
+          'format' => 'panopoly_wysiwyg_text',
+          'safe_value' => '<p>You have the ability to type a detailed lesson or sermon description which allows people to learn more before they download or subscribe to listen.  It also provides a great way to have your church\'s lessons indexed in major search engines.  </p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis dictum ligula ac dapibus. Nulla dictum varius quam, id rutrum lorem malesuada a. Morbi et velit urna.</p>
+  <p>Morbi vestibulum dui ac ipsum pretium commodo. Donec tristique accumsan iaculis. Nam risus est, gravida ut tempor ut, dapibus sed justo. In hac habitasse platea dictumst. Etiam viverra nisi ut eros dictum ut blandit purus pretium. Phasellus faucibus aliquet auctor. Cras posuere lacus bibendum felis adipiscing quis consectetur turpis egestas. Nam mauris enim, rhoncus non gravida eget, lobortis sed ipsum. Ut orci felis, semper sed molestie vitae, sollicitudin id ipsum. Ut in nibh tellus, eu placerat leo.</p>
+  ',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_oc_audio' => array(
+      'und' => array(
+        0 => array(
+          'fid' => $fid,
+          'display' => '1',
+          'description' => '',
+          'filename' => 'test_audio.mp3',
+          'uri' => 'public://test_audio.mp3',
+          'filemime' => 'audio/mpeg',
+          'filesize' => '2',
+          'status' => '1',
+          'type' => 'audio',
+          'uuid' => 'ea6606a4-734c-1e54-8516-cfa95cdddcc9',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
+    'field_oc_author' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'C.S. Lewis',
+          'format' => NULL,
+          'safe_value' => 'C.S. Lewis',
+        ),
+      ),
+    ),
+    'field_oc_date' => array(
+      'und' => array(
+        0 => array(
+          'value' => '2011-12-07 01:00:00',
+          'timezone' => 'UTC',
+          'timezone_db' => 'UTC',
+          'date_type' => 'datetime',
+        ),
+      ),
+    ),
+  );
+
+  // Save each node
+  foreach ($content as $node) {
+    node_save($node);
+  }
+}

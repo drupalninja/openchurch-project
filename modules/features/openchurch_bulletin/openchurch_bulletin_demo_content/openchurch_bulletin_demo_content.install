@@ -1,0 +1,201 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_bulletin_demo_content_install() {
+  $content = array();
+
+  $fid = db_query('SELECT fid FROM {file_managed} WHERE filename = :filename', array(':filename' => 'test_pdf.pdf'))->fetchColumn();
+
+  if (!$fid) {
+    file_unmanaged_copy(drupal_get_path('module', 'openchurch_bulletin_demo_content').'/files/test_pdf.pdf', NULL, FILE_EXISTS_REPLACE);
+
+    $file            = new stdClass();
+    $file->filename  = 'test_pdf.pdf';
+    $file->status    = 1;
+    $file->filemime  = 'application/pdf';
+    $file->filesize  = 0;
+    $file->uid       = 1;
+    $file->uri       = 'public://test_pdf.pdf';
+    $file->timestamp = time();
+    $file->type      = 'default';
+    drupal_write_record('file_managed', $file);
+
+    $fid = $file->fid;//store for later use
+  }
+
+  $content['oc_bulletin1'] = (object) array(
+    'title' => 'Sunday, November 28, 2010',
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'openchurch_bulletin',
+    'language' => 'und',
+    'created' => '1323217239',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'oc_bulletin1',
+    'body' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed neque lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ultrices, dui non bibendum scelerisque, nisl enim porttitor ipsum, fermentum laoreet ligula mauris ac nulla. Phasellus tempor scelerisque purus quis egestas. Morbi commodo nisl a nulla bibendum facilisis. In hac habitasse platea dictumst. Nam vitae nisl nec nisi malesuada consequat. Integer lobortis vulputate ipsum, in ullamcorper elit tristique at. Morbi non convallis odio. Donec sagittis semper eros, quis accumsan tortor commodo ut. Sed elementum pellentesque diam eget imperdiet.
+
+  In accumsan mattis eros, at bibendum elit interdum id. Integer eu sem libero, id dapibus ipsum. Maecenas vulputate pharetra lobortis. Mauris pharetra iaculis turpis ac interdum. Pellentesque tincidunt aliquet diam. Nullam sodales neque ut nunc ultrices sit amet faucibus tortor sagittis. Nunc convallis pretium rhoncus. Sed eleifend pharetra metus, sit amet pulvinar dolor pulvinar dictum. Nulla facilisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec convallis blandit urna, et lobortis risus faucibus non. Donec eu tortor diam. Proin adipiscing venenatis dui. Maecenas eget arcu in dolor rhoncus posuere. Donec lobortis augue ipsum, in scelerisque tortor. Proin vehicula, urna at mollis placerat, lorem urna semper nisi, dictum blandit diam felis vitae neque. Etiam egestas pharetra odio, nec pretium nulla dictum non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas ipsum velit, sagittis auctor facilisis quis, porttitor eu ipsum.',
+          'summary' => '',
+          'format' => 'panopoly_wysiwyg_text',
+          'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed neque lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ultrices, dui non bibendum scelerisque, nisl enim porttitor ipsum, fermentum laoreet ligula mauris ac nulla. Phasellus tempor scelerisque purus quis egestas. Morbi commodo nisl a nulla bibendum facilisis. In hac habitasse platea dictumst. Nam vitae nisl nec nisi malesuada consequat. Integer lobortis vulputate ipsum, in ullamcorper elit tristique at. Morbi non convallis odio. Donec sagittis semper eros, quis accumsan tortor commodo ut. Sed elementum pellentesque diam eget imperdiet.</p>
+  <p>In accumsan mattis eros, at bibendum elit interdum id. Integer eu sem libero, id dapibus ipsum. Maecenas vulputate pharetra lobortis. Mauris pharetra iaculis turpis ac interdum. Pellentesque tincidunt aliquet diam. Nullam sodales neque ut nunc ultrices sit amet faucibus tortor sagittis. Nunc convallis pretium rhoncus. Sed eleifend pharetra metus, sit amet pulvinar dolor pulvinar dictum. Nulla facilisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec convallis blandit urna, et lobortis risus faucibus non. Donec eu tortor diam. Proin adipiscing venenatis dui. Maecenas eget arcu in dolor rhoncus posuere. Donec lobortis augue ipsum, in scelerisque tortor. Proin vehicula, urna at mollis placerat, lorem urna semper nisi, dictum blandit diam felis vitae neque. Etiam egestas pharetra odio, nec pretium nulla dictum non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas ipsum velit, sagittis auctor facilisis quis, porttitor eu ipsum.</p>
+  ',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_oc_bulletin_date' => array(
+      'und' => array(
+        0 => array(
+          'value' => '2010-11-28 00:00:00',
+          'timezone' => 'UTC',
+          'timezone_db' => 'UTC',
+          'date_type' => 'datetime',
+        ),
+      ),
+    ),
+    'field_oc_bulletin_file' => array(
+      'und' => array(
+        0 => array(
+          'fid' => $fid,
+          'display' => '1',
+          'description' => '',
+          'filename' => 'test_pdf.pdf',
+          'uri' => 'public://test_pdf.pdf',
+          'filemime' => 'application/pdf',
+          'filesize' => '39',
+          'status' => '1',
+          'type' => 'application',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
+  );
+
+  $content['oc_bulletin2'] = (object) array(
+    'title' => 'November 14th, 2010 Bulletin',
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'openchurch_bulletin',
+    'language' => 'und',
+    'created' => '1323217062',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'oc_bulletin2',
+    'body' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed neque lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ultrices, dui non bibendum scelerisque, nisl enim porttitor ipsum, fermentum laoreet ligula mauris ac nulla. Phasellus tempor scelerisque purus quis egestas. Morbi commodo nisl a nulla bibendum facilisis. In hac habitasse platea dictumst. Nam vitae nisl nec nisi malesuada consequat. Integer lobortis vulputate ipsum, in ullamcorper elit tristique at. Morbi non convallis odio. Donec sagittis semper eros, quis accumsan tortor commodo ut. Sed elementum pellentesque diam eget imperdiet.
+
+  In accumsan mattis eros, at bibendum elit interdum id. Integer eu sem libero, id dapibus ipsum. Maecenas vulputate pharetra lobortis. Mauris pharetra iaculis turpis ac interdum. Pellentesque tincidunt aliquet diam. Nullam sodales neque ut nunc ultrices sit amet faucibus tortor sagittis. Nunc convallis pretium rhoncus. Sed eleifend pharetra metus, sit amet pulvinar dolor pulvinar dictum. Nulla facilisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec convallis blandit urna, et lobortis risus faucibus non. Donec eu tortor diam. Proin adipiscing venenatis dui. Maecenas eget arcu in dolor rhoncus posuere. Donec lobortis augue ipsum, in scelerisque tortor. Proin vehicula, urna at mollis placerat, lorem urna semper nisi, dictum blandit diam felis vitae neque. Etiam egestas pharetra odio, nec pretium nulla dictum non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas ipsum velit, sagittis auctor facilisis quis, porttitor eu ipsum.',
+          'summary' => '',
+          'format' => 'panopoly_wysiwyg_text',
+          'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed neque lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ultrices, dui non bibendum scelerisque, nisl enim porttitor ipsum, fermentum laoreet ligula mauris ac nulla. Phasellus tempor scelerisque purus quis egestas. Morbi commodo nisl a nulla bibendum facilisis. In hac habitasse platea dictumst. Nam vitae nisl nec nisi malesuada consequat. Integer lobortis vulputate ipsum, in ullamcorper elit tristique at. Morbi non convallis odio. Donec sagittis semper eros, quis accumsan tortor commodo ut. Sed elementum pellentesque diam eget imperdiet.</p>
+  <p>In accumsan mattis eros, at bibendum elit interdum id. Integer eu sem libero, id dapibus ipsum. Maecenas vulputate pharetra lobortis. Mauris pharetra iaculis turpis ac interdum. Pellentesque tincidunt aliquet diam. Nullam sodales neque ut nunc ultrices sit amet faucibus tortor sagittis. Nunc convallis pretium rhoncus. Sed eleifend pharetra metus, sit amet pulvinar dolor pulvinar dictum. Nulla facilisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec convallis blandit urna, et lobortis risus faucibus non. Donec eu tortor diam. Proin adipiscing venenatis dui. Maecenas eget arcu in dolor rhoncus posuere. Donec lobortis augue ipsum, in scelerisque tortor. Proin vehicula, urna at mollis placerat, lorem urna semper nisi, dictum blandit diam felis vitae neque. Etiam egestas pharetra odio, nec pretium nulla dictum non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas ipsum velit, sagittis auctor facilisis quis, porttitor eu ipsum.</p>
+  ',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_oc_bulletin_date' => array(
+      'und' => array(
+        0 => array(
+          'value' => '2010-11-14 00:00:00',
+          'timezone' => 'UTC',
+          'timezone_db' => 'UTC',
+          'date_type' => 'datetime',
+        ),
+      ),
+    ),
+    'field_oc_bulletin_file' => array(
+      'und' => array(
+        0 => array(
+          'fid' => $fid,
+          'display' => '1',
+          'description' => '',
+          'filename' => 'test_pdf.pdf',
+          'uri' => 'public://test_pdf.pdf',
+          'filemime' => 'application/pdf',
+          'filesize' => '39',
+          'status' => '1',
+          'type' => 'application',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
+  );
+
+  $content['oc_bulletin3'] = (object) array(
+    'title' => 'Sunday, November 21, 2010',
+    'status' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'type' => 'openchurch_bulletin',
+    'language' => 'und',
+    'created' => '1323217174',
+    'comment' => '1',
+    'translate' => '0',
+    'machine_name' => 'oc_bulletin3',
+    'body' => array(
+      'und' => array(
+        0 => array(
+          'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed neque lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ultrices, dui non bibendum scelerisque, nisl enim porttitor ipsum, fermentum laoreet ligula mauris ac nulla. Phasellus tempor scelerisque purus quis egestas. Morbi commodo nisl a nulla bibendum facilisis. In hac habitasse platea dictumst. Nam vitae nisl nec nisi malesuada consequat. Integer lobortis vulputate ipsum, in ullamcorper elit tristique at. Morbi non convallis odio. Donec sagittis semper eros, quis accumsan tortor commodo ut. Sed elementum pellentesque diam eget imperdiet.
+
+  In accumsan mattis eros, at bibendum elit interdum id. Integer eu sem libero, id dapibus ipsum. Maecenas vulputate pharetra lobortis. Mauris pharetra iaculis turpis ac interdum. Pellentesque tincidunt aliquet diam. Nullam sodales neque ut nunc ultrices sit amet faucibus tortor sagittis. Nunc convallis pretium rhoncus. Sed eleifend pharetra metus, sit amet pulvinar dolor pulvinar dictum. Nulla facilisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec convallis blandit urna, et lobortis risus faucibus non. Donec eu tortor diam. Proin adipiscing venenatis dui. Maecenas eget arcu in dolor rhoncus posuere. Donec lobortis augue ipsum, in scelerisque tortor. Proin vehicula, urna at mollis placerat, lorem urna semper nisi, dictum blandit diam felis vitae neque. Etiam egestas pharetra odio, nec pretium nulla dictum non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas ipsum velit, sagittis auctor facilisis quis, porttitor eu ipsum.',
+          'summary' => '',
+          'format' => 'panopoly_wysiwyg_text',
+          'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed neque lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ultrices, dui non bibendum scelerisque, nisl enim porttitor ipsum, fermentum laoreet ligula mauris ac nulla. Phasellus tempor scelerisque purus quis egestas. Morbi commodo nisl a nulla bibendum facilisis. In hac habitasse platea dictumst. Nam vitae nisl nec nisi malesuada consequat. Integer lobortis vulputate ipsum, in ullamcorper elit tristique at. Morbi non convallis odio. Donec sagittis semper eros, quis accumsan tortor commodo ut. Sed elementum pellentesque diam eget imperdiet.</p>
+  <p>In accumsan mattis eros, at bibendum elit interdum id. Integer eu sem libero, id dapibus ipsum. Maecenas vulputate pharetra lobortis. Mauris pharetra iaculis turpis ac interdum. Pellentesque tincidunt aliquet diam. Nullam sodales neque ut nunc ultrices sit amet faucibus tortor sagittis. Nunc convallis pretium rhoncus. Sed eleifend pharetra metus, sit amet pulvinar dolor pulvinar dictum. Nulla facilisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec convallis blandit urna, et lobortis risus faucibus non. Donec eu tortor diam. Proin adipiscing venenatis dui. Maecenas eget arcu in dolor rhoncus posuere. Donec lobortis augue ipsum, in scelerisque tortor. Proin vehicula, urna at mollis placerat, lorem urna semper nisi, dictum blandit diam felis vitae neque. Etiam egestas pharetra odio, nec pretium nulla dictum non. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas ipsum velit, sagittis auctor facilisis quis, porttitor eu ipsum.</p>
+  ',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_oc_bulletin_date' => array(
+      'und' => array(
+        0 => array(
+          'value' => '2010-11-21 00:00:00',
+          'timezone' => 'UTC',
+          'timezone_db' => 'UTC',
+          'date_type' => 'datetime',
+        ),
+      ),
+    ),
+    'field_oc_bulletin_file' => array(
+      'und' => array(
+        0 => array(
+          'fid' => $fid,
+          'display' => '1',
+          'description' => '',
+          'filename' => 'test_pdf.pdf',
+          'uri' => 'public://test_pdf.pdf',
+          'filemime' => 'application/pdf',
+          'filesize' => '39',
+          'status' => '1',
+          'type' => 'application',
+          'uuid' => '6d4a9ce3-1444-5ea4-61fd-e0a9dd18b283',
+          'metatags' => array(),
+          'rdf_mapping' => array(),
+        ),
+      ),
+    ),
+  );
+
+  // Save each node
+  foreach ($content as $node) {
+    node_save($node);
+  }
+}

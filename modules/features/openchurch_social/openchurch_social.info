@@ -1,7 +1,7 @@
 name = OpenChurch Social
 description = Adds social icons to the site which allows visitors to share content.
 core = 7.x
-package = Features
+package = OpenChurch
 version = 7.x-1.0-alpha1
 project = openchurch_social
 dependencies[] = ctools

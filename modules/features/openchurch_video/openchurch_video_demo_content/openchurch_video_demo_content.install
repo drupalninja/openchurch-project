@@ -4,38 +4,39 @@
  * Implements hook_install().
  */
 function openchurch_video_demo_content_install() {
-
   $video_fids = array();
 
-  /**
-   * Save video to file
-   */
-  $file            = new stdClass();
-  $file->filename  = 'Introducing Drupal 7';
-  $file->status    = 1;
-  $file->filemime  = 'video/vimeo';
-  $file->filesize  = 0;
-  $file->uid       = 1;
-  $file->uri       = 'vimeo://v/18352872';
-  $file->timestamp = time();
-  $file->type      = 'video';
-  drupal_write_record('file_managed', $file);
+  $video_fids['oc_video1'] = db_query('SELECT fid FROM {file_managed} WHERE filename = :filename', array(':filename' => 'Introducing Drupal 7'))->fetchColumn();
 
-  $video_fids['oc_video1'] = $file->fid;//store for later use
+  if (!$video_fids['oc_video1']) {
+    $file            = new stdClass();
+    $file->filename  = 'Introducing Drupal 7';
+    $file->status    = 1;
+    $file->filemime  = 'video/vimeo';
+    $file->filesize  = 0;
+    $file->uid       = 1;
+    $file->uri       = 'vimeo://v/18352872';
+    $file->timestamp = time();
+    $file->type      = 'video';
+    drupal_write_record('file_managed', $file);
 
-  /**
-   * Save video to file
-   */
-  $file            = new stdClass();
-  $file->filename  = 'What is Drupal?';
-  $file->status    = 1;
-  $file->filemime  = 'video/youtube';
-  $file->filesize  = 0;
-  $file->uid       = 1;
-  $file->uri       = 'youtube://v/26_OZeBmpXs';
-  $file->timestamp = time();
-  $file->type      = 'video';
-  drupal_write_record('file_managed', $file);
+    $video_fids['oc_video1'] = $file->fid;//store for later use
+  }
+
+  $video_fids['oc_video2'] = db_query('SELECT fid FROM {file_managed} WHERE filename = :filename', array(':filename' => 'What is Drupal?'))->fetchColumn();
+
+  if (!$video_fids['oc_video2']) {
+    $file            = new stdClass();
+    $file->filename  = 'What is Drupal?';
+    $file->status    = 1;
+    $file->filemime  = 'video/youtube';
+    $file->filesize  = 0;
+    $file->uid       = 1;
+    $file->uri       = 'youtube://v/26_OZeBmpXs';
+    $file->timestamp = time();
+    $file->type      = 'video';
+    drupal_write_record('file_managed', $file);
+  }
 
   $video_fids['oc_video2'] = $file->fid;//store for later use
 
