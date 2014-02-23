@@ -45,6 +45,12 @@ projects[views_slideshow][subdir] = contrib
 projects[webform][version] = 3.19
 projects[webform][subdir] = contrib
 
+; Sandbox module
+projects[openchurch_apps][type] = module
+projects[openchurch_apps]][download][type] = git
+projects[openchurch_apps]][download][branch] = "7.x-2.x"
+projects[openchurch_apps]][download][url] = http://drupalcode.org/sandbox/jaykali/openchurch_apps.git
+
 ; The Panopoly Foundation
 projects[panopoly_core][version] = 1.1
 projects[panopoly_core][subdir] = panopoly

@@ -57,6 +57,7 @@ dependencies[] = backup_migrate
 dependencies[] = bulk_export
 dependencies[] = calendar
 dependencies[] = colorbox
+dependencies[] = ctools_custom_content
 dependencies[] = context
 dependencies[] = email
 dependencies[] = fe_nodequeue
@@ -67,6 +68,7 @@ dependencies[] = fontyourface_ui
 dependencies[] = google_fonts_api
 dependencies[] = menu_breadcrumb
 dependencies[] = metatag
+dependencies[] = metatag_panels
 dependencies[] = nodequeue
 dependencies[] = pathologic
 dependencies[] = plup
@@ -85,6 +87,7 @@ dependencies[] = webform
 
 ;Features
 
+dependencies[] = openchurch_apps
 dependencies[] = openchurch_ministry
 dependencies[] = openchurch_ministry_demo_content
 dependencies[] = openchurch_blog

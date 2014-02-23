@@ -48,23 +48,6 @@ function openchurch_ministry_demo_content_install() {
   }
 
   $content['oc_ministry1'] = (object) array(
-    'link' => array(
-      'menu_name' => 'main-menu',
-      'link_path' => 'node-name/oc_ministry1',
-      'router_path' => 'node/%',
-      'link_title' => 'Youth Ministry',
-      'options' => array(
-        'attributes' => array(),
-      ),
-      'module' => 'menu',
-      'hidden' => '0',
-      'external' => '0',
-      'has_children' => '0',
-      'expanded' => '0',
-      'weight' => '-50',
-      'parent_path' => 'ministries',
-      'identifier' => 'main-menu:node-name/oc_ministry1',
-    ),
     'title' => 'Youth Ministry',
     'status' => '1',
     'promote' => '0',
@@ -140,23 +123,6 @@ function openchurch_ministry_demo_content_install() {
   );
 
   $content['oc_ministry2'] = (object) array(
-    'link' => array(
-      'menu_name' => 'main-menu',
-      'link_path' => 'node-name/oc_ministry2',
-      'router_path' => 'node/%',
-      'link_title' => 'Singles Ministry',
-      'options' => array(
-        'attributes' => array(),
-      ),
-      'module' => 'menu',
-      'hidden' => '0',
-      'external' => '0',
-      'has_children' => '0',
-      'expanded' => '0',
-      'weight' => '-49',
-      'parent_path' => 'ministries',
-      'identifier' => 'main-menu:node-name/oc_ministry2',
-    ),
     'title' => 'Singles Ministry',
     'status' => '1',
     'promote' => '0',
@@ -207,7 +173,7 @@ function openchurch_ministry_demo_content_install() {
       ),
     ),
   );
-
+  
   // Save each node
   foreach ($content as $node) {
     node_save($node);

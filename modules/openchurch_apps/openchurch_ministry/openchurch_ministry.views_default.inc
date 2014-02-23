@@ -22,7 +22,6 @@ function openchurch_ministry_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Connect With Ministries';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -41,16 +40,6 @@ function openchurch_ministry_views_default_views() {
     'body' => 'contentmain',
     'nid' => 'contentmain',
   );
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['label'] = 'Ministries Intro';
-  $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<h3>Boldly Announce Your Ministries and Missions Through Open Church</h3>
-<p>Open Church is a platform to help you spread the word about your ministries and the ongoing efforts to make a difference. &nbsp;We would use this area to tell others about the overall mission of your church and how and where your ministries are headed. &nbsp;</p>
-<p>Spread the word through the use of the internet where you can keep everyone informed of all the activities, needs, and events. &nbsp;Now with open church you don\'t have to have a full time web staff to spread the word, you can start for free, and the add features as you grow. &nbsp;If your church grows to a point you want more customization or features we\'re here to help either directly or by connecting you with one of our approved partners.</p>';
-  $handler->display->display_options['header']['area']['format'] = 'panopoly_wysiwyg_text';
   /* Field: Content: Thumb */
   $handler->display->display_options['fields']['field_oc_thumb']['id'] = 'field_oc_thumb';
   $handler->display->display_options['fields']['field_oc_thumb']['table'] = 'field_data_field_oc_thumb';
@@ -130,16 +119,9 @@ function openchurch_ministry_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
 
   /* Display: Ministry List Page */
-  $handler = $view->new_display('page', 'Ministry List Page', 'page_1');
+  $handler = $view->new_display('block', 'Ministry List Page', 'block_2');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'openchurch-ministries-list';
-  $handler->display->display_options['path'] = 'ministries';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Ministries';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['openchurch_ministries'] = $view;
 
   $view = new view();

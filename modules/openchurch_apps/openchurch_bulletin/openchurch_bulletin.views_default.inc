@@ -22,7 +22,6 @@ function openchurch_bulletin_views_default_views() {
 
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->display->display_options['title'] = 'Weekly Bulletins';
   $handler->display->display_options['css_class'] = 'openchurch-bulletin-list';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
@@ -43,14 +42,6 @@ function openchurch_bulletin_views_default_views() {
     'field_oc_bulletin_file' => 'field_oc_bulletin_file',
   );
   $handler->display->display_options['row_options']['separator'] = ' ';
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['text']['id'] = 'text';
-  $handler->display->display_options['header']['text']['table'] = 'views';
-  $handler->display->display_options['header']['text']['field'] = 'area';
-  $handler->display->display_options['header']['text']['content'] = '<p>OpenChurch creates weekly bulletins to keep everyone informed about the inner workings of our church. Here you will find an archive of bulletins as a resource if you need it. If you would like a bulletin not found here please contact the church office.</p>
-
-<h3 class="title">Bulletin Archives</h3>';
-  $handler->display->display_options['header']['text']['format'] = 'panopoly_wysiwyg_text';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['text']['id'] = 'area';
   $handler->display->display_options['empty']['text']['table'] = 'views';
@@ -104,15 +95,8 @@ function openchurch_bulletin_views_default_views() {
   );
   $handler->display->display_options['filters']['type']['expose']['operator'] = FALSE;
 
-  /* Display: Bulletin Archive Page */
-  $handler = $view->new_display('page', 'Bulletin Archive Page', 'page_1');
-  $handler->display->display_options['path'] = 'media/bulletins';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Weekly Bulletins';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  /* Display: Bulletins Archive Page */
+  $handler = $view->new_display('block', 'Bulletins Archive Page', 'block_1');
   $export['openchurch_bulletins'] = $view;
 
   $view = new view();
@@ -146,7 +130,7 @@ function openchurch_bulletin_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a href="/media/bulletins">View Full Archives &raquo;</a>';
-  $handler->display->display_options['footer']['area']['format'] = 'php_code';
+  $handler->display->display_options['footer']['area']['format'] = 'panopoly_html_text';
   /* Field: Content: Bulletin */
   $handler->display->display_options['fields']['field_oc_bulletin_file']['id'] = 'field_oc_bulletin_file';
   $handler->display->display_options['fields']['field_oc_bulletin_file']['table'] = 'field_data_field_oc_bulletin_file';

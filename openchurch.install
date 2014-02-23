@@ -181,6 +181,7 @@ function openchurch_install() {
   db_query('INSERT INTO {date_formats} VALUES (NULL, :format, :type, 0)', array(':format' => 'm.d.y', ':type' => 'short'));
 
   variable_set('date_format_openchurch_short_date', 'm.d.y');
+  variable_set('ctools_content_all_views', 1);
 
   /**
    * Add menu items
@@ -196,7 +197,7 @@ function openchurch_install() {
 
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/3',
+    'link_path' => 'node/21',
     'router_path' => 'node/%',
     'link_title' => 'About',
     'module' => 'openchurch_demo_content',
@@ -214,7 +215,7 @@ function openchurch_install() {
 
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/25',
+    'link_path' => 'node/24',
     'router_path' => 'node/%',
     'link_title' => 'Serve',
     'module' => 'openchurch_demo_content',
@@ -230,7 +231,7 @@ function openchurch_install() {
 
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/24',
+    'link_path' => 'node/25',
     'router_path' => 'node/%',
     'link_title' => 'Time & Locations',
     'module' => 'openchurch_demo_content',
@@ -247,7 +248,7 @@ function openchurch_install() {
 
   $item = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/21',
+    'link_path' => 'node/23',
     'router_path' => 'node/%',
     'link_title' => 'Map and Directions',
     'module' => 'openchurch_demo_content',
@@ -295,7 +296,7 @@ function openchurch_install() {
 
   $item = array(
     'link_title' => t('Image Acknowledgements'),
-    'link_path' => 'node/20',
+    'link_path' => 'node/22',
     'menu_name' => 'menu-secondary-links',
     'weight' => 0,
     'customized' => 1,

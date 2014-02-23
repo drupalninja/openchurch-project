@@ -3,3 +3,5 @@
  * @file
  * Code for the OpenChurch Defaults demo content feature.
  */
+
+include_once('openchurch_demo_content.features.inc');
