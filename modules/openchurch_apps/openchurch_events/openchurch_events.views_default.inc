@@ -93,7 +93,6 @@ function openchurch_events_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Upcoming Events';
   $handler->display->display_options['css_class'] = 'openchurch-events-list';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
@@ -264,14 +263,7 @@ function openchurch_events_views_default_views() {
   $handler->display->display_options['filters']['field_oc_dates_value']['default_date'] = 'now';
 
   /* Display: Upcoming Events Page */
-  $handler = $view->new_display('page', 'Upcoming Events Page', 'page_1');
-  $handler->display->display_options['path'] = 'events';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Events';
-  $handler->display->display_options['menu']['weight'] = '3';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $handler = $view->new_display('panel_pane', 'Upcoming Events Page', 'panel_pane_1');
   $export['openchurch_events'] = $view;
 
   $view = new view();

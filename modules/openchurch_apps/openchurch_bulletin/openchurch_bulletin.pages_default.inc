@@ -69,12 +69,16 @@ function openchurch_bulletin_default_page_manager_pages() {
     $pane = new stdClass();
     $pane->pid = 'new-1';
     $pane->panel = 'contentmain';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:3';
+    $pane->type = 'custom';
+    $pane->subtype = 'openchurch_bulletins_intro';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'view_mode' => 'Full',
+      'admin_title' => '',
+      'title' => '',
+      'body' => '',
+      'format' => 'panopoly_wysiwyg_text',
+      'substitute' => TRUE,
     );
     $pane->cache = array();
     $pane->style = array();
