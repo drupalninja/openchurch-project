@@ -82,9 +82,6 @@ dependencies[] = views_slideshow
 dependencies[] = views_slideshow_cycle
 dependencies[] = webform
 
-; Custom
-
-
 ;Features
 
 dependencies[] = openchurch_apps
