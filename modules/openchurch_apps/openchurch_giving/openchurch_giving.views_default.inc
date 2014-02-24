@@ -22,7 +22,6 @@ function openchurch_giving_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Faithful Giving';
   $handler->display->display_options['css_class'] = 'openchurch-giving-list';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
@@ -41,19 +40,6 @@ function openchurch_giving_views_default_views() {
     'body' => 'contentmain',
     'view_node' => 'contentmain',
   );
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<p>At OpenChurch we realize that many of you handle all your family finances via the internet. We are glad to announce we now have a way for you to manage your giving through our online giving platform.</p>
-
-<p>By giving online you can give one time donations to specific causes or ministries, setup recurring monthly donations, and view a detailed history at any point you desire. All of your information is held strictly confidential. Even though you will have the opportunity to log in and print transaction histories at any point you prefer, our system is linked with our accounting so you will still get an end of year letter with your giving history.</p>
-
-<h3 class="title">Special Needs Giving</h3>
-
-<p>Occasionally, opportunities arise for our body to give to individual causes that will help our community, missions abroad, and many other causes. In addition to our standard online giving system, you may use this site to give specifically to any of the following causes:</p>';
-  $handler->display->display_options['header']['area']['format'] = 'panopoly_wysiwyg_text';
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_oc_image']['id'] = 'field_oc_image';
   $handler->display->display_options['fields']['field_oc_image']['table'] = 'field_data_field_oc_image';
@@ -114,14 +100,7 @@ function openchurch_giving_views_default_views() {
   );
 
   /* Display: Giving Page */
-  $handler = $view->new_display('page', 'Giving Page', 'page_1');
-  $handler->display->display_options['path'] = 'give';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Give';
-  $handler->display->display_options['menu']['weight'] = '4';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $handler = $view->new_display('panel_pane', 'Giving Page', 'panel_pane_2');
   $export['openchurch_giving'] = $view;
 
   return $export;

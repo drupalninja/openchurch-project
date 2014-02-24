@@ -40,7 +40,7 @@ function openchurch_ministry_views_default_views() {
     'body' => 'contentmain',
     'nid' => 'contentmain',
   );
-  /* Field: Content: Album Cover */
+  /* Field: Content: Thumb */
   $handler->display->display_options['fields']['field_oc_thumb']['id'] = 'field_oc_thumb';
   $handler->display->display_options['fields']['field_oc_thumb']['table'] = 'field_data_field_oc_thumb';
   $handler->display->display_options['fields']['field_oc_thumb']['field'] = 'field_oc_thumb';

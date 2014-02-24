@@ -88,8 +88,6 @@ dependencies[] = webform
 ;Features
 
 dependencies[] = openchurch_apps
-dependencies[] = openchurch_ministry
-dependencies[] = openchurch_ministry_demo_content
 dependencies[] = openchurch_blog
 dependencies[] = openchurch_blog_demo_content
 dependencies[] = openchurch_bulletin
@@ -109,6 +107,8 @@ dependencies[] = openchurch_staff
 dependencies[] = openchurch_staff_demo_content
 dependencies[] = openchurch_video
 dependencies[] = openchurch_video_demo_content
+dependencies[] = openchurch_ministry
+dependencies[] = openchurch_ministry_demo_content
 dependencies[] = openchurch_demo_content
 dependencies[] = wysiwyg_iframe
 
