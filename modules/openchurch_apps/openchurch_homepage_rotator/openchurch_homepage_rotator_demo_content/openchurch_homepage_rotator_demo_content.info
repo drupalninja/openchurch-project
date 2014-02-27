@@ -1,8 +1,0 @@
-name = "OpenChurch Homepage Rotator Demo Content"
-description = "Sample rotator content for the OpenChurch Homepage Rotator app"
-core = "7.x"
-package = "OpenChurch"
-php = "5.2.4"
-version = "7.x-1.0-alpha1"
-project = "openchurch_homepage_rotator"
-dependencies[] = "openchurch_homepage_rotator"

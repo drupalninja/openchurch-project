@@ -1,8 +1,0 @@
-name = "OpenChurch Giving Demo Content"
-description = "Sample charity content for the OpenChurch Giving app"
-core = "7.x"
-package = "OpenChurch"
-php = "5.2.4"
-version = "7.x-1.0-alpha1"
-project = "openchurch_giving"
-dependencies[] = "openchurch_giving"

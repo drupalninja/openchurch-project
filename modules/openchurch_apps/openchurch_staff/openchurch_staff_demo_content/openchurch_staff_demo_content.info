@@ -1,8 +1,0 @@
-name = "OpenChurch Staff Demo Content"
-description = "Sample staff content for the OpenChurch Staff app."
-core = "7.x"
-package = "OpenChurch"
-php = "5.2.4"
-version = "7.x-1.0-alpha1"
-project = "openchurch_staff_demo_content"
-dependencies[] = "openchurch_staff"

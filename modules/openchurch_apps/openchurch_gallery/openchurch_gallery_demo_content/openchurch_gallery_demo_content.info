@@ -1,8 +1,0 @@
-name = "OpenChurch Gallery Demo Content"
-description = "Sample gallery content for the OpenChurch Gallery app"
-core = "7.x"
-package = "OpenChurch"
-php = "5.2.4"
-version = "7.x-1.8-alpha1"
-project = "openchurch_gallery_demo_Content"
-dependencies[] = "openchurch_gallery"

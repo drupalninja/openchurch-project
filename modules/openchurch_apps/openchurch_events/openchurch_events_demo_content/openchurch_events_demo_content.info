@@ -1,8 +1,0 @@
-name = "OpenChurch Events Demo Content"
-description = "Sample events for the OpenChurch Events app"
-core = "7.x"
-package = "OpenChurch"
-php = "5.2.4"
-version = "7.x-1.0-alpha1"
-project = "openchurch_events_demo_content"
-dependencies[] = "openchurch_events"

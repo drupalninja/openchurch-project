@@ -1,8 +1,0 @@
-name = "OpenChurch Video Demo Content"
-description = "Sample videos for the OpenChurch Video app"
-core = "7.x"
-package = "OpenChurch"
-version = "7.x-1.0-alpha1"
-project = "openchurch_video_demo_content"
-dependencies[] = openchurch_video
-files[] = openchurch_video_demo_content.install
