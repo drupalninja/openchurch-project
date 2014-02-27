@@ -44,7 +44,7 @@ projects[superfish][version] = 1.9
 projects[superfish][subdir] = contrib
 projects[views_slideshow][version] = 3.1
 projects[views_slideshow][subdir] = contrib
-projects[webform][version] = 3.19
+projects[webform][version] = 4.0-beta3
 projects[webform][subdir] = contrib
 
 ; Sandbox module
