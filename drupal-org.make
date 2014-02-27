@@ -84,15 +84,13 @@ projects[openchurch_theme][download][url] = http://git.drupal.org/project/opench
 
 ; Libraries
 
-;Disabling for now
-;libraries[jquery.cycle][type] = "libraries"
-;libraries[jquery.cycle][download][type] = "file"
-;libraries[jquery.cycle][download][url] = "http://malsup.github.com/jquery.cycle.all.js"
-;libraries[jquery.cycle][directory_name] = "jquery.cycle"
+libraries[colorbox][download][type] = "get"
+libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/archive/1.x.zip"
+libraries[colorbox][directory_name] = "colorbox"
 
-libraries[plupload][download][type] = "get"
-libraries[plupload][download][url] = "https://github.com/jackmoore/colorbox/archive/1.x.zip"
-libraries[plupload][directory_name] = "colorbox"
+libraries[fitvids][download][type] = "file"
+libraries[fitvids][download][url] = "https://raw.github.com/davatron5000/FitVids.js/master/jquery.fitvids.js"
+libraries[fitvids][directory_name] = "fitvids"
 
 libraries[superfish][download][type] = "get"
 libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-for-Drupal/zipball/master"
