@@ -131,7 +131,6 @@ function openchurch_install() {
   db_query('INSERT INTO {date_formats} VALUES (NULL, :format, :type, 0)', array(':format' => 'm.d.y', ':type' => 'short'));
 
   variable_set('date_format_openchurch_short_date', 'm.d.y');
-  variable_set('ctools_content_all_views', 1);
 
   /**
    * Add menu items
