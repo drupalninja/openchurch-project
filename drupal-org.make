@@ -51,7 +51,7 @@ projects[webform][subdir] = contrib
 projects[openchurch_apps][type] = module
 projects[openchurch_apps][download][type] = git
 projects[openchurch_apps][download][branch] = "7.x-2.x"
-projects[openchurch_apps][download][url] = http://git.drupal.org/sandbox/jaykali/openchurch_apps.git
+projects[openchurch_apps][download][url] = http://git.drupal.org/project/openchurch_apps.git
 
 ; The Panopoly Foundation
 projects[panopoly_core][version] = 1.1
