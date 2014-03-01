@@ -108,6 +108,7 @@ dependencies[] = openchurch_gallery_demo_content
 dependencies[] = openchurch_events
 dependencies[] = openchurch_events_demo_content
 dependencies[] = openchurch_demo_content
+dependencies[] = openchurch_webform
 dependencies[] = wysiwyg_iframe
 
 files[] = openchurch.profile

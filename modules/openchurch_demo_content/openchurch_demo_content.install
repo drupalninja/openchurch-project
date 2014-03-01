@@ -11,6 +11,7 @@ function openchurch_demo_content_install() {
   $content = array();
 
   $content['oc_page_about'] = (object) array(
+      'uid' => 1,
       'link' => array(
         'menu_name' => 'main-menu',
         'link_path' => 'node-name/oc_page_about',
@@ -54,6 +55,7 @@ function openchurch_demo_content_install() {
 
   $content['oc_page_image_acknowledgements'] = (object) array(
       'title' => 'Image Acknowledgements',
+      'uid' => 1,
       'status' => '1',
       'promote' => '0',
       'sticky' => '0',
@@ -126,6 +128,7 @@ function openchurch_demo_content_install() {
   );
 
   $content['oc_page_map_directions'] = (object) array(
+      'uid' => 1,
       'link' => array(
         'menu_name' => 'main-menu',
         'link_path' => 'node-name/oc_page_map_directions',
@@ -175,6 +178,7 @@ function openchurch_demo_content_install() {
   );
 
   $content['oc_page_serve'] = (object) array(
+      'uid' => 1,
       'link' => array(
         'menu_name' => 'main-menu',
         'link_path' => 'node-name/oc_page_serve',
@@ -226,6 +230,7 @@ function openchurch_demo_content_install() {
   );
 
   $content['oc_page_times'] = (object) array(
+      'uid' => 1,
       'link' => array(
         'menu_name' => 'main-menu',
         'link_path' => 'node-name/oc_page_times',

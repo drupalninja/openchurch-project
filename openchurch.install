@@ -127,9 +127,7 @@ function openchurch_install() {
 
   //Add custom date
   db_query('INSERT INTO {date_format_type} VALUES (:type, :title, 0)', array(':type' => 'openchurch_short_date', ':title' => 'OpenChurch Short Date'));
-
   db_query('INSERT INTO {date_formats} VALUES (NULL, :format, :type, 0)', array(':format' => 'm.d.y', ':type' => 'short'));
-
   variable_set('date_format_openchurch_short_date', 'm.d.y');
 
   /**

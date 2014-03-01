@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OpenChurch Webform feature.
+ */
+
+include_once 'openchurch_webform.features.inc';
