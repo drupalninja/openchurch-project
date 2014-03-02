@@ -5,7 +5,6 @@
  * Perform actions to set up the site for this profile.
  */
 function openchurch_install() {
-
   // Enable the admin theme.
   db_update('system')
     ->fields(array('status' => 1))
