@@ -94,9 +94,8 @@ libraries[fitvids][download][type] = "file"
 libraries[fitvids][download][url] = "https://raw.github.com/davatron5000/FitVids.js/master/jquery.fitvids.js"
 libraries[fitvids][directory_name] = "fitvids"
 
-libraries[respondjs][download][type] = "file"
-libraries[respondjs][download][url] = "https://raw.github.com/scottjehl/Respond/master/dest/respond.min.js"
-libraries[respondjs][directory_name] = "respondjs"
+libraries[respondjs][download][type] = get
+libraries[respondjs][download][url] = https://github.com/scottjehl/Respond/tarball/master
 
 libraries[superfish][download][type] = "get"
 libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-for-Drupal/zipball/master"
