@@ -15,6 +15,9 @@ function openchurch_install() {
   variable_set('admin_theme', 'seven');
   variable_set('node_admin_theme', '1');
 
+  // Enabled CSS aggregation for respond.js
+  variable_set('preprocess_css', 1);
+
   /**
    * Enable OpenChurch theme as default
    */
@@ -124,11 +127,6 @@ function openchurch_install() {
 
   //Save more info
   _openchurch_add_block_info($block['bid'], 'Weekly Meeting Times', 'block', -99, 'sidebar_second');
-
-  //Add custom date
-  db_query('INSERT INTO {date_format_type} VALUES (:type, :title, 0)', array(':type' => 'openchurch_short_date', ':title' => 'OpenChurch Short Date'));
-  db_query('INSERT INTO {date_formats} VALUES (NULL, :format, :type, 0)', array(':format' => 'm.d.y', ':type' => 'short'));
-  variable_set('date_format_openchurch_short_date', 'm.d.y');
 
   /**
    * Add menu items

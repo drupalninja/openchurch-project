@@ -26,6 +26,8 @@ projects[menu_breadcrumb][version] = 1.5
 projects[menu_breadcrumb][subdir] = contrib
 projects[metatag][version] = 1.0-beta8
 projects[metatag][subdir] = contrib
+projects[modernizr][version] = 3.2
+projects[modernizr][subdir] = contrib
 projects[nodequeue][version] = 2.0-beta1
 projects[nodequeue][subdir] = contrib
 projects[pathologic][version] = 2.12
@@ -91,6 +93,10 @@ libraries[colorbox][directory_name] = "colorbox"
 libraries[fitvids][download][type] = "file"
 libraries[fitvids][download][url] = "https://raw.github.com/davatron5000/FitVids.js/master/jquery.fitvids.js"
 libraries[fitvids][directory_name] = "fitvids"
+
+libraries[respondjs][download][type] = "file"
+libraries[respondjs][download][url] = "https://raw.github.com/scottjehl/Respond/master/dest/respond.min.js"
+libraries[respondjs][directory_name] = "respondjs"
 
 libraries[superfish][download][type] = "get"
 libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-for-Drupal/zipball/master"
