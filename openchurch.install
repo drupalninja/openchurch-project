@@ -67,6 +67,7 @@ function openchurch_install() {
   variable_set('superfish_shadow_1', '0');
   variable_set('superfish_slide_1', 'vertical');
   variable_set('superfish_type_1', 'horizontal');
+  variable_set('superfish_small_1', 0);
 
   _openchurch_add_block_info(1, '', 'superfish', 0, 'header');
 
