@@ -29,6 +29,13 @@ function openchurch_install() {
 
   variable_set('theme_default', 'openchurch_theme');
 
+  // Add search permissions
+  $settings = new stdClass();
+  $settings->rid = 1;
+  $settings->permission = 'search content';
+  $settings->module = 'search';
+  drupal_write_record('role_permission', $settings);
+
   // Add pathologic
   foreach (array('panopoly_wysiwyg_text', 'panopoly_html_text') as $format) {
     db_query("REPLACE INTO {filter} VALUES (:format, :module, :name, 99, 1, NULL)", array(
