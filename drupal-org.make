@@ -20,6 +20,8 @@ projects[filefield_sources][version] = 1.9
 projects[filefield_sources][subdir] = contrib
 projects[fitvids][version] = 1.14
 projects[fitvids][subdir] = contrib
+projects[flexslider][version] = 2.0-alpha3
+projects[flexslider][subdir] = contrib
 projects[fontyourface][version] = 2.8
 projects[fontyourface][subdir] = contrib
 projects[menu_breadcrumb][version] = 1.5
@@ -42,8 +44,6 @@ projects[simplenews][version] = 1.1
 projects[simplenews][subdir] = contrib
 projects[superfish][version] = 1.9
 projects[superfish][subdir] = contrib
-projects[views_slideshow][version] = 3.1
-projects[views_slideshow][subdir] = contrib
 projects[webform][version] = 4.0-beta3
 projects[webform][subdir] = contrib
 
@@ -89,6 +89,10 @@ libraries[colorbox][directory_name] = "colorbox"
 libraries[fitvids][download][type] = "file"
 libraries[fitvids][download][url] = "https://raw.github.com/davatron5000/FitVids.js/master/jquery.fitvids.js"
 libraries[fitvids][directory_name] = "fitvids"
+
+libraries[flexslider][download][type] = "get"
+libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider/archive/master.zip"
+libraries[flexslider][directory_name] = "flexslider"
 
 libraries[superfish][download][type] = "get"
 libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-for-Drupal/zipball/master"

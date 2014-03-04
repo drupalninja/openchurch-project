@@ -62,6 +62,7 @@ dependencies[] = email
 dependencies[] = fe_nodequeue
 dependencies[] = filefield_sources
 dependencies[] = fitvids
+dependencies[] = flexslider
 dependencies[] = fontyourface
 dependencies[] = fontyourface_ui
 dependencies[] = google_fonts_api
@@ -78,8 +79,6 @@ dependencies[] = rss_date
 dependencies[] = rss_enclosure
 dependencies[] = rss_georss
 dependencies[] = superfish
-dependencies[] = views_slideshow
-dependencies[] = views_slideshow_cycle
 dependencies[] = webform
 
 ;Features
