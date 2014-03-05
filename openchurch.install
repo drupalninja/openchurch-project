@@ -1,5 +1,9 @@
 <?php
 /**
+ * @file
+ */
+
+/**
  * Implements hook_install().
  *
  * Perform actions to set up the site for this profile.
@@ -304,7 +308,6 @@ function openchurch_post_install(&$install_state) {
  * Add block info including title and region
  */
 function _openchurch_add_block_info($delta, $title, $module='block', $weight = 0, $region = NULL) {
-
   foreach (array('openchurch_theme') as $theme){
     $settings = new stdClass;
     $settings->module = $module;
@@ -327,4 +330,70 @@ function _openchurch_add_block_info($delta, $title, $module='block', $weight = 0
 
     drupal_write_record('block', $block);
   }
+}
+
+/**
+ * Upgrade from 7.x-1.x
+ *
+ * @todo finish upgrade
+ */
+function _openchurch_update_7000(&$sandbox) {
+  // Move OC video field out of the way
+  //db_rename_table('field_data_field_oc_video', 'field_data_field_oc_video_old');
+  //db_rename_table('field_revision_field_oc_video', 'field_revision_field_oc_video_old');
+
+  // Remove the field.
+  field_delete_field("field_oc_video");
+  field_purge_batch(5);
+
+  /**
+   * Rebuild & Revert all enabled features.
+   */
+  features_rebuild();
+  features_revert();
+
+  // Update footer blocks
+  foreach (array(1 => 'triptych_middle', 3 => 'triptych_first', 4 => 'triptych_last') as $delta => $region) {
+    db_query('UPDATE {block} SET status = 1, region = :region
+      WHERE module = :module AND delta = :delta AND theme = :theme',
+      array(':module' => 'block', ':region' => $region, ':theme' => 'openchurch_theme', ':delta' => $delta));
+  }
+
+  // Update sidebar blocks
+  foreach (array(5 => 'block',  'openchurch_latest_podcast-block' => 'views',
+    '794f38e8ce669fc0643cfeb6da701af6' => 'views', 2 => 'block', 'sharethis_block' => 'sharethis') as $delta => $module) {
+    db_query('UPDATE {block} SET status = 1, region = :region
+      WHERE module = :module AND delta = :delta AND theme = :theme',
+      array(':module' => $module, ':region' => 'sidebar_second', ':theme' => 'openchurch_theme', ':delta' => $delta));
+  }
+  db_query('UPDATE {block} SET weight = 98 WHERE delta = :delta AND module = :module',
+    array(':delta' => 2, ':module' => 'block'));
+
+  db_query('UPDATE {block} SET weight = 99 WHERE delta = :delta AND module = :module',
+    array(':delta' => 'sharethis_block', ':module' => 'sharethis'));
+
+  // Update footer blocks
+  foreach (array('menu-secondary-links' => 'menu', 'form' => 'search') as $delta => $module) {
+    db_query('UPDATE {block} SET status = 1, title = :title, region = :region
+      WHERE module = :module AND delta = :delta AND theme = :theme',
+      array(':module' => $module, ':region' => 'footer', ':theme' => 'openchurch_theme', ':delta' => $delta, ':title' => '<none>'));
+  }
+
+  db_query('UPDATE {block} SET weight = -99 WHERE delta = :delta AND module = :module',
+    array(':delta' => 'form', ':module' => 'search'));
+
+  // Update main menu
+  db_query('UPDATE {block} SET status = 1, region = :region
+  WHERE delta = :delta AND module = :module AND theme = :theme',
+    array(':delta' => '1', ':module' => 'superfish', ':theme' => 'openchurch_theme',
+      ':region' => 'header'));
+
+//  db_query('DELETE FROM {menu_links} WHERE module = :module', array(':module' => 'openchurch_defaults'));
+
+  // Enable new modules
+  module_enable(array('openchurch_apps', 'panopoly_core', 'panopoly_images',
+    'panopoly_theme', 'panopoly_magic', 'panopoly_widgets', 'panopoly_admin',
+    'panopoly_users', 'panopoly_pages', 'panopoly_wysiwyg'));
+
+  drupal_flush_all_caches();
 }
