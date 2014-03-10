@@ -54,24 +54,24 @@ projects[openchurch_apps][download][branch] = "7.x-2.x"
 projects[openchurch_apps][download][url] = http://git.drupal.org/project/openchurch_apps.git
 
 ; The Panopoly Foundation
-projects[panopoly_core][version] = 1.1
+projects[panopoly_core][version] = 1.2
 projects[panopoly_core][subdir] = panopoly
-projects[panopoly_images][version] = 1.1
+projects[panopoly_images][version] = 1.2
 projects[panopoly_images][subdir] = panopoly
-projects[panopoly_theme][version] = 1.1
+projects[panopoly_theme][version] = 1.2
 projects[panopoly_theme][subdir] = panopoly
-projects[panopoly_magic][version] = 1.1
+projects[panopoly_magic][version] = 1.2
 projects[panopoly_magic][subdir] = panopoly
-projects[panopoly_widgets][version] = 1.1
+projects[panopoly_widgets][version] = 1.2
 projects[panopoly_widgets][subdir] = panopoly
-projects[panopoly_admin][version] = 1.1
+projects[panopoly_admin][version] = 1.2
 projects[panopoly_admin][subdir] = panopoly
-projects[panopoly_users][version] = 1.1
+projects[panopoly_users][version] = 1.2
 projects[panopoly_users][subdir] = panopoly
 ; The Panopoly Toolset
-projects[panopoly_pages][version] = 1.1
+projects[panopoly_pages][version] = 1.2
 projects[panopoly_pages][subdir] = panopoly
-projects[panopoly_wysiwyg][version] = 1.1
+projects[panopoly_wysiwyg][version] = 1.2
 projects[panopoly_wysiwyg][subdir] = panopoly
 
 ; Custom theme developed for OpenChurch
