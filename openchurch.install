@@ -156,6 +156,17 @@ function openchurch_install() {
 
   menu_save($menu);
 
+  // Re-add menu links
+  _openchurch_create_menu_links();
+
+  _openchurch_add_block_info('menu-secondary-links', '<none>', 'menu', -20, 'footer');
+  _openchurch_add_block_info('form', '<none>', 'search', -21, 'footer');
+}
+
+/**
+ * Create Menu Links
+ */
+function _openchurch_create_menu_links() {
   $item = array(
     'menu_name' => 'main-menu',
     'link_path' => 'node/21',
@@ -235,7 +246,6 @@ function openchurch_install() {
   );
   menu_link_save($item);
 
-  // Exported menu link: main-menu:multimedia/galleries
   $item = array(
     'menu_name' => 'main-menu',
     'link_path' => 'media/galleries',
@@ -268,9 +278,6 @@ function openchurch_install() {
 
   db_query('UPDATE {menu_links} SET plid = :plid, p2 = :plid WHERE link_path = :link_path',
     array(':plid' => $about_mlid, ':link_path' => 'about/staff'));
-
-  _openchurch_add_block_info('menu-secondary-links', '<none>', 'menu', -20, 'footer');
-  _openchurch_add_block_info('form', '<none>', 'search', -21, 'footer');
 }
 
 /**
@@ -388,7 +395,71 @@ function _openchurch_update_7000(&$sandbox) {
     array(':delta' => '1', ':module' => 'superfish', ':theme' => 'openchurch_theme',
       ':region' => 'header'));
 
-//  db_query('DELETE FROM {menu_links} WHERE module = :module', array(':module' => 'openchurch_defaults'));
+  // Delete main-menu links
+  db_query('DELETE FROM {menu_links} WHERE menu_name = :menu_name AND plid = :plid',
+    array(':menu_name' => 'main-menu', ':plid' => '425'));
+
+  db_query('DELETE FROM {menu_links} WHERE menu_name = :menu_name AND module = :module',
+    array(':menu_name' => 'main-menu', ':module' => 'openchurch_defaults'));
+
+  $item = array(
+    'link_title' => t('Home'),
+    'link_path' => '<front>',
+    'menu_name' => 'main-menu',
+    'weight' => -99,
+    'customized' => 1,
+    'module'     => 'openchurch_demo_content',
+    'mlid'       => 0,
+  );
+  menu_link_save($item);
+
+  $item = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'media/galleries',
+    'link_title' => 'Media',
+    'module' => 'openchurch_demo_content',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '1',
+    'expanded' => '0',
+    'weight' => '1',
+    'customized' => 1,
+    'plid' => 0,
+  );
+
+  menu_link_save($item);
+
+  // Fix media links
+  $mlid = db_query('SELECT mlid FROM {menu_links} WHERE link_title = :link_title AND menu_name = :menu_name',
+    array(':link_title' => 'Media', ':menu_name' => 'main-menu'))->fetchColumn();
+
+  if ($mlid) {
+    db_query('UPDATE {menu_links} SET plid = :plid, p2 = :plid
+      WHERE link_path LIKE :link_path AND link_title != :link_title',
+      array(':link_path' => 'media%', ':plid' => $mlid, ':link_title' => 'Media'));
+  }
+
+  // Fix staff link
+  $mlid = db_query('SELECT mlid FROM {menu_links} WHERE link_title = :link_title AND menu_name = :menu_name',
+    array(':link_title' => 'About', ':menu_name' => 'main-menu'))->fetchColumn();
+
+  if ($mlid) {
+    db_query('UPDATE {menu_links} SET plid = :plid, p2 = :plid
+      WHERE link_path = :link_path',
+      array(':link_path' => 'about/staff', ':plid' => $mlid));
+  }
+
+  db_query('UPDATE {menu_links} SET weight = 99 WHERE link_title = :link_title AND menu_name = :menu_name',
+    array(':link_title' => 'Contact Us', ':menu_name' => 'main-menu'));
+
+  db_query('UPDATE {menu_links} SET weight = 5 WHERE link_title = :link_title AND menu_name = :menu_name',
+    array(':link_title' => 'About', ':menu_name' => 'main-menu'));
+
+  db_query('UPDATE {menu_links} SET weight = 1 WHERE link_title = :link_title AND menu_name = :menu_name',
+    array(':link_title' => 'Serve', ':menu_name' => 'main-menu'));
+
+  // Fix user menu links
+  variable_set('menu_secondary_links_source', 'user-menu');
 
   // Enable new modules
   module_enable(array('openchurch_apps', 'panopoly_core', 'panopoly_images',
