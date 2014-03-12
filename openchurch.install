@@ -341,17 +341,13 @@ function _openchurch_add_block_info($delta, $title, $module='block', $weight = 0
 
 /**
  * Upgrade from 7.x-1.x
- *
- * @todo finish upgrade
  */
-function _openchurch_update_7000(&$sandbox) {
-  // Move OC video field out of the way
-  //db_rename_table('field_data_field_oc_video', 'field_data_field_oc_video_old');
-  //db_rename_table('field_revision_field_oc_video', 'field_revision_field_oc_video_old');
-
-  // Remove the field.
-  field_delete_field("field_oc_video");
-  field_purge_batch(5);
+function openchurch_update_7000(&$sandbox) {
+  // We don't want to accidentally upgrade a 2x dev site.
+  // Checking a variable that only existed on 1x sites.
+  if (!variable_get('openchurch_theme_responsive_path', '')) {
+    return;
+  }
 
   /**
    * Rebuild & Revert all enabled features.
@@ -402,32 +398,42 @@ function _openchurch_update_7000(&$sandbox) {
   db_query('DELETE FROM {menu_links} WHERE menu_name = :menu_name AND module = :module',
     array(':menu_name' => 'main-menu', ':module' => 'openchurch_defaults'));
 
-  $item = array(
-    'link_title' => t('Home'),
-    'link_path' => '<front>',
-    'menu_name' => 'main-menu',
-    'weight' => -99,
-    'customized' => 1,
-    'module'     => 'openchurch_demo_content',
-    'mlid'       => 0,
-  );
-  menu_link_save($item);
+  $mlid = db_query('SELECT mlid FROM {menu_links} WHERE link_title = :link_title AND menu_name = :menu_name',
+    array(':link_title' => 'Home', ':menu_name' => 'main-menu'))->fetchColumn();
 
-  $item = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'media/galleries',
-    'link_title' => 'Media',
-    'module' => 'openchurch_demo_content',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '1',
-    'customized' => 1,
-    'plid' => 0,
-  );
+  if (!$mlid) {
+    $item = array(
+      'link_title' => t('Home'),
+      'link_path' => '<front>',
+      'menu_name' => 'main-menu',
+      'weight' => -99,
+      'customized' => 1,
+      'module'     => 'openchurch_demo_content',
+      'mlid'       => 0,
+    );
+    menu_link_save($item);
+  }
 
-  menu_link_save($item);
+  $mlid = db_query('SELECT mlid FROM {menu_links} WHERE link_title = :link_title AND menu_name = :menu_name',
+    array(':link_title' => 'Media', ':menu_name' => 'main-menu'))->fetchColumn();
+
+  if (!$mlid) {
+    $item = array(
+      'menu_name' => 'main-menu',
+      'link_path' => 'media/galleries',
+      'link_title' => 'Media',
+      'module' => 'openchurch_demo_content',
+      'hidden' => '0',
+      'external' => '0',
+      'has_children' => '1',
+      'expanded' => '0',
+      'weight' => '1',
+      'customized' => 1,
+      'plid' => 0,
+    );
+
+    menu_link_save($item);
+  }
 
   // Fix media links
   $mlid = db_query('SELECT mlid FROM {menu_links} WHERE link_title = :link_title AND menu_name = :menu_name',

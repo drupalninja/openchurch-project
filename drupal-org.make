@@ -76,9 +76,7 @@ projects[panopoly_wysiwyg][subdir] = panopoly
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = theme
-projects[openchurch_theme][download][type] = git
-projects[openchurch_theme][download][branch] = "7.x-2.x"
-projects[openchurch_theme][download][url] = http://git.drupal.org/project/openchurch_theme.git
+projects[openchurch_theme][version] = 2.0-alpha1
 
 ; Libraries
 
