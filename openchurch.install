@@ -340,7 +340,7 @@ function _openchurch_add_block_info($delta, $title, $module='block', $weight = 0
 }
 
 /**
- * Upgrade from 7.x-1.x
+ * Upgrade from 7.x-1.x (will skip if you are on 2x dev).
  */
 function openchurch_update_7000(&$sandbox) {
   // We don't want to accidentally upgrade a 2x dev site.
