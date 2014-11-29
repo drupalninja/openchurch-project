@@ -49,7 +49,7 @@ projects[webform][subdir] = contrib
 
 ; Sandbox module
 projects[openchurch_apps][type] = module
-projects[openchurch_apps][version] = 2.0-alpha1
+projects[openchurch_apps][version] = 2.0-alpha2
 
 ; The Panopoly Foundation
 projects[panopoly_core][version] = 1.13
