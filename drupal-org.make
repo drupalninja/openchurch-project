@@ -49,7 +49,7 @@ projects[webform][subdir] = contrib
 
 ; Sandbox module
 projects[openchurch_apps][type] = module
-projects[openchurch_apps][version] = 2.0-alpha2
+projects[openchurch_apps][version] = 2.1-alpha1
 
 ; The Panopoly Foundation
 projects[panopoly_core][version] = 1.14
@@ -74,7 +74,7 @@ projects[panopoly_wysiwyg][subdir] = panopoly
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = theme
-projects[openchurch_theme][version] = 2.0-alpha3
+projects[openchurch_theme][version] = 2.1-alpha1
 
 ; Libraries
 
