@@ -1,6 +1,6 @@
 api = 2
 core = 7.34
-projects[addressfield][version] = 1.0-beta5
+projects[addressfield][version] = 1.0-rc1
 projects[addressfield][subdir] = contrib
 projects[backup_migrate][version] = 2.8
 projects[backup_migrate][subdir] = contrib
@@ -8,7 +8,7 @@ projects[calendar][version] = 3.5
 projects[calendar][subdir] = contrib
 projects[colorbox][version] = 2.8
 projects[colorbox][subdir] = contrib
-projects[context][version] = 3.3
+projects[context][version] = 3.5
 projects[context][subdir] = contrib
 projects[context_breadcrumb_current_page][version] = 1.0
 projects[context_breadcrumb_current_page][subdir] = contrib
@@ -18,7 +18,7 @@ projects[features_extra][version] = 1.0-beta1
 projects[features_extra][subdir] = contrib
 projects[filefield_sources][version] = 1.9
 projects[filefield_sources][subdir] = contrib
-projects[fitvids][version] = 1.15
+projects[fitvids][version] = 1.17
 projects[fitvids][subdir] = contrib
 projects[flexslider][version] = 2.0-alpha3
 projects[flexslider][subdir] = contrib
@@ -44,7 +44,7 @@ projects[simplenews][version] = 1.1
 projects[simplenews][subdir] = contrib
 projects[superfish][version] = 1.9
 projects[superfish][subdir] = contrib
-projects[webform][version] = 4.1
+projects[webform][version] = 4.2
 projects[webform][subdir] = contrib
 
 ; Sandbox module
