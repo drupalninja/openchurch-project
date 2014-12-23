@@ -8,6 +8,20 @@ be able to roll back completely if you have any problems.
 
 -----------------------------------
 
+Upgrading to 7.x-2.1-beta2
+
+To see the latest changes in the podcast feed you may need to revert the podcast feature, or at
+least revert the podcast view from /admin/structure/views. The podcast feed is now iTunes
+compatible.
+
+-----------------------------------
+
+Upgrading to 7.x-2.x
+
+@see https://www.openchurchsite.com/content/upgrading-2x for detailed instructions.
+
+-----------------------------------
+
 Upgrading to 7.x-1.11-beta11:
 Pre-install notes:
 Make SURE you have copied your OpenChurch MM theme to your sites/all/themes folder if you are
