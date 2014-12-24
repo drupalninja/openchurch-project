@@ -24,6 +24,8 @@ projects[flexslider][version] = 2.0-alpha3
 projects[flexslider][subdir] = contrib
 projects[fontyourface][version] = 2.8
 projects[fontyourface][subdir] = contrib
+projects[getid3][version] = 2.0-beta2
+projects[getid3][subdir] = contrib
 projects[menu_breadcrumb][version] = 1.5
 projects[menu_breadcrumb][subdir] = contrib
 projects[metatag][version] = 1.4
@@ -46,6 +48,10 @@ projects[superfish][version] = 1.9
 projects[superfish][subdir] = contrib
 projects[webform][version] = 4.2
 projects[webform][subdir] = contrib
+projects[views_rss][version] = 2.0-rc4
+projects[views_rss][subdir] = contrib
+projects[views_rss_itunes][version] = 1.0-rc2
+projects[views_rss_itunes][subdir] = contrib
 
 ; Sandbox module
 projects[openchurch_apps][type] = module
