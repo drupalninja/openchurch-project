@@ -161,6 +161,9 @@ function openchurch_install() {
 
   _openchurch_add_block_info('menu-secondary-links', '<none>', 'menu', -20, 'footer');
   _openchurch_add_block_info('form', '<none>', 'search', -21, 'footer');
+
+  // Add mobile links for media pages.
+  openchurch_update_7001();
 }
 
 /**
@@ -314,7 +317,7 @@ function openchurch_post_install(&$install_state) {
 /**
  * Add block info including title and region
  */
-function _openchurch_add_block_info($delta, $title, $module='block', $weight = 0, $region = NULL) {
+function _openchurch_add_block_info($delta, $title, $module='block', $weight = 0, $region = NULL, $visibility = 0, $pages = '') {
   foreach (array('openchurch_theme') as $theme){
     $settings = new stdClass;
     $settings->module = $module;
@@ -324,8 +327,8 @@ function _openchurch_add_block_info($delta, $title, $module='block', $weight = 0
     $settings->weight = $weight;
     $settings->region = -1;
     $settings->custom = 0;
-    $settings->visibility = 0;
-    $settings->pages = '';
+    $settings->visibility = $visibility;
+    $settings->pages = $pages;
     $settings->title = $title;
     $settings->cache -1;
 
@@ -473,4 +476,32 @@ function openchurch_update_7000(&$sandbox) {
     'panopoly_users', 'panopoly_pages', 'panopoly_wysiwyg'));
 
   drupal_flush_all_caches();
+}
+
+/**
+ * Add menu block for media links.
+ */
+function openchurch_update_7001() {
+  $bid = db_query('SELECT bid FROM {block}
+    WHERE module = :module', array(':module' => 'menu_block'))->fetchColumn();
+
+  if ($bid) {
+    drupal_set_message('Unable to add menu block for media links, menu block already exists.');
+    return;
+  }
+  else {
+    _openchurch_add_block_info(1, '<none>', 'menu_block', 0, 'highlighted', 1, 'media*');
+    variable_set('menu_block_1_admin_title', 'Media Mobile');
+    variable_set('menu_block_1_depth', 0);
+    variable_set('menu_block_1_expanded', 0);
+    variable_set('menu_block_1_follow', 0);
+    variable_set('menu_block_1_level', 1);
+    variable_set('menu_block_1_parent', 'main-menu:1004');
+    variable_set('menu_block_1_sort', 0);
+    variable_set('menu_block_1_title_link', 0);
+    variable_set('menu_block_ids', array(0 => 1));
+
+    drupal_set_message('Enabled mobile menu links for media pages.');
+    return;
+  }
 }

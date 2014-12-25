@@ -80,7 +80,7 @@ projects[panopoly_wysiwyg][subdir] = panopoly
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = theme
-projects[openchurch_theme][version] = 2.1-alpha1
+projects[openchurch_theme][version] = 2.x-dev
 
 ; Libraries
 
