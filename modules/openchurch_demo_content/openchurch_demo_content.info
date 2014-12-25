@@ -5,5 +5,7 @@ package = OpenChurch
 version = 7.x-1.11-beta3
 project = openchurch_demo_content
 dependencies[] = defaultcontent
+dependencies[] = features
+dependencies[] = webform
 features[content][] = oc_webform
 features[features_api][] = api:2

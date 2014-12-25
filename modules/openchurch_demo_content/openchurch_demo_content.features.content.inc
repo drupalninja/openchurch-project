@@ -11,7 +11,7 @@ function openchurch_demo_content_content_defaults() {
   $content = array();
 
   $content['oc_webform'] = (object) array(
-    'exported_path' => 'content/contact-us',
+    'exported_path' => 'contact-us',
     'webform' => array(
       'confirmation' => '',
       'confirmation_format' => NULL,

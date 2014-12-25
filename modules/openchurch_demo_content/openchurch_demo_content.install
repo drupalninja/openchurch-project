@@ -51,6 +51,7 @@ function openchurch_demo_content_install() {
           ),
         ),
       ),
+      'path' => array('alias' => 'about', 'pathauto' => FALSE),
   );
 
   $content['oc_page_image_acknowledgements'] = (object) array(
@@ -125,6 +126,7 @@ function openchurch_demo_content_install() {
           ),
         ),
       ),
+     'path' => array('alias' => 'image-acknowledgements', 'pathauto' => FALSE),
   );
 
   $content['oc_page_map_directions'] = (object) array(
@@ -175,6 +177,7 @@ function openchurch_demo_content_install() {
           ),
         ),
       ),
+      'path' => array('alias' => 'about/map-and-directions', 'pathauto' => FALSE),
   );
 
   $content['oc_page_serve'] = (object) array(
@@ -227,6 +230,7 @@ function openchurch_demo_content_install() {
           ),
         ),
       ),
+    'path' => array('alias' => 'serve', 'pathauto' => FALSE),
   );
 
   $content['oc_page_times'] = (object) array(
@@ -276,6 +280,7 @@ function openchurch_demo_content_install() {
           ),
         ),
       ),
+      'path' => array('alias' => 'about/time-and-locations', 'pathauto' => FALSE),
   );
 
   // Save each node
