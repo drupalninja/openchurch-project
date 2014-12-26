@@ -55,7 +55,7 @@ projects[views_rss_itunes][subdir] = contrib
 
 ; Sandbox module
 projects[openchurch_apps][type] = module
-projects[openchurch_apps][version] = 2.x-dev
+projects[openchurch_apps][version] = 2.1-beta3
 
 ; The Panopoly Foundation
 projects[panopoly_core][version] = 1.14
@@ -80,7 +80,7 @@ projects[panopoly_wysiwyg][subdir] = panopoly
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = theme
-projects[openchurch_theme][version] = 2.x-dev
+projects[openchurch_theme][version] = 2.1-beta3
 
 ; Libraries
 
