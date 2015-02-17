@@ -1,6 +1,6 @@
 api = 2
 core = 7.34
-projects[addressfield][version] = 1.0-rc1
+projects[addressfield][version] = 1.0
 projects[addressfield][subdir] = contrib
 projects[backup_migrate][version] = 2.8
 projects[backup_migrate][subdir] = contrib
@@ -8,7 +8,7 @@ projects[calendar][version] = 3.5
 projects[calendar][subdir] = contrib
 projects[colorbox][version] = 2.8
 projects[colorbox][subdir] = contrib
-projects[context][version] = 3.5
+projects[context][version] = 3.6
 projects[context][subdir] = contrib
 projects[context_breadcrumb_current_page][version] = 1.0
 projects[context_breadcrumb_current_page][subdir] = contrib
@@ -44,7 +44,7 @@ projects[simplenews][version] = 1.1
 projects[simplenews][subdir] = contrib
 projects[superfish][version] = 1.9
 projects[superfish][subdir] = contrib
-projects[webform][version] = 4.2
+projects[webform][version] = 4.3
 projects[webform][subdir] = contrib
 projects[views_rss][version] = 2.0-rc4
 projects[views_rss][subdir] = contrib
@@ -57,24 +57,24 @@ projects[openchurch_apps][type] = module
 projects[openchurch_apps][version] = 2.x-dev
 
 ; The Panopoly Foundation
-projects[panopoly_core][version] = 1.14
+projects[panopoly_core][version] = 1.16
 projects[panopoly_core][subdir] = panopoly
-projects[panopoly_images][version] = 1.14
+projects[panopoly_images][version] = 1.16
 projects[panopoly_images][subdir] = panopoly
-projects[panopoly_theme][version] = 1.14
+projects[panopoly_theme][version] = 1.16
 projects[panopoly_theme][subdir] = panopoly
-projects[panopoly_magic][version] = 1.14
+projects[panopoly_magic][version] = 1.16
 projects[panopoly_magic][subdir] = panopoly
-projects[panopoly_widgets][version] = 1.14
+projects[panopoly_widgets][version] = 1.16
 projects[panopoly_widgets][subdir] = panopoly
-projects[panopoly_admin][version] = 1.14
+projects[panopoly_admin][version] = 1.16
 projects[panopoly_admin][subdir] = panopoly
-projects[panopoly_users][version] = 1.14
+projects[panopoly_users][version] = 1.16
 projects[panopoly_users][subdir] = panopoly
 ; The Panopoly Toolset
-projects[panopoly_pages][version] = 1.14
+projects[panopoly_pages][version] = 1.16
 projects[panopoly_pages][subdir] = panopoly
-projects[panopoly_wysiwyg][version] = 1.14
+projects[panopoly_wysiwyg][version] = 1.16
 projects[panopoly_wysiwyg][subdir] = panopoly
 
 ; Custom theme developed for OpenChurch
