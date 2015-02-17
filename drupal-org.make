@@ -24,8 +24,6 @@ projects[flexslider][version] = 2.0-alpha3
 projects[flexslider][subdir] = contrib
 projects[fontyourface][version] = 2.8
 projects[fontyourface][subdir] = contrib
-projects[getid3][version] = 1.0
-projects[getid3][subdir] = contrib
 projects[menu_breadcrumb][version] = 1.5
 projects[menu_breadcrumb][subdir] = contrib
 projects[metatag][version] = 1.4
@@ -50,12 +48,13 @@ projects[webform][version] = 4.2
 projects[webform][subdir] = contrib
 projects[views_rss][version] = 2.0-rc4
 projects[views_rss][subdir] = contrib
-projects[views_rss_itunes][version] = 1.0-rc2
+projects[views_rss_itunes][version] = 1.x-dev
 projects[views_rss_itunes][subdir] = contrib
+projects[views_rss_itunes][patch][2427603] = https://www.drupal.org/files/issues/2427603--remove-getid3-01.patch
 
 ; Sandbox module
 projects[openchurch_apps][type] = module
-projects[openchurch_apps][version] = 2.1-beta3
+projects[openchurch_apps][version] = 2.x-dev
 
 ; The Panopoly Foundation
 projects[panopoly_core][version] = 1.14
