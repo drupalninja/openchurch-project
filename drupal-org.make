@@ -48,9 +48,9 @@ projects[webform][version] = 4.3
 projects[webform][subdir] = contrib
 projects[views_rss][version] = 2.0-rc4
 projects[views_rss][subdir] = contrib
-projects[views_rss_itunes][version] = 1.x-dev
+projects[views_rss_itunes][version] = 1.0-rc2
 projects[views_rss_itunes][subdir] = contrib
-projects[views_rss_itunes][patch][2427603] = https://www.drupal.org/files/issues/2427603--remove-getid3-01.patch
+projects[views_rss_itunes][patch][] = https://www.drupal.org/files/issues/2427603--remove-getid3-01.patch
 
 ; Sandbox module
 projects[openchurch_apps][type] = module
