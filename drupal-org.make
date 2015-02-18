@@ -20,7 +20,7 @@ projects[filefield_sources][version] = 1.9
 projects[filefield_sources][subdir] = contrib
 projects[fitvids][version] = 1.17
 projects[fitvids][subdir] = contrib
-projects[flexslider][version] = 2.0-alpha3
+projects[flexslider][version] = 2.x-dev
 projects[flexslider][subdir] = contrib
 projects[fontyourface][version] = 2.8
 projects[fontyourface][subdir] = contrib
@@ -92,7 +92,7 @@ libraries[fitvids][download][url] = "https://raw.github.com/davatron5000/FitVids
 libraries[fitvids][directory_name] = "fitvids"
 
 libraries[flexslider][download][type] = "get"
-libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider/archive/master.zip"
+libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider/archive/version/2.3.0.zip"
 libraries[flexslider][directory_name] = "flexslider"
 
 libraries[superfish][download][type] = "get"
