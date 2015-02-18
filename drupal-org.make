@@ -54,7 +54,7 @@ projects[views_rss_itunes][patch][] = https://www.drupal.org/files/issues/242760
 
 ; Sandbox module
 projects[openchurch_apps][type] = module
-projects[openchurch_apps][version] = 2.x-dev
+projects[openchurch_apps][version] = 2.1-beta4
 
 ; The Panopoly Foundation
 projects[panopoly_core][version] = 1.16
