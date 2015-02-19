@@ -92,7 +92,7 @@ libraries[fitvids][download][url] = "https://raw.github.com/davatron5000/FitVids
 libraries[fitvids][directory_name] = "fitvids"
 
 libraries[flexslider][download][type] = "get"
-libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider/archive/version/2.3.0.zip"
+libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider/archive/version/2.2.zip"
 libraries[flexslider][directory_name] = "flexslider"
 
 libraries[superfish][download][type] = "get"
