@@ -496,7 +496,7 @@ function openchurch_update_7001() {
     variable_set('menu_block_1_expanded', 0);
     variable_set('menu_block_1_follow', 0);
     variable_set('menu_block_1_level', 1);
-    variable_set('menu_block_1_parent', 'main-menu:1004');
+    variable_set('menu_block_1_parent', 'main-menu:1009');
     variable_set('menu_block_1_sort', 0);
     variable_set('menu_block_1_title_link', 0);
     variable_set('menu_block_ids', array(0 => 1));
@@ -504,4 +504,19 @@ function openchurch_update_7001() {
     drupal_set_message('Enabled mobile menu links for media pages.');
     return;
   }
+}
+
+/**
+ * Repair menu block parent
+ *
+ * @see https://www.drupal.org/node/2417883
+ */
+function openchurch_update_7003() {
+  $mlid = db_query('SELECT mlid FROM {menu_links}
+    WHERE link_path = :link_path AND link_title = :link_title', array(
+    ':link_path' => 'media/galleries',
+    ':link_title' => 'Media',
+  ))->fetchColumn();
+  variable_set('menu_block_1_parent', 'main-menu:' . $mlid);
+  drupal_set_message('Repaired media block parent.');
 }
