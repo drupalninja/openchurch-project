@@ -1,0 +1,61 @@
+<?php
+/**
+ * @file
+ */
+
+use \Drupal\taxonomy\Entity\Term;
+use \Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_staff_install() {
+  // Save staff terms.
+  $staff_terms = array(
+    'Administrative Minister',
+    'Administrative Staff',
+    'Adult Ministry',
+    'Building Maintenance',
+    'Children\'s Ministry',
+    'College Ministry',
+    'Counseling Center',
+    'Elder',
+    'Pulpit Minister',
+    'Youth Ministry',
+  );
+
+  foreach ($staff_terms as $term_name) {
+    $values = array(
+      'vid' => 'staff_type',
+      'name' => $term_name,
+    );
+    $term = Term::create($values);
+    $term->save();
+  }
+
+  $staff_titles = array(
+    'John Smith',
+    'John Doe',
+  );
+
+  $output = file_get_contents(drupal_get_path('profile', 'openchurch') . '/images/openchurch-placeholder.png');
+  $file = file_save_data($output, 'public://openchurch-placeholder', FILE_EXISTS_REPLACE);
+
+  foreach ($staff_titles as $title) {
+    $node = Node::create(array(
+      'type' => 'staff',
+      'title' => $title,
+      'uid' => '1',
+      'status' => 1,
+      'path' => '/staff/' . _openchurch_clean_alias($title),
+    ));
+    $node->field_staff_type->generateSampleItems(1);
+    $node->field_ministry->generateSampleItems(1);
+    $node->field_image->setValue($file->id());
+    $node->field_position->value = 'Ministry Assistant';
+    $node->field_phone->value = '(x114)';
+    $node->field_email->value = 'test@test.com';
+    $node->body->generateSampleItems(1);
+    $node->save();
+  }
+}

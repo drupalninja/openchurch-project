@@ -1,0 +1,12 @@
+name: 'OpenChurch Video'
+description: 'Adds 3rd party video content type and video page.'
+type: module
+core: 8.x
+version: 8.x-1.0
+dependencies:
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+features: true

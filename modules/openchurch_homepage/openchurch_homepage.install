@@ -1,0 +1,41 @@
+<?php
+/**
+ * @file
+ *
+ * Install file for openchurch_homepage module.
+ */
+
+use \Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_homepage_install() {
+  $titles = array('Autumn Is Here!', 'The power of love');
+  $images = array('autumn_hero.jpg', 'homepage_image.jpg');
+
+  foreach ($titles as $c => $title) {
+    $output = file_get_contents(drupal_get_path('profile', 'openchurch') . '/images/' . $images[$c]);
+    $file = file_save_data($output, 'public://' . $images[$c], FILE_EXISTS_REPLACE);
+
+    $node = Node::create(array(
+      'type' => 'homepage_rotator',
+      'title' => $title,
+      'uid' => '1',
+      'status' => 1,
+    ));
+    $node->field_image->setValue($file->id());
+    $node->save();
+  }
+
+  // Save homepage featured items.
+  $images = array('winter_sermons.jpg', 'food_pantry.jpg', 'childrens_church.jpg');
+  $uuids = array('2d31fbb3-01c5-4460-a100-0b9acc0f1914', '6597a937-f888-47e8-b500-fd85acc40b75', '90e5b9d9-54ce-4276-9900-ef9569407b7b');
+
+  for ($c = 0; $c < 3; $c++) {
+    $output = file_get_contents(drupal_get_path('profile', 'openchurch') . '/images/' . $images[$c]);
+    $file = file_save_data($output, 'public://' . $images[$c], FILE_EXISTS_REPLACE);
+    $file->uuid = $uuids[$c];
+    $file->save();
+  }
+}

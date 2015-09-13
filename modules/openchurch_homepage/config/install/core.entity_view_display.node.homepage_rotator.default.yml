@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.homepage_rotator.field_image
+    - field.field.node.homepage_rotator.field_link
+    - node.type.homepage_rotator
+  module:
+    - image
+    - link
+    - user
+id: node.homepage_rotator.default
+targetEntityType: node
+bundle: homepage_rotator
+mode: default
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: homepage_rotator
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_link:
+    weight: 1
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+hidden:
+  links: true

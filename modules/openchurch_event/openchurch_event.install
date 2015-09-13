@@ -1,0 +1,36 @@
+<?php
+/**
+ * @file
+ */
+
+use \Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_event_install() {
+  $event_titles = array(
+    'Scream Free Parenting' => "1949 Old Hickory Blvd.\nDallas, TX 75081\nUnited States",
+    'Dinner at Bethlehem' => "Cleveland, OH 37027\nUnited States",
+  );
+
+  $c = 0;
+
+  foreach ($event_titles as $title => $location) {
+    $node = Node::create(array(
+      'type' => 'event',
+      'title' => $title,
+      'uid' => '1',
+      'status' => 1,
+      'path' => '/event/' . _openchurch_clean_alias($title),
+    ));
+    $node->field_cost->value = 'FREE';
+    $node->field_ministry->generateSampleItems(1);
+    $node->field_url->generateSampleItems(1);
+    $node->field_downloads->generateSampleItems(1);
+    $node->field_dates->value = $c == 0 ? '2020-11-21T10:00:00' : '2020-11-28T10:00:00';
+    $node->field_location->value = $location;
+    $node->body->generateSampleItems(1);
+    $node->save();
+  }
+}

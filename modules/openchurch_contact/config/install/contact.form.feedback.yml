@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: feedback
+label: 'Contact Us'
+recipients:
+  - admin@example.com
+reply: ''
+weight: 0

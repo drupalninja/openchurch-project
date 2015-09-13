@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Charity
+type: charity
+description: 'A charity allows church members to give to an individual cause that will help community, missions, and many other causes.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

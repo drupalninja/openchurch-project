@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.staff.body
+    - field.field.node.staff.field_email
+    - field.field.node.staff.field_image
+    - field.field.node.staff.field_ministry
+    - field.field.node.staff.field_phone
+    - field.field.node.staff.field_position
+    - field.field.node.staff.field_staff_type
+    - node.type.staff
+  module:
+    - image
+    - text
+    - user
+id: node.staff.teaser
+targetEntityType: node
+bundle: staff
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_trimmed
+    weight: 4
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_email:
+    type: email_mailto
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: staff_thumb
+      image_link: content
+    third_party_settings: {  }
+  field_phone:
+    type: string
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_position:
+    type: string
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  field_ministry: true
+  field_staff_type: true
+  links: true

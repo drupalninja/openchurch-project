@@ -1,0 +1,17 @@
+name: 'OpenChurch Podcast'
+description: 'Podcasts can be sermons, lectures or other church-related audio files.'
+type: module
+core: 8.x
+version: 8.x-1.0
+dependencies:
+  - datetime
+  - entity_reference
+  - file
+  - image
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+  - views
+features: true

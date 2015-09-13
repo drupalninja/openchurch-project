@@ -1,0 +1,14 @@
+events_calendar:
+  path: 'events/calendar'
+  defaults:
+    _controller: '\Drupal\openchurch_event\Controller\OpenChurchEvent::calendar'
+    _title: 'Event Calendar'
+  requirements:
+    _permission: 'access content'
+events_json:
+  path: 'events/calendar.json'
+  defaults:
+    _controller: '\Drupal\openchurch_event\Controller\OpenChurchEvent::json'
+    _title: 'Event JSON'
+  requirements:
+    _permission: 'access content'

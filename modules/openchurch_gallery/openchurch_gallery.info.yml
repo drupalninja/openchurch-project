@@ -1,0 +1,18 @@
+name: 'OpenChurch Gallery'
+description: 'Galleries are collections of images with descriptions.'
+type: module
+core: 8.x
+version: 8.x-1.0
+dependencies:
+  - comment
+  - datetime
+  - entity_reference
+  - file
+  - image
+  - menu_ui
+  - node
+  - path
+  - taxonomy
+  - text
+  - user
+features: true

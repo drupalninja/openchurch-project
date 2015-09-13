@@ -1,0 +1,17 @@
+name: 'OpenChurch Ministry'
+description: 'Ministry pages describe various church ministries that members want to know more about.'
+type: module
+core: 8.x
+version: 8.x-1.0
+dependencies:
+  - comment
+  - entity_reference
+  - file
+  - image
+  - menu_ui
+  - node
+  - path
+  - taxonomy
+  - text
+  - user
+features: true

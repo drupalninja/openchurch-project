@@ -1,0 +1,30 @@
+<?php
+/**
+ * @file
+ */
+
+use \Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_ministry_install() {
+  $ministry_titles = array('Singles Ministry', 'Youth Ministry');
+  $output = file_get_contents(drupal_get_path('profile', 'openchurch') . '/images/openchurch-placeholder.png');
+  $file = file_save_data($output, 'public://openchurch-placeholder', FILE_EXISTS_REPLACE);
+
+  foreach ($ministry_titles as $title) {
+    $node = Node::create(array(
+      'type' => 'ministry',
+      'title' => $title,
+      'uid' => '1',
+      'status' => 1,
+      'path' => '/ministry/' . _openchurch_clean_alias($title),
+    ));
+    $node->field_thumb->setValue($file->id());
+    $node->field_image->generateSampleItems(1);
+    $node->body->generateSampleItems(1);
+    $node->field_downloads->generateSampleItems(1);
+    $node->save();
+  }
+}

@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: charity_thumb
+label: 'Charity Thumb'
+effects:
+  36898ef7-d824-4542-b402-2f15c7cdcc91:
+    uuid: 36898ef7-d824-4542-b402-2f15c7cdcc91
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 220
+      height: 110

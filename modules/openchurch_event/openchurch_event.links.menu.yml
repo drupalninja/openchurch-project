@@ -1,0 +1,5 @@
+openchurch_event.contact:
+  title: 'Event Calendar'
+  route_name: 'events_calendar'
+  menu_name: main
+  parent: 'views_view:views.openchurch_events.page_1'

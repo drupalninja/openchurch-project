@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.bulletin
+  module:
+    - datetime
+id: node.bulletin.field_date
+field_name: field_date
+entity_type: node
+bundle: bulletin
+label: 'Bulletin Date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_downloads
+    - node.type.ministry
+  module:
+    - file
+id: node.ministry.field_downloads
+field_name: field_downloads
+entity_type: node
+bundle: ministry
+label: 'Related Downloads'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: ''
+  file_extensions: 'pdf doc docx txt'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: file

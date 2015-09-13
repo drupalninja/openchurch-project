@@ -1,0 +1,31 @@
+<?php
+/**
+ * @file
+ */
+
+use \Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_podcast_install() {
+  $podcast_titles = array(
+    'What Do You Do After Easter?' => 'John Calvin',
+    'Do It Anyway' => 'C.S. Lewis',
+  );
+
+  foreach ($podcast_titles as $title => $author) {
+    $node = Node::create(array(
+      'type' => 'podcast',
+      'title' => $title,
+      'uid' => '1',
+      'status' => 1,
+      'path' => '/media/podcast/' . _openchurch_clean_alias($title),
+    ));
+    $node->field_author->value = $author;
+    $node->field_audio->generateSampleItems(1);
+    $node->field_date->generateSampleItems(1);
+    $node->body->value = 'You have the ability to type a detailed lesson or sermon description which allows people to learn more before they download or subscribe to listen.';
+    $node->save();
+  }
+}

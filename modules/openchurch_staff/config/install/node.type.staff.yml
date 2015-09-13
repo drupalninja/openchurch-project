@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Staff
+type: staff
+description: 'A staff member is someone that works in the church, including both administrative and church leadership.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

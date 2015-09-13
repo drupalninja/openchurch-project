@@ -1,0 +1,17 @@
+name: 'OpenChurch Event'
+description: 'Events can be church activities, special meetings, etc.'
+type: module
+core: 8.x
+version: 8.x-1.0
+dependencies:
+  - datetime
+  - entity_reference
+  - file
+  - image
+  - link
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+features: true

@@ -1,0 +1,14 @@
+name: 'OpenChurch Blog'
+description: 'Simple church blog content type and list.'
+type: module
+core: 8.x
+version: 8.x-1.0
+dependencies:
+  - entity_reference
+  - menu_ui
+  - node
+  - path
+  - taxonomy
+  - text
+  - user
+features: true

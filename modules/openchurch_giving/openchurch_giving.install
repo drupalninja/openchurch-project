@@ -1,0 +1,24 @@
+<?php
+/**
+ * @file
+ */
+
+use \Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_giving_install() {
+  $output = file_get_contents(drupal_get_path('profile', 'openchurch') . '/images/openchurch-placeholder.png');
+  $file = file_save_data($output, 'public://openchurch-placeholder', FILE_EXISTS_REPLACE);
+  $node = Node::create(array(
+    'type' => 'charity',
+    'title' => 'Support our Food Pantry',
+    'uid' => '1',
+    'status' => 1,
+    'path' => '/give/' . _openchurch_clean_alias('Support our Food Pantry'),
+  ));
+  $node->field_image->setValue($file->id());
+  $node->body->generateSampleItems(1);
+  $node->save();
+}

@@ -1,0 +1,26 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function openchurch_event_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'views_exposed_form') {
+    if ($form['#id'] == 'views-exposed-form-openchurch-events-page-1') {
+      $options = array('' => '- Any -');
+      $result = db_query('SELECT nid, title
+        FROM {node_field_data}
+        WHERE type = :type
+        ORDER BY title ASC', array(':type' => 'ministry'));
+      while ($row = $result->fetchObject()) {
+        $options[$row->nid] = $row->title;
+      }
+      $form['field_ministry_target_id']['#type'] = 'select';
+      $form['field_ministry_target_id']['#options'] = $options;
+      unset($form['field_ministry_target_id']['#size']);
+      unset($form['field_ministry_target_id']['#default_value']);
+    }
+  }
+}

@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.podcast.body
+    - field.field.node.podcast.field_audio
+    - field.field.node.podcast.field_author
+    - field.field.node.podcast.field_date
+    - node.type.podcast
+  module:
+    - datetime
+    - text
+    - user
+id: node.podcast.teaser
+targetEntityType: node
+bundle: podcast
+mode: teaser
+content:
+  body:
+    label: inline
+    type: text_trimmed
+    weight: 2
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_author:
+    type: string
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_date:
+    type: datetime_custom
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: m.d.y
+    third_party_settings: {  }
+hidden:
+  field_audio: true
+  links: true

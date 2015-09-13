@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: homepage_thumb
+label: 'Homepage Thumb'
+effects:
+  cd08f8f2-b248-448e-b902-2ebbcac49dd2:
+    uuid: cd08f8f2-b248-448e-b902-2ebbcac49dd2
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 220
+      height: 110

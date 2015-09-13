@@ -1,0 +1,29 @@
+<?php
+/**
+ * @file
+ */
+
+use \Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_bulletin_install() {
+  $bulletin_titles = array(
+    'Sunday, November 21, 2014',
+    'Sunday, November 28, 2014',
+  );
+
+  foreach ($bulletin_titles as $c => $title) {
+    $node = Node::create(array(
+      'type' => 'bulletin',
+      'title' => $title,
+      'uid' => '1',
+      'status' => 1,
+    ));
+    $node->field_bulletin_file->generateSampleItems(1);
+    $node->field_date->value = $c == 0 ? '2014-11-21T10:00:00' : '2014-11-28T10:00:00';
+    $node->body->generateSampleItems(1);
+    $node->save();
+  }
+}

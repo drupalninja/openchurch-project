@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: ministry_header
+label: 'Ministry Header'
+effects:
+  35ff4cb6-a2cf-4b94-992a-42df971dd576:
+    uuid: 35ff4cb6-a2cf-4b94-992a-42df971dd576
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 700
+      height: 190

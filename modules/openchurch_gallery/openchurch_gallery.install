@@ -1,0 +1,43 @@
+<?php
+/**
+ * @file
+ */
+
+use \Drupal\node\Entity\Node;
+use \Drupal\menu_link_content\Entity\MenuLinkContent;
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_gallery_install() {
+  $gallery_titles = array('High School Retreat', 'Youth Ministry Spring Break Gallery');
+  $output = file_get_contents(drupal_get_path('profile', 'openchurch') . '/images/openchurch-placeholder.png');
+  $file = file_save_data($output, 'public://openchurch-placeholder', FILE_EXISTS_REPLACE);
+
+  foreach ($gallery_titles as $title) {
+    $node = Node::create(array(
+      'type' => 'gallery',
+      'title' => $title,
+      'uid' => '1',
+      'status' => 1,
+      'path' => '/media/gallery/' . _openchurch_clean_alias($title),
+    ));
+    $node->field_ministry->generateSampleItems(1);
+    $node->field_date->generateSampleItems(1);
+    $node->body->value = '<p>Share your photo memories with the world, and include descriptions of where the event took place and anything else you think people would be interested in reading. It\'s a great way to keep people connected by sharing the moments with others even if they could not be there in person.</p>
+      <p>Nam gravida risus ac turpis porta vitae pretium arcu convallis. Nullam quis tortor sit amet mauris ullamcorper tristique. Fusce gravida hendrerit neque sed dictum. Nullam at venenatis metus. Morbi eget ligula magna, at gravida mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in mauris dui. Mauris et ante mauris. Ut quis vehicula erat. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed urna risus, lacinia non fermentum rhoncus, ornare sit amet mauris. Pellentesque pharetra metus ac quam dictum malesuada. Morbi libero risus, condimentum et varius vel, convallis a urna.</p>';
+    $node->body->format = 'full_html';
+    $node->field_images->generateSampleItems(9);
+    $node->field_image->setValue($file->id());
+    $node->field_location->value = "Dallas, TX 75801\nUnited States";
+    $node->save();
+  }
+
+  // Create Photo Gallery link
+  MenuLinkContent::create([
+    'title'      => 'Photo Gallery',
+    'link'       => ['uri' => 'internal:/media/galleries'],
+    'menu_name'  => 'main',
+    'parent'     => 'views_view:views.openchurch_galleries.page_1',
+  ])->save();
+}

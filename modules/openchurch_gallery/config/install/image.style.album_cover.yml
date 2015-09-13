@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: album_cover
+label: 'Album Cover'
+effects:
+  d3f22dcb-6490-411d-b10a-10102bd84fab:
+    uuid: d3f22dcb-6490-411d-b10a-10102bd84fab
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 170
+      height: 110

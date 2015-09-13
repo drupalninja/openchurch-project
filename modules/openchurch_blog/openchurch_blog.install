@@ -1,0 +1,45 @@
+<?php
+/**
+ * @file
+ */
+
+use \Drupal\taxonomy\Entity\Term;
+use \Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_blog_install() {
+  // Save blog terms.
+  $blog_terms = array(
+    'Uncategorized',
+    'Weekly Newsletters',
+  );
+
+  foreach ($blog_terms as $term_name) {
+    $values = array(
+      'vid' => 'blog_topic',
+      'name' => $term_name,
+    );
+    $term = Term::create($values);
+    $term->save();
+  }
+
+  $blog_titles = array(
+    'Blog Post From Last Week',
+    'This Week\'s Blog Post',
+  );
+
+  foreach ($blog_titles as $title) {
+    $node = Node::create(array(
+      'type' => 'blog',
+      'title' => $title,
+      'uid' => '1',
+      'status' => 1,
+      'path' => '/blog/' . _openchurch_clean_alias($title),
+    ));
+    $node->field_blog_topic->generateSampleItems(1);
+    $node->body->generateSampleItems(1);
+    $node->save();
+  }
+}

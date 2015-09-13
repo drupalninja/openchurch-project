@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video
+    - node.type.video
+id: node.video.field_video
+field_name: field_video
+entity_type: node
+bundle: video
+label: Video
+description: 'Paste in URL from YouTube or Vimeo.'
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

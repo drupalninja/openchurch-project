@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.staff.body
+    - field.field.node.staff.field_email
+    - field.field.node.staff.field_image
+    - field.field.node.staff.field_ministry
+    - field.field.node.staff.field_phone
+    - field.field.node.staff.field_position
+    - field.field.node.staff.field_staff_type
+    - node.type.staff
+  module:
+    - image
+    - text
+    - user
+id: node.staff.default
+targetEntityType: node
+bundle: staff
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+  field_email:
+    weight: 2
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
+  field_image:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: staff_image
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_phone:
+    weight: 1
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_position:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  links:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ministry: true
+  field_staff_type: true

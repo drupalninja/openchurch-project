@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: ministry_thumb
+label: 'Ministry Thumb'
+effects:
+  cb5fc981-11e7-4f1d-be1a-26693ff77ecb:
+    uuid: cb5fc981-11e7-4f1d-be1a-26693ff77ecb
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 100
+      height: 100

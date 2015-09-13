@@ -1,0 +1,13 @@
+# Add fullCalendar.io
+openchurch_event.fullcalendar:
+  version: 1.x
+  css:
+    component:
+      js/bower_components/fullcalendar/dist/fullcalendar.min.css: {}
+  js:
+    js/bower_components/moment/moment.js: {}
+    js/bower_components/fullcalendar/dist/fullcalendar.min.js: {}
+    js/event_calendar.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

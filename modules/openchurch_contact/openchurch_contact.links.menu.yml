@@ -1,0 +1,5 @@
+openchurch_contact.contact:
+  title: 'Contact Us'
+  route_name: 'contact.site_page'
+  menu_name: main
+  weight: 8

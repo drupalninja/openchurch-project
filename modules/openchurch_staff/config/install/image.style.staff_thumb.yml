@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: staff_thumb
+label: 'Staff Thumb'
+effects:
+  c877c42e-7afd-4098-8652-82b5748d69eb:
+    uuid: c877c42e-7afd-4098-8652-82b5748d69eb
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 100
+      height: 75

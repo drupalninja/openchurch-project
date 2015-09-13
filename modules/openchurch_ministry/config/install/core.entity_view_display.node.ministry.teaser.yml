@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ministry.body
+    - field.field.node.ministry.field_downloads
+    - field.field.node.ministry.field_image
+    - field.field.node.ministry.field_thumb
+    - node.type.ministry
+  module:
+    - image
+    - text
+    - user
+id: node.ministry.teaser
+targetEntityType: node
+bundle: ministry
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_trimmed
+    weight: 1
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_thumb:
+    type: image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ministry_thumb
+      image_link: content
+    third_party_settings: {  }
+hidden:
+  field_downloads: true
+  field_image: true
+  links: true

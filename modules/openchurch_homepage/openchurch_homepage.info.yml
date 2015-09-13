@@ -1,0 +1,22 @@
+name: 'OpenChurch Homepage'
+description: 'Homepage rotator and featured content.'
+type: module
+core: 8.x
+version: 8.x-1.0
+dependencies:
+  - comment
+  - datetime
+  - entity_reference
+  - file
+  - image
+  - link
+  - menu_ui
+  - node
+  - openchurch_homepage
+  - path
+  - system
+  - taxonomy
+  - text
+  - user
+  - views
+features: true

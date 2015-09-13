@@ -1,0 +1,29 @@
+<?php
+/**
+ * @file
+ */
+
+use \Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_video_install() {
+  $videos = array(
+    array('Drupal 8 - A Brief Introduction', 'https://www.youtube.com/watch?v=ktCgVopf7D0', 'Drupal 8 brings a lot of changes. Many standby contributed modules are now included with Drupal Core, and many small changes add up to the most exciting Drupal release yet! We\'ll walk through many of the biggest changes, highlighting how Drupal 8 will accelerate your web development and provide tools to make Drupal the best content management platform on any device.'),
+    array('Drupal.MN - What\'s new in Drupal 8', 'https://vimeo.com/40266383', 'From a presentation of the Drupal Group (drupal.mn) at The Nerdery on April 12th, 2012. To learn more about upcoming user groups and events at The Nerdery, check out nerdery.com/events.'),
+  );
+
+  foreach ($videos as $content) {
+    $node = Node::create(array(
+      'type' => 'video',
+      'title' => $content[0],
+      'uid' => '1',
+      'status' => 1,
+      'path' => '/media/video/' . _openchurch_clean_alias($content[0]),
+    ));
+    $node->field_video->value = $content[1];
+    $node->body->value = $content[2];
+    $node->save();
+  }
+}

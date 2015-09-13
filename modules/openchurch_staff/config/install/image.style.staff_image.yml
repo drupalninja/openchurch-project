@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: staff_image
+label: 'Staff Image'
+effects:
+  7f94bdf5-48b7-461c-9102-2cf981f4591b:
+    uuid: 7f94bdf5-48b7-461c-9102-2cf981f4591b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 200
+      height: 150

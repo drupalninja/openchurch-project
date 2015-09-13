@@ -1,0 +1,16 @@
+name: 'OpenChurch Giving'
+description: 'Charities and online giving information.'
+type: module
+core: 8.x
+version: 8.x-1.0
+dependencies:
+  - comment
+  - entity_reference
+  - image
+  - menu_ui
+  - node
+  - path
+  - taxonomy
+  - text
+  - user
+features: true
