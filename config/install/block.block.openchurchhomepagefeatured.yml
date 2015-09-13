@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - openchurch_homepage
+    - system
+  theme:
+    - openchurch_theme
+id: openchurchhomepagefeatured
+theme: openchurch_theme
+region: content
+weight: null
+provider: null
+plugin: openchurch_homepage_featured
+settings:
+  id: openchurch_homepage_featured
+  label: 'OpenChurch Homepage Featured'
+  provider: openchurch_homepage
+  label_display: '0'
+  cache:
+    max_age: -1
+  featured_image1: '2d31fbb3-01c5-4460-a100-0b9acc0f1914'
+  featured_link1: ''
+  featured_image2: '6597a937-f888-47e8-b500-fd85acc40b75'
+  featured_link2: ''
+  featured_image3: '90e5b9d9-54ce-4276-9900-ef9569407b7b'
+  featured_link3: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

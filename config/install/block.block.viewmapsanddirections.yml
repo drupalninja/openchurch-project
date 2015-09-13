@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:9d8c0530-8157-4b3b-9e00-0aae9e1c84af'
+  module:
+    - block_content
+  theme:
+    - openchurch_theme
+id: viewmapsanddirections
+theme: openchurch_theme
+region: sidebar_second
+weight: 3
+provider: null
+plugin: 'block_content:9d8c0530-8157-4b3b-9e00-0aae9e1c84af'
+settings:
+  id: 'block_content:9d8c0530-8157-4b3b-9e00-0aae9e1c84af'
+  label: 'View Maps and Directions'
+  provider: block_content
+  label_display: '0'
+  cache:
+    max_age: -1
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

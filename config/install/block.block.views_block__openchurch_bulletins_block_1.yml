@@ -1,0 +1,26 @@
+uuid: 0b73e1b9-a143-427e-a200-bc4cf7f6cd61
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.openchurch_bulletins
+  module:
+    - views
+  theme:
+    - openchurch_theme
+id: views_block__openchurch_bulletins_block_1
+theme: openchurch_theme
+region: sidebar_second
+weight: 2
+provider: null
+plugin: 'views_block:openchurch_bulletins-block_1'
+settings:
+  id: 'views_block:openchurch_bulletins-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  cache:
+    max_age: -1
+  views_label: ''
+  items_per_page: none
+visibility: {  }

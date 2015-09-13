@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c289a8ba-ea66-4846-a006-6ed76894b41c'
+  module:
+    - block_content
+  theme:
+    - openchurch_theme
+id: contactus
+theme: openchurch_theme
+region: triptych_last
+weight: null
+provider: null
+plugin: 'block_content:c289a8ba-ea66-4846-a006-6ed76894b41c'
+settings:
+  id: 'block_content:c289a8ba-ea66-4846-a006-6ed76894b41c'
+  label: 'Contact Us'
+  provider: block_content
+  label_display: visible
+  cache:
+    max_age: -1
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

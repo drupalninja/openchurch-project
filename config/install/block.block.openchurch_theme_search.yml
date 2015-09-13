@@ -1,0 +1,18 @@
+id: openchurch_theme_search
+theme: openchurch_theme
+weight: -1
+status: true
+langcode: en
+region: footer
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: '0'
+dependencies:
+  module:
+    - search
+  theme:
+    - openchurch_theme
+visibility: {  }

@@ -1,0 +1,233 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the openchurch installation profile.
+ */
+
+use Drupal\comment\Plugin\Field\FieldType\CommentItemInterface;
+use Drupal\user\Entity\User;
+use Drupal\user\RoleInterface;
+use Drupal\node\Entity\Node;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\block_content\Entity\BlockContent;
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function openchurch_install() {
+  // Set front page to "node".
+  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/front')->save(TRUE);
+
+  // Allow visitor account creation with administrative approval.
+  $user_settings = \Drupal::configFactory()->getEditable('user.settings');
+  $user_settings->set('register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)->save(TRUE);
+
+  // Enable default permissions for system roles.
+  user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, array('access comments', 'search content'));
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, array('access comments', 'post comments', 'skip comment approval', 'search content'));
+
+  // Assign user 1 the "administrator" role.
+  $user = User::load(1);
+  $user->roles[] = 'administrator';
+  $user->save();
+
+  user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, array('access site-wide contact form'));
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, array('access site-wide contact form'));
+
+  // Allow authenticated users to use shortcuts.
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, array('access shortcuts'));
+
+  // Populate the default shortcut set.
+  $shortcut = entity_create('shortcut', array(
+    'shortcut_set' => 'default',
+    'title' => t('Add content'),
+    'weight' => -20,
+    'link' => array('uri' => 'internal:/node/add'),
+  ));
+  $shortcut->save();
+
+  $shortcut = entity_create('shortcut', array(
+    'shortcut_set' => 'default',
+    'title' => t('All content'),
+    'weight' => -19,
+    'link' => array('uri' => 'internal:/admin/content'),
+  ));
+  $shortcut->save();
+
+  // Enable the admin theme.
+  \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+
+  // Create image acknowledgements node page.
+  $node = Node::create(array(
+    'type' => 'page',
+    'title' => 'Image Acknowledgements',
+    'uid' => '1',
+    'status' => 1,
+    'path' => '/page/' . _openchurch_clean_alias('Image Acknowledgements'),
+  ));
+  global $base_url;
+  $node->body->value = "<p>Thank you wonderful internet for allowing me to find and share these images:</p><table style=\"width: 90%;\"><tbody style=\"border: 0;\"><tr><td><p style=\"text-align: center;\"><a title=\"A Lesson in Generosity\" href=\"http://www.flickr.com/photos/micahe/2744567495/in/photostream/\"><img src=\"{$base_url}/profiles/openchurch/images/acknowledge-thumbs/a-lesson-in-generosity.jpg\" alt=\"A Lesson in Generosity\"></a></p><p style=\"text-align: center;\"><a title=\"A Lesson in Generosity\" href=\"http://www.flickr.com/photos/micahe/2744567495/in/photostream/\">A lesson in generosity</a></p></td><td><p style=\"text-align: center;\"><a title=\"Moments to Remember\" href=\"http://www.flickr.com/photos/alessandracurti/1751665270/\"><img src=\"{$base_url}/profiles/openchurch/images/acknowledge-thumbs/moments-to-remember.jpg\" alt=\"Moments to Remember\" width=\"150\" height=\"100\"></a></p><p style=\"text-align: center;\"><a title=\"Moments to Remember\" href=\"http://www.flickr.com/photos/alessandracurti/1751665270/\">Moments to Remember</a></p></td><td><p style=\"text-align: center;\"><a title=\"Our future North\" href=\"http://www.flickr.com/photos/smb_flickr/528713203/\"><img src=\"{$base_url}/profiles/openchurch/images/acknowledge-thumbs/our-future-north.jpg\" alt=\"Our future North\" width=\"150\" height=\"100\"></a></p><p style=\"text-align: center;\"><a title=\"Our future North\" href=\"http://www.flickr.com/photos/smb_flickr/528713203/\">Our future North</a></p></td></tr><tr><td><p style=\"text-align: center;\"><a title=\"Untitled\" href=\"http://www.flickr.com/photos/mcmartin/4118484997/\"><img src=\"{$base_url}/profiles/openchurch/images/acknowledge-thumbs/untitled.jpg\" alt=\"Untitled\" width=\"150\" height=\"100\"></a></p><p style=\"text-align: center;\"><a title=\"Untitled\" href=\"http://www.flickr.com/photos/mcmartin/4118484997/\">Untitled</a></p></td><td><p style=\"text-align: center;\"><a title=\"YIP: 07.16.09\" href=\"http://www.flickr.com/photos/winemegup/3727132539/\"><img src=\"{$base_url}/profiles/openchurch/images/acknowledge-thumbs/yip.jpg\" alt=\"YIP: 07.16.09\" width=\"150\" height=\"100\"></a></p><p style=\"text-align: center;\"><a title=\"YIP: 07.16.09\" href=\"http://www.flickr.com/photos/winemegup/3727132539/\">YIP: 07.16.09</a></p></td></tr></tbody></table>";
+  $node->body->format = 'full_html';
+  $node->save();
+
+  // Create link to image acknowledgements page.
+  MenuLinkContent::create([
+    'title'      => 'Image Acknowledgements',
+    'link'       => ['uri' => 'internal:/node/20'],
+    'menu_name'  => 'footer',
+  ])->save();
+
+  // Create 'Serve' node page.
+  $node = Node::create(array(
+    'type' => 'page',
+    'title' => 'Serve',
+    'uid' => '1',
+    'status' => 1,
+    'path' => '/page/' . _openchurch_clean_alias('Serve'),
+  ));
+  $node->body->generateSampleItems(1);
+  $node->save();
+
+  // Create link to Serve page.
+  MenuLinkContent::create([
+    'title'      => 'Serve',
+    'link'       => ['uri' => 'internal:/node/21'],
+    'menu_name'  => 'main',
+    'weight'     => 3,
+  ])->save();
+
+  // Create About node page.
+  $node = Node::create(array(
+    'type' => 'page',
+    'title' => 'About',
+    'uid' => '1',
+    'status' => 1,
+    'path' => '/page/' . _openchurch_clean_alias('About'),
+  ));
+  $node->body->generateSampleItems(1);
+  $node->save();
+
+  // Create link to About page.
+  $menu_link = MenuLinkContent::create([
+    'title'      => 'About',
+    'link'       => ['uri' => 'internal:/node/22'],
+    'menu_name'  => 'main',
+    'weight'     => 6,
+    'uuid'       => '1ea01bf8-32e4-4b16-9c38-56a605fe22c2',
+  ]);
+  $menu_link->save();
+
+  $mid = $menu_link->getPluginId();
+
+  // Create Map and Directions node page.
+  $node = Node::create(array(
+    'type' => 'page',
+    'title' => 'Map and Directions',
+    'uid' => '1',
+    'status' => 1,
+    'path' => '/page/' . _openchurch_clean_alias('Map and Directions'),
+  ));
+  $node->body->value = '<h3>Come Visit Us at OpenChurch!</h3>
+    <p>Come find us just three right turns past the downtown circle then left into the big open parking lot. &nbsp;Look for the brick building and come on in!</p>
+    <p>If you want to share a map you could embed a custom map from google, mapquest, or bing. &nbsp;Whatever you decide just be sure to consider those who may come from any direction and might need different instructions. &nbsp;</p>
+    <p><iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.google.com/maps?f=d&amp;source=embed&amp;saddr=&amp;daddr=Church+Street,+Nashville,+TN&amp;hl=en&amp;geocode=&amp;mra=ls&amp;sll=37.0625,-95.677068&amp;sspn=38.365962,79.013672&amp;ie=UTF8&amp;ll=37.020098,-95.625&amp;spn=47.972233,96.679688&amp;t=m&amp;vpsrc=0&amp;iwloc=ddw1&amp;output=embed"></iframe></p><p><small><a href="http://www.google.com/maps?f=d&amp;source=embed&amp;saddr=&amp;daddr=Church+Street,+Nashville,+TN&amp;hl=en&amp;geocode=&amp;mra=ls&amp;sll=37.0625,-95.677068&amp;sspn=38.365962,79.013672&amp;ie=UTF8&amp;ll=37.020098,-95.625&amp;spn=47.972233,96.679688&amp;t=m&amp;vpsrc=0&amp;iwloc=ddw1" style="color:#0000FF;text-align:left">View Larger Map</a></small></p>';
+  $node->body->format = 'full_html';
+  $node->save();
+
+  // Create link to Map and Directions page.
+  MenuLinkContent::create([
+    'title'      => 'Map and Directions',
+    'link'       => ['uri' => 'internal:/node/23'],
+    'menu_name'  => 'main',
+    'weight'     => 0,
+    'parent'     => $mid,
+  ])->save();
+
+  // Create Time & Locations node page.
+  $node = Node::create(array(
+    'type' => 'page',
+    'title' => 'Time & Locations',
+    'uid' => '1',
+    'status' => 1,
+    'parent' => $mid,
+    'path' => '/page/' . _openchurch_clean_alias('Time & Locations'),
+  ));
+  $node->body->value = '<h3>SUNDAY MORNING BIBLE CLASSES &amp; SERVICE</h3>
+    <p>A wide variety of classes meet each week to welcome and nurture adults in their faith journey. &nbsp;Classes differ in size, format, and focus. &nbsp;Offerings may include textual, topical, ministry specific, or special needs studies. &nbsp;Some are age-specific while others are inter-generational. Many are on-ongoing throughout the year while special series are also provided.</p>
+    <p>&nbsp;</p>
+    <h3>WEEK AND EVENING BIBLE CLASSES &amp; SERVICE</h3>
+    <p>Daytime and evening classes meet for study and discussion throughout the year. &nbsp;A wide variety of opportunities are available for men and women as well as general adult groups. &nbsp;Wednesday evenings offer several choices including "Peak of the Week," short term presentations that inspire and inform.</p>';
+  $node->body->format = 'full_html';
+  $node->save();
+
+  // Create link to About page.
+  MenuLinkContent::create([
+    'title'      => 'Time & Locations',
+    'link'       => ['uri' => 'internal:/node/24'],
+    'menu_name'  => 'main',
+    'weight'     => 2,
+    'parent' => $mid,
+  ])->save();
+
+  // Create sidebar and bottom block content.
+  $block_titles = array(
+    'Weekly Meeting Times',
+    'View Maps and Directions',
+    'Location & Directions',
+    'Weekly Meeting Times (Bottom)',
+    'Contact Us',
+  );
+
+  $block_uuids = array(
+    '2b111c8a-8109-4742-8147-71303f2e352d',
+    '9d8c0530-8157-4b3b-9e00-0aae9e1c84af',
+    'cf9e28db-c481-4e75-9027-398458f2bc82',
+    '018babed-6485-41f1-a700-b4851f497c3d',
+    'c289a8ba-ea66-4846-a006-6ed76894b41c',
+  );
+
+  $block_body = array(
+    '<p><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br />
+      <strong>Bible Classes</strong> - Sunday Events<br />
+      <strong>LIFE Groups</strong> - Sunday Evenings<br />
+      <strong>Wednesday Evening</strong> - 7 pm<br />
+      <a href="/about/time-locations"><strong>View More Details</strong></a></p>',
+    '<p><a href="' . $base_url . '/about/map-and-directions" style="font-size: medium;">View Maps and Directions</a></p>',
+    '<p><img style="float: right;" src="' . $base_url . '/profiles/openchurch/images/location-google-map.jpg" alt="" width="150" height="115">We\'re located on Belt Line Rd., just south of Downtown.</p>',
+    '<p><img alt="" height="119" src="' . $base_url . '/profiles/openchurch/images/clock.png" style="float: right;" width="110" /><strong>Sundays</strong> - 8:30, 9:45, 10:50 am<br />
+      <strong>Bible Classes</strong> - Sunday Events<br />
+      <strong>LIFE Groups</strong> - Sunday Evenings<br />
+      <strong>Wednesday Evening</strong> - 7 pm<br />
+      <a href="/about/time-locations"><strong>View More Details</strong></a></p>',
+    '<p><img alt="" height="119" src="' . $base_url . '/profiles/openchurch/images/phone.png" style="float: right;" width="109" /><span class="large" style="color: #4a7470; font-size: x-large;">123-456-7890</span><br />
+      <a href="mailto:info@openchurchsite.com">info@openchurchsite.com</a><br />
+      <strong>OpenChurch</strong><br />
+      1234 Belt Line Rd<br />
+      Dallas, TX 75000</p>',
+  );
+
+  for ($c = 0; $c < 5; $c++) {
+    $block_content = entity_create('block_content', array(
+      'info' => $block_titles[$c],
+      'type' => 'basic',
+      'langcode' => 'en',
+      'uuid' => $block_uuids[$c],
+      'body' => array(
+        'value' => $block_body[$c],
+        'format' => 'full_html',
+      ),
+    ));
+    $block_content->save();
+  }
+
+  // Create Log in link.
+  MenuLinkContent::create([
+    'title'      => 'Log in',
+    'link'       => ['uri' => 'internal:/user/login'],
+    'menu_name'  => 'account',
+  ])->save();
+}

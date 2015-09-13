@@ -1,0 +1,18 @@
+id: openchurch_theme_help
+theme: openchurch_theme
+weight: 0
+status: true
+langcode: en
+region: help
+plugin: help_block
+settings:
+  id: help_block
+  label: 'Help'
+  provider: help
+  label_display: '0'
+dependencies:
+  module:
+    - help
+  theme:
+    - openchurch_theme
+visibility: {  }

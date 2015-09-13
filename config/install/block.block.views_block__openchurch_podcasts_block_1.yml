@@ -1,0 +1,26 @@
+uuid: 87b421f1-4e03-47d3-b700-b2db0032be8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.openchurch_podcasts
+  module:
+    - views
+  theme:
+    - openchurch_theme
+id: views_block__openchurch_podcasts_block_1
+theme: openchurch_theme
+region: sidebar_second
+weight: 1
+provider: null
+plugin: 'views_block:openchurch_podcasts-block_1'
+settings:
+  id: 'views_block:openchurch_podcasts-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  cache:
+    max_age: -1
+  views_label: ''
+  items_per_page: none
+visibility: {  }

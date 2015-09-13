@@ -1,0 +1,27 @@
+uuid: c748cef5-720c-4d75-9a5d-938471b5371c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:018babed-6485-41f1-a700-b4851f497c3d'
+  module:
+    - block_content
+  theme:
+    - openchurch_theme
+id: weeklymeetingtimesbottom
+theme: openchurch_theme
+region: triptych_middle
+weight: null
+provider: null
+plugin: 'block_content:018babed-6485-41f1-a700-b4851f497c3d'
+settings:
+  id: 'block_content:018babed-6485-41f1-a700-b4851f497c3d'
+  label: 'Weekly Meeting Times (Bottom)'
+  provider: block_content
+  label_display: visible
+  cache:
+    max_age: -1
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

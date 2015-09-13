@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2b111c8a-8109-4742-8147-71303f2e352d'
+  module:
+    - block_content
+  theme:
+    - openchurch_theme
+id: weeklymeetingtimes
+theme: openchurch_theme
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:2b111c8a-8109-4742-8147-71303f2e352d'
+settings:
+  id: 'block_content:2b111c8a-8109-4742-8147-71303f2e352d'
+  label: 'Weekly Meeting Times'
+  provider: block_content
+  label_display: visible
+  cache:
+    max_age: -1
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

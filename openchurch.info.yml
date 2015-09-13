@@ -1,0 +1,54 @@
+name: OpenChurch
+type: profile
+description: 'Basic installation with features for church websites include multimedia, blog, ministry content and more.'
+version: VERSION
+core: 8.x
+dependencies:
+  - node
+  - history
+  - block
+  - breakpoint
+  - ckeditor
+  - color
+  - config
+  - comment
+  - contextual
+  - contact
+  - menu_link_content
+  - datetime
+  - block_content
+  - quickedit
+  - editor
+  - entity_reference
+  - help
+  - image
+  - menu_ui
+  - options
+  - path
+  - page_cache
+  - taxonomy
+  - dblog
+  - search
+  - shortcut
+  - toolbar
+  - field_ui
+  - file
+  - rdf
+  - views
+  - views_ui
+  - tour
+  - features_ui
+  - openchurch_blog
+  - openchurch_giving
+  - openchurch_contact
+  - openchurch_ministry
+  - openchurch_staff
+  - openchurch_gallery
+  - openchurch_bulletin
+  - openchurch_podcast
+  - openchurch_video
+  - openchurch_homepage
+  - openchurch_event
+themes:
+  - openchurch_theme
+  - seven
