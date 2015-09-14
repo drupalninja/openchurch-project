@@ -1,8 +1,6 @@
 name: 'OpenChurch Bulletin'
 description: 'Electronic bulletin for viewing and download.'
 type: module
-core: 8.x
-version: 8.x-1.0
 dependencies:
   - datetime
   - entity_reference
@@ -14,4 +12,8 @@ dependencies:
   - text
   - user
   - views
+version: 8.x-2.x-dev
+core: 8.x
+project: openchurch
+datestamp: 1442170759
 features: true

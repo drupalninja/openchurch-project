@@ -1,8 +1,6 @@
 name: 'OpenChurch Staff'
 description: 'A staff member is someone that works in the church, including both administrative and church leadership.'
 type: module
-core: 8.x
-version: 8.x-1.0
 dependencies:
   - comment
   - datetime
@@ -17,4 +15,8 @@ dependencies:
   - text
   - user
   - views
+version: 8.x-2.x-dev
+core: 8.x
+project: openchurch
+datestamp: 1442170759
 features: true

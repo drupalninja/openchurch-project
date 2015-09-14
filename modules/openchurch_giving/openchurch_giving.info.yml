@@ -1,8 +1,6 @@
 name: 'OpenChurch Giving'
 description: 'Charities and online giving information.'
 type: module
-core: 8.x
-version: 8.x-1.0
 dependencies:
   - comment
   - entity_reference
@@ -13,4 +11,8 @@ dependencies:
   - taxonomy
   - text
   - user
+version: 8.x-2.x-dev
+core: 8.x
+project: openchurch
+datestamp: 1442170759
 features: true

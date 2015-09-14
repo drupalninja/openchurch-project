@@ -1,6 +1,8 @@
 name: 'OpenChurch Contact'
 description: 'Site-wide contact form.'
 type: module
+version: 8.x-2.x-dev
 core: 8.x
-version: 8.x-1.0
+project: openchurch
+datestamp: 1442170759
 features: true
