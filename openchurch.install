@@ -233,5 +233,5 @@ function openchurch_install() {
 
   // Revert contact form.
   $config_revert = \Drupal::service('features.config_update');
-  $config_revert->revert('contact.form', 'feedback');
+  $config_revert->revert('contact_form', 'feedback');
 }
