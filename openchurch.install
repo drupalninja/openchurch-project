@@ -230,4 +230,8 @@ function openchurch_install() {
     'link'       => ['uri' => 'internal:/user/login'],
     'menu_name'  => 'account',
   ])->save();
+
+  // Revert contact form.
+  $config_revert = \Drupal::service('features.config_update');
+  $config_revert->revert('contact.form', 'feedback');
 }
