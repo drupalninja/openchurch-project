@@ -587,7 +587,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<p>OpenChurch creates weekly bulletins to keep everyone informed about the inner workings of our church. Here you will find an archive of bulletins as a resource if you need it. If you would like a bulletin not found here please contact the church office.</p>\n<h2 class=\"title\">Bulletin Archives</h2>"
+            value: '<h2 class="title">Bulletin Archives</h2>'
             format: full_html
           plugin_id: text
       css_class: openchurch-bulletin-list

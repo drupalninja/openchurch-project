@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:5c0b4448-de68-4510-a900-e0d4b917ffa0'
+  module:
+    - block_content
+    - system
+  theme:
+    - openchurch_theme
+id: aboutfaithfulgiving
+theme: openchurch_theme
+region: content
+weight: null
+provider: null
+plugin: 'block_content:5c0b4448-de68-4510-a900-e0d4b917ffa0'
+settings:
+  id: 'block_content:5c0b4448-de68-4510-a900-e0d4b917ffa0'
+  label: 'About Faithful Giving'
+  provider: block_content
+  label_display: '0'
+  cache:
+    max_age: -1
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /give
+    negate: false
+    context_mapping: {  }

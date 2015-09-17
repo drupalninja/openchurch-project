@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:8607ba0f-66f7-4a40-8035-53daf97d97c4'
+  module:
+    - block_content
+    - system
+  theme:
+    - openchurch_theme
+id: ministriesintro
+theme: openchurch_theme
+region: content
+weight: null
+provider: null
+plugin: 'block_content:8607ba0f-66f7-4a40-8035-53daf97d97c4'
+settings:
+  id: 'block_content:8607ba0f-66f7-4a40-8035-53daf97d97c4'
+  label: 'Boldly Announce Your Ministries'
+  provider: block_content
+  label_display: visible
+  cache:
+    max_age: -1
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /ministries
+    negate: false
+    context_mapping: {  }

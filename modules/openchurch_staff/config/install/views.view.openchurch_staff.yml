@@ -185,20 +185,7 @@ display:
           entity_field: title
           plugin_id: standard
       title: 'Staff Directory'
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: "<h2 class=\"title\">About Our Staff</h2>\n<p>OpenChurch's full time and part time staff and ministers are dedicated to serving the needs of the Church and would be happy to talk to you and help you in any way we can! Feel free to call the church and speak with our receptionist, or you may contact a staff member directly below.</p>\n<p><strong>Church Office Hours</strong>: 8am - 5pm Mon-Fri<br><strong>Phone</strong>: 615.375.0601<br><strong>Fax</strong>: 615.373.5343</p> "
-            format: full_html
-          plugin_id: text
+      header: {  }
       footer: {  }
       empty:
         area:

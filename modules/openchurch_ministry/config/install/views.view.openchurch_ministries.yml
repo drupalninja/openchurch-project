@@ -199,20 +199,7 @@ display:
           entity_field: title
           plugin_id: standard
       title: 'Connect With Ministries'
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: "<h2 class=\"title\">Boldly Announce Your Ministries</h2>\n<p>Open Church is a platform to help you spread the word about your ministries and the ongoing efforts to make a difference. We would use this area to tell others about the overall mission of your church and how and where your ministries are headed.</p>\n<p>Spread the word through the use of the internet where you can keep everyone informed of all the activities, needs, and events. Now with open church you don't have to have a full time web staff to spread the word, you can start for free, and the add features as you grow. If your church grows to a point you want more customization or features we're here to help either directly or by connecting you with one of our approved partners.</p>"
-            format: full_html
-          plugin_id: text
+      header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }

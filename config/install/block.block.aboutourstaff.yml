@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:b209ae0b-5eb0-4196-bd16-223cf55f4e0a'
+  module:
+    - block_content
+    - system
+  theme:
+    - openchurch_theme
+id: aboutourstaff
+theme: openchurch_theme
+region: content
+weight: null
+provider: null
+plugin: 'block_content:b209ae0b-5eb0-4196-bd16-223cf55f4e0a'
+settings:
+  id: 'block_content:b209ae0b-5eb0-4196-bd16-223cf55f4e0a'
+  label: 'About Our Staff'
+  provider: block_content
+  label_display: visible
+  cache:
+    max_age: -1
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /about/staff
+    negate: false
+    context_mapping: {  }
