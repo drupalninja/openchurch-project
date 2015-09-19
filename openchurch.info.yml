@@ -1,8 +1,8 @@
 name: OpenChurch
 type: profile
 description: 'Basic installation with features for church websites include multimedia, blog, ministry content and more.'
-version: VERSION
-core: 8.x
+# version: VERSION
+# core: 8.x
 dependencies:
   - node
   - history
@@ -38,6 +38,7 @@ dependencies:
   - views_ui
   - tour
   - features_ui
+  - openchurch_image
   - openchurch_blog
   - openchurch_giving
   - openchurch_contact
@@ -52,3 +53,9 @@ dependencies:
 themes:
   - openchurch_theme
   - seven
+
+# Information added by Drupal.org packaging script on 2015-09-17
+version: '8.x-2.x-dev'
+core: '8.x'
+project: 'openchurch'
+datestamp: 1442457559

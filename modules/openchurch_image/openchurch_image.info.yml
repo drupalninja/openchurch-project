@@ -1,0 +1,5 @@
+name: 'OpenChurch Image'
+description: 'Core image styles that don''t belong in any other feature.'
+type: module
+core: 8.x
+features: true
