@@ -7,5 +7,4 @@ projects[features][subdir] = contrib
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = theme
-projects[openchurch_theme][version] = 2.x-dev
-
+projects[openchurch_theme][version] = 2.0-rc1
