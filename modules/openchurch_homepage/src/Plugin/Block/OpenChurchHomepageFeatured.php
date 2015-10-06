@@ -75,11 +75,6 @@ class OpenChurchHomepageFeatured extends BlockBase {
       );
     }
 
-    $form['submit'] = array(
-      '#type' => 'submit',
-      '#value' => t('Update homepage content'),
-    );
-
     return $form;
   }
 
