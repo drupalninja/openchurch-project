@@ -46,21 +46,25 @@ class OpenChurchHomepageFeatured extends BlockBase {
         '#open' => TRUE,
       );
 
+      $file = $fid = NULL;
       $file_uuid = $this->configuration['featured_image' . $c];
-      $fid = db_query("SELECT fid FROM {file_managed}
-        WHERE uuid = :uuid", array(':uuid' => $file_uuid))->fetchColumn();
+      if (!empty($file_uuid)) {
+        $fid = db_query("SELECT fid FROM {file_managed}
+          WHERE uuid = :uuid", array(':uuid' => $file_uuid))->fetchColumn();
+      }
       $link = $this->configuration['featured_link' . $c];
 
       // Add preview image.
       if (!empty($fid)) {
         $file = !empty($fid) ? file_load($fid) : NULL;
         $url = ImageStyle::load('thumbnail')->buildUrl($file->getFileUri());
-        $image = '<img src="' . $url .'" title="' . $file->name . '" width="100" />';
+        $image = '<img src="' . $url . '" title="' . $file->name . '" width="100" />';
       }
 
       $form['featured']['item' . $c]['image' . $c] = array(
         '#type' => 'managed_file',
-        '#title' => t('Image'),
+        '#title' => t('Current Image'),
+        '#required' => TRUE,
         '#field_prefix' => !empty($file) ? $image : NULL,
         '#description' => t('Image to be shown if no image is uploaded.'),
         '#default_value' => !empty($fid) ? array($fid) : NULL,
@@ -84,10 +88,21 @@ class OpenChurchHomepageFeatured extends BlockBase {
   public function blockSubmit($form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
     for ($c = 1; $c <= 3; $c++) {
-      $fid = $values['featured']['item' . $c]['image' . $c][0];
-      $file_uuid = db_query("SELECT uuid FROM {file_managed} WHERE fid = :fid", array(':fid' => $fid))->fetchColumn();
-      $this->configuration['featured_image' . $c] = $file_uuid;
-      $this->configuration['featured_link' . $c] = $values['featured']['item' . $c]['link' . $c];
+      if (!empty($values['featured']['item' . $c]['image' . $c][0])) {
+        $fid = $values['featured']['item' . $c]['image' . $c][0];
+        $file_uuid = db_query("SELECT uuid FROM {file_managed} WHERE fid = :fid", array(':fid' => $fid))->fetchColumn();
+        $this->configuration['featured_image' . $c] = $file_uuid;
+        $this->configuration['featured_link' . $c] = $values['featured']['item' . $c]['link' . $c];
+        $file_usage = \Drupal::service('file.usage');
+        $file = file_load($fid);
+        // Update usage.
+        $file_usage->delete($file, 'openchurch_homepage', 'featured_item', $c);
+        $file_usage->add($file, 'openchurch_homepage', 'featured_item', $c);
+      }
+      else {
+        $this->configuration['featured_image' . $c] = NULL;
+        $this->configuration['featured_link' . $c] = NULL;
+      }
     }
   }
 
