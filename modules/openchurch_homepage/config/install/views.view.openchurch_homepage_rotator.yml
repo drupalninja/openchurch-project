@@ -143,7 +143,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -176,7 +176,7 @@ display:
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
           element_default_classes: false
           empty: ''
@@ -209,8 +209,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: '<a href="{{ field_link }}">{{ field_image }}</a>'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -235,15 +235,15 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
-          element_default_classes: true
-          empty: '{{ field_image }}'
+          element_default_classes: false
+          empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true

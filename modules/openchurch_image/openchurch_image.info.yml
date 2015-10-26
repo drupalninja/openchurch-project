@@ -1,5 +1,11 @@
 name: 'OpenChurch Image'
 description: 'Core image styles that don''t belong in any other feature.'
 type: module
-core: 8.x
+# core: 8.x
 features: true
+
+# Information added by Drupal.org packaging script on 2015-10-23
+version: '8.x-2.x-dev'
+core: '8.x'
+project: 'openchurch'
+datestamp: 1445570066
