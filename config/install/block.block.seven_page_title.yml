@@ -1,19 +1,17 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - help
   theme:
     - seven
-id: seven_help
+id: seven_page_title
 theme: seven
-region: help
-weight: 0
+region: header
+weight: -30
 provider: null
-plugin: help_block
+plugin: page_title_block
 settings:
-  id: help_block
-  label: Help
-  provider: help
+  id: page_title_block
+  label: 'Page title'
+  provider: core
   label_display: '0'
 visibility: {  }
