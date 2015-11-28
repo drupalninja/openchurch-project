@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.storage.node.field_blog_topic
     - node.type.blog
-  module:
-    - entity_reference
 id: node.blog.field_blog_topic
 field_name: field_blog_topic
 entity_type: node
