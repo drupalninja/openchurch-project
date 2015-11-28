@@ -252,9 +252,9 @@ display:
           expose:
             operator: ''
           group: 1
-        type:
-          id: type
-          table: node
+        type_1:
+          id: type_1
+          table: node_field_data
           field: type
           relationship: none
           group_type: group
@@ -350,6 +350,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags:
+        - 'config:field.storage.node.field_bulletin_file'
   block_1:
     display_plugin: block
     id: block_1
@@ -378,6 +381,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags:
+        - 'config:field.storage.node.field_bulletin_file'
   page_1:
     display_plugin: page
     id: page_1
@@ -599,3 +605,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags:
+        - 'config:field.storage.node.field_bulletin_file'
