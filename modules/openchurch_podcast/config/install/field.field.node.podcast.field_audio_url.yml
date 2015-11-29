@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_audio_url
+    - node.type.podcast
+id: node.podcast.field_audio_url
+field_name: field_audio_url
+entity_type: node
+bundle: podcast
+label: 'Audio URL'
+description: 'Optional audio URL when files are hosted off-site or by a 3rd party.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

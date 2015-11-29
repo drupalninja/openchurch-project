@@ -5,6 +5,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.podcast.body
     - field.field.node.podcast.field_audio
+    - field.field.node.podcast.field_audio_url
     - field.field.node.podcast.field_author
     - field.field.node.podcast.field_date
     - node.type.podcast
@@ -41,4 +42,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_audio: true
+  field_audio_url: true
   links: true

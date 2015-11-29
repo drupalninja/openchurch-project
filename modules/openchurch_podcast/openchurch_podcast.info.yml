@@ -12,9 +12,10 @@ dependencies:
   - text
   - user
   - views
-features: true
-
-version: '8.x-2.x-dev'
-core: '8.x'
-project: 'openchurch'
+version: 8.x-2.x-dev
+core: 8.x
+project: openchurch
 datestamp: 1445570066
+features:
+  excluded:
+    - block.block.views_block__openchurch_podcasts_block_1

@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.node.podcast.body
     - field.field.node.podcast.field_audio
+    - field.field.node.podcast.field_audio_url
     - field.field.node.podcast.field_author
     - field.field.node.podcast.field_date
     - node.type.podcast
@@ -20,7 +21,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
   field_audio:
@@ -29,6 +30,13 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
+  field_audio_url:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
   field_author:
     weight: 1
     label: above
@@ -37,7 +45,7 @@ content:
     third_party_settings: {  }
     type: string
   field_date:
-    weight: 3
+    weight: 4
     label: above
     settings:
       format_type: medium

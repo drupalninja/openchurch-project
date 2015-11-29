@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.node.podcast.body
     - field.field.node.podcast.field_audio
+    - field.field.node.podcast.field_audio_url
     - field.field.node.podcast.field_author
     - field.field.node.podcast.field_date
     - node.type.podcast
@@ -19,7 +20,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 9
+    weight: 10
     settings:
       rows: 9
       summary_rows: 3
@@ -36,6 +37,13 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
+  field_audio_url:
+    weight: 8
+    settings:
+      size: 100
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
   field_author:
     weight: 6
     settings:
@@ -44,7 +52,7 @@ content:
     third_party_settings: {  }
     type: string_textfield
   field_date:
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
