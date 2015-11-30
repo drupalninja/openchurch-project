@@ -334,7 +334,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: ''
+      title: Welcome
       header: {  }
       footer: {  }
       empty: {  }
@@ -349,6 +349,10 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags:
+        - 'config:field.storage.node.field_image'
+        - 'config:field.storage.node.field_link'
   page_1:
     display_plugin: page
     id: page_1
@@ -373,3 +377,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags:
+        - 'config:field.storage.node.field_image'
+        - 'config:field.storage.node.field_link'

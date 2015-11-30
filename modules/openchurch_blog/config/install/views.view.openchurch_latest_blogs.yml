@@ -256,7 +256,7 @@ display:
           tokenize: false
           content:
             value: '<a href="[site:url]blog/archives" class="button">blog archives &raquo;</a>'
-            format: basic_html
+            format: full_html
           plugin_id: text
       footer: {  }
       empty:
