@@ -1,5 +1,6 @@
 required:
   - core.base_field_override.node.staff.promote.yml
+  - core.base_field_override.node.staff.title.yml
   - core.entity_form_display.node.staff.default.yml
   - core.entity_view_display.node.staff.default.yml
   - core.entity_view_display.node.staff.teaser.yml
