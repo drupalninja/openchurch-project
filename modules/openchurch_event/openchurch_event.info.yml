@@ -10,12 +10,12 @@ dependencies:
   - menu_ui
   - node
   - path
+  - system
   - text
   - user
+  - views
 features: true
-
-# Information added by Drupal.org packaging script on 2015-10-23
-version: '8.x-2.x-dev'
-core: '8.x'
-project: 'openchurch'
+version: 8.x-2.x-dev
+core: 8.x
+project: openchurch
 datestamp: 1445570066

@@ -1,0 +1,12 @@
+required:
+  - core.base_field_override.node.blog.promote.yml
+  - core.entity_form_display.node.blog.default.yml
+  - core.entity_view_display.node.blog.default.yml
+  - core.entity_view_display.node.blog.teaser.yml
+  - field.field.node.blog.body.yml
+  - field.field.node.blog.field_blog_topic.yml
+  - field.storage.node.field_blog_topic.yml
+  - node.type.blog.yml
+  - taxonomy.vocabulary.blog_topic.yml
+  - views.view.openchurch_blog_archives.yml
+  - views.view.openchurch_latest_blogs.yml

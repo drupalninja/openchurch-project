@@ -3,12 +3,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - node.type.event
     - system.menu.main
   module:
     - datetime
     - node
     - user
+_core:
+  default_config_hash: ALlvh6jaSuvp_XM6YSFhB0kZUAocd0T9ePxNUsGpvFw
 id: openchurch_events
 label: 'OpenChurch Events'
 module: views
@@ -136,46 +137,6 @@ display:
           expose:
             operator: ''
           group: 1
-        type:
-          id: type
-          table: node
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            event: event
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
         field_ministry_target_id:
           id: field_ministry_target_id
           table: node__field_ministry
@@ -258,10 +219,10 @@ display:
             group_items: {  }
           plugin_id: datetime
       sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
+        field_dates_value:
+          id: field_dates_value
+          table: node__field_dates
+          field: field_dates_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -270,9 +231,7 @@ display:
           expose:
             label: ''
           granularity: second
-          entity_type: node
-          entity_field: created
-          plugin_id: date
+          plugin_id: datetime
       title: 'Upcoming Events'
       header: {  }
       footer: {  }
@@ -308,6 +267,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags: {  }
   page_1:
     display_plugin: page
     id: page_1
@@ -334,3 +295,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags: {  }

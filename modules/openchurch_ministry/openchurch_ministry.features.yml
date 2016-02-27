@@ -1,0 +1,15 @@
+required:
+  - core.base_field_override.node.ministry.promote.yml
+  - core.entity_form_display.node.ministry.default.yml
+  - core.entity_view_display.node.ministry.default.yml
+  - core.entity_view_display.node.ministry.teaser.yml
+  - field.field.node.ministry.body.yml
+  - field.field.node.ministry.field_downloads.yml
+  - field.field.node.ministry.field_image.yml
+  - field.field.node.ministry.field_thumb.yml
+  - field.storage.node.field_downloads.yml
+  - field.storage.node.field_thumb.yml
+  - image.style.ministry_header.yml
+  - image.style.ministry_thumb.yml
+  - node.type.ministry.yml
+  - views.view.openchurch_ministries.yml

@@ -1,0 +1,12 @@
+required:
+  - core.base_field_override.node.homepage_rotator.promote.yml
+  - core.entity_form_display.node.homepage_rotator.default.yml
+  - core.entity_view_display.node.homepage_rotator.default.yml
+  - core.entity_view_display.node.homepage_rotator.teaser.yml
+  - field.field.node.homepage_rotator.field_image.yml
+  - field.field.node.homepage_rotator.field_link.yml
+  - field.storage.node.field_link.yml
+  - image.style.homepage_rotator.yml
+  - image.style.homepage_thumb.yml
+  - node.type.homepage_rotator.yml
+  - views.view.openchurch_homepage_rotator.yml

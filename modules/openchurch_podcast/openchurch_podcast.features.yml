@@ -1,0 +1,16 @@
+required:
+  - core.base_field_override.node.podcast.promote.yml
+  - core.entity_form_display.node.podcast.default.yml
+  - core.entity_view_display.node.podcast.default.yml
+  - core.entity_view_display.node.podcast.rss.yml
+  - core.entity_view_display.node.podcast.teaser.yml
+  - field.field.node.podcast.body.yml
+  - field.field.node.podcast.field_audio.yml
+  - field.field.node.podcast.field_audio_url.yml
+  - field.field.node.podcast.field_author.yml
+  - field.field.node.podcast.field_date.yml
+  - field.storage.node.field_audio.yml
+  - field.storage.node.field_audio_url.yml
+  - field.storage.node.field_author.yml
+  - node.type.podcast.yml
+  - views.view.openchurch_podcasts.yml

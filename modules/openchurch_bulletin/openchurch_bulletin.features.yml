@@ -1,0 +1,11 @@
+required:
+  - core.base_field_override.node.bulletin.promote.yml
+  - core.entity_form_display.node.bulletin.default.yml
+  - core.entity_view_display.node.bulletin.default.yml
+  - core.entity_view_display.node.bulletin.teaser.yml
+  - field.field.node.bulletin.body.yml
+  - field.field.node.bulletin.field_bulletin_file.yml
+  - field.field.node.bulletin.field_date.yml
+  - field.storage.node.field_bulletin_file.yml
+  - node.type.bulletin.yml
+  - views.view.openchurch_bulletins.yml

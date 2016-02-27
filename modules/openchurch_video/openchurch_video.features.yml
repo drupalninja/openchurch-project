@@ -1,0 +1,10 @@
+required:
+  - core.base_field_override.node.video.promote.yml
+  - core.entity_form_display.node.video.default.yml
+  - core.entity_view_display.node.video.default.yml
+  - core.entity_view_display.node.video.teaser.yml
+  - field.field.node.video.body.yml
+  - field.field.node.video.field_video.yml
+  - field.storage.node.field_video.yml
+  - node.type.video.yml
+  - views.view.openchurch_video.yml

@@ -1,0 +1,18 @@
+required:
+  - core.base_field_override.node.gallery.promote.yml
+  - core.entity_form_display.node.gallery.default.yml
+  - core.entity_view_display.node.gallery.default.yml
+  - core.entity_view_display.node.gallery.teaser.yml
+  - field.field.node.gallery.body.yml
+  - field.field.node.gallery.field_date.yml
+  - field.field.node.gallery.field_image.yml
+  - field.field.node.gallery.field_images.yml
+  - field.field.node.gallery.field_location.yml
+  - field.field.node.gallery.field_ministry.yml
+  - field.storage.node.field_date.yml
+  - field.storage.node.field_images.yml
+  - field.storage.node.field_location.yml
+  - image.style.album_cover.yml
+  - image.style.gallery_image.yml
+  - node.type.gallery.yml
+  - views.view.openchurch_galleries.yml

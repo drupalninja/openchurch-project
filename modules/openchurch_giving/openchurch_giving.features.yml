@@ -1,0 +1,11 @@
+required:
+  - core.base_field_override.node.charity.promote.yml
+  - core.entity_form_display.node.charity.default.yml
+  - core.entity_view_display.node.charity.default.yml
+  - core.entity_view_display.node.charity.teaser.yml
+  - field.field.node.charity.body.yml
+  - field.field.node.charity.field_image.yml
+  - field.storage.node.field_image.yml
+  - image.style.charity_thumb.yml
+  - node.type.charity.yml
+  - views.view.openchurch_giving.yml

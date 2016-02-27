@@ -1,0 +1,22 @@
+required:
+  - core.base_field_override.node.staff.promote.yml
+  - core.entity_form_display.node.staff.default.yml
+  - core.entity_view_display.node.staff.default.yml
+  - core.entity_view_display.node.staff.teaser.yml
+  - field.field.node.staff.body.yml
+  - field.field.node.staff.field_email.yml
+  - field.field.node.staff.field_image.yml
+  - field.field.node.staff.field_ministry.yml
+  - field.field.node.staff.field_phone.yml
+  - field.field.node.staff.field_position.yml
+  - field.field.node.staff.field_staff_type.yml
+  - field.storage.node.field_email.yml
+  - field.storage.node.field_ministry.yml
+  - field.storage.node.field_phone.yml
+  - field.storage.node.field_position.yml
+  - field.storage.node.field_staff_type.yml
+  - image.style.staff_image.yml
+  - image.style.staff_thumb.yml
+  - node.type.staff.yml
+  - taxonomy.vocabulary.staff_type.yml
+  - views.view.openchurch_staff.yml
