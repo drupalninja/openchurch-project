@@ -132,7 +132,7 @@ function openchurch_install() {
     'title' => 'Map and Directions',
     'uid' => '1',
     'status' => 1,
-    'path' => '/page/' . _openchurch_clean_alias('Map and Directions'),
+    'path' => '/about/' . _openchurch_clean_alias('Map and Directions'),
   ));
   $node->body->value = '<h3>Come Visit Us at OpenChurch!</h3>
     <p>Come find us just three right turns past the downtown circle then left into the big open parking lot. &nbsp;Look for the brick building and come on in!</p>
@@ -157,7 +157,7 @@ function openchurch_install() {
     'uid' => '1',
     'status' => 1,
     'parent' => $mid,
-    'path' => '/page/' . _openchurch_clean_alias('Time & Locations'),
+    'path' => '/about/' . _openchurch_clean_alias('Time & Locations'),
   ));
   $node->body->value = '<h3>SUNDAY MORNING BIBLE CLASSES &amp; SERVICE</h3>
     <p>A wide variety of classes meet each week to welcome and nurture adults in their faith journey. &nbsp;Classes differ in size, format, and focus. &nbsp;Offerings may include textual, topical, ministry specific, or special needs studies. &nbsp;Some are age-specific while others are inter-generational. Many are on-ongoing throughout the year while special series are also provided.</p>
