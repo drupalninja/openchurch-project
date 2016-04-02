@@ -24,7 +24,7 @@ function openchurch_homepage_install() {
       'uid' => '1',
       'status' => 1,
     ));
-    $node->field_image->setValue($file->id());
+    $node->field_image->setValue(array('target_id' => $file->id(), 'alt' => $title));
     $node->save();
   }
 
