@@ -48,8 +48,10 @@ class OpenChurchEvent extends ControllerBase {
     while ($row = $result->fetchObject()) {
       $node = node_load($row->nid);
       $values = $node->field_dates->getValue();
-      $start = $values[0]['value'];
-      $end = !empty($values[1]['value']) ? $values[1]['value'] : $values[0]['value'];
+
+      // Convert to local time from UTC.
+      $start = format_date(strtotime($values[0]['value'] . ' UTC'), '', 'Y-m-d\TH:i:s');
+      $end = !empty($values[1]['value']) ? format_date(strtotime($values[1]['value'] . ' UTC'), '', 'Y-m-d\TH:i:s') : $start;
 
       $json[] = array(
         'title' => $node->title->value,
