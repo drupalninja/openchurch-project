@@ -38,9 +38,11 @@ class OpenChurchEvent extends ControllerBase {
     header('Content-Type: application/json');
 
     // Get 100 events starting 30 days before today.
-    $result = db_query('SELECT nid FROM {node} n
+    $result = db_query('SELECT n.nid FROM {node} n
+      JOIN {node_field_data} nd ON nd.vid = n.vid
       JOIN {node__field_dates} d ON n.nid = d.entity_id AND d.bundle = :bundle
-      WHERE delta = 0 AND type = :type AND field_dates_value >= :date LIMIT 100',
+      WHERE d.delta = 0 AND n.type = :type AND d.field_dates_value >= :date
+      AND nd.status = 1 LIMIT 100',
       array(':type' => 'event', ':date' => REQUEST_TIME - OC_30_DAYS_UNIX, ':bundle' => 'event'));
 
     $json = array();
