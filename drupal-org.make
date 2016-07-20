@@ -2,7 +2,7 @@ api = 2
 core = 8.x
 projects[config_update][version] = 1.1
 projects[config_update][subdir] = contrib
-projects[features][version] = 3.0-beta5
+projects[features][version] = 3.0-beta6
 projects[features][subdir] = contrib
 
 ; Custom theme developed for OpenChurch
