@@ -1,9 +1,10 @@
-api = 2
 core = 8.x
+api = 2
+defaults[projects][subdir] = contrib
+projects[config_update][type] = module
 projects[config_update][version] = 1.2
-projects[config_update][subdir] = contrib
+projects[features][type] = module
 projects[features][version] = 3.0
-projects[features][subdir] = contrib
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = theme
