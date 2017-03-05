@@ -3,6 +3,8 @@ type: profile
 description: 'Basic installation with features for church websites include multimedia, blog, ministry content and more.'
 # version: VERSION
 # core: 8.x
+distribution:
+  name: OpenChurch
 dependencies:
   - node
   - history
