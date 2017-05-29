@@ -4,7 +4,7 @@ defaults[projects][subdir] = contrib
 projects[config_update][type] = module
 projects[config_update][version] = 1.3
 projects[features][type] = module
-projects[features][version] = 3.4
+projects[features][version] = 3.5
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = theme
