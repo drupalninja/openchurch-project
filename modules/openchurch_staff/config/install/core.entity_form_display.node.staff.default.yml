@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.staff.field_phone
     - field.field.node.staff.field_position
     - field.field.node.staff.field_staff_type
+    - image.style.thumbnail
     - node.type.staff
   module:
     - image
@@ -27,17 +28,20 @@ content:
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
     weight: 9
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_email:
     weight: 6
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: email_default
+    region: content
   field_image:
     weight: 3
     settings:
@@ -45,11 +49,13 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
   field_ministry:
     weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
   field_phone:
     weight: 5
     settings:
@@ -57,6 +63,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_position:
     weight: 4
     settings:
@@ -64,28 +71,33 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_staff_type:
     weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   path:
     type: path
     weight: 12
     settings: {  }
     third_party_settings: {  }
+    region: content
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 10
     third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 11
     third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: 0
@@ -93,6 +105,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 8
@@ -101,4 +114,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
 hidden: {  }

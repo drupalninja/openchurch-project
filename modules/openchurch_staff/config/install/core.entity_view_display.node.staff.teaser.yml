@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.staff.field_phone
     - field.field.node.staff.field_position
     - field.field.node.staff.field_staff_type
+    - image.style.staff_thumb
     - node.type.staff
   module:
     - image
@@ -27,12 +28,14 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+    region: content
   field_email:
     type: email_mailto
     weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_image:
     type: image
     weight: 0
@@ -41,6 +44,7 @@ content:
       image_style: staff_thumb
       image_link: content
     third_party_settings: {  }
+    region: content
   field_phone:
     type: string
     weight: 3
@@ -48,6 +52,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    region: content
   field_position:
     type: string
     weight: 1
@@ -55,6 +60,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    region: content
 hidden:
   field_ministry: true
   field_staff_type: true
