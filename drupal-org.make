@@ -8,4 +8,4 @@ projects[features][version] = 3.5
 
 ; Custom theme developed for OpenChurch
 projects[openchurch_theme][type] = theme
-projects[openchurch_theme][version] = 2.x-dev
+projects[openchurch_theme][version] = 2.10
