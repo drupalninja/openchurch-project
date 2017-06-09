@@ -1,0 +1,134 @@
+/* Primary Menu
+/-------------------------------------------------------------- */
+/* Add general styles for primary menu here, such as typography, borders, floats,
+  or spacing above/below */
+
+#block-openchurch-theme-account-menu > div.content {
+  margin-top: 0;
+}
+
+@media all and (min-width: 901px) {
+  #main-menu-wrapper {
+    clear: none;
+  }
+  .region-primary-menu {
+    clear: none;
+    font-size: .9em;
+    margin: 0 15px;
+    float: right;
+    margin-bottom: 1em;
+  }
+  #block-openchurch-theme-main-menu {
+    margin-top: 4px;
+    z-index: 100;
+  }
+  #block-openchurch-theme-main-menu div.content {
+    margin-top: 8px;
+  }
+  #block-openchurch-theme-main-menu div.content > ul  {
+    list-style: none;
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+  #block-openchurch-theme-main-menu ul a {
+    font-size: 1.2em;
+  }
+  #block-openchurch-theme-main-menu div.content > ul > li > a {
+    display: block;
+    padding: 7px 6px;
+    font-weight: normal;
+    text-decoration: none;
+    border-top: 7px solid transparent;
+    white-space: nowrap;
+    background: none;
+    text-shadow: none;
+    border-radius: 0;
+  }
+  #block-openchurch-theme-main-menu div.content > ul > li > a:hover {
+  }
+  #block-openchurch-theme-main-menu div.content > ul > li > a.is-active,
+  #block-openchurch-theme-main-menu div.content > ul > li.menu-item--active-trail > a {
+    font-weight: bold;
+  }
+  #block-openchurch-theme-main-menu div.content > ul > li {
+    position: relative;
+    float: left;
+    margin: 0;
+    margin-left: 1.5em;
+    padding: 0;
+    z-index: 999;
+  }
+  #block-openchurch-theme-main-menu div.content > ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0;
+  }
+  #block-openchurch-theme-main-menu div.content > ul ul li {
+    float: none;
+    width: 12em;
+    display: block;
+    padding: 0;
+  }
+  #block-openchurch-theme-main-menu div.content > ul ul a {
+    padding: .5em;
+    float: none;
+    border-radius: 0;
+    background: none;
+    text-shadow: none;
+    margin: 0;
+  }
+  #block-openchurch-theme-main-menu div.content > ul ul a:hover {
+  }
+  #block-openchurch-theme-main-menu div.content > ul ul a.is-active {
+    font-weight: bold;
+  }
+  #block-openchurch-theme-main-menu div.content > ul li:hover > ul {
+    display: block;
+  }
+}
+/* Colors */
+@media all and (min-width: 901px) {
+  #block-openchurch-theme-main-menu div.content > ul > li > a {
+    color: #fffeff;
+  }
+  #block-openchurch-theme-main-menu div.content > ul ul {
+    background: #d6e6c2;
+  }
+  #block-openchurch-theme-main-menu div.content > ul > li > a.is-active,
+  #block-openchurch-theme-main-menu div.content > ul > li.menu-item--active-trail > a {
+    border-top-color: #d6e6c2;
+  }
+  #block-openchurch-theme-main-menu div.content > ul > li > a:hover {
+    border-top: 7px solid #d6edf5;
+  }
+  #block-openchurch-theme-main-menu div.content > ul ul a {
+    color: #000000;
+  }
+  #block-openchurch-theme-main-menu div.content > ul ul a:hover {
+    border-top-color: #cccccc;
+    background: #d6edf5;
+  }
+  #block-openchurch-theme-main-menu div.content > ul ul a {
+    border-top: 5px solid #fffffe;
+  }
+}
+
+/**
+ * Mobile menu.
+ */
+body:not(:target) .region-primary-menu .menu-toggle {
+  background: #a9cfdc;
+  color: #2e2f2e;
+}
+@media all and (max-width: 900px) {
+  .region-primary-menu {
+    padding-bottom: 4px;
+  }
+  .region-primary-menu .menu .menu {
+    display: none;
+  }
+}

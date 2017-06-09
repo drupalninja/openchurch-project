@@ -1,0 +1,176 @@
+<?php
+/**
+ * @file
+ */
+
+use \Drupal\file\Entity\File;
+use \Drupal\Core\Datetime\DateFormatter;
+use \Drupal\Component\Utility\SafeMarkup;
+
+/**
+ * Implements hook_preprocess_views_view_row_rss().
+ */
+function openchurch_theme_preprocess_views_view_row_rss(&$variables) {
+  $logo = theme_get_setting('logo');
+
+  // Use dc:creator value.
+  $variables['author'] = $variables['item_elements'][1]['value'];
+  if ($variables['view']->id() == 'openchurch_podcasts') {
+    $variables['item_elements'][] = array(
+      'key' => 'itunes:category',
+      'value' => '',
+      'attributes' => new \Drupal\Core\Template\Attribute(array('text' => 'Religion &amp; Spirituality')),
+    );
+    $variables['item_elements'][] = array(
+      'key' => 'itunes:image',
+      'attributes' => new \Drupal\Core\Template\Attribute(array('href' => $logo['url'])),
+    );
+  }
+}
+
+/**
+ * Implements hook_css_alter().
+ */
+function openchurch_theme_css_alter(&$css) {
+  $theme_path = drupal_get_path('theme', 'openchurch_theme');
+  // Add googlefonts.
+  $googlefonts = '//fonts.googleapis.com/css?family=Neuton:200,300,400,700,800,400italic';
+  $css[$googlefonts] = array(
+    'data' => $googlefonts,
+    'type' => 'external',
+    'every_page' => TRUE,
+    'media' => 'all',
+    'preprocess' => FALSE,
+    'group' => CSS_AGGREGATE_THEME,
+    'browsers' => array('IE' => TRUE, '!IE' => TRUE),
+    'weight' => -1,
+  );
+  // Remove bartik primary menu CSS in favor of our own.
+  unset($css['core/themes/bartik/css/components/primary-menu.css']);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function openchurch_theme_preprocess_page(&$variables) {
+  $variables['openchurchshare_enabled'] = \Drupal::configFactory()->get('block.block.openchurchshare')->get('status');
+  $variables['publisher_key'] = \Drupal::configFactory()->get('openchurch.settings')->get('sharethis_publisher_key');
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block templates.
+ */
+function openchurch_theme_preprocess_block(&$variables) {
+  switch ($variables['base_plugin_id']) {
+    case 'system_branding_block':
+      if ($variables['content']['site_logo']['#access']) {
+        // If not the theme logo, use an image style for the uploaded logo.
+        if (!strstr($variables['content']['site_logo']['#uri'], 'openchurch_theme')) {
+          $logo = theme_get_setting('logo');
+          if (!empty($logo['path'])) {
+            $style = entity_load('image_style', 'logo');
+            $variables['site_logo'] = $style->buildUrl($logo['path']);
+          }
+        }
+      }
+      break;
+    case 'page_title_block':
+      // Customize title on events node pages.
+      $node = \Drupal::request()->attributes->get('node');
+      if (!empty($node) && $node->getType() == 'event') {
+        $variables['content']['#title'] = 'Upcoming Events';
+      }
+      // Customize title on staff node pages.
+      elseif (!empty($node) && $node->getType() == 'staff') {
+        $variables['content']['#title'] = 'Staff Directory';
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function openchurch_theme_preprocess_node(&$variables) {
+  $node = $variables['node'];
+
+  if ($node->getType() == 'blog') {
+    $time = time() - $node->getCreatedTime();
+    $time = ($time < 1) ? 1 : $time;
+    $tokens = array (
+      31536000 => 'year',
+      2592000 => 'month',
+      604800 => 'week',
+      86400 => 'day',
+      3600 => 'hour',
+      60 => 'minute',
+      1 => 'second'
+    );
+    foreach ($tokens as $unit => $text) {
+      if ($time < $unit) {
+        continue;
+      }
+      $num_of_units = floor($time / $unit);
+      $variables['time_ago'] = t('Posted') . ' <em>' . $num_of_units . ' ' . $text . (($num_of_units > 1) ? 's' : '') . '</em> ' . t('ago');
+      break;
+    }
+  }
+  elseif ($variables['view_mode'] == 'teaser' && $node->getType() == 'staff') {
+    static $last_staff_type = '';
+    $staff_type = $node->field_staff_type->getValue();
+    if (!empty($staff_type)) {
+      $term = taxonomy_term_load($staff_type[0]['target_id']);
+      $staff_type = $term->getName();
+      if ($staff_type != $last_staff_type) {
+        $variables['staff_type'] = $term->getName();
+        $last_staff_type = $staff_type;
+      }
+    }
+  }
+  elseif ($node->getType() == 'event') {
+    $link = $node->field_url->getValue();
+    if (!empty($link)) {
+      $variables['link_url'] = $link[0]['uri'];
+    }
+  }
+  elseif ($variables['view_mode'] == 'teaser' && $node->getType() == 'podcast') {
+    $audio = $node->field_audio->getValue();
+    if (!empty($audio)) {
+      $file_uri = File::load($audio[0]['target_id'])->getFileUri();
+      $variables['audio_url'] = file_create_url($file_uri);
+    }
+    else {
+      $audio_url = $node->field_audio_url->getValue();
+      if (!empty($audio_url)) {
+        $variables['audio_url'] = $audio_url[0]['value'];
+      }
+    }
+  }
+  elseif ($node->getType() == 'video') {
+    $title = htmlspecialchars($node->getTitle(), ENT_QUOTES, 'UTF-8');
+    $video = $node->field_video->getValue();
+    if (!empty($video[0]['value'])) {
+      $video_embed = '';
+
+      // Detect YouTube video.
+      if (preg_match('/https\:\/\/www\.youtube\.com\/watch\?v\=([a-zA-Z0-9]+)/', $video[0]['value'], $matches)) {
+        $id = $matches[1];
+        $video_embed = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . $id . '" frameborder="0" allowfullscreen></iframe>';
+      }
+      // Detect Vimeo video.
+      elseif (preg_match('/https\:\/\/vimeo\.com\/(\d+)/', $video[0]['value'], $matches)) {
+        $id = $matches[1];
+        $video_embed = '<iframe class="media-vimeo-player" width="640" height="360" title="' . $title . '" src="//player.vimeo.com/video/' . $id . '?color=" frameborder="0" allowfullscreen>' . $title . '</iframe>';
+      }
+      else {
+        $video_embed = '<p>Unable to detect video.</p>';
+      }
+
+      $variables['video_embed'] = $video_embed;
+    }
+  }
+  elseif ($node->getType() == 'ministry' && $variables['view_mode'] == 'full') {
+    $variables['body_label'] = $node->body->getFieldDefinition()->label();
+    $variables['downloads_label'] = $node->field_downloads->getFieldDefinition()->label();
+  }
+}

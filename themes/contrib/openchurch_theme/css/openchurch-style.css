@@ -1,0 +1,448 @@
+
+/* Basic Typography & Colors
+-------------------------------------------------------------- */
+/* Add general site styling here for typography and background */
+body {
+  font-size: 13px;
+  font-family: Arial,Helvetica,Verdana,sans-serif;
+  color: #2e2e2e;
+}
+/* Force 960 as Desktop max-width */
+@media all and (min-width: 851px) {
+  #header div.section,
+  #featured div.section,
+  #messages div.section,
+  #main,
+  #triptych,
+  #footer-columns,
+  #footer {
+    max-width: 960px;
+  }
+}
+/* Default link styles - separate a:visited for a different visited link style */
+a,
+a:link,
+a:visited {
+  text-decoration: underline;
+  border-bottom: 0;
+}
+/* Hover/active link styles. Don't forget :focus for accessibility */
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+a, a:hover, a:focus, .link:hover, .link:focus {
+  color: #4a7470;
+}
+#page-wrapper,
+#footer-wrapper {
+  background: #292929;
+}
+.toolbar .toolbar-bar .toolbar-icon:before {
+  min-height: inherit;
+}
+
+/* Specific Typography
+-------------------------------------------------------------- */
+div.site-branding__name {
+  font-family: Georgia; /** default if google fonts not enabled **/
+  font-size: 2.2em;
+  max-width: 260px; /* For long titles */
+}
+div.site-branding__name a:link,
+div.site-branding__name a:visited,
+div.site-branding__name a:hover,
+div.site-branding__name a:active {
+  text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+#content h3.title, #content h2.title, #content .block > h2 {
+  padding: 10px 13px;
+  margin-bottom: 1em;
+}
+#content h2.title, #content .block > h2 {
+  font-size: 1.429em;
+  line-height: 1.4;
+}
+h2.title, h3.title, #content .block > h2 {
+  background: #adcd84;
+}
+.field__label:after {
+  content: ":";
+}
+
+/* HTML Elements
+-------------------------------------------------------------- */
+
+/* Google fonts */
+body h1.title, body div.site-branding__name, .sidebar h2, h2.title, #triptych h2, #content .block > h2 {
+  font-family: "Neuton", Georgia; font-weight: normal;
+}
+#header {
+  background-color: #373637;
+  background-image: -moz-linear-gradient(top, #373737 0%, #373637 100%);
+  background-image: -ms-linear-gradient(top, #373737 0%, #373637 100%);
+  background-image: -o-linear-gradient(top, #373737 0%, #373637 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #373737), color-stop(1, #373637));
+  background-image: -webkit-linear-gradient(top, #373737 0%, #373637 100%);
+  background-image: linear-gradient(top, #373737 0%, #373637 100%);
+}
+#header-inner {
+  background-image: url('../images/oc-gray-header-bg.png');
+  background-position: bottom left;
+  background-repeat: repeat-x;
+}
+#header-inner .section {
+  min-height: 123px;
+}
+.region-header {
+  border: 0;
+}
+#messages div.messages {
+  margin-left: 0;
+}
+
+/* Forms
+-------------------------------------------------------------- */
+#main-wrapper input.form-text,
+#main-wrapper input.form-email,
+#main-wrapper textarea {
+  padding: 9px;
+  border: solid 1px #E5E5E5;
+  outline: 0;
+  background: #FFFFFF;
+  background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+  background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+  box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  max-width: 100%;
+}
+#main-wrapper textarea {
+  line-height: 150%;
+}
+#main-wrapper input.form-text:hover,
+#main-wrapper input.form-email:hover,
+#main-wrapper textarea:hover,
+#main-wrapper input.form-text:focus,
+#main-wrapper textarea:focus {
+  border-color: #C9C9C9;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+}
+#main-wrapper .form-item label {
+  color: #999999;
+}
+
+/* Site Info
+-------------------------------------------------------------- */
+#block-sitebranding {
+  display: flex;
+  float: left;
+  margin: 4px 0 0 10px;
+}
+
+@media all and (max-width: 900px) {
+  #block-sitebranding {
+    margin-bottom: 20px;
+  }
+}
+
+div.site-branding__text {
+  padding: 0;
+  margin: -5px 0 0 15px;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+div.site-branding__name a {
+  text-decoration: none;
+}
+a.site-branding__logo {
+  padding: 0;
+  margin: 0 5px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Regions
+-------------------------------------------------------------- */
+
+
+/* Site info + Header Region
+-------------------------------------------------------------- */
+.header-group {
+  position: relative;
+  z-index: 500;
+  height: 83px;
+  margin-bottom: 10px;
+}
+#header-site-info {
+  margin-top: 0;
+  padding-top: 15px;
+}
+.region-header,
+.region-header a,
+.region-header li a.active,
+div.site-branding__name a:link,
+div.site-branding__name a:visited,
+div.site-branding__name a:hover,
+div.site-branding__name a:active {
+  color: #fffeff;
+}
+
+/* Footer
+-------------------------------------------------------------- */
+#footer-wrapper {
+  padding: 42px 0 47px;
+}
+#footer {
+  margin-top: 0;
+  border-top: 0;
+}
+
+#footer #block-openchurch-theme-search input.form-search {
+  width: 80%;
+}
+
+@media all and (min-width: 461px) {
+  #footer #block-openchurch-theme-search {
+    width: 40%;
+    float: left;
+  }
+  #footer #block-openchurch-theme-search input.form-search {
+    float: left;
+    width: 60%;
+    height: 15px;
+    margin-right: 5px;
+  }
+  #footer #block-openchurch-theme-footer {
+    float: right;
+    clear: none;
+    width: auto;
+  }
+  #footer #block-openchurch-theme-footer div.content {
+    margin-top: 6px;
+  }
+  #footer #block-openchurch-theme-footer {
+    margin-right: 15px;
+  }
+}
+#footer #block-openchurch-theme-footer ul.menu {
+  padding-left: 0;
+}
+#footer #block-openchurch-theme-footer ul.menu li {
+  display: inline;
+}
+
+/*  Main Area (content + sidebars)
+-------------------------------------------------------------- */
+#highlighted {
+  margin-bottom: 1em;
+}
+
+#highlighted .block > h2 {
+  margin-top: .5em;
+}
+
+/*  Main Area (content + sidebars)
+-------------------------------------------------------------- */
+body.front #main {
+  margin-bottom: 0;
+}
+#main {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* Sidebar Regions
+-------------------------------------------------------------- */
+
+.sidebar h2 {
+  border-bottom: 0;
+  padding: 10px 13px;
+  text-shadow: none;
+  border-radius: .3em .3em 0 0;
+  -webkit-border-radius: .3em .3em 0 0;
+  -moz-border-radius: .3em .3em 0 0;
+  font-size: 18px;
+}
+.sidebar .block {
+  border: 0;
+  border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  padding: 0;
+  background-color: #d6eff5;
+}
+.sidebar .block > h2 {
+  background: #a9cfdc;
+  color: #2e2f2e;
+}
+.sidebar .block:last-child {
+  margin-bottom: 0;
+}
+.content {
+  margin-top: 10px;
+}
+.sidebar .content {
+  padding: 0 10px 15px;
+}
+
+
+/*  Bottom Blocks Area
+-------------------------------------------------------------- */
+
+#triptych-wrapper {
+  background: #fff;
+  border-top: 0;
+}
+#triptych .region {
+  padding: 0;
+}
+@media all and (max-width: 560px) {
+  .region-triptych-first, .region-triptych-middle, .region-triptych-last {
+    width: 100%;
+  }
+  #triptych-wrapper {
+    padding: 0 15px;
+  }
+}
+@media all and (min-width: 560px) and (max-width: 850px) {
+  #triptych .region-triptych-first,
+  #triptych .region-triptych-middle,
+  #triptych .region-triptych-last {
+    width: 50%;
+    box-sizing: border-box;
+    padding-right: 17px;
+  }
+  #triptych-wrapper {
+    padding: 0 0 0 15px;
+  }
+}
+@media all and (min-width: 851px) {
+  #triptych .region-triptych-first {
+    padding-right: 16px;
+  }
+  #triptych .region-triptych-middle {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  #triptych .region-triptych-last {
+    padding-left: 16px;
+  }
+}
+#triptych .block {
+  border-bottom: 0;
+}
+#triptych .content {
+  padding: 3px;
+  font-size: 12px;
+  line-height: 1.5em
+}
+#triptych h2 {
+  padding: 10px 13px;
+  text-shadow: none;
+  text-align: left;
+  margin: 0;
+  font-size: 1.4em;
+  line-height: 1;
+  background: #adcd84;
+  color: #2e2d2e;
+}
+
+
+/* Page titles
+/-------------------------------------------------------------- */
+/* Page and full node titles */
+h1.page-title, h1#page-title {
+  margin: 0;
+  padding-top: .3em;
+  padding-bottom: 1em;
+  font-size: 2em;
+  line-height: 1;
+}
+
+
+/* Tab Area
+-------------------------------------------------------------- */
+ul.tabs {
+  margin-left: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+  position: relative;
+  z-index: 495;
+}
+
+
+/* OpenChurch Blocks & Pages from Install Profile
+/-------------------------------------------------------------- */
+
+/*************************************
+  Weekly Meeting Times Block
+*************************************/
+#block-weeklymeetingtimes .content p {
+  margin: 0;
+  line-height: 1.5em;
+}
+
+
+/*************************************
+  View Map Directions Block
+*************************************/
+#block-viewmapsanddirections .content {
+  padding: 15px 10px;
+  text-align: center;
+}
+#block-viewmapsanddirections .content p {
+  margin: 0;
+}
+
+
+/*************************************
+  Contact Us Block
+*************************************/
+
+
+/*************************************
+  Image Acknowledgements
+*************************************/
+article .field--name-body td {
+  background: #fff;
+}
+
+/**
+ * Full Width class
+ */
+.full-width {
+  display: block !important;
+  width: 100%;
+}
+
+/* Search styles.
+/-------------------------------------------------------------- */
+ol.search-results {
+  padding: 0;
+}
+  ol.search-results li {
+    margin-left: 0;
+  }
+
+
+/* Misc theme overrides.
+/-------------------------------------------------------------- */
+.item-list ul {
+  list-style: initial;
+}
+
+@media all and (min-width: 560px) {
+  .node .field--type-image {
+    float: none;
+    margin: 0;
+  }
+}
