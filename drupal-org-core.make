@@ -3,4 +3,4 @@ core = 8.x
 
 ; Drupal Core
 projects[drupal][type] = "core"
-projects[drupal][version] = "8.3.3"
+projects[drupal][version] = "8.4.2"
