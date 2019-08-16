@@ -1,4 +1,0 @@
-name: openchurch
-recipe: drupal8
-config:
-  webroot: .
