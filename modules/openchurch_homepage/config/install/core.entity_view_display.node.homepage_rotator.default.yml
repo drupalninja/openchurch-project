@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.node.homepage_rotator.field_image
     - field.field.node.homepage_rotator.field_link
+    - image.style.homepage_rotator
     - node.type.homepage_rotator
   module:
     - image
@@ -22,6 +23,7 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
   field_link:
     weight: 1
     label: inline
@@ -33,5 +35,6 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
 hidden:
   links: true

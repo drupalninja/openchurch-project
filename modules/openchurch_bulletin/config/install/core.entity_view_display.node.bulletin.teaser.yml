@@ -4,6 +4,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.bulletin.body
+    - field.field.node.bulletin.field_bulletin_file
+    - field.field.node.bulletin.field_date
     - node.type.bulletin
   module:
     - text
@@ -20,8 +22,10 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+    region: content
   links:
     weight: 100
+    region: content
 hidden:
   field_bulletin_file: true
   field_date: true

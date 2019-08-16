@@ -21,6 +21,6 @@ settings:
   file_extensions: 'pdf doc docx txt'
   max_filesize: ''
   description_field: false
-  handler: 'default:node'
+  handler: 'default:file'
   handler_settings: {  }
 field_type: file

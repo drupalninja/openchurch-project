@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.storage.node.field_image
     - field.storage.node.field_link
+    - image.style.homepage_rotator
     - node.type.homepage_rotator
     - system.menu.main
   module:

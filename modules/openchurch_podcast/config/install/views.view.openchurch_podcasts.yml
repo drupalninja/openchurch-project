@@ -222,6 +222,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags: {  }
   block_1:
     display_plugin: block
     id: block_1
@@ -455,6 +457,10 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags:
+        - 'config:field.storage.node.field_author'
+        - 'config:field.storage.node.field_date'
   feed_1:
     display_plugin: feed
     id: feed_1
@@ -486,6 +492,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags: {  }
   page_1:
     display_plugin: page
     id: page_1
@@ -514,3 +522,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags: {  }

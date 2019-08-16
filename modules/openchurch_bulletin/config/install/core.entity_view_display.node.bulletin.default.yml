@@ -22,12 +22,15 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_bulletin_file:
     weight: 103
     label: above
-    settings: {  }
+    settings:
+      use_description_as_link_text: true
     third_party_settings: {  }
     type: file_default
+    region: content
   field_date:
     weight: 102
     label: above
@@ -36,6 +39,8 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
   links:
     weight: 100
+    region: content
 hidden: {  }

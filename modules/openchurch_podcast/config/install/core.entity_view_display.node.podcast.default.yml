@@ -24,12 +24,14 @@ content:
     weight: 5
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_audio:
     type: file_url_plain
     weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_audio_url:
     weight: 3
     label: above
@@ -37,6 +39,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_author:
     weight: 1
     label: above
@@ -44,6 +47,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_date:
     weight: 4
     label: above
@@ -52,8 +56,10 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
   links:
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden: {  }

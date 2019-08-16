@@ -220,6 +220,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags: {  }
   page_1:
     display_plugin: page
     id: page_1
@@ -245,3 +247,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       cacheable: false
+      max-age: -1
+      tags: {  }

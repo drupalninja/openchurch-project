@@ -25,12 +25,14 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+    region: content
   field_audio:
     type: file_rss_enclosure
     weight: 0
     label: above
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden:
   field_audio_url: true
   field_author: true

@@ -8,8 +8,6 @@ dependencies:
     - datetime
     - node
     - user
-_core:
-  default_config_hash: ALlvh6jaSuvp_XM6YSFhB0kZUAocd0T9ePxNUsGpvFw
 id: openchurch_events
 label: 'OpenChurch Events'
 module: views

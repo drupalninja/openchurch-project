@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.storage.node.field_staff_type
     - node.type.staff
+    - taxonomy.vocabulary.staff_type
 id: node.staff.field_staff_type
 field_name: field_staff_type
 entity_type: node

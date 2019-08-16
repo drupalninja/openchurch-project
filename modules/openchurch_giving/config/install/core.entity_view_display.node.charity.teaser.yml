@@ -5,6 +5,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.charity.body
     - field.field.node.charity.field_image
+    - image.style.charity_thumb
     - node.type.charity
   module:
     - image
@@ -22,6 +23,7 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+    region: content
   field_image:
     type: image
     weight: 0
@@ -30,8 +32,10 @@ content:
       image_style: charity_thumb
       image_link: content
     third_party_settings: {  }
+    region: content
   links:
     weight: 2
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden: {  }

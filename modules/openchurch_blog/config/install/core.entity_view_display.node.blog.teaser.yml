@@ -21,6 +21,7 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+    region: content
   field_blog_topic:
     type: entity_reference_label
     weight: 0
@@ -28,8 +29,10 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+    region: content
   links:
     weight: 2
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden: {  }

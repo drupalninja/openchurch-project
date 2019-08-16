@@ -4,8 +4,7 @@ dependencies:
   config:
     - field.storage.node.field_ministry
     - node.type.event
-  module:
-    - entity_reference
+    - node.type.ministry
 id: node.event.field_ministry
 field_name: field_ministry
 entity_type: node

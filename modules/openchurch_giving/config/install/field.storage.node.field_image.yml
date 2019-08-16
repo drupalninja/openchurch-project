@@ -2,8 +2,9 @@ langcode: en
 status: true
 dependencies:
   module:
-    - node
+    - file
     - image
+    - node
 id: node.field_image
 field_name: field_image
 entity_type: node
@@ -19,7 +20,6 @@ settings:
   target_type: file
   display_field: false
   display_default: false
-  target_bundle: null
 module: image
 locked: false
 cardinality: 1
@@ -28,3 +28,4 @@ indexes:
   target_id:
     - target_id
 persist_with_no_fields: false
+custom_storage: false

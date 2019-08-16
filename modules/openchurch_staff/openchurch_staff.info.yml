@@ -18,7 +18,7 @@ dependencies:
   - user
   - views
 features: true
-version: 8.x-2.x-dev
+version: 8.x-2.1
 core: 8.x
 project: openchurch
-datestamp: 1445570066
+datestamp: 1513982875
