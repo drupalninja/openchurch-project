@@ -1,0 +1,26 @@
+{
+  "name": "drupal/openchurch",
+  "description": "OpenChurch install profile",
+  "type": "drupal-profile",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require": {
+    "cweagans/composer-patches": "^1.6",
+    "drupal/features": "^3.0",
+    "drupal/config_update": "^1.0"
+  },
+  "extra": {
+    "installer-types": [
+      "library"
+    ],
+    "patches": {
+    }
+  }
+}
