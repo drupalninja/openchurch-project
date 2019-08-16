@@ -13,6 +13,7 @@ function openchurch_gallery_install() {
   $gallery_titles = array('High School Retreat', 'Youth Ministry Spring Break Gallery');
   $output = file_get_contents(drupal_get_path('profile', 'openchurch') . '/images/openchurch-placeholder.png');
   $file = file_save_data($output, 'public://openchurch-placeholder', FILE_EXISTS_REPLACE);
+  $file->save();
 
   foreach ($gallery_titles as $title) {
     $node = Node::create(array(

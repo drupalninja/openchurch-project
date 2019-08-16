@@ -17,6 +17,7 @@ function openchurch_homepage_install() {
   foreach ($titles as $c => $title) {
     $output = file_get_contents(drupal_get_path('profile', 'openchurch') . '/images/' . $images[$c]);
     $file = file_save_data($output, 'public://' . $images[$c], FILE_EXISTS_REPLACE);
+    $file->save();
 
     $node = Node::create(array(
       'type' => 'homepage_rotator',

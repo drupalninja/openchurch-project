@@ -12,6 +12,7 @@ function openchurch_ministry_install() {
   $ministry_titles = array('Singles Ministry', 'Youth Ministry');
   $output = file_get_contents(drupal_get_path('profile', 'openchurch') . '/images/openchurch-placeholder.png');
   $file = file_save_data($output, 'public://openchurch-placeholder', FILE_EXISTS_REPLACE);
+  $file->save();
 
   foreach ($ministry_titles as $title) {
     $node = Node::create(array(
