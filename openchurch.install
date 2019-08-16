@@ -306,10 +306,3 @@ function openchurch_install() {
   $config_revert = \Drupal::service('features.config_update');
   $config_revert->revert('contact_form', 'feedback');
 }
-
-/**
- * Update staff view per https://www.drupal.org/node/2673738.
- */
-function openchurch_update_8000() {
-  \Drupal::service('features.manager')->import(['openchurch_staff']);
-}
