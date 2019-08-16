@@ -4,5 +4,4 @@ dependencies: {  }
 name: 'Blog Topic'
 vid: blog_topic
 description: ''
-hierarchy: 0
 weight: 0
