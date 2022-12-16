@@ -1,0 +1,8 @@
+# Schema for the configuration files of the OpenChurch Theme theme.
+openchurch_theme.settings:
+  type: theme_settings
+  label: 'OpenChurch Theme settings'
+  mapping:
+    font_size:
+      type: integer
+      label: Font size

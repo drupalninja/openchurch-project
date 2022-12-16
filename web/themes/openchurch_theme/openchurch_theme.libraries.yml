@@ -1,0 +1,24 @@
+# Main theme library.
+global:
+  js:
+    js/openchurch-theme.js: {}
+  css:
+    base:
+      css/global.css: {}
+  dependencies:
+    - "openchurch_theme/bootstrap-css"
+    - "openchurch_theme/popper-js"
+    - "openchurch_theme/bootstrap-js"
+
+bootstrap-css:
+  css:
+    component:
+      //cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css: {}
+
+bootstrap-js:
+  js:
+    //cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js: {}
+
+popper-js:
+  js:
+    //cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js: {}

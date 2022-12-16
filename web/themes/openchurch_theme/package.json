@@ -1,0 +1,10 @@
+{
+  "name": "openchurch_theme",
+  "private": true,
+  "scripts": {
+    "livereload": "livereload css"
+  },
+  "devDependencies": {
+    "livereload": "^0.9.3"
+  }
+}
