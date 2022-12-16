@@ -90,8 +90,8 @@ function _openchurch_node_auto_alias(Drupal\Core\Entity\EntityInterface $entity)
 
       // Look for existing alias.
       do {
-        $alias_exists = db_query('SELECT pid FROM {url_alias}
-          WHERE alias = :alias AND source != :source',
+        $alias_exists = db_query('SELECT id FROM {path_alias}
+          WHERE alias = :alias AND path != :source',
           array(
             ':alias' => $node_alias_path . $alias,
             ':source' => '/node/' . $nid
