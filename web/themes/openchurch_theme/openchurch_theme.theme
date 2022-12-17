@@ -5,6 +5,8 @@
  * Functions to support theming in the OpenChurch Theme theme.
  */
 
+ use Drupal\Core\Template\Attribute;
+
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
@@ -24,4 +26,23 @@ function openchurch_theme_preprocess_page(&$variables) {
  */
 function openchurch_theme_preprocess_node(&$variables) {
 
+}
+
+/**
+ * Implements hook_form_alter() to add classes to the search form.
+ */
+function openchurch_theme_form_alter(
+  &$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+   if (in_array($form_id, ['search_block_form', 'search_form'])) {
+     $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
+     if (!isset($form[$key]['submit']['#attributes'])) {
+       $form[$key]['submit']['#attributes'] = new Attribute();
+     }
+     $form[$key]['submit']['#attributes']->addClass(['btn', 'btn-primary', 'btn-sm']);
+   }
+   if (in_array($form_id, ['search_block_form'])) {
+    $form['keys']['#attributes']['placeholder'] = t('Search');
+    $form['keys']['#title'] = '';
+    $form['keys']['#attributes']['class'][] = 'form-control-sm';
+   }
 }
