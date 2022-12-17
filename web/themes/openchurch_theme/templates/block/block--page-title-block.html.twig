@@ -38,14 +38,15 @@
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
     layout ? 'layout--' ~ layout|clean_class,
-    'container',
-    'mt-4',
+    'bg-light',
+    'p-4 mb-4',
   ]
 %}
 
-
 <div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {{ content }}
-  {{ title_suffix }}
+  <div class="container">
+    {{ title_prefix }}
+    {{ content }}
+    {{ title_suffix }}
+  </div>
 </div>

@@ -38,7 +38,7 @@ function openchurch_theme_form_alter(
      if (!isset($form[$key]['submit']['#attributes'])) {
        $form[$key]['submit']['#attributes'] = new Attribute();
      }
-     $form[$key]['submit']['#attributes']->addClass(['btn', 'btn-primary', 'btn-sm']);
+     $form[$key]['submit']['#attributes']->addClass(['btn-primary', 'btn-sm']);
    }
    if (in_array($form_id, ['search_block_form'])) {
     $form['keys']['#attributes']['placeholder'] = t('Search');
