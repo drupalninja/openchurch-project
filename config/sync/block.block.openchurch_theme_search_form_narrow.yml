@@ -1,0 +1,23 @@
+uuid: 732a5bdb-da59-44be-9fd8-684618035c54
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - openchurch_theme
+_core:
+  default_config_hash: yEBET0cqDbk8dkWzaJw-8CKft0961VBflsISoSR6Lj8
+id: openchurch_theme_search_form_narrow
+theme: openchurch_theme
+region: primary_menu
+weight: -4
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (narrow)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

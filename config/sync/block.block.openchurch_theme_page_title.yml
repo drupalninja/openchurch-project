@@ -1,0 +1,20 @@
+uuid: 0c6fb6bf-9111-4100-a89a-bcc11d6add23
+langcode: en
+status: true
+dependencies:
+  theme:
+    - openchurch_theme
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: openchurch_theme_page_title
+theme: openchurch_theme
+region: content_above
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

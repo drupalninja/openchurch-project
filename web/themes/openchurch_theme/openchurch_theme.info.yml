@@ -7,6 +7,11 @@ core: 8.x
 core_version_requirement: ^8 || ^9 || ^10
 libraries:
   - openchurch_theme/global
+libraries-override:
+  starterkit_theme/base:
+    css:
+      component:
+        css/components/form.css: false
 regions:
   header: Header
   primary_menu: 'Primary menu'
