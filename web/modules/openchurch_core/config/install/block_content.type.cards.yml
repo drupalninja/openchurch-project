@@ -1,0 +1,8 @@
+uuid: cb6cde73-2d1a-4f4e-bd88-34270029205b
+langcode: en
+status: true
+dependencies: {  }
+id: cards
+label: Cards
+revision: 0
+description: 'Title, summary, link cards display in columns.'

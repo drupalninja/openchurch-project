@@ -1,0 +1,19 @@
+uuid: bc051617-1aca-4947-9b38-ed6a970037e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cards
+    - field.storage.block_content.field_summary
+id: block_content.cards.field_summary
+field_name: field_summary
+entity_type: block_content
+bundle: cards
+label: 'Card 1: Summary'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

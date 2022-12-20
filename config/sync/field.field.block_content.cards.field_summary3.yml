@@ -1,0 +1,19 @@
+uuid: 821285fb-e4b2-4a22-a16f-dfecef0f6188
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cards
+    - field.storage.block_content.field_summary3
+id: block_content.cards.field_summary3
+field_name: field_summary3
+entity_type: block_content
+bundle: cards
+label: 'Card 3: Summary'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

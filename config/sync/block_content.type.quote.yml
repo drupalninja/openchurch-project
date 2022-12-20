@@ -1,0 +1,8 @@
+uuid: 33385129-f7c0-4650-b10a-90b9e53d186d
+langcode: en
+status: true
+dependencies: {  }
+id: quote
+label: Quote
+revision: 0
+description: 'Testimonial, or notable quote.'

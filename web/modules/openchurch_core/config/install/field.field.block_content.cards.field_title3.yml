@@ -1,0 +1,19 @@
+uuid: 4d4817ab-ad7d-40b1-8cea-3db9a1fed488
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cards
+    - field.storage.block_content.field_title3
+id: block_content.cards.field_title3
+field_name: field_title3
+entity_type: block_content
+bundle: cards
+label: 'Card 3: Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

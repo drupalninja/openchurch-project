@@ -1,0 +1,29 @@
+uuid: febfadbe-3aed-4c49-b324-b5d601ee802a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.quote
+    - field.field.block_content.quote.field_author
+    - field.field.block_content.quote.field_summary
+id: block_content.quote.default
+targetEntityType: block_content
+bundle: quote
+mode: default
+content:
+  field_author:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_summary:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

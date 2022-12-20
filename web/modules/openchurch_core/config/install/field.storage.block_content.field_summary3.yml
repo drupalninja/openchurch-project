@@ -1,0 +1,19 @@
+uuid: afc4d0c6-7a3a-4c0f-9acf-00c896dafb1e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_summary3
+field_name: field_summary3
+entity_type: block_content
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

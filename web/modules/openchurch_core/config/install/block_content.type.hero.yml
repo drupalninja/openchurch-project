@@ -1,0 +1,8 @@
+uuid: c675149f-80e1-45a0-9e98-43a5720684fa
+langcode: en
+status: true
+dependencies: {  }
+id: hero
+label: Hero
+revision: 0
+description: 'Large photo, typically featured at the top of pages.'

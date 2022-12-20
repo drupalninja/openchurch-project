@@ -1,0 +1,29 @@
+uuid: e35db96d-a734-4150-85cd-9f19422241d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cards
+    - field.storage.block_content.field_image3
+    - media.type.image
+id: block_content.cards.field_image3
+field_name: field_image3
+entity_type: block_content
+bundle: cards
+label: 'Card 3: Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the OpenChurch Core module.
+ */
+
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\media\Entity\Media;
+
+/**
+ * Implements hook_install().
+ */
+function openchurch_install() {
+  // Save media images.
+  $homepage_images = [
+    'Beach 1' => 'derek-thomson-TWoL-QCZubY-unsplash.jpg',
+    'Beach 2' => 'frank-mckenna-eXHeq48Z-Q4-unsplash.jpg',
+    'Church' => 'karl-fredrickson-86DI4OKDkCc-unsplash.jpg',
+    'Climb' => 'nathan-dumlao-pLoMDKtl-JY-unsplash.jpg',
+    'Flower' => 'nicolas-reymond-tNm6DL_nO-o-unsplash.jpg',
+    'City' => 'roman-kraft-g_gwdpsCVAY-unsplash.jpg',
+  ];
+
+  $media = [];
+
+  // Save each homepage image.
+  foreach ($homepage_images as $image_alt => $image_name) {
+    $module_path = \Drupal::service('extension.list.module')->getPath('openchurch_core');
+    $image_path = $module_path . '/images/' . $image_name;
+    $data = file_get_contents($image_path);
+    $file = \Drupal::service('file.repository')->writeData($data, 'public:/' . $image_name);
+    $media = Media::create([
+      'bundle' => 'image',
+      'name' => $image_name,
+      'field_media_image' => [
+        'target_id' => $file->id(),
+        'alt' => $image_alt,
+        'title' => $image_alt,
+      ],
+    ]);
+    $media->save();
+
+    // Save the media entity for later use.
+    $media[$image_alt] = $media;
+  }
+
+  $block = BlockContent::create([
+    'type' => 'hero',
+    'field_title' => 'Hero Block',
+    'field_summary' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor, turpis at luctus finibus, erat lectus convallis velit, at sodales purus lacus quis magna. Curabitur imperdiet sapien libero, fringilla ullamcorper nibh ullamcorper vitae. Proin sed luctus augue. Nam fringilla enim leo, non sodales ante gravida ac.',
+    'field_subhead' => 'Subhead',
+    'field_link' => [
+      'uri' => 'https://www.drupal.org',
+      'title' => 'Read more',
+    ],
+    'field_media' => [
+      'target_id' => $media->id(),
+    ],
+  ]);
+
+  $block->save();
+}

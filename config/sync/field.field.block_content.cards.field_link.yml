@@ -1,0 +1,23 @@
+uuid: 8b7e3fe5-50ef-4085-93d7-0b6c41d96393
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cards
+    - field.storage.block_content.field_link
+  module:
+    - link
+id: block_content.cards.field_link
+field_name: field_link
+entity_type: block_content
+bundle: cards
+label: 'Card 1: Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

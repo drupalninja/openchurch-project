@@ -8,10 +8,10 @@ dependencies:
     - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
-    - image.style.medium
     - node.type.article
+    - responsive_image.styles.wide
   module:
-    - image
+    - responsive_image
     - text
     - user
 _core:
@@ -25,33 +25,31 @@ content:
     type: text_summary_or_trimmed
     label: hidden
     settings:
-      trim_length: 600
+      trim_length: 250
     third_party_settings: {  }
     weight: 0
     region: content
   field_image:
-    type: image
+    type: responsive_image
     label: hidden
     settings:
-      image_style: medium
+      responsive_image_style: wide
       image_link: content
-      image_loading:
-        attribute: lazy
     third_party_settings: {  }
     weight: -1
     region: content
   field_tags:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     weight: 10
     region: content
   links:
+    settings: {  }
+    third_party_settings: {  }
     weight: 100
     region: content
 hidden:
   comment: true
-  field_image: true
-  field_tags: true

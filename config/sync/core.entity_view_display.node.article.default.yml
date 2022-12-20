@@ -8,11 +8,11 @@ dependencies:
     - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
-    - image.style.wide
     - node.type.article
+    - responsive_image.styles.wide
   module:
     - comment
-    - image
+    - responsive_image
     - text
     - user
 _core:
@@ -39,19 +39,17 @@ content:
     weight: 110
     region: content
   field_image:
-    type: image
+    type: responsive_image
     label: hidden
     settings:
-      image_style: wide
+      responsive_image_style: wide
       image_link: ''
-      image_loading:
-        attribute: lazy
     third_party_settings: {  }
     weight: -1
     region: content
   field_tags:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }

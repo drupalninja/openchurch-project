@@ -1,0 +1,8 @@
+uuid: b318dff1-b730-4650-88e7-17fa07619998
+langcode: en
+status: true
+dependencies: {  }
+id: cta
+label: CTA
+revision: 0
+description: 'Call-to-action block.'

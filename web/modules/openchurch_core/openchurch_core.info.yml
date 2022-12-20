@@ -1,0 +1,12 @@
+name: OpenChurch Core
+description: Provides custom block types, configuration
+package: Administration
+type: module
+core_version_requirement: ^9.2 || ^10
+dependencies:
+  - drupal:block_content
+  - drupal:views
+  - drupal:media
+  - drupal:media_library
+  - drupal:responsive_image
+  - drupal:node
