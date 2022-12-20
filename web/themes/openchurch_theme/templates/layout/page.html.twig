@@ -91,7 +91,7 @@
             <form action="#">
               <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="{{ 'Your Email'|t }}" aria-label="{{ 'Your Email'|t }}" aria-describedby="button-subscribe">
-                <button class="btn btn-primary" type="button" id="button-subscribe">{{ 'Subscribe'|t }}</button>
+                <button class="btn btn-primary" type="button" id="button-subscribe">{{ 'Subscribe'|t }} <i class="bi bi-arrow-right"></i></button>
               </div>
             </form>
           </div>
@@ -101,12 +101,15 @@
   </div>
 
   <footer role="contentinfo" class="bg-dark text-white p-5">
-    <div class="row">
-      <div class="col">
-        {{ page.footer_left }}
-      </div>
-      <div class="col">
-        {{ page.footer_right }}
+    <div class="container">
+      <div class="row justify-content-around gap-3">
+        <div class="col-md d-flex align-items-center">
+          <img src="{{ logo.url }}" style="float: left; margin-right: 15px;" alt="Home">
+          <span>&copy; {{ site_name|t }}, 2022</span>
+        </div>
+        <div class="col-md d-flex align-items-center justify-content-end">
+          {{ page.footer }}
+        </div>
       </div>
     </div>
   </footer>

@@ -18,7 +18,12 @@ function openchurch_theme_preprocess_html(&$variables) {
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function openchurch_theme_preprocess_page(&$variables) {
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+  $variables['current_year'] = date('Y');
 
+  // Get theme logo.
+  $variables['logo'] = theme_get_setting('logo');
 }
 
 /**
