@@ -47,17 +47,17 @@
   <header role="banner" class="bg-dark">
     <div class="container">
       <div class="row pt-3 pb-3">
-        <div class="col d-flex align-items-center">
+        <div class="col-lg d-flex align-items-center">
           {{ page.header }}
         </div>
-        <div class="col">
-          <div class="row flex-lg-row-reverse align-items-baseline">
-            {{ page.primary_menu }}
-          </div>
+        <div class="col-lg">
+          {{ page.primary_menu }}
         </div>
       </div>
     </div>
   </header>
+
+  {{ page.hero }}
 
   {{ page.breadcrumb }}
 
@@ -75,9 +75,40 @@
 
   </main>
 
-  <footer role="contentinfo" class="bg-dark text-white p-5 mt-5">
-    {{ page.footer_top }}
-    {{ page.footer_bottom }}
+  <section class="subscribe-area bg-secondary p-5 text-white">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-12 col-lg-6">
+          <div class="subscribe-text">
+            <h3>{{ 'Subscribe To Our Newsletter'|t }}</h3>
+            <h6>{{ 'Subcribe Us And Tell Us About Your Story'|t }}</h6>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="subscribe-form text-right">
+            <form action="#">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="{{ 'Your Email'|t }}" aria-label="{{ 'Your Email'|t }}" aria-describedby="button-subscribe">
+                <button class="btn btn-primary" type="button" id="button-subscribe">{{ 'Subscribe'|t }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer role="contentinfo" class="bg-dark text-white p-5">
+    <div class="row">
+      <div class="col">
+        {{ page.footer_left }}
+      </div>
+      <div class="col">
+        {{ page.footer_right }}
+      </div>
+    </div>
   </footer>
 
 </div>{# /.layout-container #}

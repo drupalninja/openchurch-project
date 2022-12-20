@@ -1,0 +1,33 @@
+.hero.card.bg-dark {
+  border-radius: 0;
+}
+
+.hero img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.cta.card.bg-dark {
+  border-radius: 0;
+}
+
+.cta img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.card-img-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+body .nav-link.is-active {
+  color: #9ec5fe !important;
+}
+
+body a:hover, body a:focus {
+  color: var(--bs-secondary);
+}
+
+body .breadcrumb-item+.breadcrumb-item::before {
+  color: var(--bs-white);
+}

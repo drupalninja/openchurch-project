@@ -31,16 +31,27 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
-    'container',
+    'bg-light',
+    'mt-2',
+    'mb-5',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes.addClass('mb-5') }}>{{ label }}</h2>
+    <h2{{ title_attributes }}>{{ label }}</h2>
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-    {{ content }}
+    <div class="container-fluid">
+      <figure class="container text-center p-5">
+        <blockquote class="blockquote mb-4">
+          <p class="fs-3"><i class="bi bi-quote fs-1 text-secondary" style="position: relative; top: 5px;"></i>{{ content.field_summary }}</p>
+        </blockquote>
+        <figcaption class="blockquote-footer fs-4">
+          {{ content.field_author }}
+        </figcaption>
+      </figure>
+    </div>
   {% endblock %}
 </div>

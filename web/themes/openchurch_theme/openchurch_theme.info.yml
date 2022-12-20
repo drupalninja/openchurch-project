@@ -21,5 +21,5 @@ regions:
   social: Social Bar
   content_above: Content Above
   content: Content
-  footer_top: 'Footer Top'
-  footer_bottom: 'Footer Bottom'
+  footer_left: 'Footer Left'
+  footer_right: 'Footer Right'

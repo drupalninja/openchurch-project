@@ -21,7 +21,7 @@
 
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAccountContent" aria-controls="navbarAccountContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarFooterContent" aria-controls="navbarFooterContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -59,7 +59,7 @@
         {%
           set link_class = [
             menu_level == 0 ? 'nav-item',
-            menu_level == 0 ? 'nav-link',
+            menu_level == 0 ? 'nav-link text-white',
             item.in_active_trail ? 'active',
             menu_level == 0 and (item.is_expanded or item.is_collapsed) ? 'dropdown-toggle',
             menu_level > 0 ? 'dropdown-item',
