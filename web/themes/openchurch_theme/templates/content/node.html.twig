@@ -75,6 +75,8 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'col-9',
+    'mb-5',
   ]
 %}
 
@@ -87,16 +89,6 @@
     </h2>
   {% endif %}
   {{ title_suffix }}
-
-  {% if display_submitted %}
-    <footer class="node__meta">
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>
     {{ content }}

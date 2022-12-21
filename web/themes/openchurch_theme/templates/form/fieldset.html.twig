@@ -25,9 +25,7 @@
     'js-form-item',
     'form-item',
     'js-form-wrapper',
-    'form
-    -group',
-    'mb-3',
+    'form-group',
     errors ? 'has-error',
   ]
 %}
@@ -43,7 +41,7 @@
   <legend{{ legend.attributes }}>
     <span{{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
   </legend>
-  <div class="row bg-light p-2">
+  <div class="bg-light p-2 mb-2">
     {% if errors %}
       <div class="alert alert-danger" role="alert">
         <strong>{{ errors }}</strong>
