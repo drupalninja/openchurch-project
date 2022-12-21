@@ -31,25 +31,26 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
-    'card',
-    'bg-dark',
-    'text-white',
-    'cta',
     'mb-5',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes.addClass('mb-5', 'text-center') }}>{{ label }}</h2>
+  {% endif %}
   {{ title_suffix }}
   {% block content %}
-    {{ content.field_image }}
-    <div class="card-img-overlay p-5">
-      <div class="container">
-        <div class="col-12 text-center">
-          {{ title_prefix }}
-          <h2{{ title_attributes.addClass('display-5 mb-5 mt-5') }}>{{ content.field_title }}</h2>
-          {{ title_suffix }}
-          <a href="{{ content.field_link[0]['#url'].toString() }}" class="btn btn-primary" role="button">{{ content.field_link[0]['#title'] }} <i class="bi bi-arrow-right"></i></a>
+    <div class="card bg-dark text-white cta">
+      {{ content.field_image }}
+      <div class="card-img-overlay p-5">
+        <div class="container">
+          <div class="col-12 text-center">
+            {{ title_prefix }}
+            <h2{{ title_attributes.addClass('display-5 mb-5 mt-5') }}>{{ content.field_title }}</h2>
+            {{ title_suffix }}
+            <a href="{{ content.field_link[0]['#url'].toString() }}" class="btn btn-primary" role="button">{{ content.field_link[0]['#title'] }} <i class="bi bi-arrow-right"></i></a>
+          </div>
         </div>
       </div>
     </div>

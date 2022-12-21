@@ -10,9 +10,7 @@ use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\Core\File\FileSystemInterface;
-use Drupal\Core\Render\Element\Weight;
-
-use function GuzzleHttp\Promise\all;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Implements hook_install().
@@ -176,6 +174,13 @@ function openchurch_core_install() {
 
   $node->save();
 
+  // Create tag.
+  $term = Term::create([
+    'vid' => 'tags',
+    'name' => 'church',
+  ]);
+  $term->save();
+
   // Create two sample article nodes.
   $node = Node::create([
     'type' => 'article',
@@ -190,6 +195,9 @@ function openchurch_core_install() {
     'field_image' => [
       'target_id' => $media_files['Flower']->id(),
       'alt' => 'Flower',
+    ],
+    'field_tags' => [
+      'target_id' => $term->id(),
     ],
     'path' => [
       'alias' => '/sample-article-1',
@@ -211,6 +219,9 @@ function openchurch_core_install() {
     'field_image' => [
       'target_id' => $media_files['City']->id(),
       'alt' => 'City',
+    ],
+    'field_tags' => [
+      'target_id' => $term->id(),
     ],
     'path' => [
       'alias' => '/sample-article-2',

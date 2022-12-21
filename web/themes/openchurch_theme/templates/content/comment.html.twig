@@ -73,6 +73,7 @@
     author_id and author_id == commented_entity.getOwnerId() ? 'by-' ~ commented_entity.getEntityTypeId() ~ '-author',
     'clearfix',
     'mt-3',
+    'mb-3',
   ]
 %}
 <article role="article"{{ attributes.addClass(classes)|without('role') }}>
