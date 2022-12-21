@@ -18,7 +18,7 @@ plugin: 'block_content:c990ba75-f2fc-478d-a4e3-658634df7aaf'
 settings:
   id: 'block_content:c990ba75-f2fc-478d-a4e3-658634df7aaf'
   label: 'Cards under Hero'
-  label_display: visible
+  label_display: '0'
   provider: block_content
   status: true
   info: ''

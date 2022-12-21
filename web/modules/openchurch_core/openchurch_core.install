@@ -234,7 +234,7 @@ function openchurch_core_install() {
   foreach (['main', 'footer'] as $menu_name) {
     $menu_link = MenuLinkContent::create([
       'title' => 'About',
-      'link' => ['uri' => 'internal:/node'],
+      'link' => ['uri' => 'internal:/about-us'],
       'menu_name' => $menu_name,
       'expanded' => TRUE,
       'weight' => 1,
