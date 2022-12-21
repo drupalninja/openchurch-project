@@ -7,11 +7,14 @@
 
 use Drupal\block_content\Entity\BlockContent;
 use Drupal\media\Entity\Media;
+use Drupal\node\Entity\Node;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 
 /**
  * Implements hook_install().
  */
 function openchurch_install() {
+
   // Save media images.
   $homepage_images = [
     'Beach 1' => 'derek-thomson-TWoL-QCZubY-unsplash.jpg',
@@ -45,19 +48,223 @@ function openchurch_install() {
     $media[$image_alt] = $media;
   }
 
+  // Create homepage hero block.
   $block = BlockContent::create([
     'type' => 'hero',
-    'field_title' => 'Hero Block',
-    'field_summary' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor, turpis at luctus finibus, erat lectus convallis velit, at sodales purus lacus quis magna. Curabitur imperdiet sapien libero, fringilla ullamcorper nibh ullamcorper vitae. Proin sed luctus augue. Nam fringilla enim leo, non sodales ante gravida ac.',
-    'field_subhead' => 'Subhead',
+    'info' => 'Homepage Hero block',
+    'field_title' => 'Grace and Truth',
+    'uuid' => 'e6ce06bf-6463-4fe9-9eec-44f66b74c60c',
+    'body' => [
+      'value' => '<p>For God did not send his Son into the world to condemn the world, but to save the world through him. <em>John 3:17</em></p>',
+      'format' => 'full_html',
+    ],
     'field_link' => [
       'uri' => 'https://www.drupal.org',
-      'title' => 'Read more',
+      'title' => 'Browse Gallery',
     ],
-    'field_media' => [
-      'target_id' => $media->id(),
+    'field_image' => [
+      'target_id' => $media['Climb']->id(),
     ],
   ]);
 
   $block->save();
+
+  // Create homepage CTA block.
+  $block = BlockContent::create([
+    'type' => 'cta',
+    'info' => 'Homepage CTA block',
+    'field_title' => 'Find a place to connect and grow through a small group, class, or regular gathering.',
+    'uuid' => '2a47ba12-37d1-462a-bf73-89527ab481ad',
+    'field_link' => [
+      'uri' => 'https://www.drupal.org',
+      'title' => 'Become a Member',
+    ],
+    'field_image' => [
+      'target_id' => $media['Church']->id(),
+    ],
+  ]);
+
+  $block->save();
+
+  // Create homepage quote block.
+  $block = BlockContent::create([
+    'type' => 'quote',
+    'info' => 'Homepage Quote block',
+    'field_quote' => 'For God so loved the world that he gave his one and only begotten Son, that who ever believes in him shall not perish but have eternal life.',
+    'uuid' => '9a6dcb9c-f27e-4c8e-afc3-b9028d38bce2',
+    'field_author' => 'John 3:16 (KJV)',
+  ]);
+
+  $block->save();
+
+  // Create homepage cards block.
+  $block = BlockContent::create([
+    'type' => 'cards',
+    'info' => 'Homepage Cards block',
+    'uuid' => 'c990ba75-f2fc-478d-a4e3-658634df7aaf',
+    'field_title' => 'Guide by the Holy Spirit',
+    'field_summary' => "Experience God's Wisdom each day as you are lead by the Holy Spirit. Walk effortlessly into success and happiness and understand the Father's love for you.",
+    'field_link' => [
+      'uri' => 'https://www.drupal.org',
+    ],
+    'field_image' => [
+      'target_id' => $media['Climb']->id(),
+    ],
+    'field_title2' => 'Law Demands; Grace Supplies',
+    'field_summary2' => 'Jesus came and fulfilled the laws, the only one who could keep the laws so that in Him we can be made righteous and not have to suffer death for our sins.',
+    'field_link2' => [
+      'uri' => 'https://www.drupal.org',
+    ],
+    'field_image2' => [
+      'target_id' => $media['Beach 1']->id(),
+    ],
+    'field_title3' => 'Christ Occupied',
+    'field_summary3' => 'It may sound good to Mankind to be self-occupied. But God wants you to be Christ-Occupied and receive all of your blessings through resting in the work of Jesus.',
+    'field_link3' => [
+      'uri' => 'https://www.drupal.org',
+    ],
+    'field_image3' => [
+      'target_id' => $media['Beach 2']->id(),
+    ],
+  ]);
+
+  $block->save();
+
+  // Create homepage basic node.
+  $node = Node::create([
+    'type' => 'page',
+    'title' => 'Welcome!',
+    'uid' => 1,
+    'status' => 1,
+    'promote' => 1,
+    'sticky' => 1,
+    'body' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'path' => [
+      'alias' => '/welcome',
+    ],
+  ]);
+
+  $node->save();
+
+  // Set front page to welcome node.
+  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/welcome')->save();
+
+  // Create About us basic page.
+  $node = Node::create([
+    'type' => 'page',
+    'title' => 'About us',
+    'uid' => 1,
+    'status' => 1,
+    'body' => [
+      'value' => '<p> Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. </p> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <h4> Sub-heading </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <h4> Another Heading </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p>',
+      'format' => 'full_html',
+    ],
+    'path' => [
+      'alias' => '/about-us',
+    ],
+  ]);
+
+  $node->save();
+
+  // Create two sample article nodes.
+  $node = Node::create([
+    'type' => 'article',
+    'title' => 'Perseverance of the Saints',
+    'uid' => 1,
+    'status' => 1,
+    'body' => [
+      'value' => '<p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <p> Cum sociis natoque penatibus et magnis <a href="https://demo.web3canvas.com/themeforest/our-church/blog-single.html#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <blockquote> <p> Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. </p> </blockquote> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <h4> <strong>Sub-heading</strong> </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <h6> <strong>Another heading</strong> </h6> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <ul> <li> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. </li> <li> Donec id elit non mi porta gravida at eget metus. </li> <li> Nulla vitae elit libero, a pharetra augue. </li> </ul> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <p> Penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p>',
+      'format' => 'full_html',
+    ],
+    'field_image' => [
+      'target_id' => $media['Flower']->id(),
+    ],
+    'path' => [
+      'alias' => '/sample-article-1',
+    ],
+  ]);
+
+  $node->save();
+
+  $node = Node::create([
+    'type' => 'article',
+    'title' => 'Lord is Sufficient for all of our needs',
+    'uid' => 1,
+    'status' => 1,
+    'body' => [
+      'value' => '<p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <p> Cum sociis natoque penatibus et magnis <a href="https://demo.web3canvas.com/themeforest/our-church/blog-single.html#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <blockquote> <p> Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. </p> </blockquote> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <h4> <strong>Sub-heading</strong> </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <h6> <strong>Another heading</strong> </h6> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <ul> <li> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. </li> <li> Donec id elit non mi porta gravida at eget metus. </li> <li> Nulla vitae elit libero, a pharetra augue. </li> </ul> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <p> Penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p>',
+      'format' => 'full_html',
+    ],
+    'field_image' => [
+      'target_id' => $media['City']->id(),
+    ],
+    'path' => [
+      'alias' => '/sample-article-2',
+    ],
+  ]);
+
+  $node->save();
+
+  // Set theme to OpenChurch theme.
+  \Drupal::configFactory()->getEditable('system.theme')->set('default', 'openchurch_theme')->save();
+
+  // Create menu items.
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Welcome',
+    'link' => ['uri' => 'internal:/welcome'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+  ]);
+  $menu_link->save();
+
+  $menu_link = MenuLinkContent::create([
+    'title' => 'About',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+  ]);
+  $menu_link->save();
+
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Media',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+  ]);
+  $menu_link->save();
+
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Ministry',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+  ]);
+  $menu_link->save();
+
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Contact',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+  ]);
+  $menu_link->save();
+
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Pages',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+  ]);
+  $menu_link->save();
+
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Sermons',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+  ]);
+  $menu_link->save();
 }

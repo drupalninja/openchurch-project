@@ -7,6 +7,7 @@ dependencies:
     - field.field.block_content.hero.body
     - field.field.block_content.hero.field_image
     - field.field.block_content.hero.field_link
+    - field.field.block_content.hero.field_title
   module:
     - link
     - text
@@ -42,5 +43,13 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden: {  }

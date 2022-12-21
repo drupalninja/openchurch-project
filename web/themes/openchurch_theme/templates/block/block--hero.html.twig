@@ -44,9 +44,7 @@
       <div class="container">
         <div class="col-lg-6 mt-5">
           {{ title_prefix }}
-          {% if label %}
-            <h2{{ title_attributes.addClass('display-4 mb-3') }}>{{ label }}</h2>
-          {% endif %}
+          <h2{{ title_attributes.addClass('display-4 mb-3') }}>{{ content.field_title }}</h2>
           {{ title_suffix }}
           <div class="fs-4 mb-4">
             {{ content.body }}
