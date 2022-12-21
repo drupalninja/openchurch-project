@@ -9,11 +9,15 @@ use Drupal\block_content\Entity\BlockContent;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\Render\Element\Weight;
+
+use function GuzzleHttp\Promise\all;
 
 /**
  * Implements hook_install().
  */
-function openchurch_install() {
+function openchurch_core_install() {
 
   // Save media images.
   $homepage_images = [
@@ -25,14 +29,14 @@ function openchurch_install() {
     'City' => 'roman-kraft-g_gwdpsCVAY-unsplash.jpg',
   ];
 
-  $media = [];
+  $media_files = [];
 
   // Save each homepage image.
   foreach ($homepage_images as $image_alt => $image_name) {
     $module_path = \Drupal::service('extension.list.module')->getPath('openchurch_core');
     $image_path = $module_path . '/images/' . $image_name;
     $data = file_get_contents($image_path);
-    $file = \Drupal::service('file.repository')->writeData($data, 'public:/' . $image_name);
+    $file = \Drupal::service('file.repository')->writeData($data, 'public://' . $image_name, FileSystemInterface::EXISTS_REPLACE);
     $media = Media::create([
       'bundle' => 'image',
       'name' => $image_name,
@@ -45,7 +49,7 @@ function openchurch_install() {
     $media->save();
 
     // Save the media entity for later use.
-    $media[$image_alt] = $media;
+    $media_files[$image_alt] = $media;
   }
 
   // Create homepage hero block.
@@ -63,7 +67,7 @@ function openchurch_install() {
       'title' => 'Browse Gallery',
     ],
     'field_image' => [
-      'target_id' => $media['Climb']->id(),
+      'target_id' => $media_files['Climb']->id(),
     ],
   ]);
 
@@ -80,7 +84,7 @@ function openchurch_install() {
       'title' => 'Become a Member',
     ],
     'field_image' => [
-      'target_id' => $media['Church']->id(),
+      'target_id' => $media_files['Church']->id(),
     ],
   ]);
 
@@ -90,7 +94,7 @@ function openchurch_install() {
   $block = BlockContent::create([
     'type' => 'quote',
     'info' => 'Homepage Quote block',
-    'field_quote' => 'For God so loved the world that he gave his one and only begotten Son, that who ever believes in him shall not perish but have eternal life.',
+    'field_summary' => 'For God so loved the world that he gave his one and only begotten Son, that who ever believes in him shall not perish but have eternal life.',
     'uuid' => '9a6dcb9c-f27e-4c8e-afc3-b9028d38bce2',
     'field_author' => 'John 3:16 (KJV)',
   ]);
@@ -108,7 +112,8 @@ function openchurch_install() {
       'uri' => 'https://www.drupal.org',
     ],
     'field_image' => [
-      'target_id' => $media['Climb']->id(),
+      'target_id' => $media_files['Climb']->id(),
+      'alt' => 'Climb',
     ],
     'field_title2' => 'Law Demands; Grace Supplies',
     'field_summary2' => 'Jesus came and fulfilled the laws, the only one who could keep the laws so that in Him we can be made righteous and not have to suffer death for our sins.',
@@ -116,7 +121,8 @@ function openchurch_install() {
       'uri' => 'https://www.drupal.org',
     ],
     'field_image2' => [
-      'target_id' => $media['Beach 1']->id(),
+      'target_id' => $media_files['Beach 1']->id(),
+      'alt' => 'Beach 1',
     ],
     'field_title3' => 'Christ Occupied',
     'field_summary3' => 'It may sound good to Mankind to be self-occupied. But God wants you to be Christ-Occupied and receive all of your blessings through resting in the work of Jesus.',
@@ -124,7 +130,8 @@ function openchurch_install() {
       'uri' => 'https://www.drupal.org',
     ],
     'field_image3' => [
-      'target_id' => $media['Beach 2']->id(),
+      'target_id' => $media_files['Beach 2']->id(),
+      'alt' => 'Beach 2',
     ],
   ]);
 
@@ -178,9 +185,11 @@ function openchurch_install() {
     'body' => [
       'value' => '<p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <p> Cum sociis natoque penatibus et magnis <a href="https://demo.web3canvas.com/themeforest/our-church/blog-single.html#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <blockquote> <p> Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. </p> </blockquote> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <h4> <strong>Sub-heading</strong> </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <h6> <strong>Another heading</strong> </h6> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <ul> <li> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. </li> <li> Donec id elit non mi porta gravida at eget metus. </li> <li> Nulla vitae elit libero, a pharetra augue. </li> </ul> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <p> Penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p>',
       'format' => 'full_html',
+      'summary' => 'Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.',
     ],
     'field_image' => [
-      'target_id' => $media['Flower']->id(),
+      'target_id' => $media_files['Flower']->id(),
+      'alt' => 'Flower',
     ],
     'path' => [
       'alias' => '/sample-article-1',
@@ -197,9 +206,11 @@ function openchurch_install() {
     'body' => [
       'value' => '<p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <p> Cum sociis natoque penatibus et magnis <a href="https://demo.web3canvas.com/themeforest/our-church/blog-single.html#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <blockquote> <p> Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. </p> </blockquote> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <h4> <strong>Sub-heading</strong> </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <h6> <strong>Another heading</strong> </h6> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <ul> <li> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. </li> <li> Donec id elit non mi porta gravida at eget metus. </li> <li> Nulla vitae elit libero, a pharetra augue. </li> </ul> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <p> Penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p>',
       'format' => 'full_html',
+      'summary' => 'Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.',
     ],
     'field_image' => [
-      'target_id' => $media['City']->id(),
+      'target_id' => $media_files['City']->id(),
+      'alt' => 'City',
     ],
     'path' => [
       'alias' => '/sample-article-2',
@@ -208,63 +219,60 @@ function openchurch_install() {
 
   $node->save();
 
-  // Set theme to OpenChurch theme.
-  \Drupal::configFactory()->getEditable('system.theme')->set('default', 'openchurch_theme')->save();
-
   // Create menu items.
-  $menu_link = MenuLinkContent::create([
-    'title' => 'Welcome',
-    'link' => ['uri' => 'internal:/welcome'],
-    'menu_name' => 'main',
-    'expanded' => TRUE,
-  ]);
-  $menu_link->save();
+  foreach (['main', 'footer'] as $menu_name) {
+    $menu_link = MenuLinkContent::create([
+      'title' => 'About',
+      'link' => ['uri' => 'internal:/node'],
+      'menu_name' => $menu_name,
+      'expanded' => TRUE,
+      'weight' => 1,
+    ]);
+    $menu_link->save();
 
-  $menu_link = MenuLinkContent::create([
-    'title' => 'About',
-    'link' => ['uri' => 'internal:/node'],
-    'menu_name' => 'main',
-    'expanded' => TRUE,
-  ]);
-  $menu_link->save();
+    $menu_link = MenuLinkContent::create([
+      'title' => 'Media',
+      'link' => ['uri' => 'internal:/node'],
+      'menu_name' => $menu_name,
+      'expanded' => TRUE,
+      'weight' => 2,
+    ]);
+    $menu_link->save();
 
-  $menu_link = MenuLinkContent::create([
-    'title' => 'Media',
-    'link' => ['uri' => 'internal:/node'],
-    'menu_name' => 'main',
-    'expanded' => TRUE,
-  ]);
-  $menu_link->save();
+    $menu_link = MenuLinkContent::create([
+      'title' => 'Ministry',
+      'link' => ['uri' => 'internal:/node'],
+      'menu_name' => $menu_name,
+      'expanded' => TRUE,
+      'weight' => 3,
+    ]);
+    $menu_link->save();
 
-  $menu_link = MenuLinkContent::create([
-    'title' => 'Ministry',
-    'link' => ['uri' => 'internal:/node'],
-    'menu_name' => 'main',
-    'expanded' => TRUE,
-  ]);
-  $menu_link->save();
+    $menu_link = MenuLinkContent::create([
+      'title' => 'Contact',
+      'link' => ['uri' => 'internal:/node'],
+      'menu_name' => $menu_name,
+      'expanded' => TRUE,
+      'weight' => 4,
+    ]);
+    $menu_link->save();
 
-  $menu_link = MenuLinkContent::create([
-    'title' => 'Contact',
-    'link' => ['uri' => 'internal:/node'],
-    'menu_name' => 'main',
-    'expanded' => TRUE,
-  ]);
-  $menu_link->save();
+    $menu_link = MenuLinkContent::create([
+      'title' => 'Pages',
+      'link' => ['uri' => 'internal:/node'],
+      'menu_name' => $menu_name,
+      'expanded' => TRUE,
+      'weight' => 5,
+    ]);
+    $menu_link->save();
 
-  $menu_link = MenuLinkContent::create([
-    'title' => 'Pages',
-    'link' => ['uri' => 'internal:/node'],
-    'menu_name' => 'main',
-    'expanded' => TRUE,
-  ]);
-  $menu_link->save();
-
-  $menu_link = MenuLinkContent::create([
-    'title' => 'Sermons',
-    'link' => ['uri' => 'internal:/node'],
-    'menu_name' => 'main',
-    'expanded' => TRUE,
-  ]);
-  $menu_link->save();
+    $menu_link = MenuLinkContent::create([
+      'title' => 'Sermons',
+      'link' => ['uri' => 'internal:/node'],
+      'menu_name' => $menu_name,
+      'expanded' => TRUE,
+      'weight' => 6,
+    ]);
+    $menu_link->save();
+  }
 }

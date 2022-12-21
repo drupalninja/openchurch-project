@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.50_50
     - node.type.article
   module:
     - node
@@ -138,7 +138,7 @@ display:
       row:
         type: 'entity:node'
         options:
-          view_mode: teaser
+          view_mode: '50_50'
       query:
         type: views_query
         options:

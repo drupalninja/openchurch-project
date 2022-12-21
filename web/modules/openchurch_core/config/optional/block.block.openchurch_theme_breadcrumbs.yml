@@ -7,7 +7,7 @@ dependencies:
   theme:
     - openchurch_theme
 _core:
-  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+  default_config_hash: YOs9W8-7-KWo9ISShq3qS58pP5JEQs4X8UBRDBsVA68
 id: openchurch_theme_breadcrumbs
 theme: openchurch_theme
 region: breadcrumb
@@ -19,4 +19,8 @@ settings:
   label: Breadcrumbs
   label_display: '0'
   provider: system
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

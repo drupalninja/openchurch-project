@@ -1,6 +1,6 @@
-uuid: 2e139820-37aa-4eb2-a6eb-b4124807f6a0
+uuid: 85593304-a1fe-4b5d-8b6d-558013d98692
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - system.menu.footer
@@ -8,9 +8,9 @@ dependencies:
     - system
   theme:
     - openchurch_theme
-id: footer
+id: footer_2
 theme: openchurch_theme
-region: header
+region: footer
 weight: 0
 provider: null
 plugin: 'system_menu_block:footer'

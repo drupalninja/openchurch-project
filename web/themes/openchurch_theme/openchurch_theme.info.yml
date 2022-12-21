@@ -5,6 +5,8 @@ description: A simple Bootstrap-based theme for OpenChurch.
 package: Custom
 core: 8.x
 core_version_requirement: ^8 || ^9 || ^10
+dependencies:
+  - openchurch_core:openchurch_core
 libraries:
   - openchurch_theme/global
 libraries-override:
