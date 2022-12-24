@@ -355,7 +355,7 @@ function openchurch_core_install() {
   $sermons_nids = [];
 
   // Save sermon nodes.
-  foreach ($sermons as $title) {
+  foreach ($sermons as $c => $title) {
     $node = Node::create([
       'type' => 'sermon',
       'title' => $title,
@@ -370,6 +370,7 @@ function openchurch_core_install() {
         'target_id' => $video_entity->id(),
         'alt' => 'Video',
       ],
+      'created' => strtotime('+' . $c . ' days'),
       'path' => [
         'alias' => '/sermons/' . str_replace("'", '', strtolower($title)),
       ],
