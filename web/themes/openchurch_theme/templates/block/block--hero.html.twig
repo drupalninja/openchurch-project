@@ -50,7 +50,9 @@
             <div class="fs-4 mb-4">
               {{ content.body }}
             </div>
-            <a href="{{ content.field_link[0]['#url'].toString() }}" class="btn btn-primary" role="button">{{ content.field_link[0]['#title'] }} <i class="bi bi-arrow-right"></i></a>
+            {% if content.field_link[0]['#url'] %}
+              <a href="{{ content.field_link[0]['#url'].toString() }}" class="btn btn-primary" role="button">{{ content.field_link[0]['#title'] }} <i class="bi bi-arrow-right"></i></a>
+            {% endif %}
           </div>
         </div>
       </div>

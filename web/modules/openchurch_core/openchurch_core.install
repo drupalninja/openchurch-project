@@ -12,11 +12,38 @@ use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\contact\Entity\ContactForm;
 
 /**
  * Implements hook_install().
  */
 function openchurch_core_install() {
+  // Create basic block with maps embed.
+  $block = BlockContent::create([
+    'type' => 'basic',
+    'info' => 'Google Maps',
+    'uuid' => '5968dbb2-c12a-4c33-a78a-d8034cd1f0ad',
+    'body' => [
+      'value' => '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1575.9186034720387!2d144.95541222452604!3d-37.817281929786624!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642c9a8d8495f%3A0xedc33f230d1355b1!2sEnvato+Pty+Ltd!5e0!3m2!1sen!2sin!4v1407063773571" height="260"></iframe>',
+      'format' => 'embed',
+    ],
+  ]);
+
+  $block->save();
+
+  // Create a basic address block.
+  $block = BlockContent::create([
+    'type' => 'basic',
+    'info' => 'Address',
+    'uuid' => 'c0b5b8a1-5b1f-4b1f-9b1f-5b1f4b1f9b1f',
+    'body' => [
+      'value' => '<h5>Our Address</h5><p>Envato Pty Ltd, 13/2<br>Elizabeth St Melbourne VIC 3000<br>Phone: (03) 8376 6284<br>Fax: (03) 8376 6285</p><h5>Another Address</h5><p>Envato Pty Ltd, 13/2<br>Elizabeth St Melbourne VIC 3000<br>Phone: (03) 8376 6284<br>Fax: (03) 8376 6285</p>',
+      'format' => 'full_html',
+    ],
+  ]);
+
+  $block->save();
+
   // Delete comment field.
   $field_storage = FieldStorageConfig::loadByName('node', 'comment');
   $field_storage->delete();
@@ -60,22 +87,18 @@ function openchurch_core_install() {
     $media_files[$image_alt] = $media;
   }
 
-  // Create homepage hero block.
+  // Create Contact Hero block.
   $block = BlockContent::create([
     'type' => 'hero',
-    'info' => 'Homepage Hero block',
-    'field_title' => 'Grace and Truth',
+    'info' => 'Contact Hero',
+    'field_title' => 'Reach Out',
     'uuid' => 'e6ce06bf-6463-4fe9-9eec-44f66b74c60c',
     'body' => [
-      'value' => '<p>For God did not send his Son into the world to condemn the world, but to save the world through him. <em>John 3:17</em></p>',
+      'value' => '<p>Our Church address and contact details.</p>',
       'format' => 'full_html',
     ],
-    'field_link' => [
-      'uri' => 'https://www.drupal.org',
-      'title' => 'Browse Gallery',
-    ],
     'field_image' => [
-      'target_id' => $media_files['Climb']->id(),
+      'target_id' => $media_files['Church']->id(),
     ],
   ]);
 
@@ -315,7 +338,7 @@ function openchurch_core_install() {
     'name' => 'Sermon Video',
     'uid' => 1,
     'status' => 1,
-    'field_media_oembed_video' => 'https://www.youtube.com/watch?v=TTkwGgYRGHI',
+    'field_media_oembed_video' => 'https://www.youtube.com/watch?v=BsqlbIpPFQQ',
   ]);
 
   $video_entity->save();
@@ -439,4 +462,11 @@ function openchurch_core_install() {
     ]);
     $menu_link->save();
   }
+
+  // Load feedback contact form entity.
+  $contact_form = ContactForm::load('feedback');
+
+  // Change title.
+  $contact_form->set('label', 'Contact Us');
+  $contact_form->save();
 }

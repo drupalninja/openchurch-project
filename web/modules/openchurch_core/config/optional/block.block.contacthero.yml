@@ -10,8 +10,8 @@ dependencies:
   theme:
     - openchurch_theme
 _core:
-  default_config_hash: J7stpKSmU_o19QotwzZyfyUV6s_VvnLH9Zw8nXx3WR4
-id: graceandtruth
+  default_config_hash: D14xkPhI5uQdXYeJSC6JkOcFugItxWQkTibYvyAcdyk
+id: contacthero
 theme: openchurch_theme
 region: hero
 weight: 0
@@ -19,7 +19,7 @@ provider: null
 plugin: 'block_content:e6ce06bf-6463-4fe9-9eec-44f66b74c60c'
 settings:
   id: 'block_content:e6ce06bf-6463-4fe9-9eec-44f66b74c60c'
-  label: 'Grace and Truth'
+  label: 'Contact Hero'
   label_display: '0'
   provider: block_content
   status: true
@@ -29,4 +29,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /homepage-alt
+    pages: /contact

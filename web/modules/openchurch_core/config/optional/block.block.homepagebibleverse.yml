@@ -11,7 +11,7 @@ dependencies:
     - openchurch_theme
 id: homepagebibleverse
 theme: openchurch_theme
-region: content
+region: content_above
 weight: -7
 provider: null
 plugin: 'block_content:9a6dcb9c-f27e-4c8e-afc3-b9028d38bce2'

@@ -70,7 +70,19 @@
 
     <div class="layout-content">
       {{ page.content_above }}
-      {{ page.content }}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            {{ page.content }}
+          </div>
+          {% if page.sidebar %}
+            <div class="col-md-4 mb-5">
+              {{ page.sidebar }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      {{ page.content_below }}
     </div>{# /.layout-content #}
 
   </main>

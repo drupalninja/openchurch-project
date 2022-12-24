@@ -11,7 +11,7 @@ dependencies:
     - openchurch_theme
 id: cardsunderhero
 theme: openchurch_theme
-region: content
+region: content_above
 weight: -9
 provider: null
 plugin: 'block_content:c990ba75-f2fc-478d-a4e3-658634df7aaf'

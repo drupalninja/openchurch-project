@@ -1,23 +1,23 @@
-uuid: 91fd46bf-b6e7-4758-b57c-a2bc57a9033a
+uuid: f1ec5565-c54c-4728-bb1b-6599f6d36b5e
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:cta:2a47ba12-37d1-462a-bf73-89527ab481ad'
+    - 'block_content:basic:c0b5b8a1-5b1f-4b1f-9b1f-5b1f4b1f9b1f'
   module:
     - block_content
     - system
   theme:
     - openchurch_theme
-id: homepagecta
+id: address
 theme: openchurch_theme
-region: content_above
-weight: -8
+region: sidebar
+weight: 0
 provider: null
-plugin: 'block_content:2a47ba12-37d1-462a-bf73-89527ab481ad'
+plugin: 'block_content:c0b5b8a1-5b1f-4b1f-9b1f-5b1f4b1f9b1f'
 settings:
-  id: 'block_content:2a47ba12-37d1-462a-bf73-89527ab481ad'
-  label: 'Homepage CTA'
+  id: 'block_content:c0b5b8a1-5b1f-4b1f-9b1f-5b1f4b1f9b1f'
+  label: Address
   label_display: '0'
   provider: block_content
   status: true
@@ -27,4 +27,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: '<front>'
+    pages: /contact

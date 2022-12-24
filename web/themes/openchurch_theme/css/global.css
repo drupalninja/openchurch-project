@@ -79,3 +79,10 @@ body .breadcrumb-item+.breadcrumb-item::before {
     margin-left: 0;
   }
 }
+
+/**
+ * Override iframe embeds.
+ */
+iframe {
+  width: 100%;
+}

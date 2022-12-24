@@ -16,7 +16,8 @@ regions:
   hero: 'Hero (full width)'
   highlighted: Highlighted
   breadcrumb: Breadcrumb
-  social: Social Bar
   content_above: Content Above
   content: Content
+  sidebar: Sidebar
+  content_below: Content Below
   footer: 'Footer'
