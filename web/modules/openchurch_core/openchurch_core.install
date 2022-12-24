@@ -319,20 +319,7 @@ function openchurch_core_install() {
       'link' => ['uri' => 'internal:/about-us'],
       'menu_name' => $menu_name,
       'expanded' => TRUE,
-      'weight' => 1,
-    ]);
-    $menu_link->save();
-
-    if ($menu_name == 'main') {
-      $main_links[$menu_link->title->value] = $menu_link;
-    }
-
-    $menu_link = MenuLinkContent::create([
-      'title' => 'Media',
-      'link' => ['uri' => 'internal:/node'],
-      'menu_name' => $menu_name,
-      'expanded' => TRUE,
-      'weight' => 2,
+      'weight' => $menu_name == 'main' ? 1 : -1,
     ]);
     $menu_link->save();
 
@@ -345,33 +332,7 @@ function openchurch_core_install() {
       'link' => ['uri' => 'internal:/node'],
       'menu_name' => $menu_name,
       'expanded' => TRUE,
-      'weight' => 3,
-    ]);
-    $menu_link->save();
-
-    if ($menu_name == 'main') {
-      $main_links[$menu_link->title->value] = $menu_link;
-    }
-
-    $menu_link = MenuLinkContent::create([
-      'title' => 'Contact',
-      'link' => ['uri' => 'internal:/node'],
-      'menu_name' => $menu_name,
-      'expanded' => TRUE,
-      'weight' => 4,
-    ]);
-    $menu_link->save();
-
-    if ($menu_name == 'main') {
-      $main_links[$menu_link->title->value] = $menu_link;
-    }
-
-    $menu_link = MenuLinkContent::create([
-      'title' => 'Pages',
-      'link' => ['uri' => 'internal:/node'],
-      'menu_name' => $menu_name,
-      'expanded' => TRUE,
-      'weight' => 5,
+      'weight' => $menu_name == 'main' ? 1 : -1,
     ]);
     $menu_link->save();
 
@@ -384,12 +345,36 @@ function openchurch_core_install() {
       'link' => ['uri' => 'internal:/node'],
       'menu_name' => $menu_name,
       'expanded' => TRUE,
-      'weight' => 6,
+      'weight' => $menu_name == 'main' ? 1 : -1,
     ]);
     $menu_link->save();
 
     if ($menu_name == 'main') {
       $main_links[$menu_link->title->value] = $menu_link;
+    }
+
+    $menu_link = MenuLinkContent::create([
+      'title' => 'Pages',
+      'link' => ['uri' => 'internal:/node'],
+      'menu_name' => $menu_name,
+      'expanded' => TRUE,
+      'weight' => $menu_name == 'main' ? 1 : -1,
+    ]);
+    $menu_link->save();
+
+    if ($menu_name == 'main') {
+      $main_links[$menu_link->title->value] = $menu_link;
+    }
+
+    if ($menu_name == 'main') {
+      $menu_link = MenuLinkContent::create([
+        'title' => 'Contact',
+        'link' => ['uri' => 'internal:/contact'],
+        'menu_name' => $menu_name,
+        'expanded' => TRUE,
+        'weight' => 2,
+      ]);
+      $menu_link->save();
     }
   }
 
