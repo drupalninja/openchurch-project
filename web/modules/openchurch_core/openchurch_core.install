@@ -326,6 +326,9 @@ function openchurch_core_install() {
         'target_id' => $media_files[$media_key]->id(),
         'alt' => $media_key,
       ],
+      'path' => [
+        'alias' => '/ministry/' . str_replace("'", '', strtolower($title)),
+      ],
     ]);
 
     $node->save();
@@ -366,6 +369,9 @@ function openchurch_core_install() {
       'field_video' => [
         'target_id' => $video_entity->id(),
         'alt' => 'Video',
+      ],
+      'path' => [
+        'alias' => '/sermons/' . str_replace("'", '', strtolower($title)),
       ],
     ]);
 

@@ -72,9 +72,11 @@
       {{ page.content_above }}
       <div class="container">
         <div class="row">
-          <div class="col-md-8">
-            {{ page.content }}
-          </div>
+          {% if page.content %}
+            <div class="col-md-8">
+              {{ page.content }}
+            </div>
+          {% endif %}
           {% if page.sidebar %}
             <div class="col-md-4 mb-5">
               {{ page.sidebar }}
