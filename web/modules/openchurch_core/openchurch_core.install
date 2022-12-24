@@ -310,6 +310,47 @@ function openchurch_core_install() {
     $ministry_nids[$title] = $node->id();
   }
 
+  $video_entity = Media::create([
+    'bundle' => 'remote_video',
+    'name' => 'Sermon Video',
+    'uid' => 1,
+    'status' => 1,
+    'field_media_oembed_video' => 'https://www.youtube.com/watch?v=TTkwGgYRGHI',
+  ]);
+
+  $video_entity->save();
+
+  $sermons = [
+    'Christ-Occupied',
+    'God\'s Love',
+    'Faithfulness',
+  ];
+
+  $sermons_nids = [];
+
+  // Save sermon nodes.
+  foreach ($sermons as $title) {
+    $node = Node::create([
+      'type' => 'sermon',
+      'title' => $title,
+      'uid' => 1,
+      'status' => 1,
+      'body' => [
+        'value' => '<p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <blockquote> <p> And we know that in all things God works for the good of those who love him, who have been called according to his purpose. </p> </blockquote> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p>',
+        'format' => 'full_html',
+        'summary' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam.',
+      ],
+      'field_video' => [
+        'target_id' => $video_entity->id(),
+        'alt' => 'Video',
+      ],
+    ]);
+
+    $node->save();
+
+    $sermons_nids[$title] = $node->id();
+  }
+
   $main_links = [];
 
   // Create menu items.
@@ -385,6 +426,16 @@ function openchurch_core_install() {
       'link' => ['uri' => 'internal:/node/' . $ministry_nids[$title]],
       'menu_name' => 'main',
       'parent' => $main_links['Ministry']->getPluginId(),
+    ]);
+    $menu_link->save();
+  }
+
+  foreach ($sermons as $title) {
+    $menu_link = MenuLinkContent::create([
+      'title' => $title,
+      'link' => ['uri' => 'internal:/node/' . $sermons_nids[$title]],
+      'menu_name' => 'main',
+      'parent' => $main_links['Sermons']->getPluginId(),
     ]);
     $menu_link->save();
   }
