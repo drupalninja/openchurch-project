@@ -38,17 +38,20 @@
 {% set items = [
   {
     'title': content.field_title,
+    'summary': content.field_summary,
     'link': content.field_link,
     'image': content.field_image,
     'active': true
   },
   {
     'title': content.field_title2,
+    'summary': content.field_summary2,
     'link': content.field_link2,
     'image': content.field_image2,
   },
   {
     'title': content.field_title3,
+    'summary': content.field_summary3,
     'link': content.field_link3,
     'image': content.field_image3,
   }
@@ -82,10 +85,17 @@
       {{ item.image }}
     {% endif %}
     <div class="carousel-caption">
-      <h2 class="display-3">{{ item.title }}</h2>
-      <div class="mt-3">
-        <a href="{{ item.link[0]['#url'].toString() }}" class="btn btn-primary" role="button">{{ item.link[0]['#title'] }} <i class="bi bi-arrow-right"></i></a>
-      </div>
+      {% if item.title %}
+        <h2 class="display-3">{{ item.title }}</h2>
+      {% endif %}
+      {% if item.summary %}
+        <p class="lead">{{ item.summary }}</p>
+      {% endif %}
+      {% if item.link %}
+        <div class="mt-3">
+          <a href="{{ item.link[0]['#url'].toString() }}" class="btn btn-primary" role="button">{{ item.link[0]['#title'] }} <i class="bi bi-arrow-right"></i></a>
+        </div>
+      {% endif %}
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ id }}" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
