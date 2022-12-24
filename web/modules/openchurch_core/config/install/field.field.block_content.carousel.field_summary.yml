@@ -1,0 +1,19 @@
+uuid: 9883364e-acea-47d4-8c03-a37d4ff757ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.carousel
+    - field.storage.block_content.field_summary
+id: block_content.carousel.field_summary
+field_name: field_summary
+entity_type: block_content
+bundle: carousel
+label: 'Carousel 1: Summary'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

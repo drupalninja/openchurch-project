@@ -1,0 +1,8 @@
+uuid: 52b8ec4e-cb9a-447f-86f9-d2dcb7211013
+langcode: en
+status: true
+dependencies: {  }
+id: carousel
+label: Carousel
+revision: 0
+description: 'Add up to 3 items in a rotating carousel.'

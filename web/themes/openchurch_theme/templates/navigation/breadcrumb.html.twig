@@ -11,11 +11,11 @@
   <nav role="navigation" class="container" aria-label="breadcrumb">
     <ol class="breadcrumb">
     {% for item in breadcrumb %}
-      {% if item.url %}
+      {% if item.url and item.text %}
         <li class="breadcrumb-item">
           <a href="{{ item.url }}" class="text-white">{{ item.text }}</a>
         </li>
-      {% else %}
+      {% elseif item.text %}
         <li class="breadcrumb-item active text-white" aria-current="page">
           {{ item.text }}
         </li>

@@ -1,0 +1,23 @@
+uuid: 85bfe0ed-27dc-4134-aae3-83e98170717d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.carousel
+    - field.storage.block_content.field_link2
+  module:
+    - link
+id: block_content.carousel.field_link2
+field_name: field_link2
+entity_type: block_content
+bundle: carousel
+label: 'Carousel 2: Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

@@ -9,6 +9,8 @@ dependencies:
     - system
   theme:
     - openchurch_theme
+_core:
+  default_config_hash: J7stpKSmU_o19QotwzZyfyUV6s_VvnLH9Zw8nXx3WR4
 id: graceandtruth
 theme: openchurch_theme
 region: hero
@@ -27,4 +29,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: '<front>'
+    pages: /homepage-alt

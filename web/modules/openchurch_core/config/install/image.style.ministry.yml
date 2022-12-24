@@ -1,0 +1,15 @@
+uuid: e1893f28-bf3e-4566-bcba-706610294e73
+langcode: en
+status: true
+dependencies: {  }
+name: ministry
+label: Ministry
+effects:
+  e4b75700-3452-4c84-811c-780ae569a577:
+    uuid: e4b75700-3452-4c84-811c-780ae569a577
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 439
+      anchor: center-center

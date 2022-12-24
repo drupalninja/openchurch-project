@@ -11,11 +11,18 @@ use Drupal\node\Entity\Node;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\field\Entity\FieldStorageConfig;
 
 /**
  * Implements hook_install().
  */
 function openchurch_core_install() {
+  // Delete comment field.
+  $field_storage = FieldStorageConfig::loadByName('node', 'comment');
+  $field_storage->delete();
+
+  // Uninstall comment module.
+  \Drupal::service('module_installer')->uninstall(['comment']);
 
   // Save media images.
   $homepage_images = [
@@ -25,6 +32,9 @@ function openchurch_core_install() {
     'Climb' => 'nathan-dumlao-pLoMDKtl-JY-unsplash.jpg',
     'Flower' => 'nicolas-reymond-tNm6DL_nO-o-unsplash.jpg',
     'City' => 'roman-kraft-g_gwdpsCVAY-unsplash.jpg',
+    'Children' => 'erika-giraud-4EFeD-VTgu4-unsplash.jpg',
+    'Students' => 'brooke-cagle--uHVRvDr7pg-unsplash.jpg',
+    'Groups' => 'small-group-network-e5juUFoRHpE-unsplash.jpg',
   ];
 
   $media_files = [];
@@ -135,6 +145,45 @@ function openchurch_core_install() {
 
   $block->save();
 
+  // Create homepage carousel block.
+  $block = BlockContent::create([
+    'type' => 'carousel',
+    'info' => 'Homepage Carousel block',
+    'uuid' => '8808c2ce-8398-11ed-a1eb-0242ac120002',
+    'field_title' => 'Grace and Truth',
+    'field_summary' => 'For God did not send his Son into the world to condemn the world, but to save the world through him. John 3:17',
+    'field_link' => [
+      'uri' => 'https://www.drupal.org',
+      'title' => 'Browse Gallery',
+    ],
+    'field_image' => [
+      'target_id' => $media_files['Climb']->id(),
+      'alt' => 'Climb',
+    ],
+    'field_title2' => 'Law Demands; Grace Supplies',
+    'field_summary2' => 'Receive the unceasing wave after wave, after wave, after wave of Grace God has for you.',
+    'field_link2' => [
+      'uri' => 'https://www.drupal.org',
+      'title' => 'Learn More',
+    ],
+    'field_image2' => [
+      'target_id' => $media_files['Students']->id(),
+      'alt' => 'Beach 1',
+    ],
+    'field_title3' => 'Christ Occupied',
+    'field_summary3' => 'It may sound good to Mankind to be self-occupied.',
+    'field_link3' => [
+      'uri' => 'https://www.drupal.org',
+      'title' => 'Join Us',
+    ],
+    'field_image3' => [
+      'target_id' => $media_files['Groups']->id(),
+      'alt' => 'Beach 2',
+    ],
+  ]);
+
+  $block->save();
+
   // Create homepage basic node.
   $node = Node::create([
     'type' => 'page',
@@ -200,7 +249,7 @@ function openchurch_core_install() {
       'target_id' => $term->id(),
     ],
     'path' => [
-      'alias' => '/sample-article-1',
+      'alias' => '/article/perseverance-of-the-saints',
     ],
   ]);
 
@@ -224,11 +273,44 @@ function openchurch_core_install() {
       'target_id' => $term->id(),
     ],
     'path' => [
-      'alias' => '/sample-article-2',
+      'alias' => '/article/lord-is-sufficient-for-all-of-our-needs',
     ],
   ]);
 
   $node->save();
+
+  $ministries = [
+    'Children' => 'Children\'s Ministry',
+    'Students' => 'Students Ministry',
+    'Groups' => 'Groups',
+  ];
+
+  $ministry_nids = [];
+
+  // Save ministry nodes.
+  foreach ($ministries as $media_key => $title) {
+    $node = Node::create([
+      'type' => 'ministry',
+      'title' => $title,
+      'uid' => 1,
+      'status' => 1,
+      'body' => [
+        'value' => '<p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <blockquote> <p> And we know that in all things God works for the good of those who love him, who have been called according to his purpose. </p> </blockquote> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <h4> <strong>Another Heading</strong> </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p>',
+        'format' => 'full_html',
+        'summary' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis.',
+      ],
+      'field_image' => [
+        'target_id' => $media_files[$media_key]->id(),
+        'alt' => $media_key,
+      ],
+    ]);
+
+    $node->save();
+
+    $ministry_nids[$title] = $node->id();
+  }
+
+  $main_links = [];
 
   // Create menu items.
   foreach (['main', 'footer'] as $menu_name) {
@@ -241,6 +323,10 @@ function openchurch_core_install() {
     ]);
     $menu_link->save();
 
+    if ($menu_name == 'main') {
+      $main_links[$menu_link->title->value] = $menu_link;
+    }
+
     $menu_link = MenuLinkContent::create([
       'title' => 'Media',
       'link' => ['uri' => 'internal:/node'],
@@ -249,6 +335,10 @@ function openchurch_core_install() {
       'weight' => 2,
     ]);
     $menu_link->save();
+
+    if ($menu_name == 'main') {
+      $main_links[$menu_link->title->value] = $menu_link;
+    }
 
     $menu_link = MenuLinkContent::create([
       'title' => 'Ministry',
@@ -259,6 +349,10 @@ function openchurch_core_install() {
     ]);
     $menu_link->save();
 
+    if ($menu_name == 'main') {
+      $main_links[$menu_link->title->value] = $menu_link;
+    }
+
     $menu_link = MenuLinkContent::create([
       'title' => 'Contact',
       'link' => ['uri' => 'internal:/node'],
@@ -267,6 +361,10 @@ function openchurch_core_install() {
       'weight' => 4,
     ]);
     $menu_link->save();
+
+    if ($menu_name == 'main') {
+      $main_links[$menu_link->title->value] = $menu_link;
+    }
 
     $menu_link = MenuLinkContent::create([
       'title' => 'Pages',
@@ -277,12 +375,31 @@ function openchurch_core_install() {
     ]);
     $menu_link->save();
 
+    if ($menu_name == 'main') {
+      $main_links[$menu_link->title->value] = $menu_link;
+    }
+
     $menu_link = MenuLinkContent::create([
       'title' => 'Sermons',
       'link' => ['uri' => 'internal:/node'],
       'menu_name' => $menu_name,
       'expanded' => TRUE,
       'weight' => 6,
+    ]);
+    $menu_link->save();
+
+    if ($menu_name == 'main') {
+      $main_links[$menu_link->title->value] = $menu_link;
+    }
+  }
+
+  // Create child menu items.
+  foreach ($ministries as $media_key => $title) {
+    $menu_link = MenuLinkContent::create([
+      'title' => $title,
+      'link' => ['uri' => 'internal:/node/' . $ministry_nids[$title]],
+      'menu_name' => 'main',
+      'parent' => $main_links['Ministry']->getPluginId(),
     ]);
     $menu_link->save();
   }

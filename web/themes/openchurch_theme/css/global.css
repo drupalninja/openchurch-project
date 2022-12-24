@@ -1,4 +1,4 @@
-.hero.card.bg-dark {
+.hero .card.bg-dark {
   border-radius: 0;
 }
 
@@ -16,11 +16,23 @@
   object-fit: cover;
 }
 
+.carousel-item img {
+  max-height: 500px;
+  object-fit: cover;
+  width: 100%;
+  filter: brightness(50%);
+}
+
+.carousel-caption {
+  bottom: inherit;
+  top: 33%;
+}
+
 .card-img-overlay {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-body .nav-link.is-active {
+body .navbar-dark .nav-link.active {
   color: #9ec5fe !important;
 }
 
@@ -40,4 +52,39 @@ body .breadcrumb-item+.breadcrumb-item::before {
   font-style: italic;
   padding-left: 1.5em;
   padding-right: 1.5em;
+}
+
+/**
+ * Node preview styles.
+ */
+.node-preview-container {
+  background: #333;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3333);
+  position: fixed;
+  z-index: 499;
+  width: 100%;
+  padding: 10px;
+}
+
+@media only screen and (min-width: 36em) {
+  .node-preview-container .form-type-select {
+    margin-left: 20px; /* LTR */
+  }
+  [dir="rtl"] .node-preview-container .form-type-select {
+    margin-right: 20px;
+    margin-left: 0;
+  }
+}
+
+.parallax {
+  /* Set a specific height */
+  min-height: 350px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

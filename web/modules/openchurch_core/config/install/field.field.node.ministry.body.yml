@@ -1,0 +1,23 @@
+uuid: 6d804af2-df71-45c7-87b8-8d8ecbb111ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.ministry
+  module:
+    - text
+id: node.ministry.body
+field_name: body
+entity_type: node
+bundle: ministry
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

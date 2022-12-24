@@ -1,0 +1,30 @@
+uuid: af1d474c-4861-4615-9626-28512e8354ad
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:carousel:8808c2ce-8398-11ed-a1eb-0242ac120002'
+  module:
+    - block_content
+    - system
+  theme:
+    - openchurch_theme
+id: homepagecarouselblock
+theme: openchurch_theme
+region: hero
+weight: 0
+provider: null
+plugin: 'block_content:8808c2ce-8398-11ed-a1eb-0242ac120002'
+settings:
+  id: 'block_content:8808c2ce-8398-11ed-a1eb-0242ac120002'
+  label: 'Homepage Carousel block'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

@@ -1,0 +1,19 @@
+uuid: 86e4e30b-31a9-45ff-8d72-14ce95b7b3e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.carousel
+    - field.storage.block_content.field_summary3
+id: block_content.carousel.field_summary3
+field_name: field_summary3
+entity_type: block_content
+bundle: carousel
+label: 'Carousel 3: Summary'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

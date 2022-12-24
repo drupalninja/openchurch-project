@@ -1,0 +1,99 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - in_preview: Whether the plugin is being rendered in preview mode.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ id|clean_class,
+  ]
+%}
+
+{# Create an array of carousel items #}
+{% set items = [
+  {
+    'title': content.field_title,
+    'link': content.field_link,
+    'image': content.field_image,
+    'active': true
+  },
+  {
+    'title': content.field_title2,
+    'link': content.field_link2,
+    'image': content.field_image2,
+  },
+  {
+    'title': content.field_title3,
+    'link': content.field_link3,
+    'image': content.field_image3,
+  }
+]
+%}
+
+{# Carousel markup #}
+<div id="carousel{{ id }}" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carousel{{ id }}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      {% if content.field_image2 %}
+        <button type="button" data-bs-target="#carousel{{ id }}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      {% endif %}
+      {% if content.field_image3 %}
+        <button type="button" data-bs-target="#carousel{{ id }}" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      {% endif %}
+    </div>
+    {% for item in items %}
+      {% if item.image %}
+        {{ _self.carousel_item(item) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{# Carousel item macro #}
+{% macro carousel_item(item) %}
+  <div class="carousel-item {{ item.active ? 'active' : ''}}">
+    {% if item.image %}
+      {{ item.image }}
+    {% endif %}
+    <div class="carousel-caption">
+      <h2 class="display-3">{{ item.title }}</h2>
+      <div class="mt-3">
+        <a href="{{ item.link[0]['#url'].toString() }}" class="btn btn-primary" role="button">{{ item.link[0]['#title'] }} <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ id }}" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ id }}" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+{% endmacro %}
