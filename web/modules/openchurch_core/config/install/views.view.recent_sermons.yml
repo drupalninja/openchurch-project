@@ -11,7 +11,7 @@ dependencies:
     - node
     - user
 _core:
-  default_config_hash: C-398PdmjExG3idRHTMpWDADGR4CTsaIDa8XI_7R72s
+  default_config_hash: lMtcQBoN71-c5yu5-1AEsF8RJGQSTVes9alma0Tdtdg
 id: recent_sermons
 label: 'Recent Sermons'
 module: node
@@ -130,15 +130,15 @@ display:
           type: string
           settings:
             link_to_entity: true
-        changed:
-          id: changed
+        created:
+          id: created
           table: node_field_data
-          field: changed
+          field: created
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-          entity_field: changed
+          entity_field: created
           plugin_id: field
           label: ''
           exclude: false
@@ -183,7 +183,10 @@ display:
           hide_alter_empty: true
           click_sort_column: value
           type: timestamp_ago
-          settings: {  }
+          settings:
+            future_format: '@interval hence'
+            past_format: '@interval ago'
+            granularity: 2
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -464,15 +467,15 @@ display:
           type: string
           settings:
             link_to_entity: true
-        changed:
-          id: changed
+        created:
+          id: created
           table: node_field_data
-          field: changed
+          field: created
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-          entity_field: changed
+          entity_field: created
           plugin_id: field
           label: ''
           exclude: false
@@ -517,7 +520,10 @@ display:
           hide_alter_empty: true
           click_sort_column: value
           type: timestamp_ago
-          settings: {  }
+          settings:
+            future_format: '@interval hence'
+            past_format: '@interval ago'
+            granularity: 2
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -570,7 +576,7 @@ display:
           empty: false
           content:
             value: '<h4 class="pb-2">Recent Sermons</h4>'
-            format: basic_html
+            format: full_html
           tokenize: false
       display_extenders: {  }
     cache_metadata:

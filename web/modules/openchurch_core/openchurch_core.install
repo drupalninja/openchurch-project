@@ -370,7 +370,7 @@ function openchurch_core_install() {
         'target_id' => $video_entity->id(),
         'alt' => 'Video',
       ],
-      'created' => strtotime('+' . $c . ' days'),
+      'created' => strtotime('-' . $c . ' days'),
       'path' => [
         'alias' => '/sermons/' . str_replace("'", '', strtolower($title)),
       ],
