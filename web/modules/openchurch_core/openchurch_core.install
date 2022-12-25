@@ -44,6 +44,19 @@ function openchurch_core_install() {
 
   $block->save();
 
+  // Create a basic about block.
+  $block = BlockContent::create([
+    'type' => 'basic',
+    'info' => 'Blog About',
+    'uuid' => 'c7844630-a903-4f91-8525-ab5612b2e996',
+    'body' => [
+      'value' => '<h4> About </h4> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p>',
+      'format' => 'full_html',
+    ],
+  ]);
+
+  $block->save();
+
   // Delete comment field.
   $field_storage = FieldStorageConfig::loadByName('node', 'comment');
   $field_storage->delete();
@@ -246,18 +259,36 @@ function openchurch_core_install() {
 
   $node->save();
 
-  // Create tag.
-  $term = Term::create([
-    'vid' => 'tags',
-    'name' => 'church',
-  ]);
-  $term->save();
+  $tag_names = [
+    'church',
+    'catholic',
+    'bulletin',
+    'programs',
+    'events',
+    'charity',
+    'website',
+    'no-profit',
+    'belief',
+    'ministry',
+    'sermon',
+    'nature',
+  ];
 
-  $y = 0;
+  // Create tags.
+  foreach ($tag_names as $tag_name) {
+    $term = Term::create([
+      'vid' => 'tags',
+      'name' => $tag_name,
+    ]);
+    $term->save();
+    $tag_ids[] = $term->id();
+  }
+
+  $x = $y = 0;
 
   // Create sample article nodes.
   for ($c = 0; $c < 6; $c++) {
-    $created = strtotime('-' . ($c + $y) . ' days');
+    $created = strtotime('-' . ($c + $y) . ' months');
 
     $node = Node::create([
       'type' => 'article',
@@ -274,7 +305,7 @@ function openchurch_core_install() {
         'alt' => 'Flower',
       ],
       'field_tags' => [
-        'target_id' => $term->id(),
+        'target_id' => $tag_ids[$x++],
       ],
       'path' => [
         'alias' => '/article/perseverance-of-the-saints' . $c,
@@ -299,7 +330,7 @@ function openchurch_core_install() {
         'alt' => 'City',
       ],
       'field_tags' => [
-        'target_id' => $term->id(),
+        'target_id' => $tag_ids[$x++],
       ],
       'path' => [
         'alias' => '/article/lord-is-sufficient-for-all-of-our-needs' . $c,

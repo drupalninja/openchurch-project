@@ -1,0 +1,32 @@
+uuid: 0821107c-f220-4220-a314-5899ce171cf7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c7844630-a903-4f91-8525-ab5612b2e996'
+  module:
+    - block_content
+    - system
+  theme:
+    - openchurch_theme
+_core:
+  default_config_hash: rzNulkdR2bjrpTXopvzGOVKqeI2Ofy4VJIe-7bUkn14
+id: about
+theme: openchurch_theme
+region: sidebar
+weight: 0
+provider: null
+plugin: 'block_content:c7844630-a903-4f91-8525-ab5612b2e996'
+settings:
+  id: 'block_content:c7844630-a903-4f91-8525-ab5612b2e996'
+  label: 'Blog About'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/blog\r\n/blog/*"

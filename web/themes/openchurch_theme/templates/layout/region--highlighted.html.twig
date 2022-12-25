@@ -21,7 +21,7 @@
   ]
 %}
 
-{% if content %}
+{% if content|render|striptags|trim is not empty %}
   <div{{ attributes.addClass(classes) }}>
     {{ content }}
   </div>

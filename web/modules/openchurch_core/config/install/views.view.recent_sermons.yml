@@ -11,7 +11,7 @@ dependencies:
     - node
     - user
 _core:
-  default_config_hash: Bot_mnLXqdDUXjTVF2ukkEWy5SotfKcUtNtLpAsCtwY
+  default_config_hash: 1dqYQ11JuALMpfZw6l8asSIzWP66GiVdZCIFJ8ggU6Y
 id: recent_sermons
 label: 'Recent Sermons'
 module: node
@@ -406,6 +406,7 @@ display:
           entity_field: uid
           plugin_id: standard
           required: true
+      css_class: ''
       use_more: false
       use_more_always: false
       use_more_text: More
@@ -563,7 +564,9 @@ display:
     position: 1
     display_options:
       defaults:
+        css_class: false
         header: false
+      css_class: 'bg-light p-4'
       display_description: ''
       header:
         area:
@@ -706,9 +709,11 @@ display:
           offset: 0
           items_per_page: 4
       defaults:
+        css_class: false
         pager: false
         fields: false
         header: false
+      css_class: 'bg-light p-4'
       display_description: ''
       header:
         area:

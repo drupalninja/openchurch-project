@@ -86,3 +86,7 @@ body .breadcrumb-item+.breadcrumb-item::before {
 iframe {
   width: 100%;
 }
+
+.badge {
+  text-decoration: none;
+}
