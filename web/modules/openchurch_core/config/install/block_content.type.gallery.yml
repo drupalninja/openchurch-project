@@ -1,0 +1,8 @@
+uuid: 92ef8619-f0e8-4208-87a6-eba52a5a89d4
+langcode: en
+status: true
+dependencies: {  }
+id: gallery
+label: Gallery
+revision: 0
+description: 'A collection of images.'

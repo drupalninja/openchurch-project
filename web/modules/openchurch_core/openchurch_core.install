@@ -100,6 +100,41 @@ function openchurch_core_install() {
     $media_files[$image_alt] = $media;
   }
 
+  // Create a Gallery block.
+  $block = BlockContent::create([
+    'type' => 'gallery',
+    'info' => 'Homepage Gallery',
+    'uuid' => '36981c55-fa8c-484c-b99a-640335329e00',
+    'field_images' => [
+      [
+        'target_id' => $media_files['Beach 1']->id(),
+      ],
+      [
+        'target_id' => $media_files['Beach 2']->id(),
+      ],
+      [
+        'target_id' => $media_files['Church']->id(),
+      ],
+      [
+        'target_id' => $media_files['Climb']->id(),
+      ],
+      [
+        'target_id' => $media_files['Flower']->id(),
+      ],
+      [
+        'target_id' => $media_files['City']->id(),
+      ],
+      [
+        'target_id' => $media_files['Children']->id(),
+      ],
+      [
+        'target_id' => $media_files['Students']->id(),
+      ],
+    ],
+  ]);
+
+  $block->save();
+
   // Create Contact Hero block.
   $block = BlockContent::create([
     'type' => 'hero',

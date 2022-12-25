@@ -1,0 +1,22 @@
+uuid: d3682955-623f-4a30-8493-5604588d1702
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.gallery
+    - field.field.block_content.gallery.field_images
+id: block_content.gallery.default
+targetEntityType: block_content
+bundle: gallery
+mode: default
+content:
+  field_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: responsive
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
