@@ -10,7 +10,7 @@ dependencies:
   theme:
     - openchurch_theme
 _core:
-  default_config_hash: v0qqguhXHWn_iI907_xGozcAuQ6b9SNRiCwUT_xWAUs
+  default_config_hash: maXy-7bnImHkLZLNlJKJ1zxJt95uhJOV4mdDLuO_07w
 id: views_block__recent_sermons_block_1
 theme: openchurch_theme
 region: sidebar
@@ -28,4 +28,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "<front>\r\n/sermons/*"
+    pages: "<front>\r\n/sermons/*\r\n/about-us"
