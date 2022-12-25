@@ -253,54 +253,64 @@ function openchurch_core_install() {
   ]);
   $term->save();
 
-  // Create two sample article nodes.
-  $node = Node::create([
-    'type' => 'article',
-    'title' => 'Perseverance of the Saints',
-    'uid' => 1,
-    'status' => 1,
-    'body' => [
-      'value' => '<p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <p> Cum sociis natoque penatibus et magnis <a href="https://demo.web3canvas.com/themeforest/our-church/blog-single.html#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <blockquote> <p> Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. </p> </blockquote> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <h4> <strong>Sub-heading</strong> </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <h6> <strong>Another heading</strong> </h6> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <ul> <li> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. </li> <li> Donec id elit non mi porta gravida at eget metus. </li> <li> Nulla vitae elit libero, a pharetra augue. </li> </ul> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <p> Penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p>',
-      'format' => 'full_html',
-      'summary' => 'Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.',
-    ],
-    'field_image' => [
-      'target_id' => $media_files['Flower']->id(),
-      'alt' => 'Flower',
-    ],
-    'field_tags' => [
-      'target_id' => $term->id(),
-    ],
-    'path' => [
-      'alias' => '/article/perseverance-of-the-saints',
-    ],
-  ]);
+  $y = 0;
 
-  $node->save();
+  // Create sample article nodes.
+  for ($c = 0; $c < 6; $c++) {
+    $created = strtotime('-' . ($c + $y) . ' days');
 
-  $node = Node::create([
-    'type' => 'article',
-    'title' => 'Lord is Sufficient for all of our needs',
-    'uid' => 1,
-    'status' => 1,
-    'body' => [
-      'value' => '<p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <p> Cum sociis natoque penatibus et magnis <a href="https://demo.web3canvas.com/themeforest/our-church/blog-single.html#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <blockquote> <p> Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. </p> </blockquote> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <h4> <strong>Sub-heading</strong> </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <h6> <strong>Another heading</strong> </h6> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <ul> <li> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. </li> <li> Donec id elit non mi porta gravida at eget metus. </li> <li> Nulla vitae elit libero, a pharetra augue. </li> </ul> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <p> Penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p>',
-      'format' => 'full_html',
-      'summary' => 'Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.',
-    ],
-    'field_image' => [
-      'target_id' => $media_files['City']->id(),
-      'alt' => 'City',
-    ],
-    'field_tags' => [
-      'target_id' => $term->id(),
-    ],
-    'path' => [
-      'alias' => '/article/lord-is-sufficient-for-all-of-our-needs',
-    ],
-  ]);
+    $node = Node::create([
+      'type' => 'article',
+      'title' => 'Perseverance of the Saints',
+      'uid' => 1,
+      'status' => 1,
+      'body' => [
+        'value' => '<p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <p> Cum sociis natoque penatibus et magnis <a href="https://demo.web3canvas.com/themeforest/our-church/blog-single.html#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <blockquote> <p> Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. </p> </blockquote> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <h4> <strong>Sub-heading</strong> </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <h6> <strong>Another heading</strong> </h6> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <ul> <li> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. </li> <li> Donec id elit non mi porta gravida at eget metus. </li> <li> Nulla vitae elit libero, a pharetra augue. </li> </ul> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <p> Penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p>',
+        'format' => 'full_html',
+        'summary' => 'Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. ',
+      ],
+      'field_image' => [
+        'target_id' => $media_files['Flower']->id(),
+        'alt' => 'Flower',
+      ],
+      'field_tags' => [
+        'target_id' => $term->id(),
+      ],
+      'path' => [
+        'alias' => '/article/perseverance-of-the-saints' . $c,
+      ],
+      'created' => $created + 3600,
+    ]);
 
-  $node->save();
+    $node->save();
+
+    $node = Node::create([
+      'type' => 'article',
+      'title' => 'Lord is Sufficient for all of our needs',
+      'uid' => 1,
+      'status' => 1,
+      'body' => [
+        'value' => '<p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <p> Cum sociis natoque penatibus et magnis <a href="https://demo.web3canvas.com/themeforest/our-church/blog-single.html#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <blockquote> <p> Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. </p> </blockquote> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <h4> <strong>Sub-heading</strong> </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> <h6> <strong>Another heading</strong> </h6> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <ul> <li> Praesent commodo cursus magna, vel scelerisque nisl consectetur et. </li> <li> Donec id elit non mi porta gravida at eget metus. </li> <li> Nulla vitae elit libero, a pharetra augue. </li> </ul> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p> <p> Penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p>',
+        'format' => 'full_html',
+        'summary' => 'Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
+      ],
+      'field_image' => [
+        'target_id' => $media_files['City']->id(),
+        'alt' => 'City',
+      ],
+      'field_tags' => [
+        'target_id' => $term->id(),
+      ],
+      'path' => [
+        'alias' => '/article/lord-is-sufficient-for-all-of-our-needs' . $c,
+      ],
+      'created' => $created,
+    ]);
+
+    $node->save();
+
+    $y++;
+  }
 
   $ministries = [
     'Children' => 'Children\'s Ministry',
@@ -469,6 +479,14 @@ function openchurch_core_install() {
     ]);
     $menu_link->save();
   }
+
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Our Blog',
+    'link' => ['uri' => 'internal:/blog'],
+    'menu_name' => 'main',
+    'parent' => $main_links['Pages']->getPluginId(),
+  ]);
+  $menu_link->save();
 
   // Load feedback contact form entity.
   $contact_form = ContactForm::load('feedback');
