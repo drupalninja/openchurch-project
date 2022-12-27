@@ -31,6 +31,7 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ id|clean_class,
+    'mb-5',
   ]
 %}
 
@@ -58,24 +59,33 @@
 ]
 %}
 
-{# Carousel markup #}
-<div id="carousel{{ id }}" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carousel{{ id }}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      {% if content.field_image2 %}
-        <button type="button" data-bs-target="#carousel{{ id }}" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      {% endif %}
-      {% if content.field_image3 %}
-        <button type="button" data-bs-target="#carousel{{ id }}" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      {% endif %}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes.addClass('mb-5') }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {# Carousel markup #}
+    <div id="carousel{{ id }}" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carousel{{ id }}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          {% if content.field_image2 %}
+            <button type="button" data-bs-target="#carousel{{ id }}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          {% endif %}
+          {% if content.field_image3 %}
+            <button type="button" data-bs-target="#carousel{{ id }}" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          {% endif %}
+        </div>
+        {% for item in items %}
+          {% if item.image %}
+            {{ _self.carousel_item(item) }}
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
-    {% for item in items %}
-      {% if item.image %}
-        {{ _self.carousel_item(item) }}
-      {% endif %}
-    {% endfor %}
-  </div>
+  {% endblock %}
 </div>
 
 {# Carousel item macro #}
