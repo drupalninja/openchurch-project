@@ -1,0 +1,21 @@
+<h4 class="pb-2">Event Details</h3>
+{% if date %}
+  <div class="mb-3">
+    {{ date }}
+  </div>
+{% endif %}
+{% if time %}
+  <div class="mb-3">
+    {{ time }}
+  </div>
+{% endif %}
+{% if location %}
+  <div class="mb-3">
+    {{ location }}
+  </div>
+{% endif %}
+{% if link %}
+  <div class="pt-2">
+    <a href="{{ link }}" class="btn btn-primary" role="button" data-bs-toggle="button">Event Details</a>
+  </div>
+{% endif %}

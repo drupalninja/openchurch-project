@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ */
+
+function openchurch_core_theme() {
+  return [
+    'openchurch_core_event_details' => [
+      'variables' => [
+        'date' => NULL,
+        'time' => NULL,
+        'location' => NULL,
+        'link' => NULL,
+      ],
+    ],
+  ];
+}

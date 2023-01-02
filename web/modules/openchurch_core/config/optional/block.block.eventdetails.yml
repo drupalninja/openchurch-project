@@ -1,0 +1,28 @@
+uuid: 22fdde0e-6e6e-466d-81de-c9d506396bfd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - openchurch_core
+  theme:
+    - openchurch_theme
+id: eventdetails
+theme: openchurch_theme
+region: sidebar
+weight: 0
+provider: null
+plugin: openchurch_core_event_details
+settings:
+  id: openchurch_core_event_details
+  label: 'Event Details'
+  label_display: '0'
+  provider: openchurch_core
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      event: event
