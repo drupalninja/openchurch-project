@@ -91,6 +91,22 @@ iframe {
   text-decoration: none;
 }
 
-.navbar-collapse.show {
-  margin-top: 10px;
+/**
+ * Add more spacing to nav inside the expanded navbar.
+ */
+.navbar-collapse .navbar-nav {
+  margin-top: 13px;
+}
+
+/**
+ * Animate the navbar on scroll.
+ */
+.scrolled {
+  transition: font-size 0.5s;
+  font-size: 95%;
+}
+
+.scrolled .navbar-brand img {
+  max-height: 50px;
+  transition: max-height 0.5s;
 }
