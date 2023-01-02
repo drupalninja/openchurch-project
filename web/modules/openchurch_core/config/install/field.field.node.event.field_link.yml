@@ -1,0 +1,23 @@
+uuid: afad0ef4-76c8-4f3e-b20c-43ad0b479901
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.event
+  module:
+    - link
+id: node.event.field_link
+field_name: field_link
+entity_type: node
+bundle: event
+label: Link
+description: 'Link to a 3rd party site with more information or registration details.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

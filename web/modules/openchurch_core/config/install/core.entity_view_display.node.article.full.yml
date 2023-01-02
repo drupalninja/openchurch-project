@@ -3,19 +3,18 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment.default
     - core.entity_view_mode.node.full
     - field.field.node.article.body
-    - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
+    - image.style.hero
     - node.type.article
   module:
-    - comment
+    - image
     - text
     - user
 _core:
-  default_config_hash: 7fb0j9HnIXfP9ndewzgPPzzeX_SV532wuYpkscrCMCk
+  default_config_hash: nk_-oYC_4qfqyc1aq7WF6zuBN7fMfRIF23hzjrA-KEg
 id: node.article.full
 targetEntityType: node
 bundle: article
@@ -28,14 +27,16 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  comment:
-    type: comment_default
-    label: above
+  field_image:
+    type: image
+    label: hidden
     settings:
-      view_mode: default
-      pager_id: 0
+      image_link: ''
+      image_style: hero
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_tags:
     type: entity_reference_label
@@ -43,8 +44,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
 hidden:
-  field_image: true
   links: true

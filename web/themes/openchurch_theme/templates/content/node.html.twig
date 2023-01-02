@@ -90,7 +90,12 @@
   {{ title_suffix }}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
+    {% if content.field_image %}
+      <div class="shadow mb-3 rounded">
+        {{ content.field_image }}
+      </div>
+    {% endif %}
+    {{ content|without('field_image') }}
   </div>
 
 </article>

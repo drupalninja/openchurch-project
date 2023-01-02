@@ -2,8 +2,8 @@ uuid: e1893f28-bf3e-4566-bcba-706610294e73
 langcode: en
 status: true
 dependencies: {  }
-name: ministry
-label: Ministry
+name: hero
+label: Hero
 effects:
   e4b75700-3452-4c84-811c-780ae569a577:
     uuid: e4b75700-3452-4c84-811c-780ae569a577
