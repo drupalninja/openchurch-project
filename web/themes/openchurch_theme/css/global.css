@@ -104,9 +104,10 @@ iframe {
 .scrolled {
   transition: font-size 0.5s;
   font-size: 95%;
+  opacity: .9;
 }
 
 .scrolled .navbar-brand img {
-  max-height: 50px;
+  max-height: 40px;
   transition: max-height 0.5s;
 }
