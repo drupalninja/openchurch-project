@@ -10,7 +10,7 @@ dependencies:
   theme:
     - openchurch_theme
 _core:
-  default_config_hash: rzNulkdR2bjrpTXopvzGOVKqeI2Ofy4VJIe-7bUkn14
+  default_config_hash: O65b9JyCLD2QyyjBZyMRsYg-hBEIINqVmvdBSOdkj_c
 id: about
 theme: openchurch_theme
 region: sidebar
@@ -19,7 +19,7 @@ provider: null
 plugin: 'block_content:c7844630-a903-4f91-8525-ab5612b2e996'
 settings:
   id: 'block_content:c7844630-a903-4f91-8525-ab5612b2e996'
-  label: 'Blog About'
+  label: About
   label_display: '0'
   provider: block_content
   status: true
@@ -29,4 +29,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/blog\r\n/blog/*"
+    pages: "/blog\r\n/blog/*\r\n/events\r\n/event/*"

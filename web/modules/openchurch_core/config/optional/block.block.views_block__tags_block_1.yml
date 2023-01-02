@@ -3,22 +3,22 @@ langcode: en
 status: true
 dependencies:
   config:
-    - views.view.blog_tags
+    - views.view.tags
   module:
     - system
     - views
   theme:
     - openchurch_theme
 _core:
-  default_config_hash: u0WsXqWJ7cxn5qZlUK5prIPu59ewSZsgr1oykOt2l_Y
-id: views_block__blog_tags_block_1
+  default_config_hash: JzT80yAFGXh8g-vvkK3a0odg7gNjus7LztnmfO_ISBc
+id: views_block__tags_block_1
 theme: openchurch_theme
 region: sidebar
 weight: 0
 provider: null
-plugin: 'views_block:blog_tags-block_1'
+plugin: 'views_block:tags-block_1'
 settings:
-  id: 'views_block:blog_tags-block_1'
+  id: 'views_block:tags-block_1'
   label: ''
   label_display: '0'
   provider: views
