@@ -44,17 +44,8 @@
 #}
 <div class="layout-container">
 
-  <header role="banner" class="bg-dark">
-    <div class="container">
-      <div class="row pt-3 pb-3">
-        <div class="col-lg d-flex align-items-center">
-          {{ page.header }}
-        </div>
-        <div class="col-lg">
-          {{ page.primary_menu }}
-        </div>
-      </div>
-    </div>
+  <header role="banner" class="bg-dark sticky-top">
+    {{ page.primary_menu }}
   </header>
 
   {{ page.hero }}

@@ -90,3 +90,7 @@ iframe {
 .badge {
   text-decoration: none;
 }
+
+.navbar-collapse.show {
+  margin-top: 10px;
+}

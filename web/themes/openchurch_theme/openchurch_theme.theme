@@ -93,3 +93,12 @@ function openchurch_theme_preprocess_field(&$variables) {
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for menu.html.twig.
+ */
+function openchurch_theme_preprocess_menu(&$variables) {
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+  $variables['site_logo'] = theme_get_setting('logo.url');
+}
