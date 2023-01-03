@@ -3,7 +3,7 @@
 }
 
 .hero img {
-  max-height: 500px;
+  max-height: 600px;
   object-fit: cover;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .carousel-item img {
-  max-height: 500px;
+  max-height: 600px;
   object-fit: cover;
   width: 100%;
   filter: brightness(40%);
@@ -101,11 +101,14 @@ iframe {
 /**
  * Animate the navbar on scroll.
  */
+
 .scrolled {
   transition: font-size 0.5s;
   font-size: 95%;
-  opacity: .9;
+  background-color: var(--bs-dark);
+  opacity: 0.9;
 }
+
 
 .scrolled .navbar-brand img {
   max-height: 40px;
@@ -118,5 +121,35 @@ iframe {
 @media (max-width: 768px) {
   footer img {
     max-height: 40px;
+  }
+}
+
+.toolbar-horizontal.toolbar-fixed .sticky-top,
+.toolbar-horizontal.toolbar-fixed .fixed-top,
+.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .scrolled,
+.toolbar-vertical .fixed-top,
+.toolbar-vertical .scrolled {
+  top: 39px;
+}
+
+.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .sticky-top,
+.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .fixed-top,
+.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .scrolled {
+  top: 79px;
+}
+
+.toolbar-vertical .scrolled {
+  left: 0;
+  top: 0;
+}
+
+.toolbar-tray-open.toolbar-vertical .fixed-top {
+  left: 15rem;
+  top: 39px;
+}
+
+@media (max-width: 609px) {
+  .toolbar-tray-open.toolbar-vertical .sticky-top {
+    margin-left: 15rem;
   }
 }

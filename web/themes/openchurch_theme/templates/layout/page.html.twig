@@ -44,7 +44,7 @@
 #}
 <div class="layout-container">
 
-  <header role="banner" class="bg-dark sticky-top">
+  <header role="banner" class="{{ page.hero|render|striptags|trim ? 'fixed-top' : 'bg-dark sticky-top' }}">
     {{ page.primary_menu }}
   </header>
 

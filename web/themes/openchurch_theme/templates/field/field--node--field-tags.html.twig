@@ -42,7 +42,7 @@
   {% endif %}
   <ul class='links field__items list-inline'>
     {% for item in items %}
-      <li{{ item.attributes.addClass('list-inline-item') }}><a href="{{ item.content['#url'] }}" class="badge rounded-pill bg-primary text-white">{{ item.content['#title'] }}</a></li>
+      <li{{ item.attributes.addClass('list-inline-item') }}><a href="{{ item.content['#url'] }}" class="badge rounded-pill bg-primary p-2 text-white">{{ item.content['#title'] }}</a></li>
     {% endfor %}
   </ul>
 </div>

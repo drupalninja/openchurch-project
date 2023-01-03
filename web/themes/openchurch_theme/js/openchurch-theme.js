@@ -11,11 +11,9 @@
       document.addEventListener("scroll", (event) => {
         let scroll = window.scrollY;
         if (scroll > 50) {
-          document.querySelector('.sticky-top').classList.add('scrolled');
-          document.querySelector('.toolbar-tab .toolbar-tray-horizontal').classList.remove('is-active');
+          document.querySelector('header').classList.add('scrolled');
         } else {
-          document.querySelector('.sticky-top').classList.remove('scrolled');
-          document.querySelector('.toolbar-tab .toolbar-tray-horizontal').classList.add('is-active');
+          document.querySelector('header').classList.remove('scrolled');
         }
       });
     }
