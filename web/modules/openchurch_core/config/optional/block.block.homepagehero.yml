@@ -1,0 +1,30 @@
+uuid: 33971036-ea09-4fb1-a689-ba3c4808bade
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:hero:78fa9985-e444-48aa-baec-a0ddd5674a35'
+  module:
+    - block_content
+    - system
+  theme:
+    - openchurch_theme
+id: homepagehero
+theme: openchurch_theme
+region: hero
+weight: 0
+provider: null
+plugin: 'block_content:78fa9985-e444-48aa-baec-a0ddd5674a35'
+settings:
+  id: 'block_content:78fa9985-e444-48aa-baec-a0ddd5674a35'
+  label: 'Homepage Hero'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

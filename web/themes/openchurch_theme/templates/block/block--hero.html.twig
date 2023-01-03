@@ -43,6 +43,9 @@
   {% block content %}
     <div class="card bg-dark text-white">
       {{ content.field_image }}
+      {% if content.field_video %}
+        {{ content.field_video }}
+      {% endif %}
       <div class="card-img-overlay p-5">
         <div class="container">
           <div class="col-lg-6 mt-5 pt-5">

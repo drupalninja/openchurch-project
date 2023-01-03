@@ -7,10 +7,15 @@ dependencies:
     - field.field.block_content.hero.body
     - field.field.block_content.hero.field_image
     - field.field.block_content.hero.field_link
+    - field.field.block_content.hero.field_title
+    - field.field.block_content.hero.field_video
   module:
+    - file
     - link
     - media_library
     - text
+_core:
+  default_config_hash: we9ZT2q6M-pMbZPvQBDl0nGvnnIhHf3m4LQnpe48-OM
 id: block_content.hero.default
 targetEntityType: block_content
 bundle: hero
@@ -18,7 +23,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 9
@@ -35,11 +40,18 @@ content:
     third_party_settings: {  }
   field_link:
     type: link_default
-    weight: 26
+    weight: 4
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_video:
+    type: file_generic
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   info:
     type: string_textfield
@@ -49,4 +61,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_title: true

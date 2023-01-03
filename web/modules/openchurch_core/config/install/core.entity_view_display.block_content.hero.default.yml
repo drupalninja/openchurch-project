@@ -8,11 +8,13 @@ dependencies:
     - field.field.block_content.hero.field_image
     - field.field.block_content.hero.field_link
     - field.field.block_content.hero.field_title
+    - field.field.block_content.hero.field_video
   module:
+    - file
     - link
     - text
 _core:
-  default_config_hash: FAA5HQIEX1lrXFMo6vcstnleuqI3KLykcUsD1qI-RjE
+  default_config_hash: ulbMKI0qATIlhJQs_cWDuv4PmQovmbr1jP7leruRGDc
 id: block_content.hero.default
 targetEntityType: block_content
 bundle: hero
@@ -53,5 +55,19 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_video:
+    type: file_video
+    label: hidden
+    settings:
+      controls: false
+      autoplay: true
+      loop: true
+      multiple_file_display_type: tags
+      muted: true
+      width: 640
+      height: 480
+    third_party_settings: {  }
+    weight: 4
     region: content
 hidden: {  }

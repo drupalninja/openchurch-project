@@ -1,0 +1,27 @@
+uuid: 0fc6338c-b5f7-475a-b9bf-31f157bdf315
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.storage.block_content.field_video
+  module:
+    - file
+id: block_content.hero.field_video
+field_name: field_video
+entity_type: block_content
+bundle: hero
+label: Video
+description: 'Upload a small video that can autoplay in the background of the hero.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: mp4
+  max_filesize: 10MB
+  description_field: false
+field_type: file

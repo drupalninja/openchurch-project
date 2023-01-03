@@ -100,6 +100,13 @@ function openchurch_core_install() {
     $media_files[$image_alt] = $media;
   }
 
+  // Save video hero file.
+  $module_path = \Drupal::service('extension.list.module')->getPath('openchurch_core');
+  $video_path = $module_path . '/videos/church-hero.mp4';
+  $data = file_get_contents($video_path);
+  $file = \Drupal::service('file.repository')->writeData($data, 'public://church-hero.mp4', FileSystemInterface::EXISTS_REPLACE);
+  $media_files['Video'] = $file;
+
   // Create a Gallery block.
   $block = BlockContent::create([
     'type' => 'gallery',
@@ -216,6 +223,31 @@ function openchurch_core_install() {
 
   $block->save();
 
+  // Create homepage hero video block.
+  $block = BlockContent::create([
+    'type' => 'hero',
+    'info' => 'Homepage Hero Video',
+    'uuid' => '78fa9985-e444-48aa-baec-a0ddd5674a35',
+    'field_title' => 'Grace and Truth',
+    'body' => [
+      'value' => 'For God did not send his Son into the world to condemn the world, but to save the world through him. John 3:17',
+      'format' => 'full_html',
+    ],
+    'field_link' => [
+      'uri' => 'https://www.drupal.org',
+      'title' => 'Browse Gallery',
+    ],
+    'field_image' => [
+      'target_id' => $media_files['Church']->id(),
+      'alt' => 'Climb',
+    ],
+    'field_video' => [
+      'target_id' => $media_files['Video']->id(),
+    ],
+  ]);
+
+  $block->save();
+
   // Create homepage carousel block.
   $block = BlockContent::create([
     'type' => 'carousel',
@@ -276,6 +308,25 @@ function openchurch_core_install() {
 
   // Set front page to welcome node.
   \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/welcome')->save();
+
+  // Create homepage alt node.
+  $node = Node::create([
+    'type' => 'page',
+    'title' => 'Homepage (Alt)',
+    'uid' => 1,
+    'status' => 1,
+    'promote' => 1,
+    'sticky' => 1,
+    'body' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'path' => [
+      'alias' => '/homepage-alt',
+    ],
+  ]);
+
+  $node->save();
 
   // Create About us basic page.
   $node = Node::create([

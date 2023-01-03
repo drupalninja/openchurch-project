@@ -6,13 +6,15 @@ dependencies:
     - block_content.type.hero
     - field.storage.block_content.field_image
     - media.type.image
+_core:
+  default_config_hash: 3eWjG46Cs4pG7mknQmWYJ5LNg3MSEMb7pbKbfzhc_58
 id: block_content.hero.field_image
 field_name: field_image
 entity_type: block_content
 bundle: hero
 label: Image
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
