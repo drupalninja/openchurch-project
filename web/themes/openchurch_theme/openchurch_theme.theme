@@ -7,6 +7,7 @@
 
 use Drupal\Core\Template\Attribute;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
@@ -31,7 +32,25 @@ function openchurch_theme_preprocess_page(&$variables) {
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
 function openchurch_theme_preprocess_node(&$variables) {
+  $node = $variables['node'];
 
+  // Override event node template.
+  if ($variables['node']->getType() == 'event') {
+    $time = $formatted_date = $link = '';
+
+    // Format the date and time.
+    if (!empty($node->get('field_date')->value)) {
+      $date_value = $node->get('field_date')->value;
+      $date = date_create($date_value);
+      $formatted_date = date_format($date, "d F Y");
+      $time = date_format($date, "h:i A");
+    }
+
+    $variables['date'] = $formatted_date;
+    $variables['time'] = $time;
+    $variables['location'] = $node->get('field_location')->value;
+    $variables['link'] = $link;
+  }
 }
 
 /**
