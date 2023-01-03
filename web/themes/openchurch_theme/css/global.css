@@ -10,6 +10,7 @@
 }
 
 .hero img {
+  min-height: 400px;
   max-height: 600px;
   object-fit: cover;
 }
@@ -28,7 +29,6 @@
     display: none;
   }
 }
-
 
 .cta.card.bg-dark {
   border-radius: 0;
