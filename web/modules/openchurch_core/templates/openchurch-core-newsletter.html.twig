@@ -1,0 +1,25 @@
+<section class="subscribe-area bg-secondary p-5 text-white">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-12 col-lg-6">
+          <div class="subscribe-text">
+            <h3>{{ 'Subscribe To Our Newsletter'|t }}</h3>
+            <h6>{{ 'Subcribe Us And Tell Us About Your Story'|t }}</h6>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="subscribe-form text-right">
+            <form action="{{ action }}" method="POST">
+              <div class="input-group mb-3">
+                <input type="text" id="email" type="email" name="email" required class="form-control" placeholder="{{ 'Your Email'|t }}" aria-label="{{ 'Your Email'|t }}" aria-describedby="button-subscribe">
+                <button class="btn btn-primary" type="submit" id="button-subscribe">{{ 'Subscribe'|t }} <i class="bi bi-arrow-right"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

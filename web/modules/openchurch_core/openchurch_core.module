@@ -14,5 +14,10 @@ function openchurch_core_theme() {
         'link' => NULL,
       ],
     ],
+    'openchurch_core_newsletter' => [
+      'variables' => [
+        'action' => NULL,
+      ],
+    ],
   ];
 }

@@ -1,0 +1,21 @@
+uuid: 715d21e8-c755-4067-8fea-e0696c003001
+langcode: en
+status: true
+dependencies:
+  module:
+    - openchurch_core
+  theme:
+    - openchurch_theme
+id: newsletter
+theme: openchurch_theme
+region: content_below
+weight: 0
+provider: null
+plugin: openchurch_core_newsletter
+settings:
+  id: openchurch_core_newsletter
+  label: Newsletter
+  label_display: '0'
+  provider: openchurch_core
+  action: 'https://formspree.io/f/{form id}'
+visibility: {  }
