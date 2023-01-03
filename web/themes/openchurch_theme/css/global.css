@@ -129,22 +129,12 @@ iframe {
   transition: font-size 0.5s;
   font-size: 95%;
   background-color: var(--bs-dark);
-  opacity: 0.9;
+  opacity: 0.95;
 }
-
 
 .scrolled .navbar-brand img {
   max-height: 40px;
   transition: max-height 0.5s;
-}
-
-/**
- * Shrink footer on mobile.
- */
-@media (max-width: 768px) {
-  footer img {
-    max-height: 40px;
-  }
 }
 
 .toolbar-horizontal.toolbar-fixed .sticky-top,
@@ -163,7 +153,7 @@ iframe {
 
 .toolbar-vertical .scrolled {
   left: 0;
-  top: 0;
+  top: 39px;
 }
 
 .toolbar-tray-open.toolbar-vertical .fixed-top {
@@ -174,5 +164,24 @@ iframe {
 @media (max-width: 609px) {
   .toolbar-tray-open.toolbar-vertical .sticky-top {
     margin-left: 15rem;
+  }
+}
+
+/**
+ * Add a background color to the header on mobile.
+ */
+@media (max-width: 991px) {
+  header {
+    background-color: var(--bs-dark);
+    opacity: 0.95;
+  }
+}
+
+/**
+ * Shrink footer on mobile.
+ */
+ @media (max-width: 768px) {
+  footer img {
+    max-height: 40px;
   }
 }
