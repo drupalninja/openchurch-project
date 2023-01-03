@@ -111,3 +111,12 @@ iframe {
   max-height: 40px;
   transition: max-height 0.5s;
 }
+
+/**
+ * Shrink footer on mobile.
+ */
+@media (max-width: 768px) {
+  footer img {
+    max-height: 40px;
+  }
+}
