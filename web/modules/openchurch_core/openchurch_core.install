@@ -630,6 +630,14 @@ function openchurch_core_install() {
   ]);
   $menu_link->save();
 
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Events & Programs',
+    'link' => ['uri' => 'internal:/events'],
+    'menu_name' => 'main',
+    'parent' => $main_links['Pages']->getPluginId(),
+  ]);
+  $menu_link->save();
+
   // Load feedback contact form entity.
   $contact_form = ContactForm::load('feedback');
 
