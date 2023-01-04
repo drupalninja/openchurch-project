@@ -28,4 +28,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/blog\r\n/blog/*"
+    pages: "/blog\r\n/article/*"
