@@ -287,6 +287,50 @@ function openchurch_core_install() {
 
   $block->save();
 
+  // Create 404 page.
+  $node = Node::create([
+    'type' => 'page',
+    'title' => 'Page not found',
+    'uid' => 1,
+    'status' => 1,
+    'promote' => 1,
+    'sticky' => 1,
+    'body' => [
+      'value' => 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.',
+      'format' => 'full_html',
+    ],
+    'path' => [
+      'alias' => '/404',
+    ],
+  ]);
+
+  $node->save();
+
+  // Create 403 page.
+  $node = Node::create([
+    'type' => 'page',
+    'title' => 'Access denied',
+    'uid' => 1,
+    'status' => 1,
+    'promote' => 1,
+    'sticky' => 1,
+    'body' => [
+      'value' => 'You are not authorized to access this page.',
+      'format' => 'full_html',
+    ],
+    'path' => [
+      'alias' => '/403',
+    ],
+  ]);
+
+  $node->save();
+
+  // Set 404 page.
+  \Drupal::configFactory()->getEditable('system.site')->set('page.404', '/404')->save();
+
+  // Set 403 page.
+  \Drupal::configFactory()->getEditable('system.site')->set('page.403', '/403')->save();
+
   // Create homepage basic node.
   $node = Node::create([
     'type' => 'page',
