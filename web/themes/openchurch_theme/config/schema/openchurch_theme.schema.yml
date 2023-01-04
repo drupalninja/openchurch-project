@@ -3,6 +3,15 @@ openchurch_theme.settings:
   type: theme_settings
   label: 'OpenChurch Theme settings'
   mapping:
-    font_size:
-      type: integer
-      label: Font size
+    button_color:
+      type: textfield
+      label: Button Color
+    button_border:
+      type: textfield
+      label: Button Border
+    button_hover:
+      type: textfield
+      label: Button Hover
+    button_hover_border:
+      type: textfield
+      label: Button Hover Border

@@ -13,7 +13,49 @@ use Drupal\Core\Url;
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
 function openchurch_theme_preprocess_html(&$variables) {
+  $inline_css = '';
 
+  if ($link_color = theme_get_setting('link_color')) {
+    $inline_css .= 'a { color: ' . $link_color . '; }';
+  }
+
+  if ($nav_active_color = theme_get_setting('nav_active_color')) {
+    $inline_css .= 'body .navbar-dark .nav-link.active { color: ' . $nav_active_color . ' !important; }';
+  }
+
+  if ($button_color = theme_get_setting('button_color')) {
+    $inline_css .= '.btn-primary { background-color: ' . $button_color . '; }';
+  }
+
+  if ($button_border = theme_get_setting('button_border')) {
+    $inline_css .= '.btn-primary { border-color: ' . $button_border . '; }';
+  }
+
+  if ($button_hover = theme_get_setting('button_hover')) {
+    $inline_css .= '.btn-primary:hover, .btn-primary:active, btn-primary:focus { background-color: ' . $button_hover . ';}';
+  }
+
+  if ($button_hover = theme_get_setting('button_hover_border')) {
+    $inline_css .= '.btn-primary:hover, .btn-primary:active, btn-primary:focus { border-color: ' . $button_hover . ';}';
+  }
+
+  if ($bg_dark_color = theme_get_setting('bg_dark_color')) {
+    $inline_css .= '.bg-dark, .scrolled { background-color: ' . $bg_dark_color . ' !important; }';
+    $inline_css .= '@media (max-width: 991px) { .sticky-top, .fixed-top { background-color: ' . $bg_dark_color . ' !important; }}';
+  }
+
+  if ($bg_secondary_color = theme_get_setting('bg_secondary_color')) {
+    $inline_css .= '.bg-secondary { background-color: ' . $bg_secondary_color . ' !important; }';
+  }
+
+  // Add custom inline CSS.
+  $variables['inline_css'] = [
+    '#type' => 'inline_template',
+    '#template' => '<style type="text/css">{{ css }}</style>',
+    '#context' => [
+      'css' => $inline_css,
+    ],
+  ];
 }
 
 /**
@@ -120,8 +162,4 @@ function openchurch_theme_preprocess_menu(&$variables) {
   $config = \Drupal::config('system.site');
   $variables['site_name'] = $config->get('name');
   $variables['site_logo'] = theme_get_setting('logo.url');
-}
-
-function openchurch_theme_preprocess_taxonomy_term(&$variables) {
-  $variables['url'] = '/asdasds';
 }

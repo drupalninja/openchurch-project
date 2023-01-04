@@ -1,2 +1,9 @@
 # Default settings of OpenChurch Theme theme.
-font_size: 16
+link_color: '#0d6efd'
+nav_active_color: '#9ec5fe'
+button_color: '#0d6efd'
+button_hover: '#0b5ed7'
+button_border: '#0a58ca'
+button_hover_border: '#0a58ca'
+bg_dark_color: '#212529'
+bg_secondary_color: '#6c757d'
