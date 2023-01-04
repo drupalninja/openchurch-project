@@ -121,3 +121,7 @@ function openchurch_theme_preprocess_menu(&$variables) {
   $variables['site_name'] = $config->get('name');
   $variables['site_logo'] = theme_get_setting('logo.url');
 }
+
+function openchurch_theme_preprocess_taxonomy_term(&$variables) {
+  $variables['url'] = '/asdasds';
+}
