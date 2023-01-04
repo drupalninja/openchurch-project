@@ -22,6 +22,9 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#default_value' => theme_get_setting('link_color'),
     '#size' => 10,
     '#description' => t('The default link color.'),
+    '#attributes' => [
+      'style' => 'background-color: ' . theme_get_setting('link_color') . '; color: white;',
+    ],
   ];
 
   $form['openchurch_theme']['nav_active_color'] = [
@@ -30,6 +33,9 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#default_value' => theme_get_setting('nav_active_color'),
     '#size' => 10,
     '#description' => t('The active link color in the navigation.'),
+    '#attributes' => [
+      'style' => 'background-color: ' . theme_get_setting('nav_active_color') . ';',
+    ],
   ];
 
   $form['openchurch_theme']['button_color'] = [
@@ -38,6 +44,9 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#default_value' => theme_get_setting('button_color'),
     '#size' => 10,
     '#description' => t('The default button color.'),
+    '#attributes' => [
+      'style' => 'background-color: ' . theme_get_setting('button_color') . '; color: white;',
+    ],
   ];
 
   $form['openchurch_theme']['button_border'] = [
@@ -46,6 +55,9 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#default_value' => theme_get_setting('button_border'),
     '#size' => 10,
     '#description' => t('The default button border color.'),
+    '#attributes' => [
+      'style' => 'background-color: ' . theme_get_setting('button_border') . '; color: white;',
+    ],
   ];
 
   $form['openchurch_theme']['button_hover'] = [
@@ -54,6 +66,9 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#default_value' => theme_get_setting('button_hover'),
     '#size' => 10,
     '#description' => t('The default button hover color.'),
+    '#attributes' => [
+      'style' => 'background-color: ' . theme_get_setting('button_hover') . '; color: white;',
+    ],
   ];
 
   $form['openchurch_theme']['button_hover_border'] = [
@@ -62,6 +77,9 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#default_value' => theme_get_setting('button_hover_border'),
     '#size' => 10,
     '#description' => t('The default button hover border color.'),
+    '#attributes' => [
+      'style' => 'background-color: ' . theme_get_setting('button_hover_border') . '; color: white;',
+    ],
   ];
 
   $form['openchurch_theme']['bg_dark_color'] = [
@@ -70,6 +88,9 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#default_value' => theme_get_setting('bg_dark_color'),
     '#size' => 10,
     '#description' => t('The default dark background color.'),
+    '#attributes' => [
+      'style' => 'background-color: ' . theme_get_setting('bg_dark_color') . '; color: white;',
+    ],
   ];
 
   $form['openchurch_theme']['bg_secondary_color'] = [
@@ -78,6 +99,9 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#default_value' => theme_get_setting('bg_secondary_color'),
     '#size' => 10,
     '#description' => t('The default secondary background color.'),
+    '#attributes' => [
+      'style' => 'background-color: ' . theme_get_setting('bg_secondary_color') . '; color: white;',
+    ],
   ];
 
 }
