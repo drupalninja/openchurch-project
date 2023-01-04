@@ -75,6 +75,7 @@ function openchurch_core_install() {
     'Children' => 'erika-giraud-4EFeD-VTgu4-unsplash.jpg',
     'Students' => 'brooke-cagle--uHVRvDr7pg-unsplash.jpg',
     'Groups' => 'small-group-network-e5juUFoRHpE-unsplash.jpg',
+    'Hero' => 'church-hero.png',
   ];
 
   $media_files = [];
@@ -238,8 +239,8 @@ function openchurch_core_install() {
       'title' => 'Browse Gallery',
     ],
     'field_image' => [
-      'target_id' => $media_files['Church']->id(),
-      'alt' => 'Climb',
+      'target_id' => $media_files['Hero']->id(),
+      'alt' => 'Church building',
     ],
     'field_video' => [
       'target_id' => $media_files['Video']->id(),
