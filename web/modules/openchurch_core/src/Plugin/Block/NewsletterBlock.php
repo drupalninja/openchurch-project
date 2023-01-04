@@ -22,6 +22,8 @@ class NewsletterBlock extends BlockBase {
   public function defaultConfiguration() {
     return [
       'action' => 'https://formspree.io/f/{form id}',
+      'title' => 'Subscribe To Our Newsletter',
+      'description' => 'Subcribe Us And Tell Us About Your Story',
     ];
   }
 
@@ -31,9 +33,19 @@ class NewsletterBlock extends BlockBase {
   public function blockForm($form, FormStateInterface $form_state) {
     $form['action'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Form Action'),
+      '#title' => $this->t('Newsletter form action'),
       '#default_value' => $this->configuration['action'],
       '#description' => $this->t('The action attribute of the form. Third party services like Formspree.io can be used as the form action.'),
+    ];
+    $form['title'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Newsletter block title'),
+      '#default_value' => $this->configuration['title'],
+    ];
+    $form['description'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Newsletter block description.'),
+      '#default_value' => $this->configuration['description'],
     ];
     return $form;
   }
@@ -43,6 +55,8 @@ class NewsletterBlock extends BlockBase {
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
     $this->configuration['action'] = $form_state->getValue('action');
+    $this->configuration['title'] = $form_state->getValue('title');
+    $this->configuration['description'] = $form_state->getValue('description');
   }
 
   /**
@@ -52,6 +66,8 @@ class NewsletterBlock extends BlockBase {
     $build = [
       '#theme' => 'openchurch_core_newsletter',
       '#action' => $this->configuration['action'],
+      '#title' => $this->configuration['title'],
+      '#description' => $this->configuration['description'],
     ];
 
     $build['#cache']['max-age'] = 0;

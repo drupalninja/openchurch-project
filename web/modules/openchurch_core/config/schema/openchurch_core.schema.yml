@@ -2,6 +2,12 @@ block.settings.openchurch_core_newsletter:
   type: block_settings
   label: 'Newsletter block'
   mapping:
-    foo:
+    action:
       type: string
       label: 'Form Action'
+    title:
+      type: string
+      label: 'Title'
+    description:
+      type: string
+      label: 'Description'
