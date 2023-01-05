@@ -16,7 +16,7 @@ function openchurch_theme_preprocess_html(&$variables) {
   $inline_css = '';
 
   if ($link_color = theme_get_setting('link_color')) {
-    $inline_css .= 'a, .nav-link, .nav-link:focus, .nav-link:hover { color: ' . $link_color . '; }';
+    $inline_css .= 'a, .nav-link, .nav-link:focus, .nav-link:hover, .page-link, .page-link:hover, .page-link:focus { color: ' . $link_color . '; }';
   }
 
   if ($nav_active_color = theme_get_setting('nav_active_color')) {
@@ -24,11 +24,11 @@ function openchurch_theme_preprocess_html(&$variables) {
   }
 
   if ($button_color = theme_get_setting('button_color')) {
-    $inline_css .= '.btn-primary { background-color: ' . $button_color . '; }';
+    $inline_css .= '.btn-primary, .page-item.active .page-link { background-color: ' . $button_color . '; }';
   }
 
   if ($button_border = theme_get_setting('button_border')) {
-    $inline_css .= '.btn-primary { border-color: ' . $button_border . '; }';
+    $inline_css .= '.btn-primary, .page-item.active .page-link { border-color: ' . $button_border . '; }';
   }
 
   if ($button_hover = theme_get_setting('button_hover')) {
