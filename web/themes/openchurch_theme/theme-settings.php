@@ -25,6 +25,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#attributes' => [
       'style' => 'background-color: ' . theme_get_setting('link_color') . '; color: white;',
     ],
+    '#required' => TRUE,
   ];
 
   $form['custom_colors']['nav_active_color'] = [
@@ -36,6 +37,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#attributes' => [
       'style' => 'background-color: ' . theme_get_setting('nav_active_color') . ';',
     ],
+    '#required' => TRUE,
   ];
 
   $form['custom_colors']['button_color'] = [
@@ -47,6 +49,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#attributes' => [
       'style' => 'background-color: ' . theme_get_setting('button_color') . '; color: white;',
     ],
+    '#required' => TRUE,
   ];
 
   $form['custom_colors']['button_border'] = [
@@ -58,6 +61,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#attributes' => [
       'style' => 'background-color: ' . theme_get_setting('button_border') . '; color: white;',
     ],
+    '#required' => TRUE,
   ];
 
   $form['custom_colors']['button_hover'] = [
@@ -69,6 +73,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#attributes' => [
       'style' => 'background-color: ' . theme_get_setting('button_hover') . '; color: white;',
     ],
+    '#required' => TRUE,
   ];
 
   $form['custom_colors']['button_hover_border'] = [
@@ -80,6 +85,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#attributes' => [
       'style' => 'background-color: ' . theme_get_setting('button_hover_border') . '; color: white;',
     ],
+    '#required' => TRUE,
   ];
 
   $form['custom_colors']['bg_dark_color'] = [
@@ -91,6 +97,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#attributes' => [
       'style' => 'background-color: ' . theme_get_setting('bg_dark_color') . '; color: white;',
     ],
+    '#required' => TRUE,
   ];
 
   $form['custom_colors']['bg_secondary_color'] = [
@@ -102,6 +109,45 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#attributes' => [
       'style' => 'background-color: ' . theme_get_setting('bg_secondary_color') . '; color: white;',
     ],
+    '#required' => TRUE,
+  ];
+
+  $form['cdn_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Bootstrap CDN Settings'),
+    '#open' => TRUE,
+  ];
+
+  $form['cdn_settings']['bootstrap_css'] = [
+    '#type' => 'textfield',
+    '#title' => t('Bootstrap CSS CDN'),
+    '#default_value' => theme_get_setting('bootstrap_css'),
+    '#description' => t('Bootstrap CSS CDN URL.'),
+    '#required' => TRUE,
+  ];
+
+  $form['cdn_settings']['bootstrap_js'] = [
+    '#type' => 'textfield',
+    '#title' => t('Bootstrap JS CDN'),
+    '#default_value' => theme_get_setting('bootstrap_js'),
+    '#description' => t('Bootstrap JS CDN URL.'),
+    '#required' => TRUE,
+  ];
+
+  $form['cdn_settings']['popper_js'] = [
+    '#type' => 'textfield',
+    '#title' => t('Bootstrap Popper JS CDN'),
+    '#default_value' => theme_get_setting('popper_js'),
+    '#description' => t('Bootstrap Popper JS CDN URL.'),
+    '#required' => TRUE,
+  ];
+
+  $form['cdn_settings']['icons_css'] = [
+    '#type' => 'textfield',
+    '#title' => t('Bootstrap Icons CSS CDN'),
+    '#default_value' => theme_get_setting('icons_css'),
+    '#description' => t('Bootstrap Icons CSS CDN URL.'),
+    '#required' => TRUE,
   ];
 
   $form['path_settings'] = [
@@ -116,6 +162,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#default_value' => theme_get_setting('blog_page_path'),
     '#size' => 10,
     '#description' => t('Default page path for article landing page.'),
+    '#required' => TRUE,
   ];
 
   $form['path_settings']['events_page_path'] = [
@@ -124,38 +171,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#default_value' => theme_get_setting('events_page_path'),
     '#size' => 10,
     '#description' => t('Default page path for events landing page.'),
-  ];
-
-  $form['path_settings']['ministry_alias_path'] = [
-    '#type' => 'textfield',
-    '#title' => t('Ministry alias path'),
-    '#default_value' => theme_get_setting('ministry_alias_path'),
-    '#size' => 10,
-    '#description' => t('Ministry pages will use this path + title.'),
-  ];
-
-  $form['path_settings']['article_alias_path'] = [
-    '#type' => 'textfield',
-    '#title' => t('Article alias path'),
-    '#default_value' => theme_get_setting('article_alias_path'),
-    '#size' => 10,
-    '#description' => t('Article pages will use this path + title.'),
-  ];
-
-  $form['path_settings']['event_alias_path'] = [
-    '#type' => 'textfield',
-    '#title' => t('Event alias path'),
-    '#default_value' => theme_get_setting('event_alias_path'),
-    '#size' => 10,
-    '#description' => t('Event pages will use this path + title.'),
-  ];
-
-  $form['path_settings']['sermon_alias_path'] = [
-    '#type' => 'textfield',
-    '#title' => t('Event alias path'),
-    '#default_value' => theme_get_setting('sermon_alias_path'),
-    '#size' => 10,
-    '#description' => t('Sermon pages will use this path + title.'),
+    '#required' => TRUE,
   ];
 
 }

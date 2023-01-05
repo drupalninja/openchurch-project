@@ -118,3 +118,25 @@ function _openchurch_core_node_auto_alias(Drupal\Core\Entity\EntityInterface $en
 function _openchurch_core_clean_alias($text) {
   return preg_replace('/\-+/', '-', strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '', str_replace(' ', '-', $text))));
 }
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function openchurch_core_library_info_alter(&$libraries, $extension) {
+
+  // Override CDN values with theme settings.
+  if ($extension == 'openchurch_theme') {
+    if ($bootstrap_css = theme_get_setting('bootstrap_css')) {
+      $libraries['bootstrap-css']['css']['component'] = [$bootstrap_css => []];
+    }
+    if ($bootstrap_js = theme_get_setting('bootstrap_js')) {
+      $libraries['bootstrap-js']['js'] = [$bootstrap_js => []];
+    }
+    if ($icons_css = theme_get_setting('icons_css')) {
+      $libraries['icons-css']['css']['component'] = [$icons_css => []];
+    }
+    if ($popper_js = theme_get_setting('popper_js')) {
+      $libraries['popper-js']['js'] = [$popper_js => []];
+    }
+  }
+}
