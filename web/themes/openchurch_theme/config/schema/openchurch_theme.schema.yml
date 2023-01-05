@@ -36,3 +36,15 @@ openchurch_theme.settings:
     icons_css:
       type: textfield
       label: 'Icons CSS'
+    footer_col1:
+      type: textfield
+      label: Footer Col1'
+    footer_col2:
+      type: textfield
+      label: Footer Col2'
+    footer_col3:
+      type: textfield
+      label: Footer Col3'
+    footer_col4:
+      type: textfield
+      label: Footer Col4'

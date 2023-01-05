@@ -59,7 +59,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#size' => 10,
     '#description' => t('The default button border color.'),
     '#attributes' => [
-      'style' => 'background-color: ' . theme_get_setting('button_border') . '; color: white;',
+      'style' => 'background-color: ' . theme_get_setting('button_border') . '; color: black;',
     ],
     '#required' => TRUE,
   ];
@@ -83,7 +83,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#size' => 10,
     '#description' => t('The default button hover border color.'),
     '#attributes' => [
-      'style' => 'background-color: ' . theme_get_setting('button_hover_border') . '; color: white;',
+      'style' => 'background-color: ' . theme_get_setting('button_hover_border') . '; color: black;',
     ],
     '#required' => TRUE,
   ];
@@ -127,7 +127,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
   $form['cdn_settings'] = [
     '#type' => 'details',
     '#title' => t('Bootstrap CDN Settings'),
-    '#open' => TRUE,
+    '#open' => FALSE,
   ];
 
   $form['cdn_settings']['bootstrap_css'] = [
@@ -165,7 +165,7 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
   $form['path_settings'] = [
     '#type' => 'details',
     '#title' => t('Path Settings'),
-    '#open' => TRUE,
+    '#open' => FALSE,
   ];
 
   $form['path_settings']['blog_page_path'] = [
@@ -185,5 +185,23 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#description' => t('Default page path for events landing page.'),
     '#required' => TRUE,
   ];
+
+  $form['footer_content'] = [
+    '#type' => 'details',
+    '#title' => t('Footer Content'),
+    '#open' => FALSE,
+  ];
+
+  for ($c = 1; $c <= 4; $c++) {
+    $footer_setting = theme_get_setting('footer_col' . $c);
+    $form['footer_content']['footer_col' . $c] = [
+      '#type' => 'text_format',
+      '#title' => t('Footer column #' . $c),
+      '#rows' => 2,
+      '#default_value' => $footer_setting['value'],
+      '#format' => $footer_setting['format'],
+      '#description' => t('Set content for footer column (leave blank to hide).'),
+    ];
+  }
 
 }

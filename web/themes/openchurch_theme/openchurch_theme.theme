@@ -20,7 +20,7 @@ function openchurch_theme_preprocess_html(&$variables) {
   }
 
   if ($nav_active_color = theme_get_setting('nav_active_color')) {
-    $inline_css .= 'body .navbar-dark .nav-link.active { color: ' . $nav_active_color . ' !important; }';
+    $inline_css .= 'body .navbar-dark .nav-link.active, footer a { color: ' . $nav_active_color . ' !important; }';
   }
 
   if ($button_color = theme_get_setting('button_color')) {
@@ -66,12 +66,10 @@ function openchurch_theme_preprocess_html(&$variables) {
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function openchurch_theme_preprocess_page(&$variables) {
-  $config = \Drupal::config('system.site');
-  $variables['site_name'] = $config->get('name');
-  $variables['current_year'] = date('Y');
-
-  // Get theme logo.
-  $variables['logo'] = theme_get_setting('logo');
+  for ($c = 1; $c <= 4; $c++) {
+    $footer_setting = theme_get_setting('footer_col' . $c);
+    $variables['footer_col' . $c] = $footer_setting['value'];
+  }
 }
 
 /**

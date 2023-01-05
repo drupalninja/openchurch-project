@@ -35,7 +35,7 @@ function openchurch_core_install() {
   // Create a basic about block.
   $block = BlockContent::create([
     'type' => 'basic',
-    'info' => 'Blog About',
+    'info' => 'About',
     'uuid' => 'c7844630-a903-4f91-8525-ab5612b2e996',
     'body' => [
       'value' => '<h4> About </h4> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p>',
@@ -602,70 +602,58 @@ function openchurch_core_install() {
   $main_links = [];
 
   // Create menu items.
-  foreach (['main', 'footer'] as $menu_name) {
-    $menu_link = MenuLinkContent::create([
-      'title' => 'About',
-      'link' => ['uri' => 'internal:/about-us'],
-      'menu_name' => $menu_name,
-      'expanded' => TRUE,
-      'weight' => $menu_name == 'main' ? 1 : -1,
-    ]);
-    $menu_link->save();
+  $menu_link = MenuLinkContent::create([
+    'title' => 'About',
+    'link' => ['uri' => 'internal:/about-us'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+    'weight' => 1,
+  ]);
+  $menu_link->save();
 
-    if ($menu_name == 'main') {
-      $main_links[$menu_link->title->value] = $menu_link;
-    }
+  $main_links[$menu_link->title->value] = $menu_link;
 
-    $menu_link = MenuLinkContent::create([
-      'title' => 'Ministry',
-      'link' => ['uri' => 'internal:/node'],
-      'menu_name' => $menu_name,
-      'expanded' => TRUE,
-      'weight' => $menu_name == 'main' ? 1 : -1,
-    ]);
-    $menu_link->save();
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Ministry',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+    'weight' => 2,
+  ]);
+  $menu_link->save();
 
-    if ($menu_name == 'main') {
-      $main_links[$menu_link->title->value] = $menu_link;
-    }
+  $main_links[$menu_link->title->value] = $menu_link;
 
-    $menu_link = MenuLinkContent::create([
-      'title' => 'Sermons',
-      'link' => ['uri' => 'internal:/node'],
-      'menu_name' => $menu_name,
-      'expanded' => TRUE,
-      'weight' => $menu_name == 'main' ? 1 : -1,
-    ]);
-    $menu_link->save();
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Sermons',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+    'weight' => 4,
+  ]);
+  $menu_link->save();
 
-    if ($menu_name == 'main') {
-      $main_links[$menu_link->title->value] = $menu_link;
-    }
+  $main_links[$menu_link->title->value] = $menu_link;
 
-    $menu_link = MenuLinkContent::create([
-      'title' => 'Pages',
-      'link' => ['uri' => 'internal:/node'],
-      'menu_name' => $menu_name,
-      'expanded' => TRUE,
-      'weight' => $menu_name == 'main' ? 1 : -1,
-    ]);
-    $menu_link->save();
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Pages',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+    'weight' => 3,
+  ]);
+  $menu_link->save();
 
-    if ($menu_name == 'main') {
-      $main_links[$menu_link->title->value] = $menu_link;
-    }
+  $main_links[$menu_link->title->value] = $menu_link;
 
-    if ($menu_name == 'main') {
-      $menu_link = MenuLinkContent::create([
-        'title' => 'Contact',
-        'link' => ['uri' => 'internal:/contact'],
-        'menu_name' => $menu_name,
-        'expanded' => TRUE,
-        'weight' => 2,
-      ]);
-      $menu_link->save();
-    }
-  }
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Contact',
+    'link' => ['uri' => 'internal:/contact'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+    'weight' => 5,
+  ]);
+  $menu_link->save();
 
   // Create child menu items.
   foreach ($ministries as $media_key => $title) {
