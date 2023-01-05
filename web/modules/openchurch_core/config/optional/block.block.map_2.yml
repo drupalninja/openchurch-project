@@ -1,0 +1,26 @@
+uuid: 92829f73-a97a-40d5-9010-6fadcb6dd533
+langcode: en
+status: true
+dependencies:
+  module:
+    - openchurch_core
+    - system
+  theme:
+    - openchurch_theme
+id: map_2
+theme: openchurch_theme
+region: content_below
+weight: 0
+provider: null
+plugin: openchurch_core_map
+settings:
+  id: openchurch_core_map
+  label: Map
+  label_display: '0'
+  provider: openchurch_core
+  script: '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1575.9186034720387!2d144.95541222452604!3d-37.817281929786624!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642c9a8d8495f%3A0xedc33f230d1355b1!2sEnvato+Pty+Ltd!5e0!3m2!1sen!2sin!4v1407063773571" height="260"></iframe>'
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /contact

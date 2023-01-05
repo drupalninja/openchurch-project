@@ -18,18 +18,6 @@ use Drupal\contact\Entity\ContactForm;
  * Implements hook_install().
  */
 function openchurch_core_install() {
-  // Create basic block with maps embed.
-  $block = BlockContent::create([
-    'type' => 'basic',
-    'info' => 'Google Maps',
-    'uuid' => '5968dbb2-c12a-4c33-a78a-d8034cd1f0ad',
-    'body' => [
-      'value' => '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1575.9186034720387!2d144.95541222452604!3d-37.817281929786624!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642c9a8d8495f%3A0xedc33f230d1355b1!2sEnvato+Pty+Ltd!5e0!3m2!1sen!2sin!4v1407063773571" height="260"></iframe>',
-      'format' => 'embed',
-    ],
-  ]);
-
-  $block->save();
 
   // Create a basic address block.
   $block = BlockContent::create([

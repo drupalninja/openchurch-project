@@ -26,6 +26,11 @@ function openchurch_core_theme() {
         'description' => NULL,
       ],
     ],
+    'openchurch_core_map' => [
+      'variables' => [
+        'script' => NULL,
+      ],
+    ],
   ];
 }
 
