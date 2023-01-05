@@ -6,9 +6,6 @@
 /**
  * Bootstrap overrides.
  */
-body .navbar-dark .nav-link.active {
-  color: #9ec5fe !important;
-}
 
 body a:hover, body a:focus {
   color: var(--bs-secondary);

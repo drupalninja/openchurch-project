@@ -112,6 +112,18 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#required' => TRUE,
   ];
 
+  $form['custom_colors']['dropdown_active_color'] = [
+    '#type' => 'textfield',
+    '#title' => t('Dropdown active background color'),
+    '#default_value' => theme_get_setting('dropdown_active_color'),
+    '#size' => 10,
+    '#description' => t('The color you see for the active item in dropdowns in the main nav.'),
+    '#attributes' => [
+      'style' => 'background-color: ' . theme_get_setting('dropdown_active_color') . '; color: white;',
+    ],
+    '#required' => TRUE,
+  ];
+
   $form['cdn_settings'] = [
     '#type' => 'details',
     '#title' => t('Bootstrap CDN Settings'),

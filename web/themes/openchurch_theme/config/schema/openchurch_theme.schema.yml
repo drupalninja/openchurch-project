@@ -15,6 +15,9 @@ openchurch_theme.settings:
     button_hover_border:
       type: textfield
       label: Button Hover Border
+    dropdown_active_color:
+      type: textfield
+      label: Dropdown Active Color
     blog_page_path:
       type: textfield
       label: 'Blog page path'
