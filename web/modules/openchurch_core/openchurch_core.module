@@ -4,6 +4,11 @@
  * @file
  */
 
+ use Drupal\Core\Database\Database;
+
+ /**
+  * Implements hook_theme().
+  */
 function openchurch_core_theme() {
   return [
     'openchurch_core_event_details' => [
@@ -22,4 +27,94 @@ function openchurch_core_theme() {
       ],
     ],
   ];
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function openchurch_core_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  // Only use custom aliases if PathAuto is not enabled.
+  if (!\Drupal::moduleHandler()->moduleExists('pathauto')) {
+    _openchurch_core_node_auto_alias($entity);
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function openchurch_core_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  openchurch_core_entity_update($entity);
+}
+
+/**
+ * OpenChurch node auto-alias patterns.
+ *
+ * Note: This is a fallback for when PathAuto is not enabled.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
+function _openchurch_core_node_auto_alias(Drupal\Core\Entity\EntityInterface $entity) {
+  $db = Drupal::database();
+
+  $aliases = [
+    'ministry' => '/ministry/',
+    'article' => '/article/',
+    'event' => '/event/',
+    'sermon' => '/sermons/',
+  ];
+
+  if ($entity->getEntityTypeId() == 'node') {
+    if (isset($aliases[$entity->bundle()])) {
+      $node_alias_path = $aliases[$entity->bundle()];
+    }
+    else {
+      $node_alias_path = '/';
+    }
+
+    $nid = $entity->id();
+
+    // Get the node title.
+    $title = $entity->title->getValue()[0]['value'];
+
+    // Convert node title to machine path.
+    $alias = $machine_name = _openchurch_core_clean_alias($title);
+
+    $c = 0;
+
+    // Look for existing alias.
+    do {
+      $result = $db->query('SELECT id FROM {path_alias}
+        WHERE alias = :alias AND path != :source',
+        array(
+          ':alias' => $node_alias_path . $alias,
+          ':source' => '/node/' . $nid
+        )
+      )->fetchObject();
+
+      // If alias exists, increment.
+      if ($result) {
+        $alias = $machine_name . '-' . $c++;
+      }
+      else {
+        break;
+      }
+    } while ($result);
+
+    // Create the alias.
+    \Drupal::entityTypeManager()->getStorage('path_alias')->create([
+      'path' => '/node/' . $nid,
+      'alias' => $node_alias_path . $alias,
+    ])->save();
+  }
+}
+
+/**
+ * OpenChurch clean alias.
+ *
+ * @param string $text
+ * @return string
+ *   Return machine name for text.
+ */
+function _openchurch_core_clean_alias($text) {
+  return preg_replace('/\-+/', '-', strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '', str_replace(' ', '-', $text))));
 }

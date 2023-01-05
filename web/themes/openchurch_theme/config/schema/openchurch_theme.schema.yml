@@ -21,15 +21,3 @@ openchurch_theme.settings:
     events_page_path:
       type: textfield
       label: 'Events page path'
-    ministry_alias_path:
-      type: textfield
-      label: 'Ministry alias path'
-    article_alias_path:
-      type: textfield
-      label: 'Article alias path'
-    event_alias_path:
-      type: textfield
-      label: 'Event alias path'
-    sermon_alias_path:
-      type: textfield
-      label: 'Sermon alias path'
