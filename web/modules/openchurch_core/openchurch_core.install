@@ -438,9 +438,6 @@ function openchurch_core_install() {
       'field_tags' => [
         'target_id' => $tag_ids[$x++],
       ],
-      'path' => [
-        'alias' => '/article/perseverance-of-the-saints' . $c,
-      ],
       'created' => $created + 3600,
     ]);
 
@@ -462,9 +459,6 @@ function openchurch_core_install() {
       ],
       'field_tags' => [
         'target_id' => $tag_ids[$x++],
-      ],
-      'path' => [
-        'alias' => '/article/lord-is-sufficient-for-all-of-our-needs' . $c,
       ],
       'created' => $created,
     ]);
@@ -504,9 +498,6 @@ function openchurch_core_install() {
       'field_location' => [
         'value' => 'New York, USA',
       ],
-      'path' => [
-        'alias' => '/event/perseverance-of-the-saints' . $c,
-      ],
       'field_date' => [
         'value' => $created_iso,
       ],
@@ -536,9 +527,6 @@ function openchurch_core_install() {
       ],
       'field_location' => [
         'value' => 'New York, USA',
-      ],
-      'path' => [
-        'alias' => '/event/lord-is-sufficient-for-all-of-our-needs' . $c,
       ],
       'field_date' => [
         'value' => $created_iso,
@@ -573,9 +561,6 @@ function openchurch_core_install() {
       'field_image' => [
         'target_id' => $media_files[$media_key]->id(),
         'alt' => $media_key,
-      ],
-      'path' => [
-        'alias' => '/ministry/' . str_replace("'", '', strtolower($title)),
       ],
     ]);
 
@@ -619,9 +604,6 @@ function openchurch_core_install() {
         'alt' => 'Video',
       ],
       'created' => strtotime('-' . $c . ' days'),
-      'path' => [
-        'alias' => '/sermons/' . str_replace("'", '', strtolower($title)),
-      ],
     ]);
 
     $node->save();
