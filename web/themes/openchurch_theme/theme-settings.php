@@ -192,16 +192,58 @@ function openchurch_theme_form_system_theme_settings_alter(&$form, &$form_state)
     '#open' => FALSE,
   ];
 
-  for ($c = 1; $c <= 4; $c++) {
+  for ($c = 1; $c <= 3; $c++) {
     $footer_setting = theme_get_setting('footer_col' . $c);
     $form['footer_content']['footer_col' . $c] = [
       '#type' => 'text_format',
-      '#title' => t('Footer column #' . $c),
+      '#title' => t('Footer Column #' . $c),
       '#rows' => 2,
       '#default_value' => $footer_setting['value'],
       '#format' => $footer_setting['format'],
       '#description' => t('Set content for footer column (leave blank to hide).'),
     ];
   }
+
+  $form['footer_content']['connect'] = [
+    '#type' => 'details',
+    '#title' => t('Footer Column #4 (Connect)'),
+    '#open' => TRUE,
+  ];
+
+  // Show Connect column.
+  $form['footer_content']['connect']['footer_connect'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show Social column?'),
+    '#default_value' => theme_get_setting('footer_connect'),
+    '#description' => t('Show "Connect" column in footer.'),
+  ];
+
+  $form['footer_content']['connect']['footer_facebook'] = [
+    '#type' => 'textfield',
+    '#title' => t('Facebook URL'),
+    '#default_value' => theme_get_setting('footer_facebook'),
+    '#description' => t('Facebook URL.'),
+  ];
+
+  $form['footer_content']['connect']['footer_twitter'] = [
+    '#type' => 'textfield',
+    '#title' => t('Twitter URL'),
+    '#default_value' => theme_get_setting('footer_twitter'),
+    '#description' => t('Twitter URL.'),
+  ];
+
+  $form['footer_content']['connect']['footer_youtube'] = [
+    '#type' => 'textfield',
+    '#title' => t('YouTube URL'),
+    '#default_value' => theme_get_setting('footer_youtube'),
+    '#description' => t('YouTube URL.'),
+  ];
+
+  $form['footer_content']['connect']['footer_instagram'] = [
+    '#type' => 'textfield',
+    '#title' => t('Instagram URL'),
+    '#default_value' => theme_get_setting('footer_instagram'),
+    '#description' => t('Instagram URL.'),
+  ];
 
 }

@@ -55,3 +55,7 @@ footer .list-unstyled li {
 footer i {
   font-size: 2.3rem;
 }
+
+footer h5 {
+  text-transform: uppercase;
+}

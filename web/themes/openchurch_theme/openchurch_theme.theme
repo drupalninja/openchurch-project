@@ -70,6 +70,12 @@ function openchurch_theme_preprocess_page(&$variables) {
     $footer_setting = theme_get_setting('footer_col' . $c);
     $variables['footer_col' . $c] = $footer_setting['value'];
   }
+
+  $variables['footer_connect'] = theme_get_setting('footer_connect');
+  $variables['footer_facebook'] = theme_get_setting('footer_facebook');
+  $variables['footer_twitter'] = theme_get_setting('footer_twitter');
+  $variables['footer_instagram'] = theme_get_setting('footer_instagram');
+  $variables['footer_youtube'] = theme_get_setting('footer_youtube');
 }
 
 /**
