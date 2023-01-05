@@ -1,0 +1,8 @@
+.cta.card.bg-dark {
+  border-radius: 0;
+}
+
+.cta img {
+  max-height: 400px;
+  object-fit: cover;
+}

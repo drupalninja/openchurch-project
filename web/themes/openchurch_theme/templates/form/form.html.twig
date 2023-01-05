@@ -11,6 +11,6 @@
  */
 #}
 
-<form{{ attributes.addClass('mb-5') }}>
+<form{{ attributes.class[0] == 'node-preview-form-select' ? attributes.addClass('container') : attributes.addClass('mb-5') }}>
   {{ children }}
 </form>

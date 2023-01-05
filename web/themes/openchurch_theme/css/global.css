@@ -1,62 +1,11 @@
 /**
- * Hero styles
+ * @file
+ * Global styles.
  */
-.hero .card.bg-dark {
-  border-radius: 0;
-}
 
-.hero .card {
-  position: relative;
-}
-
-.hero img {
-  min-height: 400px;
-  max-height: 600px;
-  object-fit: cover;
-}
-
-.hero video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media (max-width: 768px) {
-  .hero video {
-    display: none;
-  }
-}
-
-.cta.card.bg-dark {
-  border-radius: 0;
-}
-
-.cta img {
-  max-height: 400px;
-  object-fit: cover;
-}
-
-.carousel-item img {
-  max-height: 600px;
-  object-fit: cover;
-  width: 100%;
-  filter: brightness(40%);
-}
-
-@media (min-width: 768px) {
-  .carousel-caption {
-    bottom: inherit;
-    top: 33%;
-  }
-}
-
-.card-img-overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
+/**
+ * Bootstrap overrides.
+ */
 body .navbar-dark .nav-link.active {
   color: #9ec5fe !important;
 }
@@ -67,6 +16,10 @@ body a:hover, body a:focus {
 
 body .breadcrumb-item+.breadcrumb-item::before {
   color: var(--bs-white);
+}
+
+.badge {
+  text-decoration: none;
 }
 
 /**
@@ -80,108 +33,15 @@ body .breadcrumb-item+.breadcrumb-item::before {
 }
 
 /**
- * Node preview styles.
- */
-.node-preview-container {
-  background: #333;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3333);
-  position: fixed;
-  z-index: 499;
-  width: 100%;
-  padding: 10px;
-}
-
-@media only screen and (min-width: 36em) {
-  .node-preview-container .form-type-select {
-    margin-left: 20px; /* LTR */
-  }
-  [dir="rtl"] .node-preview-container .form-type-select {
-    margin-right: 20px;
-    margin-left: 0;
-  }
-}
-
-/**
  * Override iframe embeds.
  */
 iframe {
   width: 100%;
 }
 
-.badge {
-  text-decoration: none;
-}
-
-/**
- * Add more spacing to nav inside the expanded navbar.
- */
-.navbar-collapse .navbar-nav {
-  margin-top: 13px;
-}
-
-/**
- * Animate the navbar on scroll.
- */
-
-.scrolled {
-  transition: font-size 0.5s;
-  font-size: 95%;
-  background-color: var(--bs-dark);
-  opacity: 0.95;
-}
-
-.scrolled .navbar-brand img {
-  max-height: 40px;
-  transition: max-height 0.5s;
-}
-
-.toolbar-horizontal.toolbar-fixed .sticky-top,
-.toolbar-horizontal.toolbar-fixed .fixed-top,
-.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .scrolled,
-.toolbar-vertical .fixed-top,
-.toolbar-vertical .scrolled {
-  top: 39px;
-}
-
-.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .sticky-top,
-.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .fixed-top,
-.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .scrolled {
-  top: 79px;
-}
-
-.toolbar-vertical .scrolled {
-  left: 0;
-  top: 39px;
-}
-
-.toolbar-tray-open.toolbar-vertical .fixed-top {
-  left: 15rem;
-  top: 39px;
-}
-
-@media (max-width: 609px) {
-  .toolbar-tray-open.toolbar-vertical .sticky-top {
-    margin-left: 15rem;
-  }
-}
-
-/**
- * Add a background color to the header on mobile.
- */
-@media (max-width: 991px) {
-  .sticky-top, .fixed-top {
-    background-color: var(--bs-dark);
-    opacity: 0.95;
-  }
-}
-
 /**
  * Shrink footer on mobile.
  */
- @media (max-width: 768px) {
-  footer img {
-    max-height: 40px;
-  }
+footer img {
+  max-height: 40px;
 }

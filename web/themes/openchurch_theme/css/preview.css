@@ -1,0 +1,23 @@
+/**
+ * Node preview styles.
+ */
+ .node-preview-container {
+  background: #333;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3333);
+  position: initial;
+  z-index: 499;
+  width: 100%;
+  padding: 10px;
+}
+
+@media only screen and (min-width: 36em) {
+  .node-preview-container .form-type-select {
+    margin-left: 20px; /* LTR */
+  }
+  [dir="rtl"] .node-preview-container .form-type-select {
+    margin-right: 20px;
+    margin-left: 0;
+  }
+}

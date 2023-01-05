@@ -1,0 +1,13 @@
+.carousel-item img {
+  max-height: 600px;
+  object-fit: cover;
+  width: 100%;
+  filter: brightness(40%);
+}
+
+@media (min-width: 768px) {
+  .carousel-caption {
+    bottom: inherit;
+    top: 33%;
+  }
+}
