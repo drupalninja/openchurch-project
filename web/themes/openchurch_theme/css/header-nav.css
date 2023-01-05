@@ -1,3 +1,7 @@
+body .navbar-brand {
+  font-size: 1.6rem;
+}
+
 /**
  * Add more spacing to nav inside the expanded navbar.
  */
@@ -13,6 +17,11 @@
   font-size: 95%;
   background-color: var(--bs-dark);
   opacity: 0.95;
+}
+
+.scrolled .navbar-brand {
+  transition: font-size 0.5s;
+  font-size: 1.25rem;
 }
 
 .scrolled .navbar-brand img {
