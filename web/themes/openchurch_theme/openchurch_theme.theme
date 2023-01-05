@@ -152,6 +152,10 @@ function openchurch_theme_preprocess_field(&$variables) {
         }
       }
     }
+    elseif ($element['#field_name'] == 'field_tags') {
+      $variables['blog_path_path'] = theme_get_setting('blog_page_path');
+      $variables['events_page_path'] = theme_get_setting('events_page_path');
+    }
   }
 }
 

@@ -27,7 +27,7 @@
   {% endif %}
   <ul class='links list-inline'>
     {% for item in items %}
-      <li{ class="list-inline-item"><a href="/events/{{ item.content['#options'].entity.id() }}" class="badge rounded-pill bg-primary p-2 text-white">{{ item.content['#title'] }}</a></li>
+      <li{ class="list-inline-item"><a href="{{ events_page_path }}/{{ item.content['#options'].entity.id() }}" class="badge rounded-pill bg-primary p-2 text-white">{{ item.content['#title'] }}</a></li>
     {% endfor %}
   </ul>
 </div>
