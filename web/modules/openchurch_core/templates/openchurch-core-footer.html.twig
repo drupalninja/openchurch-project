@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    {% if footer_col1 %}
+      <div class="col-6 col-lg-3 mb-2">
+        {{ footer_col1|raw }}
+      </div>
+    {% endif %}
+    {% if footer_col2 %}
+      <div class="col-6 col-lg-3 mb-2">
+        {{ footer_col2|raw }}
+      </div>
+    {% endif %}
+    {% if footer_col3 %}
+      <div class="col-6 col-lg-3 mb-2">
+        {{ footer_col3|raw }}
+      </div>
+    {% endif %}
+    {% if footer_connect %}
+      <div class="col-6 col-lg-3 mb-2">
+        <h5>{{ 'Connect'|t }}</h5>
+        <ul class="list-inline">
+          {% if footer_facebook %}
+            <li class="list-inline-item"><a href="{{ footer_facebook }}"><i class="bi bi-facebook"></i></a></li>
+          {% endif %}
+          {% if footer_twitter %}
+            <li class="list-inline-item"><a href="{{ footer_twitter }}"><i class="bi bi-twitter"></i></a></li>
+          {% endif %}
+          {% if footer_instagram %}
+            <li class="list-inline-item"><a href="{{ footer_instagram }}"><i class="bi bi-instagram"></i></a></li>
+          {% endif %}
+          {% if footer_youtube %}
+            <li class="list-inline-item"><a href="{{ footer_youtube }}"><i class="bi bi-youtube"></i></a></li>
+          {% endif %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+</div>

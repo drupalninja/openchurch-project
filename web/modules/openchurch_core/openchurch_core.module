@@ -31,6 +31,18 @@ function openchurch_core_theme() {
         'script' => NULL,
       ],
     ],
+    'openchurch_core_footer' => [
+      'variables' => [
+        'footer_col1' => NULL,
+        'footer_col2' => NULL,
+        'footer_col3' => NULL,
+        'footer_connect' => NULL,
+        'footer_facebook' => NULL,
+        'footer_twitter' => NULL,
+        'footer_youtube' => NULL,
+        'footer_instagram' => NULL,
+      ],
+    ],
   ];
 }
 

@@ -14,20 +14,3 @@ bootstrap_css: '//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.cs
 bootstrap_js: '//cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js'
 popper_js: '//cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js'
 icons_css: '//cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css'
-footer_col1: {
-  'value': '<h5>About the Church</h5><p>For the word of God is living and active. Sharper than any double-edged sword, it penetrates even to dividing soul and spirit, joints and marrow; it judges the thoughts and attitudes.</p>',
-  'format': 'full_html'
-}
-footer_col2: {
-  'value': '<h5>Quick Links</h5><ul class="list-unstyled"><li><a href="#" class="text-decoration-none">Upcoming events</a></li><li><a href="#" class="text-decoration-none">Ministries</a></li><li><a href="#" class="text-decoration-none">Recent Sermons</a></li><li><a href="#" class="text-decoration-none">Contact us</a></li></ul>',
-  'format': 'full_html'
-}
-footer_col3: {
-  'value': '<h5>Our Address</h5><p> Catholic Church<br />121 King Street, Melbourne <br />Victoria 3000 Australia<br /><br />Phone: +61 3 8376 6284<br />Email: <a href="#">mail@catholicwebsite.com</a></p>',
-  'format': 'full_html'
-}
-footer_connect: 1
-footer_facebook: 'https://facebook.com/'
-footer_twitter: 'https://twitter.com/'
-footer_youtube: 'https://youtube.com/'
-footer_instagram: 'https://instagram.com/'

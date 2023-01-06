@@ -1,0 +1,34 @@
+uuid: 35cce11e-baa9-4d1c-b84f-a971e1a5b8d8
+langcode: en
+status: true
+dependencies:
+  module:
+    - openchurch_core
+  theme:
+    - openchurch_theme
+id: footer
+theme: openchurch_theme
+region: footer
+weight: 0
+provider: null
+plugin: openchurch_core_map
+settings:
+  id: openchurch_core_map
+  label: Footer
+  label_display: '0'
+  provider: openchurch_core
+  footer_col1:
+    value: '<h5>About the Church</h5><p>For the word of God is living and active. Sharper than any double-edged sword, it penetrates even to dividing soul and spirit, joints and marrow; it judges the thoughts and attitudes.</p>'
+    format: full_html
+  footer_col2:
+    value: '<h5>Quick Links</h5><ul class="list-unstyled"><li><a class="text-decoration-none" href="#">Upcoming events</a></li><li><a class="text-decoration-none" href="#">Ministries</a></li><li><a class="text-decoration-none" href="#">Recent Sermons</a></li><li><a class="text-decoration-none" href="#">Contact us</a></li></ul>'
+    format: full_html
+  footer_col3:
+    value: '<h5>Our Address</h5><p>Catholic Church<br>121 King Street, Melbourne&nbsp;<br>Victoria 3000 Australia<br><br>Phone: +61 3 8376 6284<br>Email: <a href="#">mail@catholicwebsite.com</a></p>'
+    format: full_html
+  footer_connect: TRUE
+  footer_facebook: 'https://facebook.com/'
+  footer_twitter: 'https://twitter.com/'
+  footer_youtube: 'https://youtube.com/'
+  footer_instagram: 'https://instagram.com/'
+visibility: {  }

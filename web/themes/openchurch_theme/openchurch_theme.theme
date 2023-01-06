@@ -7,7 +7,6 @@
 
 use Drupal\Core\Template\Attribute;
 use Drupal\image\Entity\ImageStyle;
-use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
@@ -67,16 +66,7 @@ function openchurch_theme_preprocess_html(&$variables) {
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function openchurch_theme_preprocess_page(&$variables) {
-  for ($c = 1; $c <= 4; $c++) {
-    $footer_setting = theme_get_setting('footer_col' . $c);
-    $variables['footer_col' . $c] = $footer_setting['value'];
-  }
 
-  $variables['footer_connect'] = theme_get_setting('footer_connect');
-  $variables['footer_facebook'] = theme_get_setting('footer_facebook');
-  $variables['footer_twitter'] = theme_get_setting('footer_twitter');
-  $variables['footer_instagram'] = theme_get_setting('footer_instagram');
-  $variables['footer_youtube'] = theme_get_setting('footer_youtube');
 }
 
 /**

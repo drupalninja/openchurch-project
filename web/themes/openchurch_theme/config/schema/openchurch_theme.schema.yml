@@ -36,27 +36,3 @@ openchurch_theme.settings:
     icons_css:
       type: textfield
       label: 'Icons CSS'
-    footer_col1:
-      type: textfield
-      label: 'Footer Col1'
-    footer_col2:
-      type: textfield
-      label: 'Footer Col2'
-    footer_col3:
-      type: textfield
-      label: 'Footer Col3'
-    footer_connect:
-      type: checkbox
-      label: 'Footer Connect'
-    footer_facebook:
-      type: textfield
-      label: 'Facebook URL'
-    footer_twitter:
-      type: textfield
-      label: 'Twitter URL'
-    footer_youtube:
-      type: textfield
-      label: 'YouTube URL'
-    footer_instagram:
-      type: textfield
-      label: 'Instagram URL'
