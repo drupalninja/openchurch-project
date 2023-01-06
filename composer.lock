@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca3eec3ca4c1a2c8524b246eddbdd20f",
+    "content-hash": "7de44666613071bf62949e299b5cea3a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1467,6 +1467,62 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/openchurch_core",
                 "issues": "https://www.drupal.org/project/issues/openchurch_core"
+            }
+        },
+        {
+            "name": "drupal/openchurch_theme",
+            "version": "dev-3.0.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/openchurch_theme.git",
+                "reference": "36c477afaa90d490ee28641e0afb173a9df9d9af"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10",
+                "drupal/openchurch_core": "*"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.0.x": "3.0.x-dev"
+                },
+                "drupal": {
+                    "version": "3.0.x-dev",
+                    "datestamp": "1673049029",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jay Callicott",
+                    "homepage": "https://www.drupal.org/user/42248",
+                    "role": "Developer"
+                },
+                {
+                    "name": "mariohernandez",
+                    "homepage": "https://www.drupal.org/user/446544"
+                },
+                {
+                    "name": "tlattimore",
+                    "homepage": "https://www.drupal.org/user/624754"
+                }
+            ],
+            "description": "OpenChurch base theme.",
+            "homepage": "https://www.drupal.org/project/openchurch_theme",
+            "keywords": [
+                "Drupal",
+                "OpenChurch",
+                "Theme"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/openchurch_theme"
             }
         },
         {
