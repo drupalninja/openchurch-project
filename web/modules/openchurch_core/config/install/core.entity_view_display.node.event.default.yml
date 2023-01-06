@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.event.field_link
     - field.field.node.event.field_location
     - field.field.node.event.field_tags
-    - image.style.hero
+    - image.style.interior_1024x439
     - node.type.event
   module:
     - image
@@ -34,7 +34,7 @@ content:
     label: hidden
     settings:
       image_link: ''
-      image_style: hero
+      image_style: interior_1024x439
       image_loading:
         attribute: lazy
     third_party_settings: {  }

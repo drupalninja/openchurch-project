@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
-    - image.style.hero
+    - image.style.interior_1024x439
     - node.type.article
   module:
     - image
@@ -32,7 +32,7 @@ content:
     label: hidden
     settings:
       image_link: ''
-      image_style: hero
+      image_style: interior_1024x439
       image_loading:
         attribute: lazy
     third_party_settings: {  }
