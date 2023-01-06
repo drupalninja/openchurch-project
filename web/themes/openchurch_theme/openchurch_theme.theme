@@ -95,9 +95,11 @@ function openchurch_theme_preprocess_node(&$variables) {
       $date = date_create($date_value);
       $formatted_date = date_format($date, "d F Y");
       $time = date_format($date, "h:i A");
+      $date_short = date_format($date, "M d");
     }
 
     $variables['date'] = $formatted_date;
+    $variables['date_short'] = $date_short;
     $variables['time'] = $time;
     $variables['location'] = $node->get('field_location')->value;
     $variables['link'] = $link;
