@@ -1475,7 +1475,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/openchurch_theme.git",
-                "reference": "36c477afaa90d490ee28641e0afb173a9df9d9af"
+                "reference": "73381a0ba7631506764b237cb8c3f2832d633fc4"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10",
@@ -1488,7 +1488,7 @@
                 },
                 "drupal": {
                     "version": "3.0.x-dev",
-                    "datestamp": "1673049029",
+                    "datestamp": "1673049139",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
