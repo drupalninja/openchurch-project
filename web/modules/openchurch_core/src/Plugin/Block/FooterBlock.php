@@ -9,7 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
  * Provides a footer block.
  *
  * @Block(
- *   id = "openchurch_core_map",
+ *   id = "openchurch_core_footer",
  *   admin_label = @Translation("Footer"),
  *   category = @Translation("OpenChurch")
  * )
