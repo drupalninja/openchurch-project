@@ -20,7 +20,7 @@ function openchurch_theme_preprocess_html(&$variables) {
   }
 
   if ($nav_active_color = theme_get_setting('nav_active_color')) {
-    $inline_css .= 'body .navbar-dark .navbar-nav .nav-link.active { color: ' . $nav_active_color . ' !important; }';
+    $inline_css .= 'body .navbar-dark .navbar-nav .nav-link.active, body .navbar-dark .navbar-nav .nav-link:hover { color: ' . $nav_active_color . ' !important; }';
     $inline_css .= 'footer a { color: ' . $nav_active_color . '; }';
   }
 
