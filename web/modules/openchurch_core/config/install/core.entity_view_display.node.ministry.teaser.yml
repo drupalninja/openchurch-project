@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.ministry.body
     - field.field.node.ministry.field_image
-    - field.field.node.ministry.field_related
     - node.type.ministry
   module:
     - text
@@ -31,4 +30,3 @@ content:
     region: content
 hidden:
   field_image: true
-  field_related: true

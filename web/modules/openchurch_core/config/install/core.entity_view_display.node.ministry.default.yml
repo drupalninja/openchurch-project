@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.ministry.body
     - field.field.node.ministry.field_image
-    - field.field.node.ministry.field_related
     - image.style.interior_1024x439
     - node.type.ministry
   module:
@@ -36,14 +35,6 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 1
-    region: content
-  field_related:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
     region: content
   links:
     settings: {  }
