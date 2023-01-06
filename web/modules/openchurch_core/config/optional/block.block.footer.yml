@@ -11,9 +11,9 @@ theme: openchurch_theme
 region: footer
 weight: 0
 provider: null
-plugin: openchurch_core_map
+plugin: openchurch_core_footer
 settings:
-  id: openchurch_core_map
+  id: openchurch_core_footer
   label: Footer
   label_display: '0'
   provider: openchurch_core
