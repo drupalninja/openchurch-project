@@ -12,15 +12,7 @@
     }
   ],
   "require": {
-    "cweagans/composer-patches": "^1.6",
-    "drupal/features": "^3.0",
-    "drupal/config_update": "^1.0"
-  },
-  "extra": {
-    "installer-types": [
-      "library"
-    ],
-    "patches": {
-    }
+    "drupal/openchurch_core": "^3.0.0-alpha1",
+    "drupal/openchurch_theme": "^3.0.0-alpha1"
   }
 }
