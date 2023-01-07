@@ -1424,23 +1424,26 @@
         },
         {
             "name": "drupal/openchurch_core",
-            "version": "dev-3.0.x",
+            "version": "3.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/openchurch_core.git",
-                "reference": "3f4832c3924b4f32fdbae446136e95330cc08e65"
+                "reference": "3.0.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/openchurch_core-3.0.0-alpha1.zip",
+                "reference": "3.0.0-alpha1",
+                "shasum": "63e4d036533fb838cb8cab03aebb367831bb5745"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-3.0.x": "3.0.x-dev"
-                },
                 "drupal": {
-                    "version": "3.0.x-dev",
-                    "datestamp": "1673048200",
+                    "version": "3.0.0-alpha1",
+                    "datestamp": "1673052848",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
