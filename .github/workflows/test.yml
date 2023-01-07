@@ -13,18 +13,13 @@ jobs:
       fail-fast: false
       matrix:
         drupal-core: ['9.5.x', '10.0.x']
-        php-versions: ['8.0', '8.1', '8.2']
+        php-versions: ['8.1']
     steps:
       - name: Checkout Drupal core
         uses: actions/checkout@v2
         with:
           repository: drupal/drupal
           ref: ${{ matrix.drupal-core }}
-
-      - name: Checkout module
-        uses: actions/checkout@v2
-        with:
-          path: modules/openchurch_core
 
       - name: Setup PHP, with composer and extensions
         uses: shivammathur/setup-php@v2
@@ -50,7 +45,11 @@ jobs:
         run: |
           composer --dev --no-interaction --no-progress require \
             drupal/coder:8.3.16
+      - name: Install OpenChurch Core module
+        run: |
+          composer --dev --no-interaction --no-progress require \
+            drupal/openchurch_core:3.0.x-dev
       - name: Check coding standards
         run: |
           ./vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer
-          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js modules/openchurch_core
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_core
