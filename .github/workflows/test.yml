@@ -52,4 +52,4 @@ jobs:
       - name: Check coding standards
         run: |
           ./vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer
-          ./vendor/bin/phpcs --standard=rupal,DrupalPractice --extensions=php,module,install,js modules/contrib/openchurch_Core
+          ./vendor/bin/phpcs --standard=rupal,DrupalPractice --extensions=php,module,install,js modules/contrib/openchurch_core
