@@ -20,8 +20,8 @@
         "drupal/core-project-message": "^10.0",
         "drupal/core-recommended": "^10.0",
         "drush/drush": "^11.4",
-        "drupal/openchurch_core": "3.0.x",
-        "drupal/openchurch_theme": "3.0.x"
+        "drupal/openchurch_core": "dev-3.0.x",
+        "drupal/openchurch_theme": "dev-3.0.x"
     },
     "conflict": {
         "drupal/drupal": "*"

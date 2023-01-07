@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7de44666613071bf62949e299b5cea3a",
+    "content-hash": "f2e810602502d084b417982deb2d94a0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1424,26 +1424,23 @@
         },
         {
             "name": "drupal/openchurch_core",
-            "version": "3.0.0-alpha1",
+            "version": "dev-3.0.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/openchurch_core.git",
-                "reference": "3.0.0-alpha1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/openchurch_core-3.0.0-alpha1.zip",
-                "reference": "3.0.0-alpha1",
-                "shasum": "63e4d036533fb838cb8cab03aebb367831bb5745"
+                "reference": "2d631b5e9aed966fd22e136f6c33da01fa7e6624"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10"
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-3.0.x": "3.0.x-dev"
+                },
                 "drupal": {
-                    "version": "3.0.0-alpha1",
-                    "datestamp": "1673052848",
+                    "version": "3.0.0-alpha1+1-dev",
+                    "datestamp": "1673062927",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -5950,7 +5947,10 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/openchurch_core": 20,
+        "drupal/openchurch_theme": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
