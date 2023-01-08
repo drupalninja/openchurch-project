@@ -42,19 +42,18 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
+      - name: Install Composer dependencies
+        run: composer install
       - name: Site Setup
         run:
-          composer --version
-          composer validate
-          composer install -n
           echo "export PATH=$PATH:$GITHUB_WORKSPACE/vendor/bin" >> ~/.bash_profile
           source ~/.bash_profile
           drush si -y --site-name=OpenChurch
           drush en -y openchurch_core
           drush theme:enable openchurch_theme
           drush config-set -y system.theme default openchurch_theme
-          drush uli
+
       - name: Check coding standards
         run: |
-          phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_core
-          phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_theme
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_core
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_theme
