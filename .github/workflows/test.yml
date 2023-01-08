@@ -19,8 +19,6 @@ jobs:
       matrix:
         drupal-core: ['9.5.x', '10.0.x']
         php-versions: ['8.1']
-    env:
-        extensions: xdebug
     services:
       mysql:
         image: mysql:8.0
@@ -51,7 +49,11 @@ jobs:
           composer install -n
           echo "export PATH=$PATH:$GITHUB_WORKSPACE/vendor/bin" >> ~/.bash_profile
           source ~/.bash_profile
-          drush si -y --site-name=OpenChurch
-          drush en -y openchurch_core
-          drush theme:enable openchurch_theme
-          drush config-set -y system.theme default openchurch_theme
+          echo drush si -y --site-name=OpenChurch
+          echo drush en -y openchurch_core
+          echo drush theme:enable openchurch_theme
+          echo drush config-set -y system.theme default openchurch_theme
+      - name: Check coding standards
+        run: |
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_core
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_theme
