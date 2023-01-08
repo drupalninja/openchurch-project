@@ -52,8 +52,9 @@ jobs:
           drush en -y openchurch_core
           drush theme:enable openchurch_theme
           drush config-set -y system.theme default openchurch_theme
+          drush foobar
 
       - name: Check coding standards
         run: |
-          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_core
-          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_theme
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/modules/contrib/openchurch_core
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/modules/contrib/openchurch_theme
