@@ -51,4 +51,7 @@ jobs:
           composer install -n
           echo "export PATH=$PATH:$GITHUB_WORKSPACE/vendor/bin" >> ~/.bash_profile
           source ~/.bash_profile
-          drush st
+          drush si -y --site-name=OpenChurch
+          drush en -y openchurch_core
+          drush theme:enable openchurch_theme
+          drush config-set -y system.theme default openchurch_theme
