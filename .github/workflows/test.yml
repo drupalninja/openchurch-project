@@ -49,11 +49,11 @@ jobs:
           composer install -n
           echo "export PATH=$PATH:$GITHUB_WORKSPACE/vendor/bin" >> ~/.bash_profile
           source ~/.bash_profile
-          echo drush si -y --site-name=OpenChurch
-          echo drush en -y openchurch_core
-          echo drush theme:enable openchurch_theme
-          echo drush config-set -y system.theme default openchurch_theme
+          echo drush si -y --site-name=OpenChurch >> $GITHUB_OUTPUT
+          echo drush en -y openchurch_core >> $GITHUB_OUTPUT
+          echo drush theme:enable openchurch_theme >> $GITHUB_OUTPUT
+          echo drush config-set -y system.theme default openchurch_theme >> $GITHUB_OUTPUT
       - name: Check coding standards
         run: |
-          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_core
-          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_theme
+          phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_core
+          phpcs --standard=Drupal --extensions=php,module,install,js modules/contrib/openchurch_theme
