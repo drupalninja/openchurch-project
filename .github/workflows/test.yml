@@ -23,7 +23,7 @@ jobs:
         extensions: xdebug
     services:
       mysql:
-        image: mysql:10.3
+        image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: root
         ports:
