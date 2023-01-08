@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         drupal-core: ['9.5.x', '10.0.x']
-        php-versions: ['8.1']
+        php-version: ['8.1']
     env:
         extensions: xdebug
     services:
