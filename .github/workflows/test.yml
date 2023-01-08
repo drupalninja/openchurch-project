@@ -52,7 +52,6 @@ jobs:
           drush en -y openchurch_core
           drush theme:enable openchurch_theme
           drush config-set -y system.theme default openchurch_theme
-          drush foobar
 
       - name: Check coding standards
         run: |
