@@ -35,7 +35,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y mysql-client
           mysql --port ${{ job.services.mysql.ports['3306'] }} -uroot -proot --protocol=tcp -e "CREATE DATABASE IF NOT EXISTS drupal10;"
-          mysql --port ${{ job.services.mysql.ports['3306'] }} -uroot -proot --protocol=tcp -e "SHOW DATABASES;USE drupal10; source ./scripts/database/dumps/drupal10.sql;"
           mysql --host 172.18.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -proot --protocol=tcp -e "USE drupal10; select user();"
       - name: Check out the code
         uses: actions/checkout@v2
