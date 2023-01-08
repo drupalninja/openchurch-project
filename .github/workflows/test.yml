@@ -44,8 +44,11 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-      - name: Install Composer dependencies
-        run: composer install
-      - name: Site Install
-        run: |
-          drush si -y
+      - name: Site Setup
+        run:
+          composer --version
+          composer validate
+          composer install -n
+          echo "export PATH=$PATH:$GITHUB_WORKSPACE/vendor/bin" >> ~/.bash_profile
+          source ~/.bash_profile
+          drush st
