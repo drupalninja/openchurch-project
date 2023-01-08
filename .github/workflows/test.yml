@@ -1,0 +1,50 @@
+name: Test OpenChurch
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  PHP_VERSION: 8.1
+  COMPOSER_ALLOW_SUPERUSER: '1' # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
+
+jobs:
+  testing:
+    name: Drupal ${{ matrix.drupal-core }} - PHP ${{ matrix.php-versions }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        drupal-core: ['9.5.x', '10.0.x']
+        php-versions: ['8.1']
+    env:
+        extensions: xdebug
+    services:
+      mysql:
+        image: mysql:10.3
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+        - 3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - name: Verify MySQL connection from host
+        run: |
+          sudo apt-get install -y mysql-client
+          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -proot -e "select @@hostname;show variables where Variable_name like '%host%';"
+      - name: Check out the code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Check out the code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Set up PHP ${{ matrix.php_versions }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php_versions }}
+      - name: Install Composer dependencies
+        run: composer install
