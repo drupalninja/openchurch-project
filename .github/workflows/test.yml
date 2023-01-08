@@ -42,9 +42,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
-      - name: Set up PHP ${{ matrix.php_versions }}
+      - name: Set up PHP ${{ matrix.php_version }}
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php_versions }}
+          php-version: ${{ matrix.php_version }}
       - name: Install Composer dependencies
         run: composer install
