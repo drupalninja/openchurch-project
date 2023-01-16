@@ -20,6 +20,7 @@
         "drupal/core-composer-scaffold": "^10.0",
         "drupal/core-project-message": "^10.0",
         "drupal/core-recommended": "^10.0",
+        "drupal/devel": "^5.1",
         "drupal/openchurch_core": "dev-3.0.x",
         "drupal/openchurch_theme": "dev-3.0.x",
         "drush/drush": "^11.4"
