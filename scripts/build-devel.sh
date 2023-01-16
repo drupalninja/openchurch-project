@@ -15,5 +15,8 @@ ddev . drush devel-generate:menus 10
 ## Create dummy content for testing.
 ddev . drush devel-generate:content 100
 
+## Run cron twice to ensure all content is indexed.
+ddev . drush cron && ddev . drush cron
+
 ## Output the login link.
 ddev . drush uli

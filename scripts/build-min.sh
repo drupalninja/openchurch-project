@@ -9,5 +9,8 @@ ddev . drush entity:delete node
 ## Create min content.
 ddev . drush scr scripts/create-min-content.php
 
+## Run cron to ensure all content is indexed.
+ddev . drush cron
+
 ## Output the login link.
 ddev . drush uli
