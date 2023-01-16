@@ -26,6 +26,3 @@
 
 # Ignore .env files as they are personal
 /.env
-
-# Ignore composer.lock
-composer.lock
